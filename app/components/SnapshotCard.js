@@ -1,5 +1,4 @@
 import AnnotatedChart from './AnnotatedChart'
-import CountryComparison from './CountryComparison'
 import InflationChart from './InflationChart'
 import UnemploymentChart from './UnemploymentChart'
 import GdpChart from './GdpChart'
@@ -19,11 +18,29 @@ const CHARTS = {
   trade:            TradeChart,
 }
 
+const METRIC_DESCRIPTORS = {
+  'inflation':      'Inflation (year-on-year, %)',
+  'unemployment':   'Unemployment (% of labour force)',
+  'gdp':            'GDP growth (year-on-year, %)',
+  'interest-rates': 'Policy rate (%)',
+  'exchange-rates': null, // handled per country below
+  'trade':          'Current account (% of GDP)',
+}
+
+const FX_LABELS = {
+  'uk':       'GBP / USD',
+  'us':       'DXY (Dollar Index)',
+  'eurozone': 'EUR / USD',
+  'china':    'USD / CNY',
+  'japan':    'USD / JPY',
+  'brazil':   'USD / BRL',
+}
+
 export default function SnapshotCard({
-  metric, country, data, aqaRef, metricTitle, allCountries,
+  metric, country, data, aqaRef, metricTitle, allCountries, studentMode = false,
 }) {
   if (!data) return null
-  const { flag, name, value, direction, releasedDaysAgo, blurb, chartDates, chartSeries } = data
+  const { flag, name, value, releasedDaysAgo, blurb, chartDates, chartSeries } = data
 
   const ChartComponent = CHARTS[metric] || AnnotatedChart
 
@@ -34,50 +51,37 @@ export default function SnapshotCard({
       padding: '32px',
       margin: '0 auto',
       maxWidth: 800,
-      position: 'relative',
       boxSizing: 'border-box',
+      position: 'relative',
     }}>
 
-      {/* Snapshot tab */}
+      {/* Badges — top right */}
       <div style={{
         position: 'absolute',
-        top: 0,
-        right: 0,
-        background: BLUE,
-        borderRadius: '0 16px 0 8px',
-        padding: '6px 14px',
-        fontSize: 10,
-        fontWeight: 700,
-        letterSpacing: '0.1em',
-        textTransform: 'uppercase',
-        color: 'white',
-        lineHeight: 1.4,
-        textAlign: 'center',
+        top: 24,
+        right: 28,
+        textAlign: 'right',
       }}>
-        Snapshot<br/>card
-      </div>
-
-      {/* Badges row */}
-      <div style={{ display: 'flex', gap: 8, marginBottom: 20 }}>
-        <span style={{
-          fontSize: 11,
-          color: 'rgba(255,255,255,0.5)',
-          background: 'rgba(255,255,255,0.08)',
-          borderRadius: 6,
-          padding: '3px 10px',
+        <div style={{
+          fontSize: 15,
+          fontWeight: 700,
+          color: 'rgba(255,255,255,0.85)',
+          fontFamily: "'IBM Plex Mono', monospace",
+          marginBottom: 4,
         }}>
-          {releasedDaysAgo === 0 ? 'Released today' : `Released ${releasedDaysAgo}d ago`}
-        </span>
-        <span style={{
+          {releasedDaysAgo === 0
+            ? 'Released today'
+            : <>Released <span style={{ color: '#5dd8f5' }}>{releasedDaysAgo}d</span> ago</>}
+        </div>
+        <div style={{
           fontSize: 11,
-          color: BLUE,
-          background: 'rgba(55,138,221,0.15)',
-          borderRadius: 6,
-          padding: '3px 10px',
           fontWeight: 600,
+          color: BLUE,
+          letterSpacing: '0.08em',
+          fontFamily: "'IBM Plex Mono', monospace",
         }}>
           AQA {aqaRef}
-        </span>
+        </div>
       </div>
 
       {/* Flag + country name */}
@@ -103,48 +107,52 @@ export default function SnapshotCard({
         color: BLUE,
         marginBottom: 12,
       }}>
-        {metricTitle}
+        {metric === 'exchange-rates'
+          ? FX_LABELS[country] || metricTitle
+          : METRIC_DESCRIPTORS[metric] || metricTitle}
       </div>
 
       {/* Value */}
       <div style={{
         fontFamily: "'Instrument Serif', Georgia, serif",
-        fontSize: 64,
+        fontSize: 30,
         color: 'white',
         lineHeight: 1,
-        marginBottom: 20,
+        marginBottom: 12,
       }}>
         {value}
       </div>
 
-      {/* Blurb */}
-      {blurb && (
+      {/* Blurb (teacher) or prompt (student) */}
+      {studentMode ? (
         <p style={{
-          fontSize: 15,
-          lineHeight: 1.65,
+          fontFamily: "'Instrument Serif', Georgia, serif",
+          fontSize: 22,
+          lineHeight: 1.3,
+          color: 'white',
+          margin: '0 0 16px',
+          fontWeight: 400,
+        }}>
+          What is this chart telling you?
+        </p>
+      ) : blurb ? (
+        <p style={{
+          fontSize: 13,
+          lineHeight: 1.6,
           color: 'rgba(255,255,255,0.75)',
-          margin: '0 0 24px',
+          margin: '0 0 16px',
         }}>
           {blurb}
         </p>
-      )}
+      ) : null}
 
       {/* Chart */}
-      <div style={{ marginBottom: 24 }}>
-        <ChartComponent
-          dates={chartDates || []}
-          series={chartSeries || []}
-        />
-      </div>
+      <ChartComponent
+        dates={chartDates || []}
+        series={chartSeries || []}
+        height={150}
+      />
 
-      {/* Country comparison */}
-      {allCountries && (
-        <CountryComparison
-          metric={metric}
-          currentCountry={country}
-          snapshots={allCountries}
-        />
-      )}
     </div>
   )
 }

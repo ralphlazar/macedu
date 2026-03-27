@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 
 const NAVY = '#0f1e35'
 const BLUE = '#378ADD'
@@ -16,20 +17,26 @@ function iconCls(icon) {
   return 'cloudy'
 }
 
-function SectionHead({ number, label }) {
+function Divider() {
+  return (
+    <hr style={{
+      border: 'none',
+      borderTop: '1px solid #e2eaf4',
+      margin: '0 0 28px',
+    }} />
+  )
+}
+
+function SectionHead({ label }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
-      <span style={{
-        background: '#e8f2fc',
-        color: BLUE,
-        fontWeight: 700,
-        fontSize: 11,
-        borderRadius: 5,
-        padding: '2px 8px',
-        letterSpacing: '0.06em',
-      }}>
-        {String(number).padStart(2, '0')}
-      </span>
+      <div style={{
+        width: 18,
+        height: 18,
+        borderRadius: '50%',
+        background: NAVY,
+        flexShrink: 0,
+      }} />
       <span style={{
         fontSize: 12,
         fontWeight: 600,
@@ -52,18 +59,38 @@ export default function LessonOverlay({
   showReveal  = true,
   studentMode = false,
 }) {
-  const [selected, setSelected] = useState(null)
-  const [revealed, setRevealed] = useState(false)
+  const [selected,    setSelected]    = useState(null)
+  const [revealed,    setRevealed]    = useState(false)
+  const [checkedQs,   setCheckedQs]   = useState([])
+  const [checkedDs,   setCheckedDs]   = useState([])
+
+  const searchParams = useSearchParams()
 
   if (!lessonData) return null
   const { exercisePrompt, exerciseOptions, classroomTime, sampleQuestions, discussionPrompts } = lessonData
 
+  const studentQParam  = searchParams.get('q')
+  const studentDParam  = searchParams.get('d')
+  const studentQIndices = studentMode && studentQParam
+    ? studentQParam.split(',').map(Number).filter(n => !isNaN(n))
+    : null
+  const studentDIndices = studentMode && studentDParam
+    ? studentDParam.split(',').map(Number).filter(n => !isNaN(n))
+    : null
+
   const handleReveal = () => { if (selected !== null) setRevealed(true) }
   const handleReset  = () => { setSelected(null); setRevealed(false) }
 
+  const toggleQ = (i) => setCheckedQs(prev => prev.includes(i) ? prev.filter(x => x !== i) : [...prev, i])
+  const toggleD = (i) => setCheckedDs(prev => prev.includes(i) ? prev.filter(x => x !== i) : [...prev, i])
+
   const handleShare = async () => {
     const origin = typeof window !== 'undefined' ? window.location.origin : ''
-    const url = `${origin}/student/${curriculum}/${metric}/${country}`
+    const params = []
+    if (checkedQs.length > 0) params.push(`q=${[...checkedQs].sort((a,b)=>a-b).join(',')}`)
+    if (checkedDs.length > 0) params.push(`d=${[...checkedDs].sort((a,b)=>a-b).join(',')}`)
+    const qs = params.length > 0 ? `?${params.join('&')}` : ''
+    const url = `${origin}/student/${curriculum}/${metric}/${country}${qs}`
     try {
       await navigator.clipboard.writeText(url)
       alert('Student link copied to clipboard.')
@@ -71,6 +98,8 @@ export default function LessonOverlay({
       alert('Student link: ' + url)
     }
   }
+
+  const totalSelected = checkedQs.length + checkedDs.length
 
   return (
     <div style={{
@@ -92,13 +121,13 @@ export default function LessonOverlay({
         color: NAVY,
         margin: '0 0 32px',
       }}>
-        Lesson Guide
+        {studentMode ? 'Your tasks for the lesson' : 'Teaching Notes'}
       </h2>
 
-      {/* Section 01 -- How to use this in class (teacher only) */}
+      {/* Section -- How to use this in class (teacher only) */}
       {!studentMode && classroomTime && (
-        <div style={{ marginBottom: 32 }}>
-          <SectionHead number={1} label="How to use this in class" />
+        <div style={{ marginBottom: 28 }}>
+          <SectionHead label="How to use this in class" />
           <div style={{ display: 'flex', gap: 12 }}>
             {[
               { time: '5 min',  text: classroomTime.five   },
@@ -130,9 +159,10 @@ export default function LessonOverlay({
         </div>
       )}
 
-      {/* Section 02 -- Weather icon exercise */}
-      <div style={{ marginBottom: 32 }}>
-        <SectionHead number={2} label="Weather icon exercise" />
+      {/* Section -- Weather icon exercise */}
+      <div style={{ marginBottom: 28 }}>
+        {!studentMode && <Divider />}
+        <SectionHead label="Weather icon exercise" />
         <p style={{ fontSize: 14, color: NAVY, margin: '0 0 16px', lineHeight: 1.55 }}>
           {exercisePrompt}
         </p>
@@ -144,7 +174,12 @@ export default function LessonOverlay({
             return (
               <button
                 key={i}
-                onClick={() => { if (!revealed) setSelected(i) }}
+                onClick={() => {
+                  if (!revealed) {
+                    setSelected(i)
+                    if (studentMode) setRevealed(true)
+                  }
+                }}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -192,8 +227,8 @@ export default function LessonOverlay({
           </button>
         )}
 
-        {/* Reveal result (teacher only) */}
-        {showReveal && revealed && reveal && (
+        {/* Reveal result */}
+        {revealed && reveal && (
           <div style={{
             background: '#f4f7fb',
             border: '1px solid #e2eaf4',
@@ -213,73 +248,143 @@ export default function LessonOverlay({
             <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: NAVY }}>
               {reveal}
             </p>
-            <button
-              onClick={handleReset}
-              style={{
-                marginTop: 12,
-                background: 'none',
-                border: 'none',
-                fontSize: 12,
-                color: '#8099b8',
-                cursor: 'pointer',
-                padding: 0,
-                textDecoration: 'underline',
-                fontFamily: 'inherit',
-              }}
-            >
-              Try again
-            </button>
+            {!studentMode && (
+              <button
+                onClick={handleReset}
+                style={{
+                  marginTop: 12,
+                  background: 'none',
+                  border: 'none',
+                  fontSize: 12,
+                  color: '#8099b8',
+                  cursor: 'pointer',
+                  padding: 0,
+                  textDecoration: 'underline',
+                  fontFamily: 'inherit',
+                }}
+              >
+                Try again
+              </button>
+            )}
           </div>
         )}
       </div>
 
-      {/* Section 03 -- Sample questions (teacher only) */}
+      {/* Section -- Sample questions (teacher, with checkboxes) */}
       {!studentMode && sampleQuestions && (
-        <div style={{ marginBottom: 32 }}>
-          <SectionHead number={3} label="Sample questions" />
+        <div style={{ marginBottom: 28 }}>
+          <Divider />
+          <SectionHead label="Sample questions" />
+          <p style={{ fontSize: 12, color: '#8099b8', margin: '0 0 16px', fontStyle: 'italic' }}>
+            Tick questions to include on the student link.
+          </p>
           {sampleQuestions.map((item, i) => (
-            <div key={i} style={{ marginBottom: 18 }}>
-              <div style={{ fontSize: 14, color: NAVY, lineHeight: 1.5, marginBottom: 5 }}>
-                {String.fromCharCode(97 + i)}. {item.q}
-              </div>
-              <div style={{ fontSize: 12, color: '#8099b8', fontStyle: 'italic', lineHeight: 1.55 }}>
-                {item.hint}
+            <div key={i} style={{ display: 'flex', gap: 12, marginBottom: 18, alignItems: 'flex-start' }}>
+              <input
+                type="checkbox"
+                checked={checkedQs.includes(i)}
+                onChange={() => toggleQ(i)}
+                style={{ marginTop: 3, width: 16, height: 16, accentColor: BLUE, cursor: 'pointer', flexShrink: 0 }}
+              />
+              <div>
+                <div style={{ fontSize: 14, color: NAVY, lineHeight: 1.5, marginBottom: 5 }}>
+                  {String.fromCharCode(65 + i)}. {item.q}
+                </div>
+                <div style={{ fontSize: 12, color: '#8099b8', fontStyle: 'italic', lineHeight: 1.55 }}>
+                  {item.hint}
+                </div>
               </div>
             </div>
           ))}
         </div>
       )}
 
-      {/* Section 04 -- Discussion prompts (teacher only) */}
+      {/* Section -- Selected questions (student only, no hints) */}
+      {studentMode && sampleQuestions && studentQIndices && studentQIndices.length > 0 && (
+        <div style={{ marginBottom: 28 }}>
+          <Divider />
+          <SectionHead label="Questions" />
+          {studentQIndices.map((qi, i) => {
+            const item = sampleQuestions[qi]
+            if (!item) return null
+            return (
+              <div key={qi} style={{ fontSize: 14, color: NAVY, lineHeight: 1.5, marginBottom: 16 }}>
+                {String.fromCharCode(65 + i)}. {item.q}
+              </div>
+            )
+          })}
+        </div>
+      )}
+
+      {/* Section -- Discussion prompts (teacher, with checkboxes) */}
       {!studentMode && discussionPrompts && (
-        <div style={{ marginBottom: 32 }}>
-          <SectionHead number={4} label="Wider discussion prompts" />
+        <div style={{ marginBottom: 28 }}>
+          <Divider />
+          <SectionHead label="Wider discussion prompts" />
+          <p style={{ fontSize: 12, color: '#8099b8', margin: '0 0 16px', fontStyle: 'italic' }}>
+            Tick prompts to include on the student link.
+          </p>
           {discussionPrompts.map((p, i) => (
-            <div key={i} style={{ fontSize: 14, color: NAVY, lineHeight: 1.55, marginBottom: 12 }}>
-              {String.fromCharCode(97 + i)}. {p}
+            <div key={i} style={{ display: 'flex', gap: 12, marginBottom: 12, alignItems: 'flex-start' }}>
+              <input
+                type="checkbox"
+                checked={checkedDs.includes(i)}
+                onChange={() => toggleD(i)}
+                style={{ marginTop: 3, width: 16, height: 16, accentColor: BLUE, cursor: 'pointer', flexShrink: 0 }}
+              />
+              <div style={{ fontSize: 14, color: NAVY, lineHeight: 1.55 }}>
+                {String.fromCharCode(65 + i)}. {p}
+              </div>
             </div>
           ))}
+        </div>
+      )}
+
+      {/* Section -- Selected discussion prompts (student only) */}
+      {studentMode && discussionPrompts && studentDIndices && studentDIndices.length > 0 && (
+        <div style={{ marginBottom: 28 }}>
+          <Divider />
+          <SectionHead label="Discussion prompts" />
+          {studentDIndices.map((di, i) => {
+            const p = discussionPrompts[di]
+            if (!p) return null
+            return (
+              <div key={di} style={{ fontSize: 14, color: NAVY, lineHeight: 1.55, marginBottom: 12 }}>
+                {String.fromCharCode(65 + i)}. {p}
+              </div>
+            )
+          })}
         </div>
       )}
 
       {/* Share button (teacher only) */}
       {!studentMode && (
-        <button
-          onClick={handleShare}
-          style={{
-            background: 'none',
-            border: '1.5px solid #dde6f2',
-            borderRadius: 8,
-            padding: '10px 20px',
-            fontSize: 13,
-            color: '#5a7a99',
-            cursor: 'pointer',
-            fontWeight: 500,
-            fontFamily: 'inherit',
-          }}
-        >
-          Copy student link
-        </button>
+        <>
+          <Divider />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <button
+              onClick={handleShare}
+              style={{
+                background: 'none',
+                border: '1.5px solid #dde6f2',
+                borderRadius: 8,
+                padding: '10px 20px',
+                fontSize: 13,
+                color: '#5a7a99',
+                cursor: 'pointer',
+                fontWeight: 500,
+                fontFamily: 'inherit',
+              }}
+            >
+              Copy student link
+            </button>
+            {totalSelected > 0 && (
+              <span style={{ fontSize: 12, color: '#8099b8' }}>
+                {totalSelected} item{totalSelected > 1 ? 's' : ''} selected
+              </span>
+            )}
+          </div>
+        </>
       )}
     </div>
   )

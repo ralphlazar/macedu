@@ -1,202 +1,230 @@
 'use client'
 import { useState } from 'react'
-import { upcomingReleases } from '../data/upcomingReleases'
-import MetricCard from './MetricCard'
 
-const BLUE  = '#378ADD'
-const NAVY  = '#0f1e35'
+const BLUE = '#378ADD'
+const NAVY = '#0f1e35'
 
 const METRIC_SLUGS  = ['inflation', 'unemployment', 'gdp', 'interest-rates', 'exchange-rates', 'trade']
 const COUNTRY_SLUGS = ['uk', 'us', 'eurozone', 'china', 'japan', 'brazil']
-const WINDOWS       = ['24h', '7d', '30d']
-const WINDOW_DAYS   = { '24h': 1, '7d': 7, '30d': 30 }
-const ARROWS        = { up: '↑', down: '↓', flat: '→' }
 
-const ICON_FILTERS = {
-  sunny:  {},
-  cloudy: { filter: 'brightness(1.05) contrast(0.8) saturate(0.05) grayscale(1)' },
-  stormy: { filter: 'brightness(.1) contrast(1.2) saturate(0)' },
+const METRIC_LABELS = {
+  'inflation':      'Inflation',
+  'unemployment':   'Unemployment',
+  'gdp':            'GDP',
+  'interest-rates': 'Interest rates',
+  'exchange-rates': 'Exchange rates',
+  'trade':          'Trade & current account',
 }
 
-function iconCls(icon) {
-  if (icon === '☀️') return 'sunny'
-  if (icon === '⛈️') return 'stormy'
-  return 'cloudy'
+const COUNTRY_LABELS = {
+  'uk':       '🇬🇧 United Kingdom',
+  'us':       '🇺🇸 United States',
+  'eurozone': '🇪🇺 Eurozone',
+  'china':    '🇨🇳 China',
+  'japan':    '🇯🇵 Japan',
+  'brazil':   '🇧🇷 Brazil',
+}
+
+const selectStyle = {
+  width: '100%',
+  appearance: 'none',
+  background: '#f8fafd',
+  border: '1px solid #dde6f2',
+  borderRadius: 8,
+  color: NAVY,
+  fontSize: 14,
+  fontFamily: "sans-serif",
+  padding: '11px 38px 11px 14px',
+  cursor: 'pointer',
+}
+
+const fieldLabelStyle = {
+  fontFamily: "sans-serif",
+  fontSize: 10,
+  fontWeight: 600,
+  letterSpacing: '0.14em',
+  textTransform: 'uppercase',
+  color: '#8099b8',
+  display: 'block',
+  marginBottom: 7,
+}
+
+const cardStyle = {
+  background: 'white',
+  borderRadius: 14,
+  padding: 24,
+  border: '1px solid #e2eaf4',
+  boxShadow: '0 2px 16px rgba(15,30,53,0.06)',
+  marginBottom: 16,
+}
+
+const cardLabelStyle = {
+  fontFamily: "sans-serif",
+  fontSize: 10,
+  fontWeight: 600,
+  letterSpacing: '0.16em',
+  textTransform: 'uppercase',
+  color: '#8099b8',
+  margin: '0 0 16px',
 }
 
 export default function TeacherHomePage({ metrics, curriculum }) {
-  const [timeWindow, setTimeWindow] = useState('7d')
+  const [selectedMetric,  setSelectedMetric]  = useState('')
+  const [selectedCountry, setSelectedCountry] = useState('')
+  const [error, setError] = useState(false)
 
-  // Flatten all 36 cards
-  const allCards = []
+  // Build recent releases from metrics data (last 7 days), sorted by recency
+  const recentReleases = []
   for (const metricSlug of METRIC_SLUGS) {
     const m = metrics[metricSlug]
     if (!m) continue
     for (const countrySlug of COUNTRY_SLUGS) {
-      const c = m.countries[countrySlug]
-      if (!c) continue
-      allCards.push({
+      const c = m.countries?.[countrySlug]
+      if (!c || c.releasedDaysAgo == null || c.releasedDaysAgo > 7) continue
+      recentReleases.push({
         metricSlug,
         countrySlug,
-        metricTitle:     m.title,
-        value:           c.value,
-        direction:       c.direction,
-        flag:            c.flag,
-        name:            c.name,
-        releasedDaysAgo: c.releasedDaysAgo,
-        icon:            c.icon,
+        metricLabel:  METRIC_LABELS[metricSlug] || metricSlug,
+        countryLabel: c.name || countrySlug,
+        flag:         c.flag || '',
+        daysAgo:      c.releasedDaysAgo,
       })
     }
   }
+  recentReleases.sort((a, b) => a.daysAgo - b.daysAgo)
 
-  // Sort by recency (most recent first)
-  allCards.sort((a, b) => a.releasedDaysAgo - b.releasedDaysAgo)
+  function badgeStyle(daysAgo) {
+    if (daysAgo === 0) return { background: '#eaf3de', color: '#3B6D11' }
+    if (daysAgo <= 2)  return { background: '#e6f1fb', color: '#185FA5' }
+    return { background: '#f0f2f5', color: '#8099b8' }
+  }
 
-  const maxDays  = WINDOW_DAYS[timeWindow]
-  const filtered = allCards.filter(c => c.releasedDaysAgo <= maxDays)
+  function badgeLabel(daysAgo) {
+    if (daysAgo === 0) return 'today'
+    if (daysAgo === 1) return '1d ago'
+    return `${daysAgo}d ago`
+  }
 
-  const releases = Array.isArray(upcomingReleases) ? upcomingReleases : []
+  function handleGo() {
+    if (!selectedMetric || !selectedCountry) {
+      setError(true)
+      return
+    }
+    window.location.href = `/teacher/${curriculum}/${selectedMetric}/${selectedCountry}`
+  }
+
+
 
   return (
-    <div style={{ maxWidth: 960, margin: '0 auto', padding: '32px 24px', fontFamily: 'sans-serif' }}>
+    <div style={{
+      background: '#f4f7fb',
+      minHeight: '100vh',
+      padding: '40px 24px 64px',
+      fontFamily: 'sans-serif',
+    }}>
+      <div style={{ maxWidth: 520, margin: '0 auto' }}>
 
-      {/* Title bar */}
-      <div style={{ marginBottom: 32 }}>
-        <div style={{
-          fontSize: 11,
-          fontWeight: 600,
-          letterSpacing: '0.12em',
-          textTransform: 'uppercase',
-          color: '#bbb',
-          marginBottom: 8,
-        }}>
-          A-level Economics
-        </div>
-        <h1 style={{
-          fontFamily: "'Instrument Serif', Georgia, serif",
-          fontSize: 28,
-          fontWeight: 400,
-          color: NAVY,
-          margin: 0,
-        }}>
-          Teacher dashboard
-        </h1>
-      </div>
-
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 260px', gap: 32, alignItems: 'start' }}>
-
-        {/* Feed */}
-        <div>
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            marginBottom: 16,
-          }}>
-            <h2 style={{ fontSize: 15, fontWeight: 600, color: NAVY, margin: 0 }}>
-              Latest releases
-            </h2>
-            <div style={{ display: 'flex', gap: 4 }}>
-              {WINDOWS.map(w => (
-                <button
-                  key={w}
-                  onClick={() => setTimeWindow(w)}
-                  style={{
-                    fontSize: 12,
-                    fontWeight: 600,
-                    padding: '4px 12px',
-                    border: '1px solid',
-                    borderColor: timeWindow === w ? BLUE : '#dde6f2',
-                    borderRadius: 6,
-                    background: timeWindow === w ? BLUE : 'white',
-                    color: timeWindow === w ? 'white' : '#8099b8',
-                    cursor: 'pointer',
-                    fontFamily: 'inherit',
-                  }}
-                >
-                  {w}
-                </button>
+{/* Selector card */}
+        <div style={cardStyle}>
+          <label style={fieldLabelStyle}>Topic</label>
+          <div style={{ position: 'relative', marginBottom: 14 }}>
+            <select
+              value={selectedMetric}
+              onChange={e => { setSelectedMetric(e.target.value); setError(false) }}
+              style={selectStyle}
+            >
+              <option value="">Select a topic</option>
+              {METRIC_SLUGS.map(slug => (
+                <option key={slug} value={slug}>{METRIC_LABELS[slug]}</option>
               ))}
-            </div>
+            </select>
+            <div style={{
+              position: 'absolute', right: 13, top: '50%',
+              transform: 'translateY(-50%)',
+              width: 0, height: 0,
+              borderLeft: '4px solid transparent',
+              borderRight: '4px solid transparent',
+              borderTop: '5px solid #8099b8',
+              pointerEvents: 'none',
+            }} />
           </div>
 
-          {filtered.length === 0 ? (
-            <p style={{ fontSize: 14, color: '#bbb', margin: 0 }}>No releases in this window.</p>
-          ) : (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-              {filtered.map(({ metricSlug, countrySlug, metricTitle, value, direction, flag, name, releasedDaysAgo, icon }, idx) => {
-                const cls = iconCls(icon)
-                const arrowColour = direction === 'up' ? '#22863a' : direction === 'down' ? '#cb2431' : '#8099b8'
-                return (
-                  <a
-                    key={`${metricSlug}-${countrySlug}`}
-                    href={`/teacher/${curriculum}/${metricSlug}/${countrySlug}`}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 12,
-                      padding: '12px 16px',
-                      background: idx % 2 === 0 ? '#f9f9f7' : 'white',
-                      borderRadius: 8,
-                      textDecoration: 'none',
-                      color: 'inherit',
-                    }}
-                  >
-                    <span style={{ fontSize: 22, lineHeight: 1 }}>{flag}</span>
-                    <div style={{ flex: 1, minWidth: 0 }}>
-                      <span style={{ fontSize: 14, fontWeight: 500, color: NAVY }}>{name}</span>
-                      <span style={{ fontSize: 13, color: '#8099b8', marginLeft: 8 }}>{metricTitle}</span>
-                    </div>
-                    <span style={{
-                      fontSize: 14,
-                      fontWeight: 700,
-                      color: NAVY,
-                      fontFamily: "'IBM Plex Mono', monospace",
-                    }}>
-                      {value}
-                    </span>
-                    <span style={{ fontSize: 15, color: arrowColour, fontWeight: 600, minWidth: 14 }}>
-                      {ARROWS[direction] || '→'}
-                    </span>
-                    <span style={{ fontSize: 20, lineHeight: 1, ...ICON_FILTERS[cls] }}>{icon}</span>
-                    <span style={{ fontSize: 11, color: '#bbb', minWidth: 52, textAlign: 'right' }}>
-                      {releasedDaysAgo === 0 ? 'today' : `${releasedDaysAgo}d ago`}
-                    </span>
-                  </a>
-                )
-              })}
+          <label style={fieldLabelStyle}>Country</label>
+          <div style={{ position: 'relative', marginBottom: 0 }}>
+            <select
+              value={selectedCountry}
+              onChange={e => { setSelectedCountry(e.target.value); setError(false) }}
+              style={selectStyle}
+            >
+              <option value="">Select a country</option>
+              {COUNTRY_SLUGS.map(slug => (
+                <option key={slug} value={slug}>{COUNTRY_LABELS[slug]}</option>
+              ))}
+            </select>
+            <div style={{
+              position: 'absolute', right: 13, top: '50%',
+              transform: 'translateY(-50%)',
+              width: 0, height: 0,
+              borderLeft: '4px solid transparent',
+              borderRight: '4px solid transparent',
+              borderTop: '5px solid #8099b8',
+              pointerEvents: 'none',
+            }} />
+          </div>
+
+          <hr style={{ border: 'none', borderTop: '1px solid #e2eaf4', margin: '18px 0' }} />
+
+          <button
+            onClick={handleGo}
+            style={{
+              width: '100%',
+              padding: 13,
+              background: BLUE,
+              color: 'white',
+              border: 'none',
+              borderRadius: 8,
+              fontFamily: "sans-serif",
+              fontSize: 13,
+              fontWeight: 600,
+              letterSpacing: '0.06em',
+              cursor: 'pointer',
+            }}
+          >
+            Go to teaching notes →
+          </button>
+
+          {error && (
+            <div style={{
+              fontFamily: "sans-serif",
+              fontSize: 12,
+              color: BLUE,
+              textAlign: 'center',
+              marginTop: 12,
+              letterSpacing: '0.04em',
+            }}>
+              → select a topic and country first
             </div>
           )}
         </div>
 
-        {/* Coming up sidebar */}
-        <div>
-          <h2 style={{ fontSize: 15, fontWeight: 600, color: NAVY, margin: '0 0 16px' }}>
-            Coming up
-          </h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-            {releases.slice(0, 14).map((r, i) => (
-              <div key={i} style={{
-                padding: '10px 14px',
-                background: '#f9f9f7',
-                border: '1px solid #e2eaf4',
-                borderRadius: 8,
-                fontSize: 13,
-              }}>
-                <div style={{ fontWeight: 500, color: NAVY }}>
-                  {r.metric}{r.country ? ` -- ${r.country}` : r.label ? ` -- ${r.label}` : ''}
-                </div>
-                <div style={{ color: '#8099b8', fontSize: 12, marginTop: 2 }}>
-                  {r.date || r.releaseDate || ''}
-                  {r.daysUntil != null ? <span style={{ marginLeft: 6 }}>({r.daysUntil}d)</span> : null}
-                </div>
-              </div>
-            ))}
-            {releases.length === 0 && (
-              <p style={{ fontSize: 13, color: '#bbb', margin: 0 }}>No upcoming releases.</p>
-            )}
-          </div>
+        {/* Stats line */}
+        <div style={{
+          fontSize: 13,
+          color: '#8099b8',
+          textAlign: 'center',
+          marginTop: 4,
+        }}>
+          36 data points &nbsp;·&nbsp;{' '}
+          <span style={{ color: BLUE, fontWeight: 600 }}>
+            {recentReleases.filter(r => r.daysAgo === 0).length}
+          </span>
+          {' '}updated today &nbsp;·&nbsp;{' '}
+          <span style={{ color: '#F0843C', fontWeight: 600 }}>
+            {recentReleases.length}
+          </span>
+          {' '}updated this week
         </div>
+
       </div>
     </div>
   )

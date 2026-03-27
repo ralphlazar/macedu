@@ -16,7 +16,7 @@ export default async function StudentCurriculumPage({ params }) {
   const { curriculum } = await params
   return (
     <>
-      <Header role="student" homeHref={`/student/${curriculum}`} />
+      <Header role="student" homeHref="/" />
       <StudentHomePage metrics={metrics} curriculum={curriculum} />
     </>
   )

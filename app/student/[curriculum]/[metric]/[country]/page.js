@@ -54,6 +54,7 @@ export default async function StudentLessonPage({ params }) {
           aqaRef={m?.aqaRef || ''}
           metricTitle={m?.title || metric}
           allCountries={allCountries}
+          studentMode={true}
         />
         <LessonOverlay
           metric={metric}

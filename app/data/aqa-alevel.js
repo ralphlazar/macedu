@@ -8,9 +8,9 @@ export const lesson = {
       { icon: '⛈️', label: 'Significant concern', cls: 'stormy' },
     ],
     classroomTime: {
-      five:   'Show the UK card and discuss the direction vs target.',
-      ten:    'Add the weather icon exercise.',
-      twenty: 'Full activity with a written response on the causes of current UK inflation.',
+      five:   'Discuss what\'s going on in the chart.',
+      ten:    'Add the Weather Icon exercise.',
+      twenty: 'Full activity with a written response to one or more of the questions below.',
     },
     sampleQuestions: [
       {
@@ -41,9 +41,9 @@ export const lesson = {
       { icon: '⛈️', label: 'Significantly above structural', cls: 'stormy' },
     ],
     classroomTime: {
-      five:   'Compare UK and Japan rates and ask why they differ.',
-      ten:    'Add the weather icon exercise.',
-      twenty: 'Written response: what policies should the UK government pursue to reduce unemployment?',
+      five:   'Discuss what\'s going on in the chart.',
+      ten:    'Add the Weather Icon exercise.',
+      twenty: 'Full activity with a written response to one or more of the questions below.',
     },
     sampleQuestions: [
       {
@@ -74,9 +74,9 @@ export const lesson = {
       { icon: '⛈️', label: 'Contracting or recession', cls: 'stormy' },
     ],
     classroomTime: {
-      five:   'Show the latest UK GDP number and direction.',
-      ten:    'Compare with one other country and run the icon exercise.',
-      twenty: "Written response: explain two factors that could increase the UK's long-run growth rate.",
+      five:   'Discuss what\'s going on in the chart.',
+      ten:    'Add the Weather Icon exercise.',
+      twenty: 'Full activity with a written response to one or more of the questions below.',
     },
     sampleQuestions: [
       {
@@ -107,9 +107,9 @@ export const lesson = {
       { icon: '⛈️', label: 'Cut rates',   cls: 'stormy' },
     ],
     classroomTime: {
-      five:   'Show the latest decision and rate direction.',
-      ten:    'Run the predict-next-action exercise.',
-      twenty: 'Written response: evaluate the effectiveness of monetary policy as a tool for controlling inflation.',
+      five:   'Discuss what\'s going on in the chart.',
+      ten:    'Add the Weather Icon exercise.',
+      twenty: 'Full activity with a written response to one or more of the questions below.',
     },
     sampleQuestions: [
       {
@@ -140,9 +140,9 @@ export const lesson = {
       { icon: '⛈️', label: 'Bad for exporters',  cls: 'stormy' },
     ],
     classroomTime: {
-      five:   'Show GBP/USD and direction.',
-      ten:    'Run the exercise and discuss winners and losers.',
-      twenty: 'Written response: explain the likely effects of a 10% depreciation of the pound on UK inflation and the trade balance.',
+      five:   'Discuss what\'s going on in the chart.',
+      ten:    'Add the Weather Icon exercise.',
+      twenty: 'Full activity with a written response to one or more of the questions below.',
     },
     sampleQuestions: [
       {
@@ -173,9 +173,9 @@ export const lesson = {
       { icon: '⛈️', label: 'Cause for concern', cls: 'stormy' },
     ],
     classroomTime: {
-      five:   'Show the UK balance and explain surplus vs deficit.',
-      ten:    'Run the exercise with UK, then compare with Japan.',
-      twenty: 'Written response: evaluate the view that a current account deficit is always harmful to an economy.',
+      five:   'Discuss what\'s going on in the chart.',
+      ten:    'Add the Weather Icon exercise.',
+      twenty: 'Full activity with a written response to one or more of the questions below.',
     },
     sampleQuestions: [
       {
