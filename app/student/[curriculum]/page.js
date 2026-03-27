@@ -1,0 +1,23 @@
+import { metrics } from '../../data/metrics'
+import Header from '../../components/Header'
+import StudentHomePage from '../../components/StudentHomePage'
+
+export async function generateStaticParams() {
+  return [{ curriculum: 'alevel' }]
+}
+
+export async function generateMetadata({ params }) {
+  return {
+    title: `A-level Economics | macroeconomics.education`,
+  }
+}
+
+export default async function StudentCurriculumPage({ params }) {
+  const { curriculum } = await params
+  return (
+    <>
+      <Header role="student" homeHref={`/student/${curriculum}`} />
+      <StudentHomePage metrics={metrics} curriculum={curriculum} />
+    </>
+  )
+}
