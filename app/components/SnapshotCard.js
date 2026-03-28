@@ -5,6 +5,7 @@ import GdpChart from './GdpChart'
 import InterestRatesChart from './InterestRatesChart'
 import ExchangeRatesChart from './ExchangeRatesChart'
 import TradeChart from './TradeChart'
+import { wrapGlossaryTerms } from '../utils/wrapGlossaryTerms'
 
 const NAVY = '#0f1e35'
 const BLUE = '#378ADD'
@@ -86,7 +87,7 @@ export default function SnapshotCard({
 
       {/* Flag + country name */}
       <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, marginBottom: 4 }}>
-        <span style={{ fontSize: 36, lineHeight: 1 }}>{flag}</span>
+        <span style={{ fontSize: 24, lineHeight: "13px" }}>{flag}</span>
         <span style={{
           fontFamily: "'Instrument Serif', Georgia, serif",
           fontSize: 30,
@@ -135,15 +136,39 @@ export default function SnapshotCard({
         }}>
           What is this chart telling you?
         </p>
-      ) : blurb ? (
-        <p style={{
-          fontSize: 13,
-          lineHeight: 1.6,
-          color: 'rgba(255,255,255,0.75)',
-          margin: '0 0 16px',
-        }}>
-          {blurb}
-        </p>
+      ) : (Array.isArray(blurb) && blurb.length > 0) ? (
+        <ul style={{ margin: '0 0 16px', padding: 0, listStyle: 'none' }}>
+          {blurb.slice(0, 3).map((point, i) => (
+            <li key={i} style={{
+              display: 'flex',
+              gap: 12,
+              alignItems: 'flex-start',
+              fontSize: 13,
+              lineHeight: 1.55,
+              color: 'rgba(255,255,255,0.75)',
+              marginBottom: i < blurb.length - 1 ? 10 : 0,
+            }}>
+              <span style={{
+                flexShrink: 0,
+                width: 20,
+                height: 20,
+                borderRadius: '50%',
+                border: '1.5px solid rgba(255,255,255,0.4)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontFamily: "'IBM Plex Mono', monospace",
+                fontSize: 10,
+                fontWeight: 500,
+                color: 'rgba(255,255,255,0.7)',
+                marginTop: 1,
+              }}>
+                {i + 1}
+              </span>
+              <span>{wrapGlossaryTerms(point)}</span>
+            </li>
+          ))}
+        </ul>
       ) : null}
 
       {/* Chart */}

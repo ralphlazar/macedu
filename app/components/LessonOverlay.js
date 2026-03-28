@@ -1,9 +1,11 @@
 'use client'
 import { useState } from 'react'
 import { useSearchParams } from 'next/navigation'
+import { wrapGlossaryTerms } from '../utils/wrapGlossaryTerms'
 
 const NAVY = '#0f1e35'
 const BLUE = '#378ADD'
+const PINK = '#c2185b'
 
 const ICON_FILTERS = {
   sunny:  {},
@@ -50,6 +52,66 @@ function SectionHead({ label }) {
   )
 }
 
+function NotesToggle({ expanded, onToggle }) {
+  return (
+    <button
+      onClick={onToggle}
+      style={{
+        background: 'none',
+        border: 'none',
+        padding: '2px 0',
+        cursor: 'pointer',
+        fontSize: 11,
+        color: PINK,
+        fontFamily: 'inherit',
+        display: 'flex',
+        alignItems: 'center',
+        gap: 3,
+        marginTop: 5,
+      }}
+    >
+      {expanded ? 'Hide notes ▾' : 'Show notes ▸'}
+    </button>
+  )
+}
+
+function NotesList({ notes }) {
+  const capped = notes.slice(0, 3)
+  return (
+    <ul style={{ margin: '8px 0 0', padding: 0, listStyle: 'none' }}>
+      {capped.map((note, j) => (
+        <li key={j} style={{
+          display: 'flex',
+          gap: 12,
+          alignItems: 'flex-start',
+          fontSize: 12,
+          lineHeight: 1.55,
+          marginBottom: j < capped.length - 1 ? 10 : 0,
+        }}>
+          <span style={{
+            flexShrink: 0,
+            width: 20,
+            height: 20,
+            borderRadius: '50%',
+            border: `1.5px solid ${PINK}`,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontFamily: "'IBM Plex Mono', monospace",
+            fontSize: 10,
+            fontWeight: 500,
+            color: PINK,
+            marginTop: 1,
+          }}>
+            {j + 1}
+          </span>
+          <span style={{ color: PINK }}>{note}</span>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
 export default function LessonOverlay({
   metric,
   country,
@@ -59,18 +121,21 @@ export default function LessonOverlay({
   showReveal  = true,
   studentMode = false,
 }) {
-  const [selected,    setSelected]    = useState(null)
-  const [revealed,    setRevealed]    = useState(false)
-  const [checkedQs,   setCheckedQs]   = useState([])
-  const [checkedDs,   setCheckedDs]   = useState([])
+  const [selected,       setSelected]       = useState(null)
+  const [revealed,       setRevealed]       = useState(false)
+  const [checkedQs,      setCheckedQs]      = useState([])
+  const [checkedDs,      setCheckedDs]      = useState([])
+  const [expandedQs,     setExpandedQs]     = useState([])
+  const [expandedDs,     setExpandedDs]     = useState([])
+  const [chartExpanded,  setChartExpanded]  = useState(false)
 
   const searchParams = useSearchParams()
 
   if (!lessonData) return null
   const { exercisePrompt, exerciseOptions, classroomTime, sampleQuestions, discussionPrompts } = lessonData
 
-  const studentQParam  = searchParams.get('q')
-  const studentDParam  = searchParams.get('d')
+  const studentQParam   = searchParams.get('q')
+  const studentDParam   = searchParams.get('d')
   const studentQIndices = studentMode && studentQParam
     ? studentQParam.split(',').map(Number).filter(n => !isNaN(n))
     : null
@@ -81,8 +146,10 @@ export default function LessonOverlay({
   const handleReveal = () => { if (selected !== null) setRevealed(true) }
   const handleReset  = () => { setSelected(null); setRevealed(false) }
 
-  const toggleQ = (i) => setCheckedQs(prev => prev.includes(i) ? prev.filter(x => x !== i) : [...prev, i])
-  const toggleD = (i) => setCheckedDs(prev => prev.includes(i) ? prev.filter(x => x !== i) : [...prev, i])
+  const toggleQ      = (i) => setCheckedQs(prev => prev.includes(i) ? prev.filter(x => x !== i) : [...prev, i])
+  const toggleD      = (i) => setCheckedDs(prev => prev.includes(i) ? prev.filter(x => x !== i) : [...prev, i])
+  const toggleQNotes = (i) => setExpandedQs(prev => prev.includes(i) ? prev.filter(x => x !== i) : [...prev, i])
+  const toggleDNotes = (i) => setExpandedDs(prev => prev.includes(i) ? prev.filter(x => x !== i) : [...prev, i])
 
   const handleShare = async () => {
     const origin = typeof window !== 'undefined' ? window.location.origin : ''
@@ -119,10 +186,15 @@ export default function LessonOverlay({
         fontSize: 28,
         fontWeight: 400,
         color: NAVY,
-        margin: '0 0 32px',
+        margin: '0 0 8px',
       }}>
         {studentMode ? 'Your tasks for the lesson' : 'Teaching Notes'}
       </h2>
+      {!studentMode && (
+        <p style={{ fontSize: 12, color: PINK, margin: '0 0 28px', fontStyle: 'italic' }}>
+          All pink text is for your eyes only. Your students will not see it.
+        </p>
+      )}
 
       {/* Section -- How to use this in class (teacher only) */}
       {!studentMode && classroomTime && (
@@ -130,9 +202,9 @@ export default function LessonOverlay({
           <SectionHead label="How to use this in class" />
           <div style={{ display: 'flex', gap: 12 }}>
             {[
-              { time: '5 min',  text: classroomTime.five   },
-              { time: '10 min', text: classroomTime.ten    },
-              { time: '20 min', text: classroomTime.twenty },
+              { time: '5 min',   text: classroomTime.five   },
+              { time: '+5 min',  text: classroomTime.ten    },
+              { time: '+10 min', text: classroomTime.twenty },
             ].map(({ time, text }) => (
               <div key={time} style={{
                 flex: 1,
@@ -156,6 +228,48 @@ export default function LessonOverlay({
               </div>
             ))}
           </div>
+        </div>
+      )}
+
+      {/* Section -- Chart discussion (teacher only, collapsible) */}
+      {!studentMode && lessonData.chartDiscussion && lessonData.chartDiscussion.length > 0 && (
+        <div style={{ marginBottom: 28 }}>
+          <Divider />
+          <SectionHead label="Chart discussion" />
+          <NotesToggle expanded={chartExpanded} onToggle={() => setChartExpanded(v => !v)} />
+          {chartExpanded && (
+            <ul style={{ margin: '8px 0 0', padding: 0, listStyle: 'none' }}>
+              {lessonData.chartDiscussion.map((point, i) => (
+                <li key={i} style={{
+                  display: 'flex',
+                  gap: 12,
+                  alignItems: 'flex-start',
+                  fontSize: 13,
+                  lineHeight: 1.55,
+                  marginBottom: i < lessonData.chartDiscussion.length - 1 ? 10 : 0,
+                }}>
+                  <span style={{
+                    flexShrink: 0,
+                    width: 20,
+                    height: 20,
+                    borderRadius: '50%',
+                    border: '1.5px solid #8099b8',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontFamily: "'IBM Plex Mono', monospace",
+                    fontSize: 10,
+                    fontWeight: 500,
+                    color: '#8099b8',
+                    marginTop: 1,
+                  }}>
+                    {i + 1}
+                  </span>
+                  <span style={{ color: PINK }}>{wrapGlossaryTerms(point)}</span>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       )}
 
@@ -270,7 +384,7 @@ export default function LessonOverlay({
         )}
       </div>
 
-      {/* Section -- Sample questions (teacher, with checkboxes) */}
+      {/* Section -- Sample questions (teacher, with checkboxes and collapsible key points) */}
       {!studentMode && sampleQuestions && (
         <div style={{ marginBottom: 28 }}>
           <Divider />
@@ -279,27 +393,33 @@ export default function LessonOverlay({
             Tick questions to include on the student link.
           </p>
           {sampleQuestions.map((item, i) => (
-            <div key={i} style={{ display: 'flex', gap: 12, marginBottom: 18, alignItems: 'flex-start' }}>
+            <div key={i} style={{ display: 'flex', gap: 12, marginBottom: 24, alignItems: 'flex-start' }}>
               <input
                 type="checkbox"
                 checked={checkedQs.includes(i)}
                 onChange={() => toggleQ(i)}
                 style={{ marginTop: 3, width: 16, height: 16, accentColor: BLUE, cursor: 'pointer', flexShrink: 0 }}
               />
-              <div>
-                <div style={{ fontSize: 14, color: NAVY, lineHeight: 1.5, marginBottom: 5 }}>
-                  {String.fromCharCode(65 + i)}. {item.q}
+              <div style={{ flex: 1 }}>
+                <div style={{ fontSize: 14, color: NAVY, lineHeight: 1.5 }}>
+                  {String.fromCharCode(65 + i)}. {wrapGlossaryTerms(item.q)}
                 </div>
-                <div style={{ fontSize: 12, color: '#8099b8', fontStyle: 'italic', lineHeight: 1.55 }}>
-                  {item.hint}
-                </div>
+                {item.keyPoints && item.keyPoints.length > 0 && (
+                  <>
+                    <NotesToggle
+                      expanded={expandedQs.includes(i)}
+                      onToggle={() => toggleQNotes(i)}
+                    />
+                    {expandedQs.includes(i) && <NotesList notes={item.keyPoints} />}
+                  </>
+                )}
               </div>
             </div>
           ))}
         </div>
       )}
 
-      {/* Section -- Selected questions (student only, no hints) */}
+      {/* Section -- Selected questions (student only, no key points) */}
       {studentMode && sampleQuestions && studentQIndices && studentQIndices.length > 0 && (
         <div style={{ marginBottom: 28 }}>
           <Divider />
@@ -309,14 +429,14 @@ export default function LessonOverlay({
             if (!item) return null
             return (
               <div key={qi} style={{ fontSize: 14, color: NAVY, lineHeight: 1.5, marginBottom: 16 }}>
-                {String.fromCharCode(65 + i)}. {item.q}
+                {String.fromCharCode(65 + i)}. {wrapGlossaryTerms(item.q)}
               </div>
             )
           })}
         </div>
       )}
 
-      {/* Section -- Discussion prompts (teacher, with checkboxes) */}
+      {/* Section -- Discussion prompts (teacher, with checkboxes and collapsible notes) */}
       {!studentMode && discussionPrompts && (
         <div style={{ marginBottom: 28 }}>
           <Divider />
@@ -324,19 +444,34 @@ export default function LessonOverlay({
           <p style={{ fontSize: 12, color: '#8099b8', margin: '0 0 16px', fontStyle: 'italic' }}>
             Tick prompts to include on the student link.
           </p>
-          {discussionPrompts.map((p, i) => (
-            <div key={i} style={{ display: 'flex', gap: 12, marginBottom: 12, alignItems: 'flex-start' }}>
-              <input
-                type="checkbox"
-                checked={checkedDs.includes(i)}
-                onChange={() => toggleD(i)}
-                style={{ marginTop: 3, width: 16, height: 16, accentColor: BLUE, cursor: 'pointer', flexShrink: 0 }}
-              />
-              <div style={{ fontSize: 14, color: NAVY, lineHeight: 1.55 }}>
-                {String.fromCharCode(65 + i)}. {p}
+          {discussionPrompts.map((item, i) => {
+            const promptText = typeof item === 'string' ? item : item.p
+            const notes = typeof item === 'string' ? [] : (item.notes || [])
+            return (
+              <div key={i} style={{ display: 'flex', gap: 12, marginBottom: 24, alignItems: 'flex-start' }}>
+                <input
+                  type="checkbox"
+                  checked={checkedDs.includes(i)}
+                  onChange={() => toggleD(i)}
+                  style={{ marginTop: 3, width: 16, height: 16, accentColor: BLUE, cursor: 'pointer', flexShrink: 0 }}
+                />
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontSize: 14, color: NAVY, lineHeight: 1.55 }}>
+                    {String.fromCharCode(65 + i)}. {wrapGlossaryTerms(promptText)}
+                  </div>
+                  {notes.length > 0 && (
+                    <>
+                      <NotesToggle
+                        expanded={expandedDs.includes(i)}
+                        onToggle={() => toggleDNotes(i)}
+                      />
+                      {expandedDs.includes(i) && <NotesList notes={notes} />}
+                    </>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       )}
 
@@ -346,11 +481,12 @@ export default function LessonOverlay({
           <Divider />
           <SectionHead label="Discussion prompts" />
           {studentDIndices.map((di, i) => {
-            const p = discussionPrompts[di]
-            if (!p) return null
+            const item = discussionPrompts[di]
+            if (!item) return null
+            const promptText = typeof item === 'string' ? item : item.p
             return (
               <div key={di} style={{ fontSize: 14, color: NAVY, lineHeight: 1.55, marginBottom: 12 }}>
-                {String.fromCharCode(65 + i)}. {p}
+                {String.fromCharCode(65 + i)}. {wrapGlossaryTerms(promptText)}
               </div>
             )
           })}

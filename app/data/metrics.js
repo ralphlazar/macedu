@@ -13,7 +13,11 @@ export const metrics = {
         releasedDaysAgo: 7,
         icon: "☁️",
         reveal: "Inflation is falling in the right direction, but at 3.1% it remains above target -- a mixed picture that warrants a cloudy icon rather than sunny.",
-        blurb: "UK inflation is falling but has not landed. At 3.1%, it remains above the Bank of England's 2% target, and services inflation is proving stickier than the headline suggests. The last mile is always the hardest.",
+        blurb: [
+          "Inflation is falling but has not landed. At 2.5%, it remains above the Bank of England's 2% target.",
+          "Services inflation is the stubborn part. Wage growth is keeping price pressure alive in the non-goods economy.",
+          "The last mile is always the hardest. Disinflation slows as it approaches target."
+        ],
         chartDates: ["Apr 2016", "May 2016", "Jun 2016", "Jul 2016", "Aug 2016", "Sep 2016", "Oct 2016", "Nov 2016", "Dec 2016", "Jan 2017", "Feb 2017", "Mar 2017", "Apr 2017", "May 2017", "Jun 2017", "Jul 2017", "Aug 2017", "Sep 2017", "Oct 2017", "Nov 2017", "Dec 2017", "Jan 2018", "Feb 2018", "Mar 2018", "Apr 2018", "May 2018", "Jun 2018", "Jul 2018", "Aug 2018", "Sep 2018", "Oct 2018", "Nov 2018", "Dec 2018", "Jan 2019", "Feb 2019", "Mar 2019", "Apr 2019", "May 2019", "Jun 2019", "Jul 2019", "Aug 2019", "Sep 2019", "Oct 2019", "Nov 2019", "Dec 2019", "Jan 2020", "Feb 2020", "Mar 2020", "Apr 2020", "May 2020", "Jun 2020", "Jul 2020", "Aug 2020", "Sep 2020", "Oct 2020", "Nov 2020", "Dec 2020", "Jan 2021", "Feb 2021", "Mar 2021", "Apr 2021", "May 2021", "Jun 2021", "Jul 2021", "Aug 2021", "Sep 2021", "Oct 2021", "Nov 2021", "Dec 2021", "Jan 2022", "Feb 2022", "Mar 2022", "Apr 2022", "May 2022", "Jun 2022", "Jul 2022", "Aug 2022", "Sep 2022", "Oct 2022", "Nov 2022", "Dec 2022", "Jan 2023", "Feb 2023", "Mar 2023", "Apr 2023", "May 2023", "Jun 2023", "Jul 2023", "Aug 2023", "Sep 2023", "Oct 2023", "Nov 2023", "Dec 2023", "Jan 2024", "Feb 2024", "Mar 2024", "Apr 2024", "May 2024", "Jun 2024", "Jul 2024", "Aug 2024", "Sep 2024", "Oct 2024", "Nov 2024", "Dec 2024", "Jan 2025", "Feb 2025", "Mar 2025", "Apr 2025", "May 2025", "Jun 2025", "Jul 2025", "Aug 2025", "Sep 2025", "Oct 2025", "Nov 2025", "Dec 2025", "Jan 2026", "Feb 2026", "Mar 2026"],
         chartSeries: [0.3, 0.5, 0.3, 0.4, 0.4, 0.2, 0.2, 0.4, 0.5, 0.71, 0.6, 0.8, 0.7, 0.7, 0.9, 0.9, 0.9, 1.3, 1.3, 1.5, 1.79, 1.9, 2.3, 2.29, 2.58, 2.68, 2.48, 2.58, 2.77, 2.76, 2.76, 2.85, 2.74, 2.65, 2.44, 2.34, 2.23, 2.32, 2.32, 2.32, 2.4, 2.21, 2.2, 2.1, 2.0, 1.82, 1.81, 1.81, 1.99, 1.89, 1.89, 1.98, 1.69, 1.69, 1.5, 1.5, 1.31, 1.79, 1.69, 1.5, 0.93, 0.65, 0.83, 1.11, 0.46, 0.74, 0.83, 0.55, 0.83, 0.92, 0.74, 1.01, 1.66, 2.21, 2.39, 2.01, 3.03, 2.93, 3.85, 4.58, 4.84, 4.85, 5.48, 6.2, 7.79, 7.84, 8.17, 8.8, 8.65, 8.81, 9.61, 9.38, 9.24, 8.9, 9.19, 8.84, 7.82, 7.85, 7.39, 6.44, 6.24, 6.38, 4.75, 4.17, 4.15, 4.17, 3.81, 3.79, 3.04, 2.79, 2.78, 3.02, 3.09, 2.61, 3.15, 3.54, 3.52, 3.92, 3.67, 3.42],
       },
@@ -93,7 +97,11 @@ export const metrics = {
         releasedDaysAgo: 8,
         icon: "☁️",
         reveal: "UK unemployment has risen from its post-pandemic lows and sits slightly above the structural rate, with the upward trend adding a cautious note. Cloudy is the honest call.",
-        blurb: "UK unemployment has been drifting upward since its post-pandemic low of 3.7%, and at 4.4% the trend is the story. The rate itself is not alarming, but the direction raises questions about whether higher rates are beginning to cool the labour market.",
+        blurb: [
+          "Unemployment has drifted up from its post-pandemic low of 3.7%. The direction is the story, not the level.",
+          "At 4.4%, the rate is not alarming in isolation, but a rising trend signals the labour market is cooling.",
+          "Higher interest rates are likely a factor: firms are hiring less as borrowing costs and uncertainty bite."
+        ],
         chartDates: ["Apr 2016", "May 2016", "Jun 2016", "Jul 2016", "Aug 2016", "Sep 2016", "Oct 2016", "Nov 2016", "Dec 2016", "Jan 2017", "Feb 2017", "Mar 2017", "Apr 2017", "May 2017", "Jun 2017", "Jul 2017", "Aug 2017", "Sep 2017", "Oct 2017", "Nov 2017", "Dec 2017", "Jan 2018", "Feb 2018", "Mar 2018", "Apr 2018", "May 2018", "Jun 2018", "Jul 2018", "Aug 2018", "Sep 2018", "Oct 2018", "Nov 2018", "Dec 2018", "Jan 2019", "Feb 2019", "Mar 2019", "Apr 2019", "May 2019", "Jun 2019", "Jul 2019", "Aug 2019", "Sep 2019", "Oct 2019", "Nov 2019", "Dec 2019", "Jan 2020", "Feb 2020", "Mar 2020", "Apr 2020", "May 2020", "Jun 2020", "Jul 2020", "Aug 2020", "Sep 2020", "Oct 2020", "Nov 2020", "Dec 2020", "Jan 2021", "Feb 2021", "Mar 2021", "Apr 2021", "May 2021", "Jun 2021", "Jul 2021", "Aug 2021", "Sep 2021", "Oct 2021", "Nov 2021", "Dec 2021", "Jan 2022", "Feb 2022", "Mar 2022", "Apr 2022", "May 2022", "Jun 2022", "Jul 2022", "Aug 2022", "Sep 2022", "Oct 2022", "Nov 2022", "Dec 2022", "Jan 2023", "Feb 2023", "Mar 2023", "Apr 2023", "May 2023", "Jun 2023", "Jul 2023", "Aug 2023", "Sep 2023", "Oct 2023", "Nov 2023", "Dec 2023", "Jan 2024", "Feb 2024", "Mar 2024", "Apr 2024", "May 2024", "Jun 2024", "Jul 2024", "Aug 2024", "Sep 2024", "Oct 2024", "Nov 2024", "Dec 2024", "Jan 2025", "Feb 2025", "Mar 2025", "Apr 2025", "May 2025", "Jun 2025", "Jul 2025", "Aug 2025", "Sep 2025", "Oct 2025", "Nov 2025", "Dec 2025", "Jan 2026", "Feb 2026", "Mar 2026"],
         chartSeries: [5.1, 5.1, 5.1, 5.1, 5.0, 4.9, 4.9, 4.9, 5.0, 4.8, 4.8, 4.8, 4.7, 4.7, 4.6, 4.6, 4.5, 4.4, 4.4, 4.3, 4.3, 4.3, 4.2, 4.3, 4.4, 4.3, 4.2, 4.2, 4.2, 4.2, 4.0, 4.0, 4.0, 4.1, 4.1, 4.0, 4.0, 3.9, 4.0, 3.8, 3.8, 3.8, 3.9, 3.9, 3.9, 3.9, 3.8, 3.8, 3.7, 3.9, 3.9, 4.1, 4.1, 4.1, 4.1, 4.4, 4.6, 5.0, 5.2, 5.2, 5.3, 5.2, 5.0, 4.9, 4.8, 4.8, 4.7, 4.6, 4.5, 4.4, 4.3, 4.2, 4.2, 4.1, 3.9, 3.8, 3.8, 3.7, 3.8, 3.6, 3.6, 3.7, 3.8, 3.9, 3.9, 3.9, 4.0, 4.0, 3.9, 4.0, 4.2, 4.3, 4.3, 4.1, 4.0, 4.0, 3.9, 4.1, 4.2, 4.3, 4.4, 4.4, 4.2, 4.2, 4.1, 4.3, 4.3, 4.4, 4.4, 4.4, 4.4, 4.5, 4.6, 4.7, 4.7, 4.7, 4.8, 5.0, 5.1, 5.1],
       },
@@ -173,7 +181,11 @@ export const metrics = {
         releasedDaysAgo: 41,
         icon: "☁️",
         reveal: "At 0.1% quarterly growth, the UK is not in recession but is not growing with any conviction either. Cloudy is the honest assessment.",
-        blurb: "The UK economy is growing, but only just. At 0.1% for the quarter, output is positive in name only -- well below the long-run trend of around 0.5% per quarter. The economy is not in recession, but it is not far from one.",
+        blurb: [
+          "The economy is growing, but only just. Output at this level is positive in name only.",
+          "Well below the long-run trend of around 2% annually. The economy is not in recession, but it is not far from one.",
+          "Business investment remains weak and consumer confidence is fragile. Growth is unlikely to accelerate quickly."
+        ],
         chartDates: ["2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"],
         chartSeries: [3.0, 1.6, 1.3, -10.0, 8.5, 5.1, 0.3, 1.1, 1.3, 1.5],
       },
@@ -253,7 +265,11 @@ export const metrics = {
         releasedDaysAgo: 48,
         icon: "⛈️",
         reveal: "The Bank of England cut rates to 4.5% in February 2025 and has signalled further gradual cuts as inflation approaches target. The market expects two or three more cuts in 2025.",
-        blurb: "The Bank of England cut Bank Rate to 4.5% in February 2025 and has signalled further gradual reductions ahead. With inflation still above target, the MPC is balancing the risk of cutting too soon against the cost of holding rates too long.",
+        blurb: [
+          "The Bank of England has been cutting gradually from its 5.25% peak, with rates now at 4.5%.",
+          "Further cuts are signalled, but the pace is cautious. Inflation above target limits how fast the MPC can move.",
+          "The Bank is balancing the risk of cutting too soon against the cost of holding rates too long on a weakening economy."
+        ],
         chartDates: ["Apr 2016", "May 2016", "Jun 2016", "Jul 2016", "Aug 2016", "Sep 2016", "Oct 2016", "Nov 2016", "Dec 2016", "Jan 2017", "Feb 2017", "Mar 2017", "Apr 2017", "May 2017", "Jun 2017", "Jul 2017", "Aug 2017", "Sep 2017", "Oct 2017", "Nov 2017", "Dec 2017", "Jan 2018", "Feb 2018", "Mar 2018", "Apr 2018", "May 2018", "Jun 2018", "Jul 2018", "Aug 2018", "Sep 2018", "Oct 2018", "Nov 2018", "Dec 2018", "Jan 2019", "Feb 2019", "Mar 2019", "Apr 2019", "May 2019", "Jun 2019", "Jul 2019", "Aug 2019", "Sep 2019", "Oct 2019", "Nov 2019", "Dec 2019", "Jan 2020", "Feb 2020", "Mar 2020", "Apr 2020", "May 2020", "Jun 2020", "Jul 2020", "Aug 2020", "Sep 2020", "Oct 2020", "Nov 2020", "Dec 2020", "Jan 2021", "Feb 2021", "Mar 2021", "Apr 2021", "May 2021", "Jun 2021", "Jul 2021", "Aug 2021", "Sep 2021", "Oct 2021", "Nov 2021", "Dec 2021", "Jan 2022", "Feb 2022", "Mar 2022", "Apr 2022", "May 2022", "Jun 2022", "Jul 2022", "Aug 2022", "Sep 2022", "Oct 2022", "Nov 2022", "Dec 2022", "Jan 2023", "Feb 2023", "Mar 2023", "Apr 2023", "May 2023", "Jun 2023", "Jul 2023", "Aug 2023", "Sep 2023", "Oct 2023", "Nov 2023", "Dec 2023", "Jan 2024", "Feb 2024", "Mar 2024", "Apr 2024", "May 2024", "Jun 2024", "Jul 2024", "Aug 2024", "Sep 2024", "Oct 2024", "Nov 2024", "Dec 2024", "Jan 2025", "Feb 2025", "Mar 2025", "Apr 2025", "May 2025", "Jun 2025", "Jul 2025", "Aug 2025", "Sep 2025", "Oct 2025", "Nov 2025", "Dec 2025", "Jan 2026", "Feb 2026", "Mar 2026"],
         chartSeries: [0.5, 0.5, 0.5, 0.5, 0.5, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.25, 0.25, 0.5, 0.75, 0.75, 1.0, 1.25, 1.25, 1.75, 2.25, 2.25, 3.0, 3.5, 3.5, 4.0, 4.25, 4.25, 4.5, 5.0, 5.0, 5.25, 5.25, 5.25, 5.25, 5.25, 5.25, 5.25, 5.25, 5.25, 5.25, 5.25, 5.25, 5.0, 5.0, 5.0, 4.75, 4.75, 4.75, 4.5, 4.5, 4.5, 4.25, 4.25, 4.25, 4.0, 4.0, 4.0, 4.0, 3.75, 3.75, 3.75],
       },
@@ -333,7 +349,11 @@ export const metrics = {
         releasedDaysAgo: 0,
         icon: "☁️",
         reveal: "The pound's appreciation is good news for consumers buying imported goods and bad news for UK exporters. Both effects are real and roughly balanced at this magnitude. Mixed is the honest answer.",
-        blurb: "Sterling has strengthened modestly against the dollar, trading at 1.29. A stronger pound is good news for consumers buying imported goods and for firms with dollar-denominated costs, but it puts pressure on UK exporters competing in international markets.",
+        blurb: [
+          "Sterling is trading at 1.29 against the dollar, having strengthened modestly in recent months.",
+          "A stronger pound is good news for consumers and firms with dollar costs, but squeezes UK exporters.",
+          "Currency moves at this scale are driven more by interest rate expectations than by trade flows."
+        ],
         chartDates: ["Apr 2016", "May 2016", "Jun 2016", "Jul 2016", "Aug 2016", "Sep 2016", "Oct 2016", "Nov 2016", "Dec 2016", "Jan 2017", "Feb 2017", "Mar 2017", "Apr 2017", "May 2017", "Jun 2017", "Jul 2017", "Aug 2017", "Sep 2017", "Oct 2017", "Nov 2017", "Dec 2017", "Jan 2018", "Feb 2018", "Mar 2018", "Apr 2018", "May 2018", "Jun 2018", "Jul 2018", "Aug 2018", "Sep 2018", "Oct 2018", "Nov 2018", "Dec 2018", "Jan 2019", "Feb 2019", "Mar 2019", "Apr 2019", "May 2019", "Jun 2019", "Jul 2019", "Aug 2019", "Sep 2019", "Oct 2019", "Nov 2019", "Dec 2019", "Jan 2020", "Feb 2020", "Mar 2020", "Apr 2020", "May 2020", "Jun 2020", "Jul 2020", "Aug 2020", "Sep 2020", "Oct 2020", "Nov 2020", "Dec 2020", "Jan 2021", "Feb 2021", "Mar 2021", "Apr 2021", "May 2021", "Jun 2021", "Jul 2021", "Aug 2021", "Sep 2021", "Oct 2021", "Nov 2021", "Dec 2021", "Jan 2022", "Feb 2022", "Mar 2022", "Apr 2022", "May 2022", "Jun 2022", "Jul 2022", "Aug 2022", "Sep 2022", "Oct 2022", "Nov 2022", "Dec 2022", "Jan 2023", "Feb 2023", "Mar 2023", "Apr 2023", "May 2023", "Jun 2023", "Jul 2023", "Aug 2023", "Sep 2023", "Oct 2023", "Nov 2023", "Dec 2023", "Jan 2024", "Feb 2024", "Mar 2024", "Apr 2024", "May 2024", "Jun 2024", "Jul 2024", "Aug 2024", "Sep 2024", "Oct 2024", "Nov 2024", "Dec 2024", "Jan 2025", "Feb 2025", "Mar 2025", "Apr 2025", "May 2025", "Jun 2025", "Jul 2025", "Aug 2025", "Sep 2025", "Oct 2025", "Nov 2025", "Dec 2025", "Jan 2026", "Feb 2026", "Mar 2026"],
         chartSeries: [1.46, 1.46, 1.35, 1.32, 1.31, 1.3, 1.22, 1.25, 1.23, 1.25, 1.24, 1.25, 1.29, 1.28, 1.3, 1.31, 1.29, 1.34, 1.32, 1.34, 1.34, 1.42, 1.39, 1.4, 1.38, 1.33, 1.31, 1.31, 1.3, 1.31, 1.27, 1.28, 1.27, 1.31, 1.33, 1.31, 1.29, 1.26, 1.27, 1.22, 1.22, 1.23, 1.29, 1.29, 1.31, 1.31, 1.29, 1.24, 1.25, 1.23, 1.23, 1.31, 1.34, 1.29, 1.29, 1.33, 1.36, 1.37, 1.4, 1.37, 1.4, 1.42, 1.38, 1.4, 1.38, 1.34, 1.38, 1.33, 1.35, 1.34, 1.34, 1.31, 1.25, 1.26, 1.21, 1.22, 1.17, 1.12, 1.16, 1.19, 1.21, 1.24, 1.21, 1.24, 1.25, 1.24, 1.26, 1.29, 1.27, 1.22, 1.22, 1.27, 1.27, 1.27, 1.27, 1.26, 1.26, 1.27, 1.26, 1.28, 1.32, 1.34, 1.3, 1.27, 1.25, 1.24, 1.26, 1.29, 1.34, 1.35, 1.37, 1.33, 1.35, 1.34, 1.32, 1.32, 1.35, 1.38, 1.35, 1.32],
       },
@@ -413,7 +433,11 @@ export const metrics = {
         releasedDaysAgo: 41,
         icon: "☁️",
         reveal: "The UK's current account deficit of 3.1% of GDP is persistent rather than alarming. It is financed by inflows of foreign direct investment and portfolio capital, which reflects confidence in UK assets. Watch closely, but the financing has historically been reliable.",
-        blurb: "The UK runs a persistent current account deficit of around 3% of GDP -- a structural feature of an economy that imports more than it exports and finances the gap with inflows of foreign investment. Stable, but not a position of strength.",
+        blurb: [
+          "The UK runs a persistent current account deficit of around 3% of GDP. It has done so for decades.",
+          "The deficit reflects an economy that imports more than it exports and finances the gap with foreign investment.",
+          "Stable and financeable for now, but not a position of strength if global risk appetite turns against sterling."
+        ],
         chartDates: ["2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"],
         chartSeries: [-3.8, -3.9, -2.9, -3.0, -2.5, -3.7, -2.8, -2.7, -1.8, -2.5],
       },

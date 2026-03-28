@@ -1,8 +1,8 @@
 'use client'
 import { useState } from 'react'
 
-const BLUE = '#378ADD'
-const NAVY = '#0f1e35'
+const BLUE  = '#378ADD'
+const NAVY  = '#0e1f35'
 
 const METRIC_SLUGS  = ['inflation', 'unemployment', 'gdp', 'interest-rates', 'exchange-rates', 'trade']
 const COUNTRY_SLUGS = ['uk', 'us', 'eurozone', 'china', 'japan', 'brazil']
@@ -25,178 +25,164 @@ const COUNTRY_LABELS = {
   'brazil':   '🇧🇷 Brazil',
 }
 
-const selectStyle = {
-  width: '100%',
-  appearance: 'none',
-  background: '#f8fafd',
-  border: '1px solid #dde6f2',
-  borderRadius: 8,
-  color: NAVY,
-  fontSize: 14,
-  fontFamily: "sans-serif",
-  padding: '11px 38px 11px 14px',
-  cursor: 'pointer',
-}
-
-const fieldLabelStyle = {
-  fontFamily: "sans-serif",
-  fontSize: 10,
-  fontWeight: 600,
-  letterSpacing: '0.14em',
-  textTransform: 'uppercase',
-  color: '#8099b8',
-  display: 'block',
-  marginBottom: 7,
-}
-
-const cardStyle = {
-  background: 'white',
-  borderRadius: 14,
-  padding: 24,
-  border: '1px solid #e2eaf4',
-  boxShadow: '0 2px 16px rgba(15,30,53,0.06)',
-  marginBottom: 16,
-}
-
-const cardLabelStyle = {
-  fontFamily: "sans-serif",
-  fontSize: 10,
-  fontWeight: 600,
-  letterSpacing: '0.16em',
-  textTransform: 'uppercase',
-  color: '#8099b8',
-  margin: '0 0 16px',
-}
+const MONO = "'IBM Plex Mono', monospace"
 
 export default function TeacherHomePage({ metrics, curriculum }) {
   const [selectedMetric,  setSelectedMetric]  = useState('')
   const [selectedCountry, setSelectedCountry] = useState('')
   const [error, setError] = useState(false)
 
-  // Build recent releases from metrics data (last 7 days), sorted by recency
-  const recentReleases = []
+  // Stats line counts
+  const updatedToday = []
+  const updatedWeek  = []
   for (const metricSlug of METRIC_SLUGS) {
     const m = metrics[metricSlug]
     if (!m) continue
     for (const countrySlug of COUNTRY_SLUGS) {
       const c = m.countries?.[countrySlug]
-      if (!c || c.releasedDaysAgo == null || c.releasedDaysAgo > 7) continue
-      recentReleases.push({
-        metricSlug,
-        countrySlug,
-        metricLabel:  METRIC_LABELS[metricSlug] || metricSlug,
-        countryLabel: c.name || countrySlug,
-        flag:         c.flag || '',
-        daysAgo:      c.releasedDaysAgo,
-      })
+      if (!c || c.releasedDaysAgo == null) continue
+      if (c.releasedDaysAgo === 0) updatedToday.push(1)
+      if (c.releasedDaysAgo <= 7)  updatedWeek.push(1)
     }
-  }
-  recentReleases.sort((a, b) => a.daysAgo - b.daysAgo)
-
-  function badgeStyle(daysAgo) {
-    if (daysAgo === 0) return { background: '#eaf3de', color: '#3B6D11' }
-    if (daysAgo <= 2)  return { background: '#e6f1fb', color: '#185FA5' }
-    return { background: '#f0f2f5', color: '#8099b8' }
-  }
-
-  function badgeLabel(daysAgo) {
-    if (daysAgo === 0) return 'today'
-    if (daysAgo === 1) return '1d ago'
-    return `${daysAgo}d ago`
   }
 
   function handleGo() {
-    if (!selectedMetric || !selectedCountry) {
-      setError(true)
-      return
-    }
+    if (!selectedMetric || !selectedCountry) { setError(true); return }
     window.location.href = `/teacher/${curriculum}/${selectedMetric}/${selectedCountry}`
   }
 
-
-
   return (
     <div style={{
-      background: '#f4f7fb',
+      background: '#eef2f7',
       minHeight: '100vh',
       padding: '40px 24px 64px',
-      fontFamily: 'sans-serif',
+      fontFamily: "'IBM Plex Sans', sans-serif",
     }}>
-      <div style={{ maxWidth: 520, margin: '0 auto' }}>
+      <style>{`
+        @keyframes throb {
+          0%, 100% { opacity: 1; color: #ff2d6b; }
+          50% { opacity: 0.5; color: #ff8fab; }
+        }
+        .stat-today { animation: throb 0.8s ease-in-out infinite; color: #ff2d6b; }
+      `}</style>
+      <div style={{ maxWidth: 620, margin: '0 auto' }}>
 
-{/* Selector card */}
-        <div style={cardStyle}>
-          <label style={fieldLabelStyle}>Topic</label>
-          <div style={{ position: 'relative', marginBottom: 14 }}>
-            <select
-              value={selectedMetric}
-              onChange={e => { setSelectedMetric(e.target.value); setError(false) }}
-              style={selectStyle}
-            >
-              <option value="">Select a topic</option>
-              {METRIC_SLUGS.map(slug => (
-                <option key={slug} value={slug}>{METRIC_LABELS[slug]}</option>
-              ))}
-            </select>
-            <div style={{
-              position: 'absolute', right: 13, top: '50%',
-              transform: 'translateY(-50%)',
-              width: 0, height: 0,
-              borderLeft: '4px solid transparent',
-              borderRight: '4px solid transparent',
-              borderTop: '5px solid #8099b8',
-              pointerEvents: 'none',
-            }} />
+        {/* Dark navy selector panel */}
+        <div style={{
+          background: NAVY,
+          borderRadius: 12,
+          padding: '28px 28px 24px',
+          marginBottom: 20,
+        }}>
+
+          {/* Eyebrow */}
+          <div style={{
+            fontFamily: MONO,
+            fontSize: 10,
+            fontWeight: 500,
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+            color: BLUE,
+            marginBottom: 8,
+          }}>
+            Today's data is live
           </div>
 
-          <label style={fieldLabelStyle}>Country</label>
-          <div style={{ position: 'relative', marginBottom: 0 }}>
-            <select
-              value={selectedCountry}
-              onChange={e => { setSelectedCountry(e.target.value); setError(false) }}
-              style={selectStyle}
-            >
-              <option value="">Select a country</option>
-              {COUNTRY_SLUGS.map(slug => (
-                <option key={slug} value={slug}>{COUNTRY_LABELS[slug]}</option>
-              ))}
-            </select>
-            <div style={{
-              position: 'absolute', right: 13, top: '50%',
-              transform: 'translateY(-50%)',
-              width: 0, height: 0,
-              borderLeft: '4px solid transparent',
-              borderRight: '4px solid transparent',
-              borderTop: '5px solid #8099b8',
-              pointerEvents: 'none',
-            }} />
+          {/* Headline */}
+          <div style={{
+            fontFamily: MONO,
+            fontSize: 24,
+            fontWeight: 600,
+            color: '#ffffff',
+            marginBottom: 24,
+            lineHeight: 1.2,
+            letterSpacing: '-0.03em',
+          }}>
+            Pick a topic and a country.
           </div>
 
-          <hr style={{ border: 'none', borderTop: '1px solid #e2eaf4', margin: '18px 0' }} />
+          {/* Dropdowns */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 16 }}>
+            {[
+              { label: 'Topic',   value: selectedMetric,  slugs: METRIC_SLUGS,  labels: METRIC_LABELS,  setter: v => { setSelectedMetric(v);  setError(false) } },
+              { label: 'Country', value: selectedCountry, slugs: COUNTRY_SLUGS, labels: COUNTRY_LABELS, setter: v => { setSelectedCountry(v); setError(false) } },
+            ].map(({ label, value, slugs, labels, setter }) => (
+              <div key={label}>
+                <div style={{
+                  fontFamily: MONO,
+                  fontSize: 10,
+                  fontWeight: 500,
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  color: '#7a9cc0',
+                  marginBottom: 5,
+                }}>
+                  {label}
+                </div>
+                <div style={{ position: 'relative' }}>
+                  <select
+                    value={value}
+                    onChange={e => setter(e.target.value)}
+                    style={{
+                      width: '100%',
+                      appearance: 'none',
+                      background: 'rgba(255,255,255,0.08)',
+                      border: '0.5px solid rgba(255,255,255,0.18)',
+                      borderRadius: 8,
+                      color: value ? '#ffffff' : 'rgba(255,255,255,0.4)',
+                      fontFamily: MONO,
+                      fontSize: 13,
+                      padding: '10px 36px 10px 12px',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    <option value="" style={{ background: NAVY, color: 'rgba(255,255,255,0.4)' }}>
+                      Select...
+                    </option>
+                    {slugs.map(slug => (
+                      <option key={slug} value={slug} style={{ background: NAVY, color: '#fff' }}>
+                        {labels[slug]}
+                      </option>
+                    ))}
+                  </select>
+                  <div style={{
+                    position: 'absolute', right: 12, top: '50%',
+                    transform: 'translateY(-50%)',
+                    width: 0, height: 0,
+                    borderLeft: '4px solid transparent',
+                    borderRight: '4px solid transparent',
+                    borderTop: '5px solid rgba(255,255,255,0.4)',
+                    pointerEvents: 'none',
+                  }} />
+                </div>
+              </div>
+            ))}
+          </div>
 
+          {/* Go button */}
           <button
             onClick={handleGo}
             style={{
               width: '100%',
-              padding: 13,
               background: BLUE,
-              color: 'white',
+              color: '#ffffff',
               border: 'none',
               borderRadius: 8,
-              fontFamily: "sans-serif",
+              padding: 12,
+              fontFamily: MONO,
               fontSize: 13,
-              fontWeight: 600,
-              letterSpacing: '0.06em',
+              fontWeight: 500,
               cursor: 'pointer',
+              letterSpacing: '0.02em',
             }}
           >
-            Go to teaching notes →
+            Open this card →
           </button>
 
           {error && (
             <div style={{
-              fontFamily: "sans-serif",
-              fontSize: 12,
+              fontFamily: MONO,
+              fontSize: 11,
               color: BLUE,
               textAlign: 'center',
               marginTop: 12,
@@ -209,20 +195,26 @@ export default function TeacherHomePage({ metrics, curriculum }) {
 
         {/* Stats line */}
         <div style={{
-          fontSize: 13,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 6,
+          fontFamily: MONO,
+          fontSize: 11.5,
           color: '#8099b8',
-          textAlign: 'center',
-          marginTop: 4,
+          padding: '0 2px',
         }}>
-          36 data points &nbsp;·&nbsp;{' '}
-          <span style={{ color: BLUE, fontWeight: 600 }}>
-            {recentReleases.filter(r => r.daysAgo === 0).length}
-          </span>
-          {' '}updated today &nbsp;·&nbsp;{' '}
-          <span style={{ color: '#F0843C', fontWeight: 600 }}>
-            {recentReleases.length}
-          </span>
-          {' '}updated this week
+          <span style={{
+            display: 'inline-block',
+            width: 6, height: 6,
+            background: '#22c55e',
+            borderRadius: '50%',
+            flexShrink: 0,
+          }} />
+          <span><span style={{ color: BLUE, fontWeight: 500 }}>36</span> data points</span>
+          <span style={{ margin: '0 2px' }}>·</span>
+          <span><span className="stat-today" style={{ color: BLUE, fontWeight: 500 }}>{updatedToday.length}</span> updated today</span>
+          <span style={{ margin: '0 2px' }}>·</span>
+          <span><span style={{ color: BLUE, fontWeight: 500 }}>{updatedWeek.length}</span> updated this week</span>
         </div>
 
       </div>
