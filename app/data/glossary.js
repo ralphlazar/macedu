@@ -846,7 +846,7 @@ export const glossary = [
     more: "Yield rises when bond prices fall and falls when bond prices rise. A bond's coupon is fixed, so if its price drops, the same coupon payment represents a higher percentage return to a new buyer.",
     detailed: "The yield to maturity calculates the total return if a bond is held until it matures, accounting for coupon payments and any capital gain or loss from buying at a price different from the face value. Rising yields indicate investors are demanding higher returns, often due to expectations of higher inflation or interest rates, or concerns about default risk. Central banks watch yield spreads \u2014 the gap between yields on risky and safe bonds \u2014 as a measure of financial stress. The yield on government bonds serves as a benchmark for borrowing costs across the economy. Common mistake: students sometimes treat yield and interest rate as identical \u2014 yield is the market return on an existing bond and fluctuates with its price; the coupon rate is fixed at issue.",
     seeAlso: ["bonds", "interest-rate", "quantitative-easing", "inflation-expectations", "risk-premium"],
-  }
+  },
 
   {
     slug: "appreciation",
