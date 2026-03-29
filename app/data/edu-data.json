@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "generated": "2026-03-28"
+    "generated": "2026-03-29"
   },
   "charts": {
     "inflation": {
@@ -2634,7 +2634,7 @@
           1.35,
           1.38,
           1.35,
-          1.32
+          1.33
         ],
         "us": [
           93.08,
@@ -2756,7 +2756,7 @@
           98.28,
           96.99,
           97.61,
-          100.5
+          100.15
         ],
         "eurozone": [
           1.14,
@@ -2878,7 +2878,7 @@
           1.17,
           1.2,
           1.18,
-          1.14
+          1.15
         ],
         "china": [
           6.47,
@@ -3000,7 +3000,7 @@
           7.0,
           6.95,
           6.84,
-          6.9
+          6.91
         ],
         "japan": [
           108.08,
@@ -3122,7 +3122,7 @@
           156.41,
           153.16,
           155.86,
-          159.72
+          159.7
         ],
         "brazil": [
           3.48,
@@ -3244,7 +3244,7 @@
           5.48,
           5.19,
           5.14,
-          5.3
+          5.24
         ]
       }
     }
@@ -3257,7 +3257,7 @@
         "flag": "🇬🇧",
         "country": "UK",
         "unit": "%",
-        "releasedDaysAgo": 9,
+        "releasedDaysAgo": 10,
         "icon": "cloudy",
         "label": "Good example of inflation coming under control. UK CPI is above target but heading in the right direction."
       },
@@ -3267,7 +3267,7 @@
         "flag": "🇺🇸",
         "country": "US",
         "unit": "%",
-        "releasedDaysAgo": 16,
+        "releasedDaysAgo": 17,
         "icon": "sunny",
         "label": "Good example of inflation on target. US CPI is sitting right where the central bank wants it."
       },
@@ -3277,7 +3277,7 @@
         "flag": "🇪🇺",
         "country": "Eurozone",
         "unit": "%",
-        "releasedDaysAgo": 9,
+        "releasedDaysAgo": 10,
         "icon": "sunny",
         "label": "Good example of inflation on target. Eurozone CPI is sitting right where the central bank wants it."
       },
@@ -3287,7 +3287,7 @@
         "flag": "🇨🇳",
         "country": "China",
         "unit": "%",
-        "releasedDaysAgo": 17,
+        "releasedDaysAgo": 18,
         "icon": "sunny",
         "label": "Good example of inflation running slightly cool. China CPI is just below target."
       },
@@ -3297,7 +3297,7 @@
         "flag": "🇯🇵",
         "country": "Japan",
         "unit": "%",
-        "releasedDaysAgo": 7,
+        "releasedDaysAgo": 8,
         "icon": "sunny",
         "label": "Good example of inflation on target. Japan CPI is sitting right where the central bank wants it."
       },
@@ -3307,7 +3307,7 @@
         "flag": "🇧🇷",
         "country": "Brazil",
         "unit": "%",
-        "releasedDaysAgo": 14,
+        "releasedDaysAgo": 15,
         "icon": "cloudy",
         "label": "Good example of inflation coming under control. Brazil CPI is above target but heading in the right direction."
       }
@@ -3319,7 +3319,7 @@
         "flag": "🇬🇧",
         "country": "UK",
         "unit": "%",
-        "releasedDaysAgo": 10,
+        "releasedDaysAgo": 11,
         "icon": "cloudy",
         "label": "Good example of elevated unemployment. UK is above its structural rate but improving."
       },
@@ -3329,7 +3329,7 @@
         "flag": "🇺🇸",
         "country": "US",
         "unit": "%",
-        "releasedDaysAgo": 21,
+        "releasedDaysAgo": 22,
         "icon": "sunny",
         "label": "Good example of a tight labour market. US unemployment is at or below its normal level."
       },
@@ -3339,7 +3339,7 @@
         "flag": "🇪🇺",
         "country": "Eurozone",
         "unit": "%",
-        "releasedDaysAgo": 25,
+        "releasedDaysAgo": 26,
         "icon": "sunny",
         "label": "Good example of a tight labour market. Eurozone unemployment is at or below its normal level."
       },
@@ -3349,7 +3349,7 @@
         "flag": "🇨🇳",
         "country": "China",
         "unit": "%",
-        "releasedDaysAgo": 11,
+        "releasedDaysAgo": 12,
         "icon": "sunny",
         "label": "Good example of a tight labour market. China unemployment is at or below its normal level."
       },
@@ -3359,7 +3359,7 @@
         "flag": "🇯🇵",
         "country": "Japan",
         "unit": "%",
-        "releasedDaysAgo": 28,
+        "releasedDaysAgo": 29,
         "icon": "sunny",
         "label": "Good example of a tight labour market. Japan unemployment is at or below its normal level."
       },
@@ -3369,7 +3369,7 @@
         "flag": "🇧🇷",
         "country": "Brazil",
         "unit": "%",
-        "releasedDaysAgo": 1,
+        "releasedDaysAgo": 2,
         "icon": "sunny",
         "label": "Good example of a tight labour market. Brazil unemployment is at or below its normal level."
       }
@@ -3381,7 +3381,7 @@
         "flag": "🇬🇧",
         "country": "UK",
         "unit": "%",
-        "releasedDaysAgo": 43,
+        "releasedDaysAgo": 44,
         "icon": "sunny",
         "label": "Good example of healthy growth. UK is expanding at or above its trend rate."
       },
@@ -3391,7 +3391,7 @@
         "flag": "🇺🇸",
         "country": "US",
         "unit": "%",
-        "releasedDaysAgo": 29,
+        "releasedDaysAgo": 30,
         "icon": "sunny",
         "label": "Good example of healthy growth. US is expanding at or above its trend rate."
       },
@@ -3401,7 +3401,7 @@
         "flag": "🇪🇺",
         "country": "Eurozone",
         "unit": "%",
-        "releasedDaysAgo": 57,
+        "releasedDaysAgo": 58,
         "icon": "sunny",
         "label": "Good example of healthy growth. Eurozone is expanding at or above its trend rate."
       },
@@ -3411,7 +3411,7 @@
         "flag": "🇨🇳",
         "country": "China",
         "unit": "%",
-        "releasedDaysAgo": 70,
+        "releasedDaysAgo": 71,
         "icon": "sunny",
         "label": "Good example of healthy growth. China is expanding at or above its trend rate."
       },
@@ -3421,7 +3421,7 @@
         "flag": "🇯🇵",
         "country": "Japan",
         "unit": "%",
-        "releasedDaysAgo": 39,
+        "releasedDaysAgo": 40,
         "icon": "sunny",
         "label": "Good example of healthy growth. Japan is expanding at or above its trend rate."
       },
@@ -3431,7 +3431,7 @@
         "flag": "🇧🇷",
         "country": "Brazil",
         "unit": "%",
-        "releasedDaysAgo": 29,
+        "releasedDaysAgo": 30,
         "icon": "sunny",
         "label": "Good example of healthy growth. Brazil is expanding at or above its trend rate."
       }
@@ -3443,7 +3443,7 @@
         "flag": "🇬🇧",
         "country": "UK",
         "unit": "%",
-        "releasedDaysAgo": 50,
+        "releasedDaysAgo": 51,
         "icon": "cloudy",
         "label": "Good example of a central bank on hold. UK is watching the data before moving rates."
       },
@@ -3453,7 +3453,7 @@
         "flag": "🇺🇸",
         "country": "US",
         "unit": "%",
-        "releasedDaysAgo": 9,
+        "releasedDaysAgo": 10,
         "icon": "cloudy",
         "label": "Good example of a central bank on hold. US is watching the data before moving rates."
       },
@@ -3463,7 +3463,7 @@
         "flag": "🇪🇺",
         "country": "Eurozone",
         "unit": "%",
-        "releasedDaysAgo": 22,
+        "releasedDaysAgo": 23,
         "icon": "cloudy",
         "label": "Good example of a central bank on hold. Eurozone is watching the data before moving rates."
       },
@@ -3473,7 +3473,7 @@
         "flag": "🇨🇳",
         "country": "China",
         "unit": "%",
-        "releasedDaysAgo": 8,
+        "releasedDaysAgo": 9,
         "icon": "cloudy",
         "label": "Good example of a central bank on hold. China is watching the data before moving rates."
       },
@@ -3483,7 +3483,7 @@
         "flag": "🇯🇵",
         "country": "Japan",
         "unit": "%",
-        "releasedDaysAgo": 9,
+        "releasedDaysAgo": 10,
         "icon": "cloudy",
         "label": "Good example of a central bank on hold. Japan is watching the data before moving rates."
       },
@@ -3493,7 +3493,7 @@
         "flag": "🇧🇷",
         "country": "Brazil",
         "unit": "%",
-        "releasedDaysAgo": 9,
+        "releasedDaysAgo": 10,
         "icon": "stormy",
         "label": "Good example of restrictive monetary policy. Brazil rates are high and squeezing the economy."
       }
@@ -3573,7 +3573,7 @@
         "flag": "🇬🇧",
         "country": "UK",
         "unit": "% GDP",
-        "releasedDaysAgo": 43,
+        "releasedDaysAgo": 44,
         "icon": "cloudy",
         "label": "Good example of a current account deficit. UK is buying more from the world than it is selling."
       },
@@ -3583,7 +3583,7 @@
         "flag": "🇺🇸",
         "country": "US",
         "unit": "% GDP",
-        "releasedDaysAgo": 22,
+        "releasedDaysAgo": 23,
         "icon": "cloudy",
         "label": "Good example of a current account deficit. US is buying more from the world than it is selling."
       },
@@ -3593,7 +3593,7 @@
         "flag": "🇪🇺",
         "country": "Eurozone",
         "unit": "% GDP",
-        "releasedDaysAgo": 66,
+        "releasedDaysAgo": 67,
         "icon": "sunny",
         "label": "Good example of a large current account surplus. Eurozone is selling significantly more to the world than it is buying."
       },
@@ -3603,7 +3603,7 @@
         "flag": "🇨🇳",
         "country": "China",
         "unit": "% GDP",
-        "releasedDaysAgo": 21,
+        "releasedDaysAgo": 22,
         "icon": "sunny",
         "label": "Good example of a current account surplus. China is selling more to the world than it is buying."
       },
@@ -3613,7 +3613,7 @@
         "flag": "🇯🇵",
         "country": "Japan",
         "unit": "% GDP",
-        "releasedDaysAgo": 23,
+        "releasedDaysAgo": 24,
         "icon": "sunny",
         "label": "Good example of a large current account surplus. Japan is selling significantly more to the world than it is buying."
       },
@@ -3623,7 +3623,7 @@
         "flag": "🇧🇷",
         "country": "Brazil",
         "unit": "% GDP",
-        "releasedDaysAgo": 31,
+        "releasedDaysAgo": 32,
         "icon": "cloudy",
         "label": "Good example of a current account deficit. Brazil is buying more from the world than it is selling."
       }
