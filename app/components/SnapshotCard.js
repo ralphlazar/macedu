@@ -48,11 +48,11 @@ const CADENCE_DAYS = {
 }
 
 function nextReleaseLabel(metric, releasedDaysAgo) {
-  if (metric === 'exchange-rates') return 'Updated daily'
+  if (metric === 'exchange-rates') return { prefix: 'Updated daily', days: null }
   const cadence = CADENCE_DAYS[metric] || 30
   const days = cadence - (releasedDaysAgo || 0)
-  if (days <= 0) return 'Due any day'
-  return `Next release: ~${days}d`
+  if (days <= 0) return { prefix: 'Due any day', days: null }
+  return { prefix: 'Next release: ', days: `~${days}d` }
 }
 
 export default function SnapshotCard({
@@ -75,24 +75,40 @@ export default function SnapshotCard({
     }}>
 
       {/* Badges — top right */}
+      <style>{`
+        @keyframes throb-cyan {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.3; }
+        }
+        .days-throb {
+          color: #00e5ff;
+          font-size: 14px;
+          animation: throb-cyan 1.1s ease-in-out infinite;
+          display: inline-block;
+        }
+      `}</style>
       <div style={{
         position: 'absolute',
         top: 24,
         right: 28,
         textAlign: 'right',
       }}>
-        {!studentMode && (
-          <div style={{
-            fontSize: 12,
-            fontWeight: 600,
-            color: 'rgba(255,255,255,0.55)',
-            fontFamily: "'IBM Plex Mono', monospace",
-            marginBottom: 4,
-            letterSpacing: '0.04em',
-          }}>
-            {nextReleaseLabel(metric, releasedDaysAgo)}
-          </div>
-        )}
+        {!studentMode && (() => {
+          const rel = nextReleaseLabel(metric, releasedDaysAgo)
+          return (
+            <div style={{
+              fontSize: 12,
+              fontWeight: 600,
+              color: 'rgba(255,255,255,0.55)',
+              fontFamily: "'IBM Plex Mono', monospace",
+              marginBottom: 4,
+              letterSpacing: '0.04em',
+            }}>
+              {rel.prefix}
+              {rel.days && <span className="days-throb">{rel.days}</span>}
+            </div>
+          )
+        })()}
         <div style={{
           fontSize: 11,
           fontWeight: 600,

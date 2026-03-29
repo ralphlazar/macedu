@@ -27,6 +27,11 @@ const COUNTRY_LABELS = {
 
 const MONO = "'IBM Plex Mono', monospace"
 
+const CURRICULUM_LABELS = {
+  'alevel': { country: '🇬🇧  United Kingdom', name: 'A-Level Economics · AQA' },
+  'ap-economics': { country: '🇺🇸  United States', name: 'AP Economics · College Board' },
+}
+
 export default function TeacherHomePage({ metrics, curriculum }) {
   const [selectedMetric,  setSelectedMetric]  = useState('')
   const [selectedCountry, setSelectedCountry] = useState('')
@@ -74,6 +79,31 @@ export default function TeacherHomePage({ metrics, curriculum }) {
           padding: '28px 28px 24px',
           marginBottom: 20,
         }}>
+
+          {/* Curriculum badge */}
+          {CURRICULUM_LABELS[curriculum] && (
+            <div style={{ textAlign: 'center', marginBottom: 20 }}>
+              <div style={{
+                fontFamily: MONO,
+                fontSize: 11,
+                fontWeight: 500,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                color: 'rgba(255,255,255,0.45)',
+                marginBottom: 2,
+              }}>
+                {CURRICULUM_LABELS[curriculum].country}
+              </div>
+              <div style={{
+                fontFamily: "'Instrument Serif', Georgia, serif",
+                fontSize: 22,
+                fontWeight: 400,
+                color: '#ffffff',
+              }}>
+                {CURRICULUM_LABELS[curriculum].name}
+              </div>
+            </div>
+          )}
 
           {/* Eyebrow */}
           <div style={{
@@ -200,7 +230,7 @@ export default function TeacherHomePage({ metrics, curriculum }) {
           justifyContent: 'center',
           gap: 6,
           fontFamily: MONO,
-          fontSize: 11.5,
+          fontSize: 14,
           color: '#8099b8',
           padding: '0 2px',
         }}>

@@ -362,24 +362,7 @@ export default function LessonOverlay({
             <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: NAVY }}>
               {reveal}
             </p>
-            {!studentMode && (
-              <button
-                onClick={handleReset}
-                style={{
-                  marginTop: 12,
-                  background: 'none',
-                  border: 'none',
-                  fontSize: 12,
-                  color: '#8099b8',
-                  cursor: 'pointer',
-                  padding: 0,
-                  textDecoration: 'underline',
-                  fontFamily: 'inherit',
-                }}
-              >
-                Try again
-              </button>
-            )}
+
           </div>
         )}
       </div>
