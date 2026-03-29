@@ -26,7 +26,7 @@ export default function RootPage() {
           lineHeight: 1.25,
           margin: '0 0 12px',
         }}>
-          Bringing<br/><span style={{ color: '#378ADD' }}>A-level Macroeconomics</span><br/>to life<br/>with <span style={{ color: '#F0843C' }}>live data</span>
+          Bringing<br/><span style={{ color: '#378ADD' }}>A-level Macroeconomics</span><br/>to life<br/>with <span style={{ color: '#F0843C' }}>current data</span>
         </h1>
 
         <p style={{
@@ -35,7 +35,7 @@ export default function RootPage() {
           lineHeight: 1.65,
           margin: '0 0 40px',
         }}>
-          Six metrics. Six economies. Updated daily.
+          Current data, updated on release day.
         </p>
 
         <a

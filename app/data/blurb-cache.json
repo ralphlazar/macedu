@@ -1,0 +1,182 @@
+{
+  "inflation:uk": [
+    "Inflation is falling but has not landed. At 2.5%, it remains above the Bank of England's 2% target.",
+    "Services inflation is the stubborn part. Wage growth is keeping price pressure alive in the non-goods economy.",
+    "The last mile is always the hardest. Disinflation slows as it approaches target."
+  ],
+  "exchange-rates:uk": [
+    "Sterling is holding steady against the dollar, offering rare relief from the volatility that usually dogs currency markets.",
+    "A flat exchange rate removes a layer of uncertainty for importers and exporters, making forward planning marginally less of a guessing game.",
+    "Stability like this tends to reflect investor confidence in the underlying economy, though it rarely survives contact with political surprise or central bank surprise."
+  ],
+  "trade:uk": [
+    "The UK runs a persistent current account deficit, meaning it imports more goods, services, and investment income than it exports.",
+    "This is partly structural: a large financial sector generates invisible earnings, but goods trade is chronically in deficit.",
+    "Stable and financeable for now, but not a position of strength if global risk appetite turns against sterling."
+  ],
+  "inflation:us": [
+    "The Fed's target inflation sits comfortably within its comfort zone, rewarding patient monetary policy and vindicating the hold on rate cuts.",
+    "Price growth has stabilised at levels that don't erode purchasing power or encourage wage spirals, keeping the central bank's dual mandate firmly in view.",
+    "With inflation neither accelerating nor collapsing, the US avoids the policy jeopardy that comes with either extreme, though complacency remains inflation's oldest enemy."
+  ],
+  "inflation:eurozone": [
+    "The ECB's target is firmly in view, with inflation holding steady at the Goldilocks zone where monetary policy can actually relax without triggering a fresh spiral.",
+    "This is the boring outcome everyone should want: price pressures have cooled from the spike without collapsing into deflation, which means real interest rates aren't punitive and growth can breathe.",
+    "Flat inflation at target removes the urgency from rate decisions and hands policymakers room to pivot toward supporting employment, the second pillar of their mandate."
+  ],
+  "inflation:china": [
+    "China's inflation has flatlined just beneath the central bank's comfort zone, suggesting demand remains tepid even as supply chains normalise.",
+    "A cool price environment hands policymakers room to loosen monetary policy without stoking runaway costs, though it also hints at sluggish domestic consumption.",
+    "This is the goldilocks scenario for Beijing: no deflation panic, no rate-hike pressure, and space to stimulate if growth falters further."
+  ],
+  "inflation:japan": [
+    "Japan's inflation has settled at the Bank of Japan's target, marking a rare victory for an economy that spent decades fighting deflation.",
+    "This stable price environment reflects both anchored wage growth and disciplined monetary policy, giving the BoJ room to normalise rates without sparking fresh shocks.",
+    "For investors, the real story is whether this plateau holds—Japan's structural challenges mean inflation could slip either way once external pressures ease."
+  ],
+  "inflation:brazil": [
+    "Brazil's inflation trajectory is cooling without collapsing, which is precisely what policymakers want to see after years of overheating.",
+    "The central bank's tightening cycle is working, though CPI remains stubbornly above the official target band.",
+    "This is the tricky part: inflation is falling but not fast enough to declare victory, leaving the BCB with nowhere obvious to cut rates yet."
+  ],
+  "unemployment:uk": [
+    "Unemployment sits above the structural rate, signalling slack in the labour market and spare capacity for growth before wage pressures bite.",
+    "The upward drift has flattened, suggesting policy support and sectoral reallocation are beginning to take hold despite persistent headwinds.",
+    "This plateau is the sweet spot for policymakers: unemployment high enough to anchor inflation expectations, but stable enough to avoid a wages spiral."
+  ],
+  "unemployment:us": [
+    "US unemployment sits at its natural rate, meaning the labour market has virtually no spare capacity left to fill.",
+    "Firms are competing hard for workers, which typically pushes wage growth upwards and raises inflation concerns for the Fed.",
+    "A flat trend here signals the economy has reached equilibrium: further job gains would require poaching talent from elsewhere rather than pulling people back into work."
+  ],
+  "unemployment:eurozone": [
+    "Eurozone unemployment sits at its structural rate, meaning there's little slack left in the labour market. Employers are competing hard for talent.",
+    "A tight labour market typically drives wage growth and inflation pressure, which is exactly what policymakers watch when deciding on interest rates.",
+    "At this level, unemployment can't fall much further without sparking wage spirals, so the real economic action is now in wage-setting and pricing power."
+  ],
+  "unemployment:china": [
+    "China's unemployment rate is holding at its baseline level, signalling a labour market running near capacity despite broader economic headwinds.",
+    "A tight labour market typically means wage pressure builds and firms struggle to fill vacancies, constraining growth in ways that aren't immediately visible in headline unemployment figures.",
+    "The flatness here is deceptive: when joblessness sits persistently low, the economy loses one of its key shock absorbers, leaving less room for policy manoeuvre when shocks arrive."
+  ],
+  "unemployment:japan": [
+    "Japan's unemployment sits at its structural floor, a rare feat for a major economy and proof that demographic headwinds can actually tighten labour markets rather than loosen them.",
+    "With fewer working-age people chasing jobs, employers are competing fiercely for talent, wage growth is stickier than it would be otherwise, and skill mismatches matter more than slack.",
+    "The flatness masks a taut underlying reality: firms are hoarding labour and reluctant to shed workers, which looks stable but limits flexibility when the economic cycle turns."
+  ],
+  "unemployment:brazil": [
+    "Brazil's unemployment sits at its cyclical floor, signalling a labour market with little slack and wages under upward pressure.",
+    "Tight conditions mean firms are competing for workers rather than workers competing for jobs—a rare luxury in emerging markets.",
+    "Watch for inflation creep if this persists; businesses with no spare labour capacity tend to pass costs straight to consumers."
+  ],
+  "gdp:uk": [
+    "UK GDP is tracking at trend, which means the economy is growing at a pace the supply side can sustain without overheating inflation.",
+    "This is the Goldilocks zone: expansion without the boom-and-bust volatility that tends to wreck policy credibility and wage-price spirals.",
+    "Sunny skies here reflect genuine fundamentals, not a sugar rush from fiscal splurging or credit binges—though don't expect champagne moments either."
+  ],
+  "gdp:us": [
+    "US GDP is expanding at or above its long-run trend rate, which is exactly where you want to be for sustained economic health.",
+    "This pace of growth signals the economy is neither overheating nor stalling, leaving room for employment gains without triggering runaway inflation.",
+    "Flat readings on the headline are misleading here: the real story is an economy humming along at its natural cruising speed."
+  ],
+  "gdp:eurozone": [
+    "Eurozone GDP is expanding at trend, which is precisely where you want a mature economy to be—no overheating, no stalling.",
+    "This is the sweet spot for policymakers: growth strong enough to create jobs and tax revenue, but not so frantic that it triggers inflation spirals.",
+    "Sunny conditions mean structural demand is holding up across the bloc, suggesting the expansion has legs rather than relying on temporary stimulus."
+  ],
+  "gdp:china": [
+    "China's GDP is expanding at trend, which means the economy is neither overheating nor stalling—precisely where policymakers want it.",
+    "Growth at potential rate suggests the economy has room to absorb shocks without triggering either recession fears or inflation alarms.",
+    "Flat trajectory relative to trend is the sweet spot: authorities can focus on structural reform rather than firefighting demand or cooling an economy in overdrive."
+  ],
+  "gdp:japan": [
+    "Japan's GDP is expanding in line with its long-run potential, which is precisely where you want a mature economy to sit.",
+    "This is growth without the overheating risk that forces central banks to slam on the brakes—textbook soft landing territory.",
+    "After decades of stagnation, Japan's ability to sustain trend-rate expansion marks a genuine shift in the economic narrative."
+  ],
+  "gdp:brazil": [
+    "Brazil's economy is expanding at its underlying potential rate, which is precisely where you want to see growth if you're trying to avoid overheating.",
+    "This pace is neither sluggish nor dangerously rapid, making it the economic equivalent of a well-tuned engine rather than one misfiring or redlining.",
+    "Sustained trend-rate expansion gives policymakers room to breathe and suggests the economy isn't about to tip into either recession or inflation spirals."
+  ],
+  "interest-rates:uk": [
+    "The Bank of England is in wait-and-see mode, leaving rates untouched while inflation and growth signals remain mixed.",
+    "Markets are pricing in possible cuts later in the year, but the MPC isn't rushing—they're gathering more evidence on wage pressures and price stickiness first.",
+    "This holding pattern suits policymakers caught between stubborn services inflation and a weakening labour market, neither clear enough to justify a move yet."
+  ],
+  "interest-rates:us": [
+    "The Fed's patience is showing. With rates on pause, policymakers are clearly waiting for clearer signals on inflation and growth before committing to their next move.",
+    "This is classic central banking caution. The cloudy outlook means the Fed gets to sit tight, resist political pressure, and let economic data do the talking.",
+    "Rate markets are pricing in this holding pattern, which gives businesses and households a rare moment of stability to plan around fixed borrowing costs."
+  ],
+  "interest-rates:eurozone": [
+    "The ECB is sitting tight, waiting for clearer signals on inflation and growth before committing to its next move.",
+    "With economic data mixed and price pressures uneven across member states, holding rates steady is the cautious play.",
+    "Markets are pricing in patience rather than conviction, reflecting genuine uncertainty about the timing of any shift."
+  ],
+  "interest-rates:china": [
+    "China's central bank is doing precisely nothing with rates right now, which is the most honest thing it can do when economic signals are mixed.",
+    "The hold reflects classic wait-and-see monetary policy: move only once you have clarity on growth, inflation, and credit demand.",
+    "This is textbook caution from Beijing. Cutting too soon wastes ammunition; hiking looks tone-deaf if growth stumbles. Better to let the data crystallise first."
+  ],
+  "interest-rates:japan": [
+    "The Bank of Japan has paused its hiking cycle and is taking a wait-and-see approach to inflation and wage growth data.",
+    "Rates remain anchored whilst policymakers assess whether recent economic momentum is durable or transitory.",
+    "This caution reflects the BoJ's scarred history with premature tightening and its need to build confidence that deflation risks have truly passed."
+  ],
+  "interest-rates:brazil": [
+    "Brazil's central bank has maintained rates at restrictive levels, deliberately keeping borrowing costs elevated to combat inflationary pressures.",
+    "Higher rates are tightening credit conditions across the economy, dampening investment and consumer spending as firms and households face steeper debt servicing costs.",
+    "The flat trajectory signals the bank's resolve to hold the line on inflation rather than pivot toward stimulus, even as growth headwinds intensify."
+  ],
+  "exchange-rates:us": [
+    "The dollar is holding its ground against major currency baskets, neither strengthening nor weakening in any meaningful way.",
+    "This stability reflects balanced capital flows and a lack of sudden shifts in monetary policy expectations or risk sentiment.",
+    "For investors and traders, a flat rate means fewer currency-driven surprises but also fewer opportunities for forex-based profits."
+  ],
+  "exchange-rates:eurozone": [
+    "The euro is holding its ground against the dollar, offering a textbook case of exchange rate stability when economic fundamentals align.",
+    "Steady rates like this reduce uncertainty for importers and exporters across the Eurozone, making price-setting and contract negotiation far less of a guessing game.",
+    "In contrast to volatile periods, a flat trajectory suggests the market sees no major reason to reprrice the currency—no shock, no rate divergence, no crisis du jour."
+  ],
+  "exchange-rates:china": [
+    "The yuan is holding its ground against the dollar, offering a rare glimpse of currency stability in a volatile global environment.",
+    "A steady exchange rate makes life easier for exporters and importers alike—no surprises, no hedging nightmares, just predictable cross-border trade.",
+    "This stability suggests the People's Bank has its hand firmly on the tiller, maintaining the kind of policy consistency that prevents the currency from becoming a pinball between capital flows."
+  ],
+  "exchange-rates:japan": [
+    "The yen is holding its ground against the dollar, defying the usual volatility that plagues currency pairs.",
+    "Stability in the yen matters because it signals confidence in Japan's monetary policy and reduces hedging costs for multinationals doing business there.",
+    "A flat rate environment is rare enough to be worth teaching: it shows what happens when capital flows and interest rate differentials are genuinely balanced."
+  ],
+  "exchange-rates:brazil": [
+    "The real is holding its ground against the dollar, a rare moment of calm in a currency that usually lurches around like a caffeinated trader.",
+    "Stable exchange rates are catnip for businesses: they can actually plan next quarter without hedging their bets into oblivion.",
+    "This stability matters because import costs stay predictable and foreign investment doesn't flee at the first whiff of volatility."
+  ],
+  "trade:us": [
+    "The US is importing far more than it exports, running a persistent current account deficit that reflects American consumer appetite outpacing domestic production capacity.",
+    "This deficit is partly structural: the dollar's reserve currency status makes US goods pricier abroad whilst foreign goods arrive cheap at home, creating an asymmetry in trade flows.",
+    "Flatness here masks the real story—the deficit sits stubbornly high with little sign of rebalancing, meaning Americans are essentially borrowing from the rest of the world to fund consumption today."
+  ],
+  "trade:eurozone": [
+    "The Eurozone runs a hefty current account surplus, shifting far more goods outbound than it imports. This is the economic equivalent of your household selling more stuff than it buys.",
+    "A surplus this large reflects competitive manufacturing exports and relatively restrained domestic demand for foreign goods. Germany's industrial machine does a lot of the heavy lifting here.",
+    "Flat momentum masks the structural reality: the Eurozone has become a net creditor to the world, accumulating foreign assets whilst other regions rack up debt. This position is politically explosive and economically unsustainable if it widens further."
+  ],
+  "trade:china": [
+    "China's exports continue to outpace imports, maintaining a healthy current account surplus and positioning the country as a net creditor to the global economy.",
+    "This persistent trade advantage reflects both China's manufacturing prowess and the world's appetite for its goods, even as domestic consumption remains relatively constrained.",
+    "A surplus of this scale typically funds capital outflows—everything from foreign direct investment to Belt and Road commitments—giving Beijing substantial geopolitical leverage."
+  ],
+  "trade:japan": [
+    "Japan's trade balance remains in robust surplus, with exports substantially outpacing imports. This is the economic equivalent of selling your neighbour's lawnmower and keeping the money.",
+    "A current account surplus of this scale reflects Japan's structural advantage in manufacturing and technology exports, particularly in automotive and electronics sectors. The rest of the world keeps buying; Japan keeps accumulating foreign currency.",
+    "Persistent surpluses like this create geopolitical friction and currency pressure, yet Japan's ageing population and domestic demand weakness mean it has little use for the cash at home. Exporting your way to prosperity works until you run out of people to sell to."
+  ],
+  "trade:brazil": [
+    "Brazil's trade position remains stubbornly negative, with imports outpacing exports and showing little sign of correction.",
+    "A current account deficit this persistent signals that domestic demand is running ahead of productive capacity, forcing reliance on foreign goods.",
+    "Without either a sharp drop in consumption or a productivity surge in export sectors, this imbalance will keep the currency under pressure."
+  ]
+}

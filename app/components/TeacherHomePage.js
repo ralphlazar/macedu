@@ -197,6 +197,7 @@ export default function TeacherHomePage({ metrics, curriculum }) {
         <div style={{
           display: 'flex',
           alignItems: 'center',
+          justifyContent: 'center',
           gap: 6,
           fontFamily: MONO,
           fontSize: 11.5,
@@ -218,6 +219,22 @@ export default function TeacherHomePage({ metrics, curriculum }) {
         </div>
 
       </div>
+        {/* Schedule note */}
+        <div style={{
+          fontFamily: MONO,
+          fontSize: 11,
+          color: '#8099b8',
+          padding: '8px 2px 0',
+          fontStyle: 'italic',
+          lineHeight: 1.6,
+          textAlign: 'center',
+          textAlign: 'center',
+        }}>
+          <span style={{ fontWeight: 600, fontStyle: 'normal' }}>Data updates on official release schedules:</span><br/>
+          Inflation and unemployment: Monthly<br/>
+          GDP and trade: Quarterly<br/>
+          Interest rates: ~8× per year
+        </div>
     </div>
   )
 }

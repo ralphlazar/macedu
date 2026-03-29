@@ -37,6 +37,24 @@ const FX_LABELS = {
   'brazil':   'USD / BRL',
 }
 
+
+const CADENCE_DAYS = {
+  'inflation':      30,
+  'unemployment':   30,
+  'gdp':            90,
+  'interest-rates': 45,
+  'exchange-rates': 0,
+  'trade':          90,
+}
+
+function nextReleaseLabel(metric, releasedDaysAgo) {
+  if (metric === 'exchange-rates') return 'Updated daily'
+  const cadence = CADENCE_DAYS[metric] || 30
+  const days = cadence - (releasedDaysAgo || 0)
+  if (days <= 0) return 'Due any day'
+  return `Next release: ~${days}d`
+}
+
 export default function SnapshotCard({
   metric, country, data, aqaRef, metricTitle, allCountries, studentMode = false,
 }) {
@@ -63,17 +81,18 @@ export default function SnapshotCard({
         right: 28,
         textAlign: 'right',
       }}>
-        <div style={{
-          fontSize: 15,
-          fontWeight: 700,
-          color: 'rgba(255,255,255,0.85)',
-          fontFamily: "'IBM Plex Mono', monospace",
-          marginBottom: 4,
-        }}>
-          {releasedDaysAgo === 0
-            ? 'Released today'
-            : <>Released <span style={{ color: '#5dd8f5' }}>{releasedDaysAgo}d</span> ago</>}
-        </div>
+        {!studentMode && (
+          <div style={{
+            fontSize: 12,
+            fontWeight: 600,
+            color: 'rgba(255,255,255,0.55)',
+            fontFamily: "'IBM Plex Mono', monospace",
+            marginBottom: 4,
+            letterSpacing: '0.04em',
+          }}>
+            {nextReleaseLabel(metric, releasedDaysAgo)}
+          </div>
+        )}
         <div style={{
           fontSize: 11,
           fontWeight: 600,
