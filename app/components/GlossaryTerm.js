@@ -122,7 +122,20 @@ export default function GlossaryTerm({ term, slug, brief, more }) {
                 More
               </button>
             )}
-
+            <Link
+              href={`/glossary/${slug}`}
+              onMouseDown={e => e.stopPropagation()}
+              onClick={e => e.stopPropagation()}
+              style={{
+                marginLeft: 'auto',
+                fontSize: 12,
+                color: '#999',
+                textDecoration: 'none',
+                fontFamily: "'IBM Plex Sans', sans-serif",
+              }}
+            >
+              Full entry →
+            </Link>
           </span>
         </span>
       )}

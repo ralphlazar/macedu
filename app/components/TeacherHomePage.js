@@ -88,14 +88,14 @@ export default function TeacherHomePage({ metrics, curriculum }) {
                 fontSize: 11,
                 fontWeight: 500,
                 letterSpacing: '0.1em',
-                textTransform: 'uppercase',
+                textTransform: 'uppercase', textAlign: 'center',
                 color: 'rgba(255,255,255,0.45)',
                 marginBottom: 2,
               }}>
                 {CURRICULUM_LABELS[curriculum].country}
               </div>
               <div style={{
-                fontFamily: "'Instrument Serif', Georgia, serif",
+                fontFamily: MONO,
                 fontSize: 22,
                 fontWeight: 400,
                 color: '#ffffff',
@@ -110,8 +110,8 @@ export default function TeacherHomePage({ metrics, curriculum }) {
             fontFamily: MONO,
             fontSize: 10,
             fontWeight: 500,
-            letterSpacing: '0.14em',
-            textTransform: 'uppercase',
+            letterSpacing: '0.14em', textAlign: 'center',
+            textTransform: 'uppercase', textAlign: 'center',
             color: BLUE,
             marginBottom: 8,
           }}>
@@ -126,7 +126,7 @@ export default function TeacherHomePage({ metrics, curriculum }) {
             color: '#ffffff',
             marginBottom: 24,
             lineHeight: 1.2,
-            letterSpacing: '-0.03em',
+            letterSpacing: '-0.03em', textAlign: 'center',
           }}>
             Pick a topic and a country.
           </div>
@@ -143,7 +143,7 @@ export default function TeacherHomePage({ metrics, curriculum }) {
                   fontSize: 10,
                   fontWeight: 500,
                   letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
+                  textTransform: 'uppercase', textAlign: 'center',
                   color: '#7a9cc0',
                   marginBottom: 5,
                 }}>

@@ -3,13 +3,16 @@ const ROLE_COLOUR = {
   student: '#F0843C',
 }
 
-export default function Header({ homeHref = '/', role = null }) {
+export default function Header({ homeHref = '/', role = null, showGlossary = false }) {
   const stripe = role ? ROLE_COLOUR[role] : null
   const tint = role === 'teacher'
     ? 'rgba(55,138,221,0.07)'
     : role === 'student'
     ? 'rgba(240,132,60,0.07)'
     : 'white'
+  const displayGlossary = showGlossary || role !== null
+  const nameStyle = { fontSize: '13px', fontWeight: '500', color: '#444' }
+
   return (
     <header style={{
       borderTop: stripe ? `3px solid ${stripe}` : '3px solid transparent',
@@ -23,15 +26,23 @@ export default function Header({ homeHref = '/', role = null }) {
         justifyContent: 'space-between',
         padding: '0.75rem 1.5rem',
       }}>
-        <a href={homeHref} style={{ textDecoration: 'none' }}>
-          <span style={{ fontSize: '13px', fontWeight: '500', color: '#444' }}>
-            macroeconomics.education
-          </span>
-        </a>
+        {role === 'student'
+          ? <span style={nameStyle}>macroeconomics.education</span>
+          : <a href={homeHref} style={{ textDecoration: 'none' }}><span style={nameStyle}>macroeconomics.education</span></a>
+        }
         <nav style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
-          {/* Glossary link added when Glossary is built */}
+          {displayGlossary && (
+            <a href="/glossary" style={{
+              fontSize: '13px',
+              color: '#378ADD',
+              textDecoration: 'none',
+              fontWeight: '500',
+              fontFamily: "'IBM Plex Sans', sans-serif",
+            }}>
+              Glossary
+            </a>
+          )}
         </nav>
-
       </div>
     </header>
   )
