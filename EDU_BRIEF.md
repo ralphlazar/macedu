@@ -1,6 +1,6 @@
 # EDU_BRIEF.md
 ## MacroSnaps Education Platform (macedu)
-### Living brief — updated Session 23
+### Living brief — updated Session 24
 
 ---
 
@@ -65,6 +65,8 @@ These apply in every session without being asked:
 /teacher/[curriculum]                          teacher homepage
 /teacher/[curriculum]/[metric]/[country]       teacher lesson page
 /student/[curriculum]/[metric]/[country]       student lesson page (link destination only)
+/glossary                                      A to Z glossary index
+/glossary/[term]                               individual term page
 ```
 MVP curriculum slug: `alevel`
 Student homepage (`/student/alevel`) exists as a route but is not linked from anywhere. Teachers generate student links; students only ever land on a specific card.
@@ -72,7 +74,7 @@ Student homepage (`/student/alevel`) exists as a route but is not linked from an
 **Metric slugs:** `inflation`, `unemployment`, `gdp`, `interest-rates`, `exchange-rates`, `trade`
 **Country slugs:** `uk`, `us`, `eurozone`, `china`, `japan`, `brazil`
 **Colours:** Teacher `#378ADD` (blue), Student `#F0843C` (orange), Pink `#c2185b` (teacher-only content), Cyan `#00e5ff` (next release throb)
-**Password:** croc (single password for now — two-password role split is on the to-do list)
+**Password:** croc (single password)
 
 ---
 
@@ -105,7 +107,7 @@ Subhead line 2: "Pick your curriculum."
 
 ## Teacher homepage
 
-Dark navy selector panel. Centred curriculum badge at top of panel (country label + curriculum name in Instrument Serif). Eyebrow "Today's data is live" below badge. Two dropdowns (topic + country) + "Open this card →" button. Stats line at 14px IBM Plex Mono: green dot · 36 data points · N updated today (pulsing pink) · N updated this week. Schedule note below in italic mono.
+Dark navy selector panel. Centred curriculum badge at top of panel (country label + curriculum name, IBM Plex Mono throughout). Eyebrow "Today's data is live" centred below badge. Headline "Pick a topic and a country." centred. Two dropdowns (topic + country) + "Open this card →" button. Stats line at 14px IBM Plex Mono: green dot · 36 data points · N updated today (pulsing pink) · N updated this week. Schedule note below in italic mono.
 
 `CURRICULUM_LABELS` map in `TeacherHomePage.js` drives the badge. Currently populated for `alevel` and `ap-economics`.
 
@@ -120,15 +122,20 @@ Structure per country entry:
 ```js
 metrics['inflation']['uk'] = {
   flag, name, value, direction, releasedDaysAgo,
-  icon,        // editorial: ☀️ ☁️ ⛈️
-  reveal,      // editorial: judgment text shown on teacher reveal
-  blurb,       // array of 3 strings (UK only currently; others [])
-  chartDates,  // array of date strings
-  chartSeries, // array of numeric values
+  icon,         // editorial: ☀️ ☁️ ⛈️
+  reveal,       // editorial: judgment text shown on teacher reveal
+  blurb,        // array of 3 strings — generated via Claude API (Haiku) on each release
+  chartDates,   // array of date strings
+  chartSeries,  // array of numeric values (last point forced to match value)
+  movePercent,  // FX only: % move year-on-year; null for non-FX metrics
 }
 ```
 
-**Blurb rule:** `blurb` is always an array of exactly 3 strings, never a prose string. Empty for non-UK cards until pipeline generates them.
+**Blurb rule:** `blurb` is always an array of exactly 3 strings, never a prose string. Generated via Claude API for all 36 cards. Cached in `blurb-cache.json`; regenerated on new release day (FX: daily).
+
+**Exchange rate filter:** `releasedDaysAgo` is set to `null` for FX entries where `abs(movePercent) < 5`. These entries are excluded from homepage stats.
+
+**Questions and prompts:** Generated via Claude API per card on each pipeline run. Country-specific — Japan unemployment gets Japan-framed questions, not generic UK ones. Stored in `metrics.js`.
 
 ### `app/data/aqa-alevel.js`
 Named export `{ lesson }`. Keyed by metric slug. **Edited by hand.** Never touched by pipeline.
@@ -166,13 +173,13 @@ Structure per concept:
 | `InterestRatesChart.js` | `<AnnotatedChart dark />` |
 | `ExchangeRatesChart.js` | `<AnnotatedChart dark />` |
 | `TradeChart.js` | `<AnnotatedChart dark chartType='bar' colorBySign height={180} />` |
-| `Header.js` | Role stripe (blue/orange top border) + tinted background by role. Props: `role, homeHref`. Site name links to homeHref for teachers; renders as plain unlinked text for students. |
+| `Header.js` | Role stripe (blue/orange top border) + tinted background by role. Props: `role, homeHref, showGlossary`. Site name links to homeHref for teachers and on glossary pages; renders as plain unlinked text for students. Glossary link shown when `role !== null` or `showGlossary={true}`. |
 | `SnapshotCard.js` | Layer 1. Props: `metric, country, data, aqaRef, metricTitle, allCountries, studentMode`. Renders blurb as numbered circle bullet list (white circles on dark card). Empty blurb renders nothing. `studentMode` swaps blurb for "What is this chart telling you?". `nextReleaseLabel()` returns `{ prefix, days }` — days rendered in cyan with throb animation. |
 | `LessonOverlay.js` | Layer 2. Props: `metric, country, lessonData, reveal, curriculum, showReveal, studentMode`. Pink disclaimer at top. Chart discussion collapsible (grey circles). Key points per question collapsible (pink circles). Discussion notes per prompt collapsible (pink circles). Share button encodes ?q= and ?d= params. No Try again button — weather exercise is editorial, not a quiz. |
-| `TeacherHomePage.js` | Dark navy panel with curriculum badge (centred, top), two dropdowns (topic + country) + "Open this card" button. Stats line 14px with pulsing pink "updated today" count. IBM Plex Mono throughout. `CURRICULUM_LABELS` map drives badge text. |
+| `TeacherHomePage.js` | Dark navy panel with curriculum badge (centred, IBM Plex Mono), eyebrow and headline centred, two dropdowns (topic + country) + "Open this card" button. Stats line 14px with pulsing pink "updated today" count. IBM Plex Mono throughout. `CURRICULUM_LABELS` map drives badge text. |
 | `StudentHomePage.js` | Exists but not linked. Student-facing homepage not in use. |
 | `PasswordGate.js` | Single password (croc). Wraps all pages via `app/layout.js`. |
-| `GlossaryTerm.js` | Inline tooltip component. Dotted underline on matched term. Hover/tap opens white tooltip panel with Brief definition, optional More expansion, and (when glossary pages are built) Full entry link. Close delay of 120ms prevents tooltip disappearing when mousing into it. |
+| `GlossaryTerm.js` | Inline tooltip component. Dotted underline on matched term. Hover/tap opens white tooltip panel with Brief definition, optional More expansion, and Full entry link to `/glossary/[slug]`. Close delay of 120ms prevents tooltip disappearing when mousing into it. |
 
 ---
 
@@ -186,12 +193,19 @@ Takes a plain string, returns JSX with matched glossary terms wrapped in `<Gloss
 - Case-insensitive match, original casing preserved in display
 - **First-match-only per string.** If a term appears more than once in a single bullet, question, or prompt, only the first instance is tooltipped. Subsequent instances render as plain text.
 - Applied to: blurb bullets (SnapshotCard), chartDiscussion bullets, sample question text, discussion prompt text (LessonOverlay) — teacher and student both.
-- **Not applied to:** UI chrome, header, labels, pink "show notes" teacher content (too much noise on detail-heavy collapsed text).
+- **Not applied to:** UI chrome, header, labels, pink "show notes" teacher content.
 
 ### `GlossaryTerm.js` tooltip behaviour
 - Always light (white/cream, dark text) regardless of context (dark card or white overlay).
-- Shows: term label (blue uppercase), Brief definition, optional More expansion on click, Full entry link (hidden until glossary pages are built).
+- Shows: term label (blue uppercase), Brief definition, optional More expansion on click, Full entry link to `/glossary/[slug]`.
 - Mobile: tap to open, tap outside to close.
+
+### Glossary pages
+```
+/glossary              A to Z index. Sidebar letter nav. Live client-side search. Brief shown per term.
+/glossary/[term]       Term page. All 3 levels (In short / More / Full definition). See also chips.
+```
+Both pages share the Header (no role, `showGlossary={true}`). Not role-gated. Notion-inspired design: full white, sidebar letter nav, hover rows on index, clean type hierarchy on term page.
 
 ### `app/data/glossary.js`
 Named export `{ glossary }`. Array of 136 term objects. **Never edited by hand after generation.**
@@ -206,13 +220,6 @@ Named export `{ glossary }`. Array of 136 term objects. **Never edited by hand a
   seeAlso: ['cost-push-inflation', 'aggregate-demand', 'output-gap'],
 }
 ```
-
-### Glossary pages (not yet built)
-```
-/glossary                   full glossary index (A to Z)
-/glossary/[term]            individual term page — all 3 levels (Brief, More, Detailed)
-```
-Pages share the Header but are not role-gated. "Full entry →" link in tooltip is hidden until these pages exist.
 
 ### Glossary copy rules
 - Brief level: one sentence, present tense, active voice, no hedging.
@@ -273,6 +280,8 @@ All pink content is **collapsed by default.** Each item has its own "Show notes 
 | `/teacher/[curriculum]/[metric]/[country]` | `app/teacher/[curriculum]/[metric]/[country]/page.js` |
 | `/student/[curriculum]` | `app/student/[curriculum]/page.js` |
 | `/student/[curriculum]/[metric]/[country]` | `app/student/[curriculum]/[metric]/[country]/page.js` |
+| `/glossary` | `app/glossary/page.js` — `'use client'` (live search) |
+| `/glossary/[term]` | `app/glossary/[term]/page.js` — async params (Next.js 16) |
 
 ---
 
@@ -280,7 +289,7 @@ All pink content is **collapsed by default.** Each item has its own "Show notes 
 
 - Display/headings: Instrument Serif (loaded via `<link>` in `app/layout.js`)
 - Body/UI: IBM Plex Sans / sans-serif
-- Data values/labels/numbered circles: IBM Plex Mono
+- Data values/labels/numbered circles/UI mono: IBM Plex Mono
 
 ---
 
@@ -298,6 +307,7 @@ All pink content is **collapsed by default.** Each item has its own "Show notes 
 - **3 bullets everywhere.** No prose. Enforced in components via `.slice(0, 3)` and documented in `aqa-alevel.js`.
 - **No double hyphens.** Use "to" ranges (12 to 18 months) or rewrite the sentence.
 - **Python invoked as `python3`.** Never `python`.
+- **Next.js 16 async params.** All `page.js` files that use `params` must `await params` before destructuring. Both `generateMetadata` and the page function must be `async`.
 
 ---
 
@@ -314,7 +324,7 @@ Macro-only for MVP. 136 platform-relevant terms across 6 topic groups. AQA offic
 **Curriculum roadmap (in priority order):**
 
 1. **AQA A-Level** — live. MVP curriculum.
-2. **AP Economics (USA)** — confirmed next. After A-Level is fully stable (AI question generation proven, glossary pages live, two-password system done).
+2. **AP Economics (USA)** — confirmed next. After A-Level is fully stable.
 3. **AQA GCSE** — third curriculum. Bigger market than university, cleaner syllabus anchor. Mostly a content simplification exercise; lesson framing needs rethinking ("What does this mean for households?" not AD/AS machinery).
 4. **IB Economics** — globally standardised, 160 countries, huge in US/UK private and international schools. Shares most glossary terms with A-Level.
 5. **Cambridge International A-Level (CIE)** — massive in South/Southeast Asia, East Africa, Middle East. ~80% content overlap with AQA A-Level.
@@ -348,22 +358,13 @@ Macro-only for MVP. 136 platform-relevant terms across 6 topic groups. AQA offic
 | 19 | UI session. TeacherHomePage: IBM Plex Mono throughout, dark navy selector panel, pulsing pink "updated today" count. Teaching Notes: chart discussion section added (collapsible, grey circles), key points converted from hints to 3-bullet arrays (collapsible, pink circles), discussion prompts converted to {p, notes} structure (collapsible, pink circles), pink eyes-only disclaimer added, per-item collapsible notes (Option B). aqa-alevel.js: full content rewrite -- no double hyphens, no AI phrasing, teacher voice throughout. Blurbs converted from prose to 3-bullet arrays in metrics.js. Numbered circle bullet system introduced site-wide (white/grey/pink by context). 3-bullet rule formalised as site-wide design principle and USP. |
 | 20 | Glossary planning and data generation. Copy discipline rules formalised and added to brief as NON-NEGOTIABLE block. Glossary architecture fully specified: 3-level definitions (Brief/More/Detailed), interaction model, URL structure, data schema. AQA official macro vocabulary fetched and curated to 106 platform-relevant terms across 6 topic groups. 106 entries generated via Claude API (claude-opus-4-5) using 5 few-shot examples. Full Brief-level review pass completed: 3 fixes applied (one "theory that" opener, two em dash violations). `app/data/glossary.js` written and ready. |
 | 21 | Glossary integration. `GlossaryTerm.js` tooltip component built: always-light white panel, 120ms close delay (fixes tooltip disappearing on mouse travel), Brief + More levels, Full entry link hidden until glossary pages exist. `wrapGlossaryTerms.js` utility built: longest-match-first, word-boundary aware, first-match-only per string. Wired into SnapshotCard (blurb bullets) and LessonOverlay (chartDiscussion, question text, prompt text -- teacher and student). Pink notes content deliberately excluded from tooltip wiring. Global workflow rules formalised: scripts to Downloads, full paths in all bash commands, clickable URLs always, Header student fix (site name unlinked on student pages) noted as pending. |
-| 22 | Strategic discussion: AP Economics (USA) expansion confirmed as next curriculum after A-Level is stable. Architecture already supports it via `[curriculum]` URL param. Multi-curriculum strategy section added to brief. Gap analysis of live lesson content vs glossary: 30 genuine missing terms identified and written. `add_glossary_terms.py` ran successfully. Glossary now 136 terms. |
+| 22 | Strategic discussion: AP Economics (USA) expansion confirmed as next curriculum after A-Level is stable. Architecture already supports it via `[curriculum]` URL param. Multi-curriculum strategy section added to brief. Gap analysis of live lesson content vs glossary: 30 genuine missing terms identified and written. `add_glossary_terms.py` ran successfully. Glossary now 136 terms. sync_edu.py rewritten: writes metrics.js directly, blurbs as 3-string arrays, Claude Haiku API for all 36 cards, blurb-cache.json, chartSeries last point forced to match value. |
 | 23 | Landing page rebuilt as 3-row curriculum picker (UK 4 tiles, US 3 tiles, International 4 tiles). A-Level only live link; all others "Soon". Flags on row labels. Teacher homepage: centred curriculum badge (country + name) at top of navy panel. Stats line bumped to 14px. SnapshotCard: `~Nd` in cyan (#00e5ff) with 1.1s throb animation. LessonOverlay: "Try again" button removed from weather exercise reveal -- exercise is editorial judgment not a quiz. Glossary comma bug fixed (yield entry line 849). |
+| 24 | Glossary index + term pages built (Notion-inspired: full white, sidebar letter nav, live client-side search, clean type hierarchy). GlossaryTerm.js: "Full entry →" link restored and live. Header.js: Glossary link added to all lesson pages (teacher and student); student site name rendered as plain unlinked text. TeacherHomePage.js: all IBM Plex Mono throughout (Instrument Serif removed from curriculum badge); eyebrow and headline centred. Exchange rate 5% movement filter added to sync_edu.py: FX entries with abs(movePercent) < 5% year-on-year are excluded from homepage stats (releasedDaysAgo set to null). Questions and prompts confirmed as country-specific and pipeline-generated. |
 
 ---
 
 ## To-do list
 
-- **Header fix -- student pages:** Site name in Header renders as plain unlinked text (not a link) on all `/student/` pages. Teachers keep the link to `/`.
-- **Glossary index page:** `/glossary` -- A to Z listing of all 136 terms. Brief level shown. Links to individual term pages.
-- **Glossary term page:** `/glossary/[term]` -- Full Detailed level. See also links. Shared Header, no role gate. Once built, re-add "Full entry →" link to `GlossaryTerm.js` tooltip.
-- **Two-password system:** Teacher password and student password, checked against URL role prefix.
-- **AI-generated country-specific questions and prompts:** `sync_edu.py` calls Claude API for each of the 36 cards, generating `{ q, keyPoints: [3 strings] }` and `{ p, notes: [3 strings] }`. Output stored in `metrics.js`.
-- **`sync_edu.py` rewrite:** Write `metrics.js` (new format) instead of `edu-data.json`. Blurbs written as arrays of 3 strings. Non-UK blurbs generated via Claude API.
-- **Blurbs for all 36 cards:** UK done (6 concepts). Pipeline-based generation for remaining 30 cards, output as `blurb: [3 strings]`.
-- **Exchange rate 5% movement filter:** Only include exchange rate entries in feed/stats if currency moved >5%. Logic in `sync_edu.py`.
-- **Pipeline fix -- value vs chart last point:** Last element of `chartSeries` must match `value` exactly.
-- **Rotating humorous greeting on teacher homepage:** 50 dry/wry lines, Instrument Serif italic.
 - **AP Economics curriculum:** After A-Level is fully stable. Create `ap-economics.js`, audit hardcoded AQA references, add curriculum picker to homepage, update `sync_edu.py` with AP prompt flag.
 - **Long-term:** Cambridge IGCSE, IB Economics, CBSE India (strategic priority at scale), HSC Australia, multilingual expansion, mobile app, data layer API, AI-assisted live assessment.
