@@ -1,6 +1,6 @@
 # EDU_BRIEF.md
 ## MacroSnaps Education Platform (macedu)
-### Living brief — updated Session 24
+### Living brief — updated Session 25
 
 ---
 
@@ -173,17 +173,35 @@ Structure per concept:
 | `InterestRatesChart.js` | `<AnnotatedChart dark />` |
 | `ExchangeRatesChart.js` | `<AnnotatedChart dark />` |
 | `TradeChart.js` | `<AnnotatedChart dark chartType='bar' colorBySign height={180} />` |
-| `Header.js` | Role stripe (blue/orange top border) + tinted background by role. Props: `role, homeHref, showGlossary`. Site name links to homeHref for teachers and on glossary pages; renders as plain unlinked text for students. Glossary link shown when `role !== null` or `showGlossary={true}`. |
+| `Header.js` | Role stripe (blue/orange top border) + tinted background by role. Props: `role, homeHref, showGlossary`. Site name links to homeHref for teachers and on glossary pages; renders as plain unlinked text for students. Glossary link shown when `role !== null` or `showGlossary={true}`. Uses `glossaryIndexHref()` from `app/utils/glossaryHref.js`. |
 | `SnapshotCard.js` | Layer 1. Props: `metric, country, data, aqaRef, metricTitle, allCountries, studentMode`. Renders blurb as numbered circle bullet list (white circles on dark card). Empty blurb renders nothing. `studentMode` swaps blurb for "What is this chart telling you?". `nextReleaseLabel()` returns `{ prefix, days }` — days rendered in cyan with throb animation. |
 | `LessonOverlay.js` | Layer 2. Props: `metric, country, lessonData, reveal, curriculum, showReveal, studentMode`. Pink disclaimer at top. Chart discussion collapsible (grey circles). Key points per question collapsible (pink circles). Discussion notes per prompt collapsible (pink circles). Share button encodes ?q= and ?d= params. No Try again button — weather exercise is editorial, not a quiz. |
 | `TeacherHomePage.js` | Dark navy panel with curriculum badge (centred, IBM Plex Mono), eyebrow and headline centred, two dropdowns (topic + country) + "Open this card" button. Stats line 14px with pulsing pink "updated today" count. IBM Plex Mono throughout. `CURRICULUM_LABELS` map drives badge text. |
 | `StudentHomePage.js` | Exists but not linked. Student-facing homepage not in use. |
 | `PasswordGate.js` | Single password (croc). Wraps all pages via `app/layout.js`. |
-| `GlossaryTerm.js` | Inline tooltip component. Dotted underline on matched term. Hover/tap opens white tooltip panel with Brief definition, optional More expansion, and Full entry link to `/glossary/[slug]`. Close delay of 120ms prevents tooltip disappearing when mousing into it. |
+| `GlossaryTerm.js` | Inline tooltip component. Dotted underline on matched term. Hover/tap opens white tooltip panel with Brief definition, optional More expansion, and Full entry link to glossary term page. Close delay of 120ms prevents tooltip disappearing when mousing into it. Uses `glossaryHref()` from `app/utils/glossaryHref.js`. |
 
 ---
 
 ## Glossary system
+
+### Utility: `app/utils/glossaryHref.js`
+
+Two exported functions providing a single source of truth for all glossary URLs. Every component that links to a glossary page calls these functions — no component constructs glossary URL strings directly.
+
+```js
+glossaryHref(term, curriculum)       // links to a specific term page
+glossaryIndexHref(curriculum)        // links to the glossary index
+```
+
+Both functions accept `curriculum` and currently ignore it. When glossary routes become curriculum-aware (at the AP Economics sprint), only this file changes — all links across the platform update automatically.
+
+**Planned future URL shape:**
+```
+/glossary/alevel/
+/glossary/alevel/[term]
+```
+Curriculum in the path; glossary sits outside the teacher/student split; static generation stays simple.
 
 ### Utility: `app/utils/wrapGlossaryTerms.js`
 
@@ -197,7 +215,7 @@ Takes a plain string, returns JSX with matched glossary terms wrapped in `<Gloss
 
 ### `GlossaryTerm.js` tooltip behaviour
 - Always light (white/cream, dark text) regardless of context (dark card or white overlay).
-- Shows: term label (blue uppercase), Brief definition, optional More expansion on click, Full entry link to `/glossary/[slug]`.
+- Shows: term label (blue uppercase), Brief definition, optional More expansion on click, Full entry link to term page via `glossaryHref()`.
 - Mobile: tap to open, tap outside to close.
 
 ### Glossary pages
@@ -227,6 +245,9 @@ Named export `{ glossary }`. Array of 136 term objects. **Never edited by hand a
 - No exam-board attribution.
 - Detailed level may include one common misconception, labelled "Common mistake:" in bold.
 - See also links use the term name exactly as it appears in the `term` field.
+
+### Glossary curriculum-awareness (future, not yet built)
+The 3-level definition system is designed to become curriculum-aware: GCSE pulls Brief, A-Level pulls More, undergraduate pulls Detailed. Same 136 terms, no new data. A `curricula: ['alevel', 'ap-economics']` array will be added to each entry at the AP Economics sprint to filter term lists by curriculum. Route migration and depth filtering will be built at the same time.
 
 ---
 
@@ -308,6 +329,7 @@ All pink content is **collapsed by default.** Each item has its own "Show notes 
 - **No double hyphens.** Use "to" ranges (12 to 18 months) or rewrite the sentence.
 - **Python invoked as `python3`.** Never `python`.
 - **Next.js 16 async params.** All `page.js` files that use `params` must `await params` before destructuring. Both `generateMetadata` and the page function must be `async`.
+- **All glossary URLs constructed via `glossaryHref()` / `glossaryIndexHref()`.** Never hardcode `/glossary/...` strings in components.
 
 ---
 
@@ -334,7 +356,7 @@ Macro-only for MVP. 136 platform-relevant terms across 6 topic groups. AQA offic
 
 **What AP expansion involves:**
 - `ap-economics.js` — new lesson content file, same structure as `aqa-alevel.js`. US English, College Board framing.
-- Glossary: shared. No separate AP glossary needed.
+- Glossary: shared for now. At AP sprint: add `curricula[]` tags to all entries, write ~20 AP-specific terms, migrate routes to `/glossary/[curriculum]/[term]`, wire depth filtering.
 - `metrics.js`: shared. Live data feeds are already global.
 - `sync_edu.py`: add `curriculum: "ap-economics"` flag to question/prompt generation calls.
 - Audit for hardcoded AQA/A-level references in components and replace with curriculum-derived values.
@@ -361,10 +383,11 @@ Macro-only for MVP. 136 platform-relevant terms across 6 topic groups. AQA offic
 | 22 | Strategic discussion: AP Economics (USA) expansion confirmed as next curriculum after A-Level is stable. Architecture already supports it via `[curriculum]` URL param. Multi-curriculum strategy section added to brief. Gap analysis of live lesson content vs glossary: 30 genuine missing terms identified and written. `add_glossary_terms.py` ran successfully. Glossary now 136 terms. sync_edu.py rewritten: writes metrics.js directly, blurbs as 3-string arrays, Claude Haiku API for all 36 cards, blurb-cache.json, chartSeries last point forced to match value. |
 | 23 | Landing page rebuilt as 3-row curriculum picker (UK 4 tiles, US 3 tiles, International 4 tiles). A-Level only live link; all others "Soon". Flags on row labels. Teacher homepage: centred curriculum badge (country + name) at top of navy panel. Stats line bumped to 14px. SnapshotCard: `~Nd` in cyan (#00e5ff) with 1.1s throb animation. LessonOverlay: "Try again" button removed from weather exercise reveal -- exercise is editorial judgment not a quiz. Glossary comma bug fixed (yield entry line 849). |
 | 24 | Glossary index + term pages built (Notion-inspired: full white, sidebar letter nav, live client-side search, clean type hierarchy). GlossaryTerm.js: "Full entry →" link restored and live. Header.js: Glossary link added to all lesson pages (teacher and student); student site name rendered as plain unlinked text. TeacherHomePage.js: all IBM Plex Mono throughout (Instrument Serif removed from curriculum badge); eyebrow and headline centred. Exchange rate 5% movement filter added to sync_edu.py: FX entries with abs(movePercent) < 5% year-on-year are excluded from homepage stats (releasedDaysAgo set to null). Questions and prompts confirmed as country-specific and pipeline-generated. |
+| 25 | Architectural prep for curriculum-aware glossary. Strategic discussion: glossary will eventually need curriculum filtering (term relevance) and depth filtering (Brief/More/Detailed by curriculum level), plus route migration to `/glossary/[curriculum]/[term]`. Decision: build none of this now -- do it at the AP Economics sprint. One thing done immediately: `app/utils/glossaryHref.js` created with `glossaryHref(term, curriculum)` and `glossaryIndexHref(curriculum)`. Both functions accept curriculum param (currently ignored). Wired into `GlossaryTerm.js` and `Header.js`. Rule added: no component constructs glossary URL strings directly. |
 
 ---
 
 ## To-do list
 
-- **AP Economics curriculum:** After A-Level is fully stable. Create `ap-economics.js`, audit hardcoded AQA references, add curriculum picker to homepage, update `sync_edu.py` with AP prompt flag.
+- **AP Economics curriculum:** After A-Level is fully stable. Create `ap-economics.js`, audit hardcoded AQA references, add curriculum picker to homepage, update `sync_edu.py` with AP prompt flag. At the same time: migrate glossary routes to `/glossary/[curriculum]/[term]`, add `curricula[]` tags to all 136 glossary entries, write ~20 AP-specific terms, wire depth filtering (Brief/More/Detailed by curriculum).
 - **Long-term:** Cambridge IGCSE, IB Economics, CBSE India (strategic priority at scale), HSC Australia, multilingual expansion, mobile app, data layer API, AI-assisted live assessment.
