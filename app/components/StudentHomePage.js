@@ -234,7 +234,7 @@ export default function StudentHomePage({ metrics, curriculum }) {
           borderTop: '0.5px solid #e0e8f0', marginTop: 28, padding: '20px 0 40px', textAlign: 'center',
         }}>
           <Link href={glossaryIndexHref()} style={{ fontSize: 13, color: '#8099b8', textDecoration: 'none' }}>
-            Glossary · 136 terms · Define, Explain, Evaluate →
+            Glossary · 136 terms · What, How, So what? →
           </Link>
         </div>
 

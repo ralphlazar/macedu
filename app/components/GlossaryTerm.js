@@ -1,10 +1,7 @@
 'use client'
-import { glossaryHref } from '../utils/glossaryHref'
 import { useState, useRef } from 'react'
-import Link from 'next/link'
 
 const NAVY = '#0f1e35'
-const BLUE = '#378ADD'
 
 const TABS = [
   { id: 'what',   label: 'What' },
@@ -192,42 +189,6 @@ export default function GlossaryTerm({ term, slug, brief, more, detailed, group 
             )}
           </span>
 
-          <span style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            padding: '10px 16px',
-            borderTop: '0.5px solid rgba(0,0,0,0.08)',
-          }}>
-            {group ? (
-              <span style={{
-                fontFamily: "'IBM Plex Mono', monospace",
-                fontSize: 10,
-                letterSpacing: '0.07em',
-                textTransform: 'uppercase',
-                color: BLUE,
-                background: '#E6F1FB',
-                borderRadius: 3,
-                padding: '2px 7px',
-              }}>
-                {group}
-              </span>
-            ) : <span />}
-            <Link
-              href={glossaryHref(slug)}
-              onMouseDown={e => e.stopPropagation()}
-              onClick={e => e.stopPropagation()}
-              style={{
-                fontFamily: "'IBM Plex Mono', monospace",
-                fontSize: 10,
-                letterSpacing: '0.05em',
-                color: BLUE,
-                textDecoration: 'none',
-              }}
-            >
-              Full entry →
-            </Link>
-          </span>
         </span>
       )}
     </span>

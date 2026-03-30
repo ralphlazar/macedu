@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import Link from 'next/link'
+import GlossaryTerm from './GlossaryTerm'
 
 const NAVY = '#1B2D4F'
 const BLUE = '#378ADD'
@@ -133,11 +133,10 @@ export default function GlossaryIndexClient({ glossary }) {
                 </span>
               </div>
 
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7 }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7, lineHeight: 2.2 }}>
                 {terms.map(entry => (
-                  <Link
+                  <span
                     key={entry.slug}
-                    href={`/glossary/${entry.slug}`}
                     style={{
                       fontFamily: "'IBM Plex Sans', sans-serif",
                       fontSize: 13,
@@ -145,21 +144,18 @@ export default function GlossaryIndexClient({ glossary }) {
                       border: '0.5px solid #d0d9e6',
                       borderRadius: 5,
                       padding: '5px 11px',
-                      textDecoration: 'none',
                       background: 'white',
-                      transition: 'border-color 0.1s, background 0.1s',
-                    }}
-                    onMouseEnter={e => {
-                      e.currentTarget.style.borderColor = BLUE
-                      e.currentTarget.style.background = '#f4f8fd'
-                    }}
-                    onMouseLeave={e => {
-                      e.currentTarget.style.borderColor = '#d0d9e6'
-                      e.currentTarget.style.background = 'white'
                     }}
                   >
-                    {entry.term}
-                  </Link>
+                    <GlossaryTerm
+                      term={entry.term}
+                      slug={entry.slug}
+                      brief={entry.brief}
+                      more={entry.more}
+                      detailed={entry.detailed}
+                      group={entry.group}
+                    />
+                  </span>
                 ))}
               </div>
             </div>

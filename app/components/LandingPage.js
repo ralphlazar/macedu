@@ -51,18 +51,6 @@ export default function LandingPage() {
     }}>
       <div style={{ textAlign: 'center', maxWidth: 680 }}>
 
-        <p style={{
-          fontSize: 11,
-          fontWeight: 600,
-          letterSpacing: '0.12em',
-          textTransform: 'uppercase',
-          color: '#b0bac8',
-          margin: '0 0 18px',
-          fontFamily: "'IBM Plex Mono', monospace",
-        }}>
-          macroeconomics.education
-        </p>
-
         <h1 style={{
           fontFamily: "'Instrument Serif', Georgia, serif",
           fontSize: 34,
@@ -92,7 +80,7 @@ export default function LandingPage() {
               {[
                 { key: 'student', label: 'Student', cta: "I'm revising",  sub: 'Exam questions, live data, glossary', color: ORANGE },
                 { key: 'teacher', label: 'Teacher',  cta: "I'm teaching", sub: 'Lesson tools, notes, share with class', color: BLUE },
-              ].map(({ key, label, cta, sub, color }) => (
+              ].map(({ key, label, cta, sub, note, color }) => (
                 <button
                   key={key}
                   onClick={() => setRole(key)}
@@ -123,16 +111,25 @@ export default function LandingPage() {
                   <div style={{ fontSize: 12, color: '#8099b8', lineHeight: 1.5 }}>
                     {sub}
                   </div>
+                  {note && (
+                    <div style={{
+                      fontSize: 11,
+                      color: '#b0bac8',
+                      lineHeight: 1.5,
+                      marginTop: 8,
+                      fontFamily: "'IBM Plex Mono', monospace",
+                      whiteSpace: 'pre-line',
+                    }}>
+                      {note}
+                    </div>
+                  )}
                   <span style={{ position: 'absolute', bottom: 14, right: 14, fontSize: 15, color }}>
                     →
                   </span>
                 </button>
               ))}
             </div>
-            {/* Password hint */}
-            <p style={{ fontSize: 11, color: '#b0bac8', margin: 0 }}>
-              Teachers: you will need a password on the next screen.
-            </p>
+
           </div>
         )}
 
@@ -177,7 +174,7 @@ export default function LandingPage() {
                       const style = {
                         borderRadius: 12,
                         padding: '16px 14px',
-                        textAlign: 'left',
+                        textAlign: 'center',
                         position: 'relative',
                         width: 128,
                         flexShrink: 0,
@@ -192,10 +189,11 @@ export default function LandingPage() {
                         <>
                           {!active && (
                             <span style={{
-                              position: 'absolute', top: 10, right: 10,
+                              display: 'inline-block',
                               fontSize: 9, fontWeight: 600, letterSpacing: '0.05em',
                               textTransform: 'uppercase', background: '#eef1f5',
                               color: '#a0aab8', padding: '2px 6px', borderRadius: 20,
+                              marginBottom: 6,
                             }}>Soon</span>
                           )}
                           <span style={{ fontSize: 20, display: 'block', marginBottom: 8, lineHeight: 1 }}>
@@ -226,8 +224,10 @@ export default function LandingPage() {
                           </div>
                           {active && (
                             <span style={{
-                              position: 'absolute', bottom: 12, right: 12,
-                              fontSize: 15, color: accent,
+                              display: 'block',
+                              marginTop: 6,
+                              fontSize: 13,
+                              color: accent,
                             }}>→</span>
                           )}
                         </>
