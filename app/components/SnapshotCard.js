@@ -56,7 +56,7 @@ function nextReleaseLabel(metric, releasedDaysAgo) {
 }
 
 export default function SnapshotCard({
-  metric, country, data, aqaRef, metricTitle, allCountries, studentMode = false,
+  metric, country, data, aqaRef, metricTitle, allCountries, studentMode = false, showBlurb = true,
 }) {
   if (!data) return null
   const { flag, name, value, releasedDaysAgo, blurb, chartDates, chartSeries } = data
@@ -159,8 +159,8 @@ export default function SnapshotCard({
         {value}
       </div>
 
-      {/* Blurb (teacher) or prompt (student) */}
-      {studentMode ? (
+      {/* Blurb or student prompt */}
+      {studentMode && !showBlurb && (
         <p style={{
           fontFamily: "'Instrument Serif', Georgia, serif",
           fontSize: 22,
@@ -171,7 +171,8 @@ export default function SnapshotCard({
         }}>
           What is this chart telling you?
         </p>
-      ) : (Array.isArray(blurb) && blurb.length > 0) ? (
+      )}
+      {showBlurb && (Array.isArray(blurb) && blurb.length > 0) ? (
         <ul style={{ margin: '0 0 16px', padding: 0, listStyle: 'none' }}>
           {blurb.slice(0, 3).map((point, i) => (
             <li key={i} style={{

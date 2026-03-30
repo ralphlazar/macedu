@@ -1,8 +1,7 @@
 import { metrics } from '../../../../data/metrics'
 import { lesson } from '../../../../data/aqa-alevel'
 import Header from '../../../../components/Header'
-import SnapshotCard from '../../../../components/SnapshotCard'
-import LessonOverlay from '../../../../components/LessonOverlay'
+import StudentLessonClient from '../../../../components/StudentLessonClient'
 
 const METRIC_SLUGS  = ['inflation', 'unemployment', 'gdp', 'interest-rates', 'exchange-rates', 'trade']
 const COUNTRY_SLUGS = ['uk', 'us', 'eurozone', 'china', 'japan', 'brazil']
@@ -34,36 +33,68 @@ export async function generateMetadata({ params }) {
 export default async function StudentLessonPage({ params }) {
   const { curriculum, metric, country } = await params
 
+  const ORANGE = '#F0843C'
+  const NAVY   = '#0f1e35'
+
   const m    = metrics[metric]
   const data = m?.countries?.[country]
 
   const allCountries = m?.countries || {}
+  const lessonData   = lesson[metric] || null
+  const reveal       = data?.reveal || ''
 
-  // Student sees the exercise only -- no classroom time, questions, or discussion prompts.
-  // The reveal button is also hidden on the student page.
-  const lessonData = lesson[metric] || null
+  const metricLabel  = m?.title || metric
+  const countryLabel = data?.name || country.toUpperCase()
+  const aqaRef       = m?.aqaRef || ''
 
   return (
     <>
       <Header role="student" homeHref={`/student/${curriculum}`} />
-      <div style={{ padding: '24px 16px 64px', maxWidth: 864, margin: '0 auto' }}>
-        <SnapshotCard
+
+      {/* Framing line */}
+      <div style={{
+        background: '#fff4ee',
+        borderBottom: '1px solid #fcd9c0',
+        padding: '14px 28px',
+        fontFamily: 'sans-serif',
+      }}>
+        <div style={{ maxWidth: 864, margin: '0 auto' }}>
+          <div style={{
+            fontFamily: "'Instrument Serif', Georgia, serif",
+            fontSize: 22, fontWeight: 400, color: NAVY, marginBottom: 4,
+          }}>
+            This is what's happening right now.
+          </div>
+          <div style={{
+            fontSize: 12, color: '#b07040',
+            fontFamily: "'IBM Plex Mono', monospace", letterSpacing: '0.04em',
+          }}>
+            {countryLabel} {metricLabel}{aqaRef ? ` · ${aqaRef}` : ''}
+          </div>
+        </div>
+      </div>
+
+      <div style={{ padding: '20px 16px 64px', maxWidth: 864, margin: '0 auto' }}>
+
+        {/* Today's data label */}
+        <div style={{
+          fontSize: 9, fontWeight: 700, letterSpacing: '0.1em',
+          textTransform: 'uppercase', color: '#8099b8', marginBottom: 8,
+          fontFamily: "'IBM Plex Mono', monospace",
+        }}>
+          Today's data
+        </div>
+
+        <StudentLessonClient
           metric={metric}
           country={country}
           data={data}
-          aqaRef={m?.aqaRef || ''}
-          metricTitle={m?.title || metric}
+          aqaRef={aqaRef}
+          metricTitle={metricLabel}
           allCountries={allCountries}
-          studentMode={true}
-        />
-        <LessonOverlay
-          metric={metric}
-          country={country}
           lessonData={lessonData}
-          reveal={null}
+          reveal={reveal}
           curriculum={curriculum}
-          showReveal={false}
-          studentMode={true}
         />
       </div>
     </>
