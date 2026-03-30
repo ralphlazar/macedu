@@ -1,6 +1,6 @@
 # EDU_BRIEF.md
 ## MacroSnaps Education Platform (macedu)
-### Living brief — updated Session 28
+### Living brief — updated Session 29
 
 ---
 
@@ -319,6 +319,70 @@ Macro-only for MVP. 136 platform-relevant terms across 7 topic groups. AQA offic
 
 ---
 
+## MacroSnaps pipeline (macrosnaps repo)
+
+The companion pipeline lives at `/Users/lisaswerling/RALPH/AI/macrosnaps`. It writes `metrics.js` as the sole data source for macedu. The two repos have a clean boundary -- macedu consumes `metrics.js` only.
+
+### Key pipeline scripts
+
+| Script | Role |
+|--------|------|
+| `build.py` | Validates `data.json`, merges shell + data into `macrosnaps-globe.html`, auto git-commits. Does not touch `_frozen_historical`. |
+| `sync_sheet.py` | Reads MACRO-MONTHLY sheet. Writes card values and annual `_frozen_historical` series (GDP Growth, Budget Deficit, Current Account) into `data.json`. Does NOT write monthly series (Unemployment, Policy Rate, Inflation) to `_frozen_historical`. |
+| `sync_monthly_actuals.py` | Reads MACRO-MONTHLY sheet. Writes `monthly_actuals` block (story context only, not displayed in UI). Also writes full chronological series into `_frozen_historical` for pipeline-excluded countries (see below). |
+| `update_monthly_actuals.py` | Fetches monthly macro series from external APIs (IMF, BIS, FRED, IBGE). Deliberately skips certain country/series combinations where no reliable API source exists -- see skip list below. Writes into MACRO-MONTHLY sheet. |
+| `sync_edu.py` | Reads `data.json` (specifically `_frozen_historical`). Writes `metrics.js` to macedu. Generates blurbs via Claude Haiku. Run after `build.py` in the daily ritual. |
+| `sync_market_historical.py` | Writes FX spark series into `_frozen_historical` only. Does not touch macro series. |
+
+### `_frozen_historical` -- how monthly macro series get there
+
+`sync_edu.py` reads `_frozen_historical` to build `chartSeries` for sparklines. The path from sheet to sparkline is:
+
+1. `update_monthly_actuals.py` fetches from APIs and writes to MACRO-MONTHLY sheet
+2. `sync_monthly_actuals.py --apply` reads the sheet and writes into `_frozen_historical`
+3. `sync_edu.py` reads `_frozen_historical` and writes `chartSeries` into `metrics.js`
+
+**Pipeline skip list** (`update_monthly_actuals.py` deliberately excludes these from API fetching):
+- CHN Unemployment -- no reliable monthly API source
+- BRA Unemployment -- was meant to come from IBGE SIDRA; not working
+- CHN Policy Rate -- no monthly series available
+- IND Unemployment, IND Policy Rate
+
+For skipped series, data must be entered manually into MACRO-MONTHLY. `sync_monthly_actuals.py` picks them up via `FROZEN_BACKFILL_TARGETS` and writes them into `_frozen_historical` automatically on `--apply`.
+
+### `FROZEN_BACKFILL_TARGETS` in `sync_monthly_actuals.py`
+
+```python
+FROZEN_BACKFILL_TARGETS = [
+    ("Unemployment", "CHN", "Unemployment"),
+    ("Unemployment", "BRA", "Unemployment"),
+    ("Policy_Rate",  "CHN", "Policy Rate"),   # currently no data; add when sheet populated
+]
+```
+
+When CHN Policy Rate data is added to the sheet, `sync_monthly_actuals.py --apply` will pick it up automatically -- no code change needed.
+
+### Current sparkline status (as of Session 29)
+
+| Metric | Country | Status |
+|--------|---------|--------|
+| All | UK, US, Eurozone, Japan, Brazil | OK |
+| Unemployment | CHN | OK -- manually maintained in sheet, written via FROZEN_BACKFILL_TARGETS |
+| Unemployment | BRA | OK -- manually maintained in sheet, written via FROZEN_BACKFILL_TARGETS |
+| Interest rates | CHN | EMPTY -- no sheet data yet. Will populate when source found. |
+
+35/36 sparklines live. CHN interest rates is the only gap.
+
+### How the CHN/BRA sparkline gap was diagnosed and fixed (Session 29)
+
+1. Audit confirmed 3 empty `chartSeries` arrays: CHN unemployment, BRA unemployment, CHN interest-rates
+2. `_frozen_historical` in `data.json` had `v: []` for all three
+3. `update_monthly_actuals.py` has an explicit skip list for these series (no API source)
+4. `sync_sheet.py` only writes annual metrics to `_frozen_historical` -- monthly series had no pipeline path
+5. Fix: extended `sync_monthly_actuals.py` with `FROZEN_BACKFILL_TARGETS` and `read_tab_full_series()`. It now reads the full chronological series from the manually-maintained sheet columns and writes them into `_frozen_historical` as part of the normal `--apply` run. No extra ritual step required.
+
+---
+
 ## Multi-curriculum expansion strategy
 
 **Architecture is already curriculum-parameterised.** The `[curriculum]` segment in the URL structure means adding a second curriculum requires no routing changes.
@@ -367,11 +431,13 @@ Macro-only for MVP. 136 platform-relevant terms across 7 topic groups. AQA offic
 | 26 | Major student fork built. Strategic discussions: student-first product direction confirmed; exam connection as core USP; "Define / Explain / Evaluate" glossary labels adopted (maps to AQA command words). Built: landing page role gate (LandingPage.js client component -- "I'm revising" / "I'm teaching", tiles tinted by role); student homepage (StudentHomePage.js -- live strip with FX rule, topic tiles expand inline); teacher lesson page redesigned (framing band "Your lesson is ready.", lesson plan box constrained to 864px, vertical spine with 4 blue beats, "Today's data" label, per-question pink notes removed); student lesson page rebuilt with two modes (direct vs tasked, detected via ?t=1 param); StudentLessonClient.js created as client wrapper for param detection; SnapshotCard.js updated with showBlurb prop; LessonOverlay.js fully rewritten with teacher/direct/tasked mode logic, WeatherBeat extracted as sub-component, share button always appends ?t=1. Glossary labels patched: Define/Explain/Evaluate in GlossaryTerm.js tooltip and glossary/[term]/page.js. |
 | 27 | Glossary redesigned end-to-end. Index rebuilt as 7-group topic view (National Income & Growth, Aggregate Demand & Supply, Inflation, Unemployment & Labour, Money & Monetary Policy, Fiscal Policy, International Economics); chips now fire inline tooltips -- no page navigation. Term page rebuilt with pill tabs. Tooltip rebuilt with pill tabs, opens below the word, footer removed entirely (group badge and Full entry link gone -- less is more). Definition level labels changed from Define/Explain/Evaluate to What/How/So what? -- casual, potent, student-first. Pill tab style locked: navy fill active, transparent inactive, border-radius 20. All 136 glossary entries API-rewritten: zero em dashes, "Common mistake: Students" capitalised throughout, group field added. 12 So what? entries rewritten with genuine evaluation (critique, tradeoffs, policy limits) rather than extended mechanism. Landing page: site name removed, password hint moved inside teacher card, curriculum tiles centre-aligned. Student/teacher homepages: site name removed. globals.css: html { overflow-y: scroll } added. Less is more principle added as NON-NEGOTIABLE. New components: GlossaryIndexClient.js, GlossaryTermClient.js. |
 | 28 | Branding and animation session. Header.js: site name replaced with MACRO wordmark (IBM Plex Mono, 700, 0.08em tracking); always a link (removed student exception); MACRO and Glossary links now role-coloured (blue for teacher, orange for student, blue for landing). Footer.js created: two-line centred footer (disclaimer + MacroSnaps hyperlink to macrosnaps.app with _blank); shown on landing, teacher homepage, student homepage, glossary index -- hidden on card pages. LandingPage.js: MACRO wordmark wired, Footer wired, old "Powered by MacroSnaps" inline line removed; pulsing dot added above headline -- 2-blue-2-orange alternating 6s CSS keyframe animation (brand colours in a single glyph); subtitle updated to "Updated automatically. No textbook lag." next.config.js: devIndicators: false (removes Next.js black circle dev tool from local preview). FramingHeader.js created (client component): teacher card pages -- blue pulsing dot + typewriter effect on "Your lesson is ready." (38ms per char), blinking cursor, subtitle fades in on completion; subtitle updated to "30 minutes · built around the latest data · share with one click". StudentFramingHeader.js created (client component): same pattern in orange for student card pages -- "This is what's happening right now." typed out, dynamic subtitle prop (countryLabel + metricLabel + aqaRef). Teacher page.js: FramingHeader wired, generateStaticParams kept in server component (FramingHeader extracted to avoid use client conflict), lesson plan box font sizes bumped (label 9→11px, timestamps 10→12px, beat labels 11→13px). Student page.js: StudentFramingHeader wired. StudentHomePage.js: "Moving right now" renamed "Last Change"; "Revise by topic" unchanged; both section headings bumped 10→13px; age-conditional stamp colours added (0-1d cyan+throb, 2-5d amber static, 6d+ grey static). |
+| 29 | Data pipeline audit session. Diagnosed 3 empty sparklines: CHN unemployment, BRA unemployment, CHN interest-rates. Root cause: `update_monthly_actuals.py` deliberately skips CHN/BRA unemployment and CHN policy rate (no reliable API source); no pipeline script wrote monthly macro series from MACRO-MONTHLY into `_frozen_historical`. Fix: extended `sync_monthly_actuals.py` with `FROZEN_BACKFILL_TARGETS` constant and `read_tab_full_series()` function -- it now reads full chronological series from manually-maintained sheet columns and writes them into `_frozen_historical` as part of the normal `--apply` run. CHN/BRA unemployment now live (312 pts each). CHN interest-rates remains empty -- no sheet data yet, will populate when source found. 35/36 sparklines live. |
 
 ---
 
 ## To-do list
 
+- **CHN interest-rates sparkline:** Sheet column is empty. When a data source is found and the column is populated, `sync_monthly_actuals.py --apply` will pick it up automatically via `FROZEN_BACKFILL_TARGETS` -- no code change needed.
 - **Two-password role system:** Teacher password protects blue world. Student world remains open. Currently single password (croc) wraps everything -- needs splitting so only teacher routes are gated.
 - **AP Economics curriculum:** After A-Level is fully stable. Create `ap-economics.js`, audit hardcoded AQA references, update `sync_edu.py` with AP prompt flag. At the same time: migrate glossary routes to `/glossary/[curriculum]/[term]`, add `curricula[]` tags to all 136 glossary entries, write ~20 AP-specific terms, wire depth filtering (What/How/So what? by curriculum).
 - **Long-term:** Cambridge IGCSE, IB Economics, CBSE India (strategic priority at scale), HSC Australia, multilingual expansion, mobile app, data layer API, AI-assisted live assessment.
