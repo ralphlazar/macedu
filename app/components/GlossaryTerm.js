@@ -1,15 +1,32 @@
 'use client'
-import { glossaryHref } from '../utils/glossaryHref';
+import { glossaryHref } from '../utils/glossaryHref'
 import { useState, useRef } from 'react'
 import Link from 'next/link'
 
 const NAVY = '#0f1e35'
 const BLUE = '#378ADD'
 
-export default function GlossaryTerm({ term, slug, brief, more }) {
+const TABS = [
+  { id: 'what',   label: 'What' },
+  { id: 'how',    label: 'How' },
+  { id: 'sowhat', label: 'So what?' },
+]
+
+function parseMistake(detailed) {
+  if (!detailed) return { body: null, mistake: null }
+  const idx = detailed.indexOf('Common mistake:')
+  if (idx === -1) return { body: detailed, mistake: null }
+  return {
+    body: detailed.slice(0, idx).trim(),
+    mistake: detailed.slice(idx + 'Common mistake:'.length).trim(),
+  }
+}
+
+export default function GlossaryTerm({ term, slug, brief, more, detailed, group }) {
   const [open, setOpen] = useState(false)
-  const [expanded, setExpanded] = useState(false)
+  const [tab, setTab] = useState('what')
   const closeTimer = useRef(null)
+  const { body: detailedBody, mistake: commonMistake } = parseMistake(detailed)
 
   function handleEnter() {
     clearTimeout(closeTimer.current)
@@ -19,7 +36,7 @@ export default function GlossaryTerm({ term, slug, brief, more }) {
   function handleLeave() {
     closeTimer.current = setTimeout(() => {
       setOpen(false)
-      setExpanded(false)
+      setTab('what')
     }, 120)
   }
 
@@ -46,119 +63,166 @@ export default function GlossaryTerm({ term, slug, brief, more }) {
           onMouseLeave={handleLeave}
           style={{
             position: 'absolute',
-            bottom: 'calc(100% + 8px)',
+            top: 'calc(100% + 10px)',
             left: '50%',
             transform: 'translateX(-50%)',
             zIndex: 1000,
             background: 'white',
-            border: '1px solid #e2eaf4',
+            border: '0.5px solid rgba(0,0,0,0.12)',
             borderRadius: 10,
             boxShadow: '0 4px 24px rgba(0,0,0,0.15)',
-            padding: '12px 14px',
-            minWidth: 220,
-            maxWidth: 300,
+            width: 300,
             display: 'block',
             pointerEvents: 'auto',
             whiteSpace: 'normal',
             textAlign: 'left',
+            overflow: 'hidden',
           }}
         >
-          <span style={{
-            display: 'block',
-            fontSize: 11,
-            fontWeight: 700,
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase',
-            color: BLUE,
-            marginBottom: 6,
-            fontFamily: "'IBM Plex Sans', sans-serif",
-          }}>
-            {term}
+          <span style={{ display: 'block', padding: '14px 16px 0' }}>
+            <span style={{
+              display: 'block',
+              fontFamily: "'Instrument Serif', serif",
+              fontStyle: 'italic',
+              fontSize: 18,
+              color: NAVY,
+              marginBottom: 10,
+              lineHeight: 1.2,
+            }}>
+              {term}
+            </span>
+
+            <span style={{
+              display: 'flex',
+              borderBottom: '0.5px solid rgba(0,0,0,0.1)',
+              margin: '0 -16px',
+              padding: '0 16px',
+            }}>
+              {TABS.map(t => (
+                <button
+                  key={t.id}
+                  onMouseDown={e => e.stopPropagation()}
+                  onClick={e => { e.stopPropagation(); setTab(t.id) }}
+                  style={{
+                    fontFamily: "'IBM Plex Mono', monospace",
+                    fontSize: 10,
+                    letterSpacing: '0.06em',
+                    textTransform: 'uppercase',
+                    padding: '5px 10px',
+                    cursor: 'pointer',
+                    border: 'none',
+                    borderRadius: 20,
+                    background: tab === t.id ? NAVY : 'transparent',
+                    color: tab === t.id ? 'white' : '#aaa',
+                    fontWeight: tab === t.id ? 500 : 400,
+                  }}
+                >
+                  {t.label}
+                </button>
+              ))}
+            </span>
           </span>
 
-          <span style={{
-            display: 'block',
-            fontSize: 10,
-            fontWeight: 700,
-            letterSpacing: '0.09em',
-            textTransform: 'uppercase',
-            color: BLUE,
-            marginBottom: 4,
-            fontFamily: "'IBM Plex Mono', monospace",
-          }}>
-            Define
-          </span>
-
-          <span style={{
-            display: 'block',
-            fontSize: 13,
-            color: NAVY,
-            lineHeight: 1.55,
-            fontFamily: "'IBM Plex Sans', sans-serif",
-          }}>
-            {brief}
-          </span>
-
-          {expanded && more && (
-            <span style={{ display: 'block', marginTop: 10 }}>
+          <span style={{ display: 'block', padding: '12px 16px' }}>
+            {tab === 'what' && (
               <span style={{
                 display: 'block',
-                fontSize: 10,
-                fontWeight: 700,
-                letterSpacing: '0.09em',
-                textTransform: 'uppercase',
-                color: BLUE,
-                marginBottom: 4,
-                fontFamily: "'IBM Plex Mono', monospace",
-              }}>
-                Explain
-              </span>
-              <span style={{
-                display: 'block',
-                fontSize: 12,
-                color: '#4a6080',
-                lineHeight: 1.55,
+                fontSize: 13,
+                color: NAVY,
+                lineHeight: 1.65,
                 fontFamily: "'IBM Plex Sans', sans-serif",
               }}>
-                {more}
+                {brief}
               </span>
-            </span>
-          )}
+            )}
+
+            {tab === 'how' && (
+              <span style={{
+                display: 'block',
+                fontSize: 13,
+                color: '#444',
+                lineHeight: 1.65,
+                fontFamily: "'IBM Plex Sans', sans-serif",
+              }}>
+                {more || 'No further detail available.'}
+              </span>
+            )}
+
+            {tab === 'sowhat' && (
+              <span style={{ display: 'block' }}>
+                <span style={{
+                  display: 'block',
+                  fontSize: 13,
+                  color: '#444',
+                  lineHeight: 1.65,
+                  fontFamily: "'IBM Plex Sans', sans-serif",
+                  marginBottom: commonMistake ? 10 : 0,
+                }}>
+                  {detailedBody || 'No further detail available.'}
+                </span>
+                {commonMistake && (
+                  <span style={{
+                    display: 'block',
+                    borderLeft: '2px solid #E24B4A',
+                    padding: '6px 10px',
+                  }}>
+                    <span style={{
+                      display: 'block',
+                      fontFamily: "'IBM Plex Mono', monospace",
+                      fontSize: 9,
+                      letterSpacing: '0.09em',
+                      textTransform: 'uppercase',
+                      color: '#E24B4A',
+                      marginBottom: 3,
+                    }}>
+                      Common mistake
+                    </span>
+                    <span style={{
+                      display: 'block',
+                      fontSize: 11.5,
+                      color: '#666',
+                      lineHeight: 1.55,
+                      fontFamily: "'IBM Plex Sans', sans-serif",
+                    }}>
+                      {commonMistake}
+                    </span>
+                  </span>
+                )}
+              </span>
+            )}
+          </span>
 
           <span style={{
             display: 'flex',
+            justifyContent: 'space-between',
             alignItems: 'center',
-            marginTop: 10,
-            gap: 8,
+            padding: '10px 16px',
+            borderTop: '0.5px solid rgba(0,0,0,0.08)',
           }}>
-            {more && !expanded && (
-              <button
-                onMouseDown={e => e.stopPropagation()}
-                onClick={e => { e.stopPropagation(); setExpanded(true) }}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  padding: 0,
-                  fontSize: 12,
-                  color: BLUE,
-                  cursor: 'pointer',
-                  fontFamily: "'IBM Plex Sans', sans-serif",
-                  textDecoration: 'underline',
-                }}
-              >
-                More
-              </button>
-            )}
+            {group ? (
+              <span style={{
+                fontFamily: "'IBM Plex Mono', monospace",
+                fontSize: 10,
+                letterSpacing: '0.07em',
+                textTransform: 'uppercase',
+                color: BLUE,
+                background: '#E6F1FB',
+                borderRadius: 3,
+                padding: '2px 7px',
+              }}>
+                {group}
+              </span>
+            ) : <span />}
             <Link
               href={glossaryHref(slug)}
               onMouseDown={e => e.stopPropagation()}
               onClick={e => e.stopPropagation()}
               style={{
-                marginLeft: 'auto',
-                fontSize: 12,
-                color: '#999',
+                fontFamily: "'IBM Plex Mono', monospace",
+                fontSize: 10,
+                letterSpacing: '0.05em',
+                color: BLUE,
                 textDecoration: 'none',
-                fontFamily: "'IBM Plex Sans', sans-serif",
               }}
             >
               Full entry →

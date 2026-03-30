@@ -38,6 +38,8 @@ export function wrapGlossaryTerms(text) {
         slug={entry.slug}
         brief={entry.brief}
         more={entry.more}
+        detailed={entry.detailed}
+        group={entry.group}
       />
     )
   })
