@@ -33,10 +33,7 @@ export default function Header({ homeHref = '/', role = null, showGlossary = fal
         justifyContent: 'space-between',
         padding: '0.75rem 1.5rem',
       }}>
-        {role === 'student'
-          ? <span style={nameStyle}>MACRO</span>
-          : <a href={homeHref} style={{ textDecoration: 'none' }}><span style={nameStyle}>MACRO</span></a>
-        }
+        <a href={homeHref} style={{ textDecoration: 'none' }}><span style={nameStyle}>MACRO</span></a>
         <nav style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
           {displayGlossary && (
             <a href={glossaryIndexHref()} style={{
