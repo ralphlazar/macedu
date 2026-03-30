@@ -78,6 +78,19 @@ export default function GlossaryTerm({ term, slug, brief, more }) {
 
           <span style={{
             display: 'block',
+            fontSize: 10,
+            fontWeight: 700,
+            letterSpacing: '0.09em',
+            textTransform: 'uppercase',
+            color: BLUE,
+            marginBottom: 4,
+            fontFamily: "'IBM Plex Mono', monospace",
+          }}>
+            Define
+          </span>
+
+          <span style={{
+            display: 'block',
             fontSize: 13,
             color: NAVY,
             lineHeight: 1.55,
@@ -87,15 +100,28 @@ export default function GlossaryTerm({ term, slug, brief, more }) {
           </span>
 
           {expanded && more && (
-            <span style={{
-              display: 'block',
-              fontSize: 12,
-              color: '#4a6080',
-              lineHeight: 1.55,
-              marginTop: 8,
-              fontFamily: "'IBM Plex Sans', sans-serif",
-            }}>
-              {more}
+            <span style={{ display: 'block', marginTop: 10 }}>
+              <span style={{
+                display: 'block',
+                fontSize: 10,
+                fontWeight: 700,
+                letterSpacing: '0.09em',
+                textTransform: 'uppercase',
+                color: BLUE,
+                marginBottom: 4,
+                fontFamily: "'IBM Plex Mono', monospace",
+              }}>
+                Explain
+              </span>
+              <span style={{
+                display: 'block',
+                fontSize: 12,
+                color: '#4a6080',
+                lineHeight: 1.55,
+                fontFamily: "'IBM Plex Sans', sans-serif",
+              }}>
+                {more}
+              </span>
             </span>
           )}
 
