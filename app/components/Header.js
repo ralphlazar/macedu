@@ -12,7 +12,13 @@ export default function Header({ homeHref = '/', role = null, showGlossary = fal
     ? 'rgba(240,132,60,0.07)'
     : 'white'
   const displayGlossary = showGlossary || role !== null
-  const nameStyle = { fontSize: '13px', fontWeight: '500', color: '#444' }
+  const nameStyle = {
+    fontSize: '15px',
+    fontWeight: '700',
+    color: '#111',
+    fontFamily: "'IBM Plex Mono', monospace",
+    letterSpacing: '0.08em',
+  }
 
   return (
     <header style={{
@@ -28,8 +34,8 @@ export default function Header({ homeHref = '/', role = null, showGlossary = fal
         padding: '0.75rem 1.5rem',
       }}>
         {role === 'student'
-          ? <span style={nameStyle}>macroeconomics.education</span>
-          : <a href={homeHref} style={{ textDecoration: 'none' }}><span style={nameStyle}>macroeconomics.education</span></a>
+          ? <span style={nameStyle}>MACRO</span>
+          : <a href={homeHref} style={{ textDecoration: 'none' }}><span style={nameStyle}>MACRO</span></a>
         }
         <nav style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
           {displayGlossary && (
