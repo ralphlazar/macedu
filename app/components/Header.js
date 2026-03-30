@@ -11,11 +11,12 @@ export default function Header({ homeHref = '/', role = null, showGlossary = fal
     : role === 'student'
     ? 'rgba(240,132,60,0.07)'
     : 'white'
+  const accent = role ? ROLE_COLOUR[role] : '#378ADD'
   const displayGlossary = showGlossary || role !== null
   const nameStyle = {
     fontSize: '15px',
     fontWeight: '700',
-    color: '#111',
+    color: accent,
     fontFamily: "'IBM Plex Mono', monospace",
     letterSpacing: '0.08em',
   }
@@ -38,7 +39,7 @@ export default function Header({ homeHref = '/', role = null, showGlossary = fal
           {displayGlossary && (
             <a href={glossaryIndexHref()} style={{
               fontSize: '13px',
-              color: '#378ADD',
+              color: accent,
               textDecoration: 'none',
               fontWeight: '500',
               fontFamily: "'IBM Plex Sans', sans-serif",

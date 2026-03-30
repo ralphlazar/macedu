@@ -1,6 +1,7 @@
 import { metrics } from '../../../../data/metrics'
 import { lesson } from '../../../../data/aqa-alevel'
 import Header from '../../../../components/Header'
+import StudentFramingHeader from '../../../../components/StudentFramingHeader'
 import StudentLessonClient from '../../../../components/StudentLessonClient'
 
 const METRIC_SLUGS  = ['inflation', 'unemployment', 'gdp', 'interest-rates', 'exchange-rates', 'trade']
@@ -51,28 +52,7 @@ export default async function StudentLessonPage({ params }) {
     <>
       <Header role="student" homeHref={`/student/${curriculum}`} />
 
-      {/* Framing line */}
-      <div style={{
-        background: '#fff4ee',
-        borderBottom: '1px solid #fcd9c0',
-        padding: '14px 28px',
-        fontFamily: 'sans-serif',
-      }}>
-        <div style={{ maxWidth: 864, margin: '0 auto' }}>
-          <div style={{
-            fontFamily: "'Instrument Serif', Georgia, serif",
-            fontSize: 22, fontWeight: 400, color: NAVY, marginBottom: 4,
-          }}>
-            This is what's happening right now.
-          </div>
-          <div style={{
-            fontSize: 12, color: '#b07040',
-            fontFamily: "'IBM Plex Mono', monospace", letterSpacing: '0.04em',
-          }}>
-            {countryLabel} {metricLabel}{aqaRef ? ` · ${aqaRef}` : ''}
-          </div>
-        </div>
-      </div>
+      <StudentFramingHeader subtitle={`${countryLabel} ${metricLabel}${aqaRef ? ` · ${aqaRef}` : ''}`} />
 
       <div style={{ padding: '20px 16px 64px', maxWidth: 864, margin: '0 auto' }}>
 

@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import Footer from './Footer'
 
 const NAVY  = '#0f1e35'
 const BLUE  = '#378ADD'
@@ -40,6 +41,7 @@ export default function LandingPage() {
   const accent = role === 'student' ? ORANGE : BLUE
 
   return (
+    <>
     <main style={{
       minHeight: '100vh',
       display: 'flex',
@@ -50,6 +52,30 @@ export default function LandingPage() {
       fontFamily: 'sans-serif',
     }}>
       <div style={{ textAlign: 'center', maxWidth: 680 }}>
+
+        <style>{`
+          @keyframes pulse-duo {
+            0%    { opacity: 1; background: #378ADD; transform: scale(1); }
+            12.5% { opacity: 0.3; background: #378ADD; transform: scale(0.7); }
+            25%   { opacity: 1; background: #378ADD; transform: scale(1); }
+            37.5% { opacity: 0.3; background: #378ADD; transform: scale(0.7); }
+            50%   { opacity: 1; background: #F0843C; transform: scale(1); }
+            62.5% { opacity: 0.3; background: #F0843C; transform: scale(0.7); }
+            75%   { opacity: 1; background: #F0843C; transform: scale(1); }
+            87.5% { opacity: 0.3; background: #F0843C; transform: scale(0.7); }
+            100%  { opacity: 1; background: #378ADD; transform: scale(1); }
+          }
+        `}</style>
+
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 14 }}>
+          <span style={{
+            display: 'inline-block',
+            width: 8, height: 8,
+            borderRadius: '50%',
+            background: '#378ADD',
+            animation: 'pulse-duo 6s ease-in-out infinite',
+          }} />
+        </div>
 
         <h1 style={{
           fontFamily: "'Instrument Serif', Georgia, serif",
@@ -64,7 +90,7 @@ export default function LandingPage() {
         </h1>
 
         <p style={{ fontSize: 15, color: '#8099b8', lineHeight: 1.65, margin: '0 0 36px' }}>
-          Current data, updated on release day.
+          Updated automatically. No textbook lag.
         </p>
 
         {/* ── Role picker ── */}
@@ -243,15 +269,9 @@ export default function LandingPage() {
           </div>
         )}
 
-        <p style={{ fontSize: 11, color: '#ccc', marginTop: 24, lineHeight: 1.5 }}>
-          Powered by{' '}
-          <a href="https://macrosnaps.app" target="_blank" rel="noopener noreferrer"
-            style={{ color: '#ccc', textDecoration: 'underline' }}>
-            MacroSnaps
-          </a>
-        </p>
-
       </div>
     </main>
+    <Footer />
+    </>
   )
 }

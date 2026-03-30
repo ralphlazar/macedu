@@ -1,6 +1,7 @@
 import { metrics } from '../../../../data/metrics'
 import { lesson } from '../../../../data/aqa-alevel'
 import Header from '../../../../components/Header'
+import FramingHeader from '../../../../components/FramingHeader'
 import SnapshotCard from '../../../../components/SnapshotCard'
 import LessonOverlay from '../../../../components/LessonOverlay'
 
@@ -60,28 +61,7 @@ export default async function TeacherLessonPage({ params }) {
     <>
       <Header role="teacher" homeHref={`/teacher/${curriculum}`} />
 
-      {/* Framing line */}
-      <div style={{
-        background: '#eef5fc',
-        borderBottom: '1px solid #d0e4f5',
-        padding: '14px 28px',
-        fontFamily: 'sans-serif',
-      }}>
-        <div style={{ maxWidth: 864, margin: '0 auto' }}>
-          <div style={{
-            fontFamily: "'Instrument Serif', Georgia, serif",
-            fontSize: 22, fontWeight: 400, color: NAVY, marginBottom: 4,
-          }}>
-            Your lesson is ready.
-          </div>
-          <div style={{
-            fontSize: 12, color: '#8099b8',
-            fontFamily: "'IBM Plex Mono', monospace", letterSpacing: '0.04em',
-          }}>
-            30 minutes · built around today's data · share with one click
-          </div>
-        </div>
-      </div>
+      <FramingHeader />
 
       <div style={{ padding: '20px 16px 64px', maxWidth: 864, margin: '0 auto' }}>
 
@@ -94,7 +74,7 @@ export default async function TeacherLessonPage({ params }) {
           marginBottom: 20,
         }}>
           <div style={{
-            fontSize: 9, fontWeight: 700, letterSpacing: '0.1em',
+            fontSize: 11, fontWeight: 700, letterSpacing: '0.1em',
             textTransform: 'uppercase', color: BLUE, marginBottom: 14,
             fontFamily: "'IBM Plex Mono', monospace",
           }}>
@@ -108,16 +88,16 @@ export default async function TeacherLessonPage({ params }) {
                     background: BLUE, color: 'white', borderRadius: '50%',
                     width: 22, height: 22,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    fontSize: 10, fontWeight: 700,
+                    fontSize: 11, fontWeight: 700,
                     fontFamily: "'IBM Plex Mono', monospace",
                   }}>
                     {beat.n}
                   </div>
                   <div>
-                    <div style={{ fontSize: 10, fontWeight: 700, color: BLUE, fontFamily: "'IBM Plex Mono', monospace" }}>
+                    <div style={{ fontSize: 12, fontWeight: 700, color: BLUE, fontFamily: "'IBM Plex Mono', monospace" }}>
                       {beat.time}
                     </div>
-                    <div style={{ fontSize: 11, color: NAVY, whiteSpace: 'nowrap' }}>
+                    <div style={{ fontSize: 13, color: NAVY, whiteSpace: 'nowrap' }}>
                       {beat.label}
                     </div>
                   </div>

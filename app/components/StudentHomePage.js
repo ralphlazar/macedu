@@ -27,6 +27,13 @@ function daysLabel(n) {
   return `${n}d ago`
 }
 
+function ageStyle(daysAgo) {
+  if (daysAgo === null || daysAgo === undefined) return { color: '#8099b8', animation: 'none' }
+  if (daysAgo <= 1) return { color: CYAN, animation: 'throb-cyan 1.1s ease-in-out infinite' }
+  if (daysAgo <= 5) return { color: '#F0843C', animation: 'none' }
+  return { color: '#8099b8', animation: 'none' }
+}
+
 export default function StudentHomePage({ metrics, curriculum }) {
   const [openMetric, setOpenMetric] = useState(null)
   const slug = curriculum || 'alevel'
@@ -77,12 +84,18 @@ export default function StudentHomePage({ metrics, curriculum }) {
 
       {/* ── Live strip ── */}
       <div style={{ maxWidth: 860, margin: '0 auto', padding: '28px 24px 0' }}>
+        <style>{`
+          @keyframes throb-cyan {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+          }
+        `}</style>
 
         <p style={{
-          fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase',
+          fontSize: 13, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase',
           color: ORANGE, margin: '0 0 12px', fontFamily: "'IBM Plex Mono', monospace",
         }}>
-          Moving right now
+          Last Change
         </p>
 
         <div style={{
@@ -99,7 +112,8 @@ export default function StudentHomePage({ metrics, curriculum }) {
                     <span style={{ fontSize: 18, lineHeight: 1 }}>{entry.flag}</span>
                     <span style={{
                       fontSize: 10, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase',
-                      color: isToday ? CYAN : '#8099b8', fontFamily: "'IBM Plex Mono', monospace",
+                      fontFamily: "'IBM Plex Mono', monospace",
+                      ...ageStyle(entry.releasedDaysAgo),
                     }}>
                       {daysLabel(entry.releasedDaysAgo)}
                     </span>
@@ -125,7 +139,7 @@ export default function StudentHomePage({ metrics, curriculum }) {
 
         {/* ── Topic tiles ── */}
         <p style={{
-          fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase',
+          fontSize: 13, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase',
           color: '#8099b8', margin: '0 0 12px', fontFamily: "'IBM Plex Mono', monospace",
         }}>
           Revise by topic
