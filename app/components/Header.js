@@ -1,3 +1,4 @@
+import { glossaryIndexHref } from '../utils/glossaryHref';
 const ROLE_COLOUR = {
   teacher: '#378ADD',
   student: '#F0843C',
@@ -32,7 +33,7 @@ export default function Header({ homeHref = '/', role = null, showGlossary = fal
         }
         <nav style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
           {displayGlossary && (
-            <a href="/glossary" style={{
+            <a href={glossaryIndexHref()} style={{
               fontSize: '13px',
               color: '#378ADD',
               textDecoration: 'none',

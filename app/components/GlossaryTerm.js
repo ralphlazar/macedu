@@ -1,4 +1,5 @@
 'use client'
+import { glossaryHref } from '../utils/glossaryHref';
 import { useState, useRef } from 'react'
 import Link from 'next/link'
 
@@ -123,7 +124,7 @@ export default function GlossaryTerm({ term, slug, brief, more }) {
               </button>
             )}
             <Link
-              href={`/glossary/${slug}`}
+              href={glossaryHref(slug)}
               onMouseDown={e => e.stopPropagation()}
               onClick={e => e.stopPropagation()}
               style={{
