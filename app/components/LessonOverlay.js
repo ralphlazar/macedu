@@ -397,7 +397,7 @@ export default function LessonOverlay({
                         transition: 'all 0.15s',
                       }}
                     >
-                      {copied ? 'Copied!' : 'Copy student link'}
+                      {copied ? 'Copied. Paste the link anywhere to share.' : 'Share with students →'}
                     </button>
                     {!copied && totalSelected > 0 && (
                       <span style={{ fontSize: 12, color: '#8099b8' }}>

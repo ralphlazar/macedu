@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 const NAVY = '#0f1e35'
 
 export default function FramingHeader() {
-  const full = 'Your lesson is ready.'
+  const full = 'Build your lesson plan.'
   const [displayed, setDisplayed] = useState('')
   const [done, setDone] = useState(false)
 
@@ -60,7 +60,7 @@ export default function FramingHeader() {
           opacity: done ? 1 : 0,
           transition: 'opacity 0.4s ease',
         }}>
-          30 minutes · built around the latest data · share with one click
+          30 minutes · latest data · share with one click
         </div>
       </div>
       <style>{`
