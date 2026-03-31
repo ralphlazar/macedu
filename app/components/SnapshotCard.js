@@ -159,6 +159,21 @@ export default function SnapshotCard({
         {value}
       </div>
 
+      {/* DXY callout — US exchange rates only */}
+      {metric === 'exchange-rates' && country === 'us' && (
+        <div style={{
+          fontSize: 12,
+          color: 'rgba(255,255,255,0.55)',
+          fontFamily: "'IBM Plex Sans', sans-serif",
+          lineHeight: 1.55,
+          marginBottom: 12,
+          borderLeft: '2px solid rgba(55,138,221,0.4)',
+          paddingLeft: 10,
+        }}>
+          <span style={{ color: '#85B7EB', fontWeight: 600 }}>DXY — Dollar Index.</span> Measures the dollar against a basket of 6 currencies. Rises when the dollar strengthens.
+        </div>
+      )}
+
       {/* Blurb or student prompt */}
       {studentMode && !showBlurb && (
         <p style={{

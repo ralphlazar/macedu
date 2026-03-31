@@ -16,6 +16,10 @@ const pattern = new RegExp(
 const termMap = {}
 sorted.forEach(entry => { termMap[entry.term.toLowerCase()] = entry })
 
+// Terms that exist in the glossary but should not be auto-wrapped in content
+// (explanation is handled contextually on the relevant page)
+const WRAP_BLOCKLIST = new Set(['dxy'])
+
 export function wrapGlossaryTerms(text) {
   if (!text || typeof text !== 'string') return text
 
@@ -29,6 +33,7 @@ export function wrapGlossaryTerms(text) {
     const key = part.toLowerCase()
     const entry = termMap[key]
     if (!entry) return part
+    if (WRAP_BLOCKLIST.has(key)) return part
     if (seen.has(key)) return part
     seen.add(key)
     return (

@@ -1223,4 +1223,12 @@ export const glossary = [
     detailed: "The wage-price spiral was a defining feature of UK inflation in the 1970s, when accommodating monetary policy allowed a series of oil price shocks to become entrenched in wage bargaining. Breaking the spiral required Paul Volcker's severe monetary tightening in the US and Geoffrey Howe's deflationary budget in the UK, both of which caused deep recessions. Central banks are acutely sensitive to signs of spiral dynamics because re-anchoring expectations once they have become unmoored is extremely costly. The risk of a spiral depends on the degree of indexation in wage contracts, the bargaining power of workers, and the credibility of the central bank's commitment to the inflation target. Common mistake: Students describe any period of rising wages and prices as a wage-price spiral. A true spiral requires each round of price increases to feed back into wage demands and then into further price increases, not merely a one-off adjustment.",
     seeAlso: ["inflation", "wage-growth", "services-inflation", "inflation-targeting", "monetary-policy"],
   },
+  {
+    term: 'DXY',
+    slug: 'dxy',
+    group: 'International Economics',
+    brief: 'A trade-weighted index measuring the US dollar against a basket of six major currencies: euro, yen, pound, Canadian dollar, Swedish krona and Swiss franc.',
+    more: 'The index uses a base of 100 set in 1973. A reading above 100 means the dollar is stronger than its base-year level. It rises when the dollar appreciates against the basket and falls when it depreciates. The euro carries the largest weight at around 58%.',
+    detailed: 'Used by traders and policymakers as a shorthand for dollar strength. Not a named concept on the AQA specification, but directly relevant to any exchange rate discussion involving the US. A rising DXY typically signals tighter global financial conditions — dollar-denominated debt becomes more expensive for emerging markets, and commodity prices (priced in dollars) tend to fall. Common mistake: Students sometimes treat the DXY as a bilateral exchange rate. It is an index, not a rate against a single currency.',
+  },
 ]

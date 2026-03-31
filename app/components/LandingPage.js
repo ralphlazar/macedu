@@ -70,8 +70,8 @@ export default function LandingPage() {
 
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 14 }}>
           <span style={{ position: 'relative', width: 9, height: 9, display: 'inline-block' }}>
-            <span style={{ position: 'absolute', inset: 0, borderRadius: '50%', animation: 'ping-ring-duo 1.4s cubic-bezier(0,0,0.2,1) infinite, ping-ring-colour 2.8s steps(1) infinite' }} />
-            <span style={{ position: 'absolute', inset: 0, borderRadius: '50%', animation: 'ping-core-duo 2.8s steps(1) infinite' }} />
+            <span style={{ position: 'absolute', inset: 0, borderRadius: '50%', animation: 'ping-ring-duo 1.4s cubic-bezier(0,0,0.2,1) infinite, ping-ring-colour 5.6s steps(1) infinite' }} />
+            <span style={{ position: 'absolute', inset: 0, borderRadius: '50%', animation: 'ping-core-duo 5.6s steps(1) infinite' }} />
           </span>
         </div>
 
