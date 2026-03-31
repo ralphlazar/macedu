@@ -175,20 +175,20 @@ export default function StudentHomePage({ metrics, curriculum }) {
                             background: '#f7f9fc',
                             border: '1px solid #e0e8f0',
                             borderRadius: 8,
-                            padding: '10px 12px',
+                            padding: '10px 8px',
                             display: 'flex',
+                            flexDirection: 'column',
                             alignItems: 'center',
-                            gap: 8,
+                            gap: 5,
+                            textAlign: 'center',
                           }}>
-                            <span style={{ fontSize: 18, lineHeight: 1 }}>{c.flag}</span>
-                            <div>
-                              <div style={{
-                                fontSize: 11, fontWeight: 600, color: NAVY,
-                                fontFamily: "'IBM Plex Mono', monospace",
-                              }}>
-                                {c.name}
-                              </div>
-
+                            <span style={{ fontSize: 20, lineHeight: 1 }}>{c.flag}</span>
+                            <div style={{
+                              fontSize: 10, fontWeight: 600, color: NAVY,
+                              fontFamily: "'IBM Plex Mono', monospace",
+                              lineHeight: 1.3,
+                            }}>
+                              {c.name}
                             </div>
                           </div>
                         </Link>
