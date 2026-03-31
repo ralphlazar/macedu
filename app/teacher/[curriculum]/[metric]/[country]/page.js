@@ -44,8 +44,9 @@ export default async function TeacherLessonPage({ params }) {
   // Lesson content (AQA A-level layer)
   const lessonData = lesson[metric] || null
 
-  // Editorial judgment reveal text for this country
-  const reveal = data?.reveal || ''
+  // Weather exercise: correct icon and reason
+  const correctIcon   = data?.correctIcon   || ''
+  const weatherReason = data?.weatherReason || ''
 
   const BLUE = '#378ADD'
   const NAVY = '#0f1e35'
@@ -131,7 +132,8 @@ export default async function TeacherLessonPage({ params }) {
           metric={metric}
           country={country}
           lessonData={lessonData}
-          reveal={reveal}
+          correctIcon={correctIcon}
+          weatherReason={weatherReason}
           curriculum={curriculum}
           showReveal={true}
           studentMode={false}

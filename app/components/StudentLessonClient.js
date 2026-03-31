@@ -5,7 +5,7 @@ import LessonOverlay from './LessonOverlay'
 
 export default function StudentLessonClient({
   metric, country, data, aqaRef, metricTitle, allCountries,
-  lessonData, reveal, curriculum,
+  lessonData, correctIcon, weatherReason, curriculum,
 }) {
   const searchParams = useSearchParams()
   const isTasked = !!(searchParams.get('t') || searchParams.get('q') || searchParams.get('d'))
@@ -26,7 +26,8 @@ export default function StudentLessonClient({
         metric={metric}
         country={country}
         lessonData={lessonData}
-        reveal={reveal}
+        correctIcon={correctIcon}
+        weatherReason={weatherReason}
         curriculum={curriculum}
         showReveal={true}
         studentMode={true}

@@ -77,7 +77,7 @@ function TeacherNote({ text }) {
   )
 }
 
-function WeatherBeat({ exercisePrompt, exerciseOptions, reveal, studentDirect }) {
+function WeatherBeat({ exercisePrompt, exerciseOptions, correctIcon, weatherReason, studentDirect }) {
   const [selected, setSelected] = useState(null)
   const [revealed, setRevealed] = useState(false)
   const color = studentDirect ? ORANGE : BLUE
@@ -103,12 +103,17 @@ function WeatherBeat({ exercisePrompt, exerciseOptions, reveal, studentDirect })
               style={{
                 display: 'flex', alignItems: 'center', gap: 8,
                 padding: '10px 18px',
-                border: `1.5px solid ${isSelected ? color : '#dde6f2'}`,
+                border: revealed
+                  ? (cls === correctIcon ? '2px solid #2e9e5b' : '1.5px solid #dde6f2')
+                  : `1.5px solid ${isSelected ? color : '#dde6f2'}`,
                 borderRadius: 8,
-                background: isSelected ? (studentDirect ? '#fff4ee' : '#e8f2fc') : '#f8fafd',
+                background: revealed
+                  ? (cls === correctIcon ? '#edf7f1' : '#f8fafd')
+                  : (isSelected ? (studentDirect ? '#fff4ee' : '#e8f2fc') : '#f8fafd'),
+                opacity: revealed && cls !== correctIcon ? 0.4 : 1,
                 cursor: revealed && !studentDirect ? 'default' : 'pointer',
                 fontSize: 14, fontWeight: isSelected ? 600 : 400,
-                color: NAVY, transition: 'all 0.12s', fontFamily: 'inherit',
+                color: NAVY, transition: 'all 0.15s', fontFamily: 'inherit',
               }}
             >
               <span style={{ fontSize: 22, lineHeight: 1, ...ICON_FILTERS[cls] }}>
@@ -156,20 +161,20 @@ function WeatherBeat({ exercisePrompt, exerciseOptions, reveal, studentDirect })
         </button>
       )}
 
-      {revealed && reveal && (
+      {revealed && weatherReason && (
         <div style={{
-          background: '#f4f7fb', border: '1px solid #e2eaf4',
+          background: '#edf7f1', border: '1px solid #b8e6cc',
           borderRadius: 10, padding: '14px 16px', marginTop: 4,
         }}>
           <div style={{
             fontSize: 10, fontWeight: 700, letterSpacing: '0.08em',
-            textTransform: 'uppercase', color: BLUE, marginBottom: 6,
+            textTransform: 'uppercase', color: '#2e9e5b', marginBottom: 6,
             fontFamily: "'IBM Plex Mono', monospace",
           }}>
             Editorial judgment
           </div>
           <p style={{ margin: 0, fontSize: 13, lineHeight: 1.6, color: NAVY }}>
-            {reveal}
+            {weatherReason}
           </p>
         </div>
       )}
@@ -181,7 +186,8 @@ export default function LessonOverlay({
   metric,
   country,
   lessonData,
-  reveal,
+  correctIcon   = '',
+  weatherReason = '',
   curriculum,
   showReveal  = true,
   studentMode = false,
@@ -320,7 +326,8 @@ export default function LessonOverlay({
                 <WeatherBeat
                   exercisePrompt={exercisePrompt}
                   exerciseOptions={exerciseOptions}
-                  reveal={reveal}
+                  correctIcon={correctIcon}
+                  weatherReason={weatherReason}
                   studentDirect={false}
                 />
               )}
@@ -437,7 +444,8 @@ export default function LessonOverlay({
                 <WeatherBeat
                   exercisePrompt={exercisePrompt}
                   exerciseOptions={exerciseOptions}
-                  reveal={reveal}
+                  correctIcon={correctIcon}
+                  weatherReason={weatherReason}
                   studentDirect={true}
                 />
               )}
@@ -468,7 +476,8 @@ export default function LessonOverlay({
                 <WeatherBeat
                   exercisePrompt={exercisePrompt}
                   exerciseOptions={exerciseOptions}
-                  reveal={reveal}
+                  correctIcon={correctIcon}
+                  weatherReason={weatherReason}
                   studentDirect={true}
                 />
               )}

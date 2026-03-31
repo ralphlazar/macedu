@@ -12,7 +12,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 12,
         "icon": "☁️",
-        "reveal": "Good example of inflation coming under control. UK CPI is above target but heading in the right direction.",
+        "correctIcon": "cloudy",
+        "weatherReason": "Inflation in UK is above target but falling -- cloudy, heading in the right direction.",
         "blurb": [
           "Inflation is falling but has not landed. At 2.5%, it remains above the Bank of England's 2% target.",
           "Services inflation is the stubborn part. Wage growth is keeping price pressure alive in the non-goods economy.",
@@ -271,7 +272,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 19,
         "icon": "☀️",
-        "reveal": "Good example of inflation on target. US CPI is sitting right where the central bank wants it.",
+        "correctIcon": "sunny",
+        "weatherReason": "Inflation is right on the US central bank target -- that is a sunny read.",
         "blurb": [
           "The Fed's target inflation sits comfortably within its comfort zone, rewarding patient monetary policy and vindicating the hold on rate cuts.",
           "Price growth has stabilised at levels that don't erode purchasing power or encourage wage spirals, keeping the central bank's dual mandate firmly in view.",
@@ -530,7 +532,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 12,
         "icon": "☀️",
-        "reveal": "Good example of inflation on target. Eurozone CPI is sitting right where the central bank wants it.",
+        "correctIcon": "sunny",
+        "weatherReason": "Inflation is right on the Eurozone central bank target -- that is a sunny read.",
         "blurb": [
           "The ECB's target is firmly in view, with inflation holding steady at the Goldilocks zone where monetary policy can actually relax without triggering a fresh spiral.",
           "This is the boring outcome everyone should want: price pressures have cooled from the spike without collapsing into deflation, which means real interest rates aren't punitive and growth can breathe.",
@@ -789,7 +792,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 20,
         "icon": "☀️",
-        "reveal": "Good example of inflation running slightly cool. China CPI is just below target.",
+        "correctIcon": "sunny",
+        "weatherReason": "Inflation in China is just below target and stable -- close enough to call it sunny.",
         "blurb": [
           "China's inflation has flatlined just beneath the central bank's comfort zone, suggesting demand remains tepid even as supply chains normalise.",
           "A cool price environment hands policymakers room to loosen monetary policy without stoking runaway costs, though it also hints at sluggish domestic consumption.",
@@ -1048,7 +1052,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 10,
         "icon": "☀️",
-        "reveal": "Good example of inflation on target. Japan CPI is sitting right where the central bank wants it.",
+        "correctIcon": "sunny",
+        "weatherReason": "Inflation is right on the Japan central bank target -- that is a sunny read.",
         "blurb": [
           "Japan's inflation has settled at the Bank of Japan's target, marking a rare victory for an economy that spent decades fighting deflation.",
           "This stable price environment reflects both anchored wage growth and disciplined monetary policy, giving the BoJ room to normalise rates without sparking fresh shocks.",
@@ -1307,7 +1312,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 17,
         "icon": "☁️",
-        "reveal": "Good example of inflation coming under control. Brazil CPI is above target but heading in the right direction.",
+        "correctIcon": "cloudy",
+        "weatherReason": "Inflation in Brazil is above target but falling -- cloudy, heading in the right direction.",
         "blurb": [
           "Brazil's inflation trajectory is cooling without collapsing, which is precisely what policymakers want to see after years of overheating.",
           "The central bank's tightening cycle is working, though CPI remains stubbornly above the official target band.",
@@ -1574,7 +1580,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 13,
         "icon": "☁️",
-        "reveal": "Good example of elevated unemployment. UK is above its structural rate but improving.",
+        "correctIcon": "cloudy",
+        "weatherReason": "Unemployment in UK is above its normal level but improving -- cloudy for now.",
         "blurb": [
           "Unemployment sits above the structural rate, signalling slack in the labour market and spare capacity for growth before wage pressures bite.",
           "The upward drift has flattened, suggesting policy support and sectoral reallocation are beginning to take hold despite persistent headwinds.",
@@ -1833,7 +1840,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 24,
         "icon": "☀️",
-        "reveal": "Good example of a tight labour market. US unemployment is at or below its normal level.",
+        "correctIcon": "sunny",
+        "weatherReason": "Unemployment in US is at or below its normal level -- a sunny labour market.",
         "blurb": [
           "US unemployment sits at its natural rate, meaning the labour market has virtually no spare capacity left to fill.",
           "Firms are competing hard for workers, which typically pushes wage growth upwards and raises inflation concerns for the Fed.",
@@ -2092,7 +2100,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 28,
         "icon": "☀️",
-        "reveal": "Good example of a tight labour market. Eurozone unemployment is at or below its normal level.",
+        "correctIcon": "sunny",
+        "weatherReason": "Unemployment in Eurozone is at or below its normal level -- a sunny labour market.",
         "blurb": [
           "Eurozone unemployment sits at its structural rate, meaning there's little slack left in the labour market. Employers are competing hard for talent.",
           "A tight labour market typically drives wage growth and inflation pressure, which is exactly what policymakers watch when deciding on interest rates.",
@@ -2351,7 +2360,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 14,
         "icon": "☀️",
-        "reveal": "Good example of a tight labour market. China unemployment is at or below its normal level.",
+        "correctIcon": "sunny",
+        "weatherReason": "Unemployment in China is at or below its normal level -- a sunny labour market.",
         "blurb": [
           "China's unemployment rate is holding at its baseline level, signalling a labour market running near capacity despite broader economic headwinds.",
           "A tight labour market typically means wage pressure builds and firms struggle to fill vacancies, constraining growth in ways that aren't immediately visible in headline unemployment figures.",
@@ -2610,7 +2620,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 31,
         "icon": "☀️",
-        "reveal": "Good example of a tight labour market. Japan unemployment is at or below its normal level.",
+        "correctIcon": "sunny",
+        "weatherReason": "Unemployment in Japan is at or below its normal level -- a sunny labour market.",
         "blurb": [
           "Japan's unemployment sits at its structural floor, a rare feat for a major economy and proof that demographic headwinds can actually tighten labour markets rather than loosen them.",
           "With fewer working-age people chasing jobs, employers are competing fiercely for talent, wage growth is stickier than it would be otherwise, and skill mismatches matter more than slack.",
@@ -2869,7 +2880,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 4,
         "icon": "☀️",
-        "reveal": "Good example of a tight labour market. Brazil unemployment is at or below its normal level.",
+        "correctIcon": "sunny",
+        "weatherReason": "Unemployment in Brazil is at or below its normal level -- a sunny labour market.",
         "blurb": [
           "Brazil's unemployment sits at its cyclical floor, signalling a labour market with little slack and wages under upward pressure.",
           "Tight conditions mean firms are competing for workers rather than workers competing for jobs—a rare luxury in emerging markets.",
@@ -3136,7 +3148,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 46,
         "icon": "☀️",
-        "reveal": "Good example of healthy growth. UK is expanding at or above its trend rate.",
+        "correctIcon": "sunny",
+        "weatherReason": "UK is growing at or near its normal rate -- that is a sunny read.",
         "blurb": [
           "UK GDP is tracking at trend, which means the economy is growing at a pace the supply side can sustain without overheating inflation.",
           "This is the Goldilocks zone: expansion without the boom-and-bust volatility that tends to wreck policy credibility and wage-price spirals.",
@@ -3175,7 +3188,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 32,
         "icon": "☀️",
-        "reveal": "Good example of healthy growth. US is expanding at or above its trend rate.",
+        "correctIcon": "sunny",
+        "weatherReason": "US is growing at or near its normal rate -- that is a sunny read.",
         "blurb": [
           "US GDP is expanding at or above its long-run trend rate, which is exactly where you want to be for sustained economic health.",
           "This pace of growth signals the economy is neither overheating nor stalling, leaving room for employment gains without triggering runaway inflation.",
@@ -3214,7 +3228,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 60,
         "icon": "☀️",
-        "reveal": "Good example of healthy growth. Eurozone is expanding at or above its trend rate.",
+        "correctIcon": "sunny",
+        "weatherReason": "Eurozone is growing at or near its normal rate -- that is a sunny read.",
         "blurb": [
           "Eurozone GDP is expanding at trend, which is precisely where you want a mature economy to be—no overheating, no stalling.",
           "This is the sweet spot for policymakers: growth strong enough to create jobs and tax revenue, but not so frantic that it triggers inflation spirals.",
@@ -3253,7 +3268,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 73,
         "icon": "☀️",
-        "reveal": "Good example of healthy growth. China is expanding at or above its trend rate.",
+        "correctIcon": "sunny",
+        "weatherReason": "China is growing at or near its normal rate -- that is a sunny read.",
         "blurb": [
           "China's GDP is expanding at trend, which means the economy is neither overheating nor stalling—precisely where policymakers want it.",
           "Growth at potential rate suggests the economy has room to absorb shocks without triggering either recession fears or inflation alarms.",
@@ -3292,7 +3308,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 42,
         "icon": "☀️",
-        "reveal": "Good example of healthy growth. Japan is expanding at or above its trend rate.",
+        "correctIcon": "sunny",
+        "weatherReason": "Japan is growing at or near its normal rate -- that is a sunny read.",
         "blurb": [
           "Japan's GDP is expanding in line with its long-run potential, which is precisely where you want a mature economy to sit.",
           "This is growth without the overheating risk that forces central banks to slam on the brakes—textbook soft landing territory.",
@@ -3331,7 +3348,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 32,
         "icon": "☀️",
-        "reveal": "Good example of healthy growth. Brazil is expanding at or above its trend rate.",
+        "correctIcon": "sunny",
+        "weatherReason": "Brazil is growing at or near its normal rate -- that is a sunny read.",
         "blurb": [
           "Brazil's economy is expanding at its underlying potential rate, which is precisely where you want to see growth if you're trying to avoid overheating.",
           "This pace is neither sluggish nor dangerously rapid, making it the economic equivalent of a well-tuned engine rather than one misfiring or redlining.",
@@ -3378,7 +3396,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 53,
         "icon": "☁️",
-        "reveal": "Good example of a central bank on hold. UK is watching the data before moving rates.",
+        "correctIcon": "cloudy",
+        "weatherReason": "UK rates are on hold -- the central bank is waiting for more data, cloudy.",
         "blurb": [
           "The Bank of England is in wait-and-see mode, leaving rates untouched while inflation and growth signals remain mixed.",
           "Markets are pricing in possible cuts later in the year, but the MPC isn't rushing—they're gathering more evidence on wage pressures and price stickiness first.",
@@ -3637,7 +3656,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 12,
         "icon": "☁️",
-        "reveal": "Good example of a central bank on hold. US is watching the data before moving rates.",
+        "correctIcon": "cloudy",
+        "weatherReason": "US rates are on hold -- the central bank is waiting for more data, cloudy.",
         "blurb": [
           "The Fed's patience is showing. With rates on pause, policymakers are clearly waiting for clearer signals on inflation and growth before committing to their next move.",
           "This is classic central banking caution. The cloudy outlook means the Fed gets to sit tight, resist political pressure, and let economic data do the talking.",
@@ -3896,7 +3916,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 25,
         "icon": "☁️",
-        "reveal": "Good example of a central bank on hold. Eurozone is watching the data before moving rates.",
+        "correctIcon": "cloudy",
+        "weatherReason": "Eurozone rates are on hold -- the central bank is waiting for more data, cloudy.",
         "blurb": [
           "The ECB is sitting tight, waiting for clearer signals on inflation and growth before committing to its next move.",
           "With economic data mixed and price pressures uneven across member states, holding rates steady is the cautious play.",
@@ -4155,7 +4176,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 11,
         "icon": "☁️",
-        "reveal": "Good example of a central bank on hold. China is watching the data before moving rates.",
+        "correctIcon": "cloudy",
+        "weatherReason": "China rates are on hold -- the central bank is waiting for more data, cloudy.",
         "blurb": [
           "China's central bank is doing precisely nothing with rates right now, which is the most honest thing it can do when economic signals are mixed.",
           "The hold reflects classic wait-and-see monetary policy: move only once you have clarity on growth, inflation, and credit demand.",
@@ -4172,7 +4194,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 12,
         "icon": "☁️",
-        "reveal": "Good example of a central bank on hold. Japan is watching the data before moving rates.",
+        "correctIcon": "cloudy",
+        "weatherReason": "Japan rates are on hold -- the central bank is waiting for more data, cloudy.",
         "blurb": [
           "The Bank of Japan has paused its hiking cycle and is taking a wait-and-see approach to inflation and wage growth data.",
           "Rates remain anchored whilst policymakers assess whether recent economic momentum is durable or transitory.",
@@ -4431,7 +4454,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 12,
         "icon": "⛈️",
-        "reveal": "Good example of restrictive monetary policy. Brazil rates are high and squeezing the economy.",
+        "correctIcon": "stormy",
+        "weatherReason": "Brazil rates are high and squeezing borrowing -- that is a stormy read.",
         "blurb": [
           "Brazil's central bank has maintained rates at restrictive levels, deliberately keeping borrowing costs elevated to combat inflationary pressures.",
           "Higher rates are tightening credit conditions across the economy, dampening investment and consumer spending as firms and households face steeper debt servicing costs.",
@@ -4698,11 +4722,12 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": null,
         "icon": "☀️",
-        "reveal": "Good example of a stable exchange rate. The UK currency is holding steady against the dollar.",
+        "correctIcon": "sunny",
+        "weatherReason": "The UK exchange rate is holding steady -- stability is a sunny signal.",
         "blurb": [
-          "Sterling is holding its ground against the dollar, offering the rare gift of predictability in forex markets.",
-          "A stable exchange rate means British importers and exporters can actually plan ahead without currency swings torpedoing their margins.",
-          "Investors appreciate the lack of volatility; when the pound isn't gyrating wildly, capital flows tend to behave themselves."
+          "Sterling is treading water against major currencies, neither strengthening nor weakening materially. This kind of stability tends to happen when investors see the UK economy as neither particularly attractive nor alarming.",
+          "A flat exchange rate is actually good news for exporters and importers: they can plan without the whiplash of sudden currency swings. Uncertainty is more costly to business than a steady, predictable rate.",
+          "Behind this calm sits a balance of forces: interest rate expectations, relative economic growth, and capital flows are all roughly offsetting each other. When that equilibrium shifts, watch for sterling to move decisively."
         ],
         "chartDates": [
           "Apr 2016",
@@ -4957,11 +4982,12 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": null,
         "icon": "☀️",
-        "reveal": "Good example of a stable exchange rate. The US currency is holding steady against the dollar.",
+        "correctIcon": "sunny",
+        "weatherReason": "The US exchange rate is holding steady -- stability is a sunny signal.",
         "blurb": [
-          "The dollar is holding firm against major currency pairs, suggesting sustained confidence in US economic fundamentals and the Fed's policy stance.",
-          "A stable exchange rate reduces hedging costs for multinational firms and removes currency volatility from cross-border trade calculations, at least for now.",
-          "Flatness here reflects balanced capital flows and relatively calm geopolitical conditions, but watch for shifts in rate expectations or risk sentiment that could break the calm."
+          "The dollar remains unmoved against major currencies, suggesting markets have priced in current rate expectations and see little reason to reprrice.",
+          "Flat exchange rates reward exporters with predictability and importers with cost certainty, making life easier for treasury teams across corporate America.",
+          "Stability here signals confidence: absent shocks, markets aren't panicking about US monetary policy or geopolitical risk, which keeps FX traders in their offices rather than on the phone."
         ],
         "chartDates": [
           "Apr 2016",
@@ -5216,11 +5242,12 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 0,
         "icon": "☀️",
-        "reveal": "Good example of a stable exchange rate. The Eurozone currency is holding steady against the dollar.",
+        "correctIcon": "sunny",
+        "weatherReason": "The Eurozone exchange rate is holding steady -- stability is a sunny signal.",
         "blurb": [
-          "The euro is holding its ground against the dollar, neither strengthening nor weakening meaningfully. A textbook case of exchange rate stability when fundamentals are balanced.",
-          "Steady currency conditions reduce friction for exporters and importers alike, since they can plan without fretting over sudden moves. This is exactly what central banks dream about.",
-          "When the weather's calm and the rate's flat, it usually signals that the market sees the Eurozone's economic outlook as neither compelling nor concerning relative to the US."
+          "The euro is treading water against major currencies, which means exporters can plan without guessing games and importers aren't facing sudden shocks to their margins.",
+          "Stable exchange rates act as a brake on imported inflation, allowing the ECB breathing room to assess domestic pressures without currency volatility muddying the water.",
+          "Capital flows remain unfazed by forex gyrations, suggesting investors see the eurozone as a steady proposition rather than a currency roulette wheel."
         ],
         "chartDates": [
           "Apr 2016",
@@ -5475,11 +5502,12 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 0,
         "icon": "☀️",
-        "reveal": "Good example of a stable exchange rate. The China currency is holding steady against the dollar.",
+        "correctIcon": "sunny",
+        "weatherReason": "The China exchange rate is holding steady -- stability is a sunny signal.",
         "blurb": [
-          "The yuan is holding firm against the dollar, a rare moment of stability in what's usually a politically charged relationship between Beijing and Washington.",
-          "This steadiness reflects China's willingness to defend its currency through intervention, keeping exporters happy and capital flight at bay.",
-          "For students of monetary policy, it's a textbook example of how central bank jawboning and actual market management can keep a currency anchored despite external pressures."
+          "The yuan is holding its line, refusing to drift sharply in either direction. This kind of steadiness is exactly what keeps traders and foreign investors from getting jittery about currency risk.",
+          "A stable exchange rate signals that China's authorities have the monetary conditions under control, even amid global turbulence. When your currency doesn't thrash around, your economy looks less chaotic to the outside world.",
+          "Flatness here is genuinely good news for exporters and importers alike: nobody's caught off guard by wild swings, and pricing contracts becomes a matter of commercial judgment rather than currency roulette."
         ],
         "chartDates": [
           "Apr 2016",
@@ -5734,11 +5762,12 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 0,
         "icon": "☀️",
-        "reveal": "Good example of a stable exchange rate. The Japan currency is holding steady against the dollar.",
+        "correctIcon": "sunny",
+        "weatherReason": "The Japan exchange rate is holding steady -- stability is a sunny signal.",
         "blurb": [
-          "The yen is holding its ground against the dollar, a rarity in volatile currency markets where even modest economic shifts trigger wild swings.",
-          "Stability here reflects Japan's structural position: large current account surpluses and relatively low external debt mean the yen doesn't need to chase returns elsewhere.",
-          "For policymakers, a steady rate is a mixed blessing—it limits export competitiveness gains but removes the headache of sudden revaluation shocks to corporate earnings."
+          "The yen is holding its ground against major currencies, neither surging nor sliding into weakness. That kind of stability is rare enough to matter.",
+          "Capital flows and carry trade positioning remain balanced, keeping the currency anchored without triggering intervention alerts from the Ministry of Finance. The Bank of Japan can afford to watch rather than act.",
+          "Exporters get predictability; importers avoid sudden shocks; policymakers face no awkward pressure to defend. Flat is often the most underrated exchange rate outcome."
         ],
         "chartDates": [
           "Apr 2016",
@@ -5993,11 +6022,12 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 0,
         "icon": "☀️",
-        "reveal": "Good example of a stable exchange rate. The Brazil currency is holding steady against the dollar.",
+        "correctIcon": "sunny",
+        "weatherReason": "The Brazil exchange rate is holding steady -- stability is a sunny signal.",
         "blurb": [
-          "The real is holding its ground against the dollar, a rare moment of calm in a currency that normally swings like a hammock in a hurricane.",
-          "Stable exchange rates matter: Brazilian firms can price exports without fearing the rug gets pulled out from under them next week.",
-          "This steadiness buys the central bank breathing room to focus on other headaches rather than constant currency firefighting."
+          "The real is holding its ground against major currencies, signalling that investors aren't panicking about Brazil's fiscal or monetary outlook right now.",
+          "Stable exchange rates mean import costs stay predictable and foreign-currency debt servicing remains manageable, a genuine relief for policymakers juggling inflation and growth.",
+          "This calm reflects confidence that the central bank has the credibility to keep the currency from becoming a political football, though that confidence can evaporate fast if rates or risk appetite shift."
         ],
         "chartDates": [
           "Apr 2016",
@@ -6260,7 +6290,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 46,
         "icon": "☁️",
-        "reveal": "Good example of a current account deficit. UK is buying more from the world than it is selling.",
+        "correctIcon": "cloudy",
+        "weatherReason": "UK is buying more from the world than it sells -- a deficit makes this cloudy.",
         "blurb": [
           "The UK runs a persistent current account deficit, meaning it imports more goods, services, and investment income than it exports.",
           "This is partly structural: a large financial sector generates invisible earnings, but goods trade is chronically in deficit.",
@@ -6299,7 +6330,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 25,
         "icon": "☁️",
-        "reveal": "Good example of a current account deficit. US is buying more from the world than it is selling.",
+        "correctIcon": "cloudy",
+        "weatherReason": "US is buying more from the world than it sells -- a deficit makes this cloudy.",
         "blurb": [
           "The US is importing far more than it exports, running a persistent current account deficit that reflects American consumer appetite outpacing domestic production capacity.",
           "This deficit is partly structural: the dollar's reserve currency status makes US goods pricier abroad whilst foreign goods arrive cheap at home, creating an asymmetry in trade flows.",
@@ -6338,7 +6370,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 69,
         "icon": "☀️",
-        "reveal": "Good example of a large current account surplus. Eurozone is selling significantly more to the world than it is buying.",
+        "correctIcon": "sunny",
+        "weatherReason": "Eurozone is selling far more to the world than it buys -- a large surplus, sunny.",
         "blurb": [
           "The Eurozone runs a hefty current account surplus, shifting far more goods outbound than it imports. This is the economic equivalent of your household selling more stuff than it buys.",
           "A surplus this large reflects competitive manufacturing exports and relatively restrained domestic demand for foreign goods. Germany's industrial machine does a lot of the heavy lifting here.",
@@ -6377,7 +6410,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 24,
         "icon": "☀️",
-        "reveal": "Good example of a current account surplus. China is selling more to the world than it is buying.",
+        "correctIcon": "sunny",
+        "weatherReason": "China is selling more to the world than it buys -- a surplus is a sunny read.",
         "blurb": [
           "China's exports continue to outpace imports, maintaining a healthy current account surplus and positioning the country as a net creditor to the global economy.",
           "This persistent trade advantage reflects both China's manufacturing prowess and the world's appetite for its goods, even as domestic consumption remains relatively constrained.",
@@ -6416,7 +6450,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 26,
         "icon": "☀️",
-        "reveal": "Good example of a large current account surplus. Japan is selling significantly more to the world than it is buying.",
+        "correctIcon": "sunny",
+        "weatherReason": "Japan is selling far more to the world than it buys -- a large surplus, sunny.",
         "blurb": [
           "Japan's trade balance remains in robust surplus, with exports substantially outpacing imports. This is the economic equivalent of selling your neighbour's lawnmower and keeping the money.",
           "A current account surplus of this scale reflects Japan's structural advantage in manufacturing and technology exports, particularly in automotive and electronics sectors. The rest of the world keeps buying; Japan keeps accumulating foreign currency.",
@@ -6455,7 +6490,8 @@ export const metrics = {
         "direction": "flat",
         "releasedDaysAgo": 34,
         "icon": "☁️",
-        "reveal": "Good example of a current account deficit. Brazil is buying more from the world than it is selling.",
+        "correctIcon": "cloudy",
+        "weatherReason": "Brazil is buying more from the world than it sells -- a deficit makes this cloudy.",
         "blurb": [
           "Brazil's trade position remains stubbornly negative, with imports outpacing exports and showing little sign of correction.",
           "A current account deficit this persistent signals that domestic demand is running ahead of productive capacity, forcing reliance on foreign goods.",

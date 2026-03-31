@@ -41,8 +41,9 @@ export default async function StudentLessonPage({ params }) {
   const data = m?.countries?.[country]
 
   const allCountries = m?.countries || {}
-  const lessonData   = lesson[metric] || null
-  const reveal       = data?.reveal || ''
+  const lessonData    = lesson[metric] || null
+  const correctIcon   = data?.correctIcon   || ''
+  const weatherReason = data?.weatherReason || ''
 
   const metricLabel  = m?.title || metric
   const countryLabel = data?.name || country.toUpperCase()
@@ -64,7 +65,8 @@ export default async function StudentLessonPage({ params }) {
           metricTitle={metricLabel}
           allCountries={allCountries}
           lessonData={lessonData}
-          reveal={reveal}
+          correctIcon={correctIcon}
+          weatherReason={weatherReason}
           curriculum={curriculum}
         />
       </div>
