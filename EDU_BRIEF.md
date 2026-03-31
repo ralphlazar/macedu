@@ -1,12 +1,12 @@
 # EDU_BRIEF.md
 ## MacroSnaps Education Platform (macedu)
-### Living brief — updated Session 29
+### Living brief — updated Session 30
 
 ---
 
 ## Project context
 
-Next.js 16 App Router, statically exported, Cloudflare Pages. Live at macroeconomics.education. Repo: https://github.com/ralphlazar/macedu. Local: `/Users/lisaswerling/RALPH/AI/macedu`. Ralph is non-technical; Claude writes all code. UK English throughout; no em dashes.
+Next.js 16 App Router, statically exported, Cloudflare Pages. Live at macroeconomics.education. Repo: https://github.com/ralphlazar/macedu. Local: `/Users/lisaswerling/RALPH/AI/macedu`. Ralph is non-technical; Claude writes all code. UK English throughout; no em dashes, no long hyphens (these reveal AI writing).
 
 ---
 
@@ -38,7 +38,7 @@ These apply in every session without being asked:
 
 **No prose anywhere.** All content is 3 bullet points. This is a USP and a design rule enforced across the entire site.
 
-**No AI-generated writing.** All copy must read as if written by an experienced A-level economics teacher. No double hyphens, no "on the one hand / on the other hand" boilerplate, no hedging.
+**No AI-generated writing.** All copy must read as if written by an experienced A-level economics teacher. No double hyphens, no long hyphens (em dashes), no "on the one hand / on the other hand" boilerplate, no hedging.
 
 **Copy discipline (NON-NEGOTIABLE).** Every word is load-bearing. These rules apply across all content on the platform -- blurbs, questions, prompts, glossary definitions, UI labels, everything:
 - No synonyms used as padding. Pick one formulation and use it.
@@ -48,6 +48,7 @@ These apply in every session without being asked:
 - No double-barrelled definitions. One sentence per Brief-level definition. If it needs two sentences, the definition is wrong.
 - Related terms expressed as links, not prose. "See also: demand-pull inflation, cost-push inflation." Not two sentences joining the dots.
 - Compression signals confidence. Fluff signals the opposite.
+- **No em dashes or long hyphens anywhere. Ever. Use a regular hyphen (-) or restructure the sentence.**
 
 ---
 
@@ -55,11 +56,11 @@ These apply in every session without being asked:
 
 **36 cards = 6 metrics × 6 countries.**
 
-**Layer 1 (Snapshot card):** Dark navy. Flag, country name, metric label (descriptive), large value, 3-bullet blurb (teacher + direct student) or "What is this chart telling you?" (tasked student), chart. `Next release: ~Nd` top-right with Nd in bright cyan (#00e5ff) throbbing at 1.1s. AQA ref below that. No weather icon or direction arrow on the card.
+**Layer 1 (Snapshot card):** Dark navy. Flag, country name, metric label (descriptive), large value, 3-bullet blurb (teacher + direct student) or "What is this chart telling you?" (tasked student), chart. `Next release: ~Nd` top-right with Nd in bright cyan (#00e5ff) throbbing at 1.1s. AQA ref below that. No weather icon or direction arrow on the card. **DXY callout:** US exchange rates card only -- a blue left-bordered callout below the value explaining what the DXY index is (3 sentences). Wired as a conditional in `SnapshotCard.js`.
 
 **Layer 2 (Lesson overlay):** Teacher sees: 4-beat vertical spine (chart discussion, weather icon, written response, discussion) with checkboxes on beats 3 and 4. Share button always encodes `?t=1` plus any selected `?q=` and `?d=` params. Direct student sees: 3-beat vertical spine (what the chart shows, weather icon with reveal, exam questions). Tasked student sees: weather icon + teacher-selected questions and prompts only.
 
-**Weather icon exercise:** Editorial judgment, not a quiz. Teacher's icon is their opinion, not a correct answer. Reveal shows icon and judgment text only. No YES!/Nope! feedback, no Try again button.
+**Weather icon exercise:** Editorial judgment, not a quiz. Teacher's icon is their opinion, not a correct answer. Reveal shows icon and judgment text only. No YES!/Nope! feedback, no Try again button. **To-do: add `correctIcon` field to each country entry in `data.json` (36 entries) to highlight the correct answer after reveal. This is a data entry + small code change -- deferred.**
 
 **Student mode detection (NON-NEGOTIABLE):**
 - `?t=1` always present on teacher-generated links (even if no questions selected)
@@ -86,12 +87,25 @@ MVP curriculum slug: `alevel`
 
 ---
 
+## Pulse/ping animations
+
+All pulsing dots on the site use the **ping pattern** (dark core + expanding lighter ring), not the old throb (opacity/scale fade). This reads as "transmitting signal" -- consistent with the Bloomberg principle.
+
+- **FramingHeader.js** (teacher): blue ping. Core `#0C447C`, ring `#85B7EB`. 1.4s.
+- **StudentFramingHeader.js** (student): orange ping. Core `#b45309`, ring `#fbbf24`. 1.4s.
+- **StudentHomePage.js** stamp (0-1d): orange ping. Same as above.
+- **LandingPage.js**: alternating blue/orange ping. Same 1.4s rhythm; colour switches every 2 pings (5.6s cycle) -- blue, blue, orange, orange, repeat.
+- **SnapshotCard.js** `~Nd` text: retains cyan throb (text, not a dot -- ping doesn't apply to text).
+- **StudentHomePage.js** age stamps: retains cyan throb on text (same reason).
+
+---
+
 ## Landing page
 
 Role gate first, curriculum picker second. Two cards on load: "I'm revising" (orange) and "I'm teaching" (blue). Clicking a role reveals the curriculum picker with tiles tinted to match the role. Back arrow returns to role picker. Password hint shown under the teacher card only ("You will need a password on the next screen."). No site name displayed anywhere on this page.
 
 Headline: "Live global data. Wired to your syllabus."
-Subhead: "Current data, updated on release day."
+Subhead: "Updated automatically. No textbook lag."
 Curriculum tiles: centre-aligned text, "Soon" badge inline (not absolute positioned).
 
 Teacher tiles link to `/teacher/[curriculum]`. Student tiles link to `/student/[curriculum]`.
@@ -117,35 +131,37 @@ Teacher tiles link to `/teacher/[curriculum]`. Student tiles link to `/student/[
 
 ## Teacher homepage
 
-Dark navy selector panel. No site name displayed. Centred curriculum badge at top of panel (country label + curriculum name, IBM Plex Mono throughout). Eyebrow "Today's data is live" centred below badge. Headline "Pick a topic and a country." centred. Two dropdowns (topic + country) + "Open this card →" button. Stats line at 14px IBM Plex Mono: green dot · 36 data points · N updated today (pulsing pink) · N updated this week. Schedule note below in italic mono.
+Dark navy selector panel. No site name displayed. No curriculum badge. No "Today's data is live" eyebrow. Headline "Pick a topic and a country." centred. Two dropdowns (topic + country) + "Open this lesson →" button. Stats line at 14px IBM Plex Mono: green dot · 36 data points · N updated today (pulsing pink) · N updated this week. Schedule note below in italic mono.
 
-`CURRICULUM_LABELS` map in `TeacherHomePage.js` drives the badge. Currently populated for `alevel` and `ap-economics`.
+`CURRICULUM_LABELS` map in `TeacherHomePage.js` retains `alevel` and `ap-economics` entries for future use.
 
 ---
 
 ## Student homepage (`/student/alevel`)
 
-No site name displayed. Three zones, top to bottom:
+No site name displayed. No dates shown anywhere (dates make the site feel stale to students). Three zones, top to bottom:
 
-**Zone 1 -- Moving right now:** 3 dark navy cards showing freshest data points across all metrics × countries. Sorted by `releasedDaysAgo` ascending. Cyan "Today" badge on day-0 entries. Each card links to the student lesson page.
+**Zone 1 -- Pick a topic to start:** Heading in orange IBM Plex Mono 17px. Subline: "Each topic has live data from 6 countries - the kind your examiner will use in Paper 2." (14px, muted). 6 metric tiles in a 2-column grid. Each shows metric name (orange, IBM Plex Mono), one-line syllabus description, and 6 country flags collapsed. Click a tile to expand country flags as links (2-column grid, flag stacked above country name). Click again to collapse. One tile open at a time.
+
+**Zone 2 -- ...Or choose one of these black boxes below:** Heading in orange IBM Plex Mono 17px, 40px top margin. Subline: "They are showing the most recently updated data across all topics." 3 dark navy cards showing freshest data points. Sorted by `releasedDaysAgo` ascending. No dates shown on cards.
 
 **FX rule on live strip:** Exchange rates get one slot maximum. Only eligible on even calendar days. Best mover wins (highest absolute `movePercent`). Must be >= 1% to qualify. If conditions not met, slot goes to next freshest non-FX entry.
 
-**Zone 2 -- Revise by topic:** 6 metric tiles in a 2-column grid. Each shows metric name (orange, IBM Plex Mono), one-line syllabus description, and 6 country flags collapsed. Click a tile to expand country flags as links. Click again to collapse. One tile open at a time.
-
-**Zone 3 -- Glossary footer:** "Glossary · 136 terms · What, How, So what? →"
+**Zone 3 -- Glossary footer:** "Glossary · 136 AQA A-Level terms · What, How, So what? →"
 
 ---
 
 ## Teacher lesson page
 
-**Framing band** (full width, light blue `#eef5fc`): "Your lesson is ready." (Instrument Serif 22px) with subline "30 minutes · built around today's data · share with one click" (IBM Plex Mono 12px, muted).
+**Framing band** (full width, light blue `#eef5fc`): Blue ping dot + typewriter effect on "Build your lesson plan." (Instrument Serif 30px, 38ms/char) with subline "30 minutes · latest data · share with one click" (IBM Plex Mono 15px, muted, fades in on typewriter completion).
 
-**Lesson plan box** (white card, constrained to 864px): 4 beats in a horizontal timeline connected by lines. Labels: 1 · 5 min · Chart discussion / 2 · +5 min · Weather icon / 3 · +10 min · Written response / 4 · +10 min · Discussion.
+**Lesson plan box** (white card, constrained to 864px): 4 beats in a horizontal timeline connected by lines. Stacks vertically on mobile (max-width 600px). Labels: 1 · 5 min · Chart discussion / 2 · +5 min · Weather icon / 3 · +10 min · Written response / 4 · +10 min · Discussion.
 
-**"Today's data" label** then snapshot card (dark navy, blurb bullets visible).
+No "Today's data" label. Snapshot card (dark navy, blurb bullets visible) directly below lesson plan box.
 
 **Vertical spine** (4 blue numbered dots connected by line): beat content sections in white cards below the snapshot card.
+
+**Share button** (beat 4): "Share with students →" -- on click turns blue and reads "Copied. Paste the link anywhere to share." for 2.5s then resets. No alert(). Works on mobile.
 
 Per-question and per-prompt pink notes are removed. Teacher notes appear as pink left-bordered callouts inside beat cards only when genuinely useful.
 
@@ -153,249 +169,70 @@ Per-question and per-prompt pink notes are removed. Teacher notes appear as pink
 
 ## Student lesson page
 
-**Framing band** (full width, light orange `#fff4ee`): "This is what's happening right now." (Instrument Serif 22px) with subline showing country + metric + AQA ref (IBM Plex Mono 12px, `#b07040`).
+**Framing band** (full width, warm `#fff4ee`): Orange ping dot + typewriter effect on "This is what's happening right now." with dynamic subtitle (countryLabel + metricLabel + aqaRef).
 
-**"Today's data" label** then snapshot card.
+No "Today's data" label. Snapshot card directly below framing band.
 
-**Two modes below the card:**
+**Vertical spine** (3 orange numbered dots): direct student beats. Beat 1: chart discussion bullets. Beat 2: weather icon exercise (auto-reveal on selection). Beat 3: exam questions with "These are the types of question you will see in Paper 2."
 
-**Direct mode** (no URL params): 3 orange beats -- (1) What this chart is telling you (chart discussion questions), (2) What's your read on this? (weather icon, auto-reveal on click, editorial judgment shown), (3) Exam questions on this data (all questions, subline "These are the types of question you will see in Paper 2", no checkboxes).
-
-**Tasked mode** (`?t=1` present): "Your teacher selected these tasks." indicator. Weather icon beat always shown. Questions beat shown only if `?q=` present. Discussion beat shown only if `?d=` present. Blurb replaced by "What is this chart telling you?" prompt in card.
-
-Glossary footer at bottom of both modes.
+Tasked mode (via `?t=1`): weather icon + teacher-selected questions and prompts only.
 
 ---
 
-## Glossary system
+## Glossary
 
-### Definition levels (locked)
-Three levels, publicly labelled as **What / How / So what?** throughout (changed from Define/Explain/Evaluate in Session 27):
-- **What:** one sentence, exam-ready, 2-mark answer
-- **How:** mechanism, causation, 4-6 mark answer
-- **So what?:** genuine evaluation -- critique, tradeoffs, limitations, policy dilemmas, common mistakes. NOT extended mechanism. A-grade 25-marker content.
+137 terms (136 AQA A-Level + DXY as supplementary). Organised in 7 topic groups. Three definition levels: What / How / So what? (maps to AQA command words Define / Explain / Evaluate).
 
-Common mistake: always part of the So what? level. Rendered as a red left-border callout. Capitalised: "Common mistake: Students..." never lowercase.
+**DXY:** Added as a supplementary entry in International Economics group. Brief explains it is not an AQA named concept but is directly relevant to US exchange rate discussion. Excluded from auto-wrapping via `WRAP_BLOCKLIST` in `wrapGlossaryTerms.js` -- explained contextually via the DXY callout on the SnapshotCard instead.
 
-### Interaction model (locked)
-- **Tooltip:** fires on hover/click of any underlined term in lesson cards AND on any chip in the glossary index. Opens below the word. Three pill tabs (What / How / So what?). No footer, no group badge, no "Full entry" link. Self-contained.
-- **Index page:** topic group view. 7 groups, terms as pill chips. Live search. Clicking a chip fires the tooltip inline -- no page navigation.
-- **Term page:** still exists for deep-linking and sharing. Not the primary interaction.
+**Glossary index subheading:** "{n} terms · every term on the AQA A-Level specification"
 
-### Pill tab style (locked)
-Active: navy fill (#1B2D4F), white text, border-radius 20px. Inactive: transparent, #aaa text, no border.
+**Tooltip:** Opens below the word, white panel, pill tabs (What/How/So what?), X close button top-right, mobile-safe (fixed centred on screen at max-width 640px).
 
-### Utility: `app/utils/glossaryHref.js`
-Two exported functions providing a single source of truth for all glossary URLs. Every component that links to a glossary page calls these functions -- no component constructs glossary URL strings directly.
+**`wrapGlossaryTerms.js`:** Longest-match-first, word-boundary aware, first-match-only per string. `WRAP_BLOCKLIST` set excludes terms handled contextually (currently: `dxy`).
 
-```js
-glossaryHref(slug, curriculum)       // → /glossary/[slug]
-glossaryIndexHref(curriculum)        // → /glossary
-```
-
-Both accept curriculum param (currently ignored -- used at AP sprint).
-
-### `app/data/glossary.js`
-136 terms across 7 topic groups. Schema per entry:
-```js
-{ term, slug, brief, more, detailed, seeAlso: [slugs], group }
-```
-
-Groups: National Income & Growth, Aggregate Demand & Supply, Inflation, Unemployment & Labour, Money & Monetary Policy, Fiscal Policy, International Economics.
-
-All 136 entries: zero em dashes. "Common mistake: Students" always capitalised. So what? level contains genuine evaluation throughout (rewritten Session 27).
-
-### `wrapGlossaryTerms.js`
-Utility that wraps matching glossary terms in `<GlossaryTerm>` components. Longest-match-first, word-boundary aware, first-match-only per string. Wired into SnapshotCard (blurb), LessonOverlay (chartDiscussion, question text, prompt text). Pink notes content excluded.
-
-### Routes
-| Route | File |
-|-------|------|
-| `/glossary` | `app/glossary/page.js` -- server wrapper, passes glossary to `GlossaryIndexClient` |
-| `/glossary/[term]` | `app/glossary/[term]/page.js` -- server wrapper, async params (Next.js 16), passes entry to `GlossaryTermClient` |
+**Glossary footer (student homepage):** "Glossary · 136 AQA A-Level terms · What, How, So what? →"
 
 ---
 
-## Component map
+## Key files
 
-| File | Role |
-|------|------|
-| `AnnotatedChart.js` | Recharts chart. Props: `dates, series, target, color, height, dark, chartType, colorBySign`. `chartType='bar'` renders BarChart; `colorBySign` colours bars blue/red by sign. |
-| `InflationChart.js` | `<AnnotatedChart dark target={2} />` |
-| `UnemploymentChart.js` | `<AnnotatedChart dark />` |
-| `GdpChart.js` | `<AnnotatedChart dark chartType='bar' height={150} />` |
-| `InterestRatesChart.js` | `<AnnotatedChart dark />` |
-| `ExchangeRatesChart.js` | `<AnnotatedChart dark />` |
-| `TradeChart.js` | `<AnnotatedChart dark chartType='bar' colorBySign height={180} />` |
-| `Header.js` | Role stripe (blue/orange top border) + tinted background by role. Props: `role, homeHref, showGlossary`. Site name links to homeHref for teachers and on glossary pages; renders as plain unlinked text for students. Glossary link shown when `role !== null` or `showGlossary={true}`. Uses `glossaryIndexHref()`. |
-| `SnapshotCard.js` | Layer 1. Props: `metric, country, data, aqaRef, metricTitle, allCountries, studentMode, showBlurb`. Renders blurb as numbered circle bullet list (white circles on dark card). `showBlurb=false` + `studentMode=true` renders "What is this chart telling you?" prompt instead. `nextReleaseLabel()` returns `{ prefix, days }` -- days rendered in cyan with throb animation. |
-| `LessonOverlay.js` | Layer 2. Props: `metric, country, lessonData, reveal, curriculum, showReveal, studentMode`. Detects direct vs tasked mode via URL params internally. Teacher mode: 4 blue beats, checkboxes on beats 3 and 4, share button always includes `?t=1`. Direct student: 3 orange beats with weather reveal and exam framing. Tasked student: weather + teacher-selected items only. Per-question/per-prompt pink notes removed. |
-| `StudentLessonClient.js` | Client wrapper for student lesson page. Reads URL params to detect tasked vs direct mode. Passes `showBlurb={!isTasked}` to SnapshotCard. Detects tasked via `?t=`, `?q=`, or `?d=` params. |
-| `TeacherHomePage.js` | Dark navy panel with curriculum badge (centred, IBM Plex Mono), eyebrow and headline centred, two dropdowns (topic + country) + "Open this card" button. Stats line 14px with pulsing pink "updated today" count. IBM Plex Mono throughout. No site name. `CURRICULUM_LABELS` map drives badge text. |
-| `StudentHomePage.js` | Student homepage. Three zones: live strip (3 freshest entries, FX capped at 1 slot), topic tiles (6 metrics, expand inline for country flags), glossary footer. FX rule: even calendar days only, best mover, >= 1% movePercent. No site name. |
-| `LandingPage.js` | Client component. Role gate on load ("I'm revising" / "I'm teaching"). Curriculum picker revealed after role selection, tiles tinted to role colour. Tiles centre-aligned. Back arrow returns to role gate. Password hint inside teacher card only. No site name. |
-| `PasswordGate.js` | Single password (croc). Wraps teacher pages only. Student world is open. |
-| `GlossaryTerm.js` | Inline tooltip. Dotted underline triggers on hover/click. White panel: term name (Instrument Serif italic), three pill tabs (What/How/So what?), definition body, Common mistake callout on So what? tab only. No footer, no group badge, no Full entry link. Opens below the word. 120ms close delay. Resets to What tab on close. |
-| `GlossaryIndexClient.js` | Client component for glossary index. 7 topic groups. Terms as pill chips. Live search. Each chip wraps a `GlossaryTerm` component -- click fires tooltip inline, no page navigation. |
-| `GlossaryTermClient.js` | Client component for term page. Three pill tabs (What/How/So what?). Common mistake on So what? only. See Also chips at bottom. |
+| File | Owner | Notes |
+|------|-------|-------|
+| `app/data/metrics.js` | Pipeline | Never hand-edited. Written by `sync_edu.py`. |
+| `app/data/aqa-alevel.js` | Hand-edited | Lesson overlay content. Never touched by pipeline. |
+| `app/data/glossary.js` | Hand-edited | 137 terms. |
+| `app/components/SnapshotCard.js` | Shared | DXY callout conditional wired in. |
+| `app/components/LessonOverlay.js` | Shared | WeatherBeat sub-component. Share button. |
+| `app/components/FramingHeader.js` | Teacher | Blue ping dot + typewriter. |
+| `app/components/StudentFramingHeader.js` | Student | Orange ping dot + typewriter. |
+| `app/components/TeacherHomePage.js` | Teacher | Navy panel, dropdowns, stats line. |
+| `app/components/StudentHomePage.js` | Student | Topic tiles, live strip, glossary footer. |
+| `app/components/GlossaryTerm.js` | Shared | Tooltip with X button, mobile-safe positioning. |
+| `app/components/GlossaryIndexClient.js` | Shared | 7-group index with search. |
+| `app/utils/wrapGlossaryTerms.js` | Shared | WRAP_BLOCKLIST added. |
+| `app/utils/glossaryHref.js` | Shared | Centralised URL construction. |
+| `EDU_BRIEF.md` | Hand-edited | Updated every session. |
 
 ---
 
-## Data architecture
+## Pipeline boundary (NON-NEGOTIABLE)
 
-### `app/data/metrics.js`
-Named export `{ metrics }`. Keyed by metric slug. Written by `sync_edu.py` (pipeline). **Never edited by hand.**
-
-Structure per country entry:
-```js
-metrics['inflation']['uk'] = {
-  flag, name, value, direction, releasedDaysAgo,
-  icon,         // editorial: ☀️ ☁️ ⛈️
-  reveal,       // editorial: judgment text shown on teacher/student reveal
-  blurb,        // array of 3 strings -- generated via Claude API (Haiku) on each release
-  chartDates,   // array of date strings
-  chartSeries,  // array of numeric values (last point forced to match value)
-  movePercent,  // FX only: % move year-on-year; null for non-FX metrics
-}
-```
-
-**Blurb rule:** Always an array of exactly 3 strings. Generated via Claude API for all 36 cards. Cached in `blurb-cache.json`; regenerated on new release day (FX: daily).
-
-**Exchange rate filter:** `releasedDaysAgo` is set to `null` for FX entries where `abs(movePercent) < 5`. These entries are excluded from teacher homepage stats.
-
-### `app/data/aqa-alevel.js`
-Named export `{ lesson }`. Keyed by metric slug. **Edited by hand.** Never touched by pipeline.
-
-**3-bullet rule:** `chartDiscussion` arrays must contain exactly 3 bullets. Enforced editorially and capped at 3 in components via `.slice(0, 3)`.
-
-Structure per concept:
-```js
-{
-  exercisePrompt, exerciseOptions,
-  chartDiscussion: [3 strings],
-  classroomTime: { five, ten, twenty },
-  sampleQuestions: [{ q }],
-  discussionPrompts: [{ p }],
-}
-```
-
-Note: `keyPoints` and per-item `notes` arrays are no longer rendered. They can remain in the data file but are ignored by the component.
+`metrics.js` is the only file the pipeline writes. No tooling spans both repos. `macedu` consumes `metrics.js` only. Patch logic belongs in existing scripts -- no new scripts added to the daily ritual.
 
 ---
 
-## Typography
-
-- Display/headings: Instrument Serif (loaded via `<link>` in `app/layout.js`)
-- Body/UI: IBM Plex Sans / sans-serif
-- Data values/labels/numbered circles/UI mono: IBM Plex Mono
-
----
-
-## Key technical rules
-
-- **Static export only.** No `cookies()`, no middleware, no server-side features.
-- **Python scripts for all file writes.** Never bash heredocs (mangle JSX).
-- **`metrics.js` never edited by hand.** Pipeline writes it exclusively.
-- **Emoji written directly in Python source.** Never as Unicode escape sequences.
-- **Patch scripts are disposable.** Run once, then deleted. Never committed.
-- **`app/data/` for data layer; `app/components/` for all components; `app/utils/` for utilities.**
-- **Local preview before every push.**
-- **Three weather icons only:** ☀️ ☁️ ⛈️
-- **Questions and prompts labelled A, B, C (uppercase) throughout.**
-- **3 bullets everywhere.** No prose. Enforced in components via `.slice(0, 3)` and documented in `aqa-alevel.js`.
-- **No double hyphens.** Use "to" ranges (12 to 18 months) or rewrite the sentence.
-- **No em dashes anywhere.** In glossary data, UI copy, or any generated content. Zero tolerance.
-- **Python invoked as `python3`.** Never `python`.
-- **Next.js 16 async params.** All `page.js` files that use `params` must `await params` before destructuring. Both `generateMetadata` and the page function must be `async`.
-- **All glossary URLs constructed via `glossaryHref()` / `glossaryIndexHref()`.** Never hardcode `/glossary/...` strings in components.
-- **Teacher-generated student links always include `?t=1`.** Never generate a bare `/student/...` URL from the share button. This distinguishes teacher-sent links from direct student navigation.
-- **`globals.css` has `html { overflow-y: scroll }`.** Prevents layout jump when content height changes. Do not remove.
-
----
-
-## Glossary layer (scope)
-
-Macro-only for MVP. 136 platform-relevant terms across 7 topic groups. AQA official subject-specific vocabulary document is the canonical source plus 30 additional terms identified by gap analysis against live lesson content (Session 22). Term inclusion rule: technical definitions only -- generic words excluded. If a term does not have a definition a student could be asked to reproduce in an exam, it is not in the glossary.
-
----
-
-## MacroSnaps pipeline (macrosnaps repo)
-
-The companion pipeline lives at `/Users/lisaswerling/RALPH/AI/macrosnaps`. It writes `metrics.js` as the sole data source for macedu. The two repos have a clean boundary -- macedu consumes `metrics.js` only.
-
-### Key pipeline scripts
-
-| Script | Role |
-|--------|------|
-| `build.py` | Validates `data.json`, merges shell + data into `macrosnaps-globe.html`, auto git-commits. Does not touch `_frozen_historical`. |
-| `sync_sheet.py` | Reads MACRO-MONTHLY sheet. Writes card values and annual `_frozen_historical` series (GDP Growth, Budget Deficit, Current Account) into `data.json`. Does NOT write monthly series (Unemployment, Policy Rate, Inflation) to `_frozen_historical`. |
-| `sync_monthly_actuals.py` | Reads MACRO-MONTHLY sheet. Writes `monthly_actuals` block (story context only, not displayed in UI). Also writes full chronological series into `_frozen_historical` for pipeline-excluded countries (see below). |
-| `update_monthly_actuals.py` | Fetches monthly macro series from external APIs (IMF, BIS, FRED, IBGE). Deliberately skips certain country/series combinations where no reliable API source exists -- see skip list below. Writes into MACRO-MONTHLY sheet. |
-| `sync_edu.py` | Reads `data.json` (specifically `_frozen_historical`). Writes `metrics.js` to macedu. Generates blurbs via Claude Haiku. Run after `build.py` in the daily ritual. |
-| `sync_market_historical.py` | Writes FX spark series into `_frozen_historical` only. Does not touch macro series. |
-
-### `_frozen_historical` -- how monthly macro series get there
-
-`sync_edu.py` reads `_frozen_historical` to build `chartSeries` for sparklines. The path from sheet to sparkline is:
-
-1. `update_monthly_actuals.py` fetches from APIs and writes to MACRO-MONTHLY sheet
-2. `sync_monthly_actuals.py --apply` reads the sheet and writes into `_frozen_historical`
-3. `sync_edu.py` reads `_frozen_historical` and writes `chartSeries` into `metrics.js`
-
-**Pipeline skip list** (`update_monthly_actuals.py` deliberately excludes these from API fetching):
-- CHN Unemployment -- no reliable monthly API source
-- BRA Unemployment -- was meant to come from IBGE SIDRA; not working
-- CHN Policy Rate -- no monthly series available
-- IND Unemployment, IND Policy Rate
-
-For skipped series, data must be entered manually into MACRO-MONTHLY. `sync_monthly_actuals.py` picks them up via `FROZEN_BACKFILL_TARGETS` and writes them into `_frozen_historical` automatically on `--apply`.
-
-### `FROZEN_BACKFILL_TARGETS` in `sync_monthly_actuals.py`
-
-```python
-FROZEN_BACKFILL_TARGETS = [
-    ("Unemployment", "CHN", "Unemployment"),
-    ("Unemployment", "BRA", "Unemployment"),
-    ("Policy_Rate",  "CHN", "Policy Rate"),   # currently no data; add when sheet populated
-]
-```
-
-When CHN Policy Rate data is added to the sheet, `sync_monthly_actuals.py --apply` will pick it up automatically -- no code change needed.
-
-### Current sparkline status (as of Session 29)
-
-| Metric | Country | Status |
-|--------|---------|--------|
-| All | UK, US, Eurozone, Japan, Brazil | OK |
-| Unemployment | CHN | OK -- manually maintained in sheet, written via FROZEN_BACKFILL_TARGETS |
-| Unemployment | BRA | OK -- manually maintained in sheet, written via FROZEN_BACKFILL_TARGETS |
-| Interest rates | CHN | EMPTY -- no sheet data yet. Will populate when source found. |
-
-35/36 sparklines live. CHN interest rates is the only gap.
-
-### How the CHN/BRA sparkline gap was diagnosed and fixed (Session 29)
-
-1. Audit confirmed 3 empty `chartSeries` arrays: CHN unemployment, BRA unemployment, CHN interest-rates
-2. `_frozen_historical` in `data.json` had `v: []` for all three
-3. `update_monthly_actuals.py` has an explicit skip list for these series (no API source)
-4. `sync_sheet.py` only writes annual metrics to `_frozen_historical` -- monthly series had no pipeline path
-5. Fix: extended `sync_monthly_actuals.py` with `FROZEN_BACKFILL_TARGETS` and `read_tab_full_series()`. It now reads the full chronological series from the manually-maintained sheet columns and writes them into `_frozen_historical` as part of the normal `--apply` run. No extra ritual step required.
-
----
-
-## Multi-curriculum expansion strategy
-
-**Architecture is already curriculum-parameterised.** The `[curriculum]` segment in the URL structure means adding a second curriculum requires no routing changes.
+## Multi-curriculum strategy
 
 **Curriculum roadmap (in priority order):**
 
 1. **AQA A-Level** -- live. MVP curriculum.
 2. **AP Economics (USA)** -- confirmed next. After A-Level is fully stable.
-3. **AQA GCSE** -- third curriculum. Bigger market than university, cleaner syllabus anchor. Mostly a content simplification exercise; lesson framing needs rethinking ("What does this mean for households?" not AD/AS machinery).
-4. **IB Economics** -- globally standardised, 160 countries, huge in US/UK private and international schools. Shares most glossary terms with A-Level.
-5. **Cambridge International A-Level (CIE)** -- massive in South/Southeast Asia, East Africa, Middle East. ~80% content overlap with AQA A-Level.
-6. **CBSE India (Class 11-12)** -- strategic priority at scale. 20,000+ schools. Less demanding than A-Level but enormous market. Note: bilingual/Hindi content may be expected eventually.
-7. **HSC Economics (NSW, Australia)** -- English-language, data-hungry teachers, commercially interesting.
+3. **AQA GCSE** -- third curriculum. Bigger market than university, cleaner syllabus anchor.
+4. **IB Economics** -- globally standardised, 160 countries, huge in US/UK private and international schools.
+5. **Cambridge International A-Level (CIE)** -- massive in South/Southeast Asia, East Africa, Middle East.
+6. **CBSE India (Class 11-12)** -- strategic priority at scale. 20,000+ schools.
+7. **HSC Economics (NSW, Australia)** -- English-language, data-hungry teachers.
 8. **UK/US University Year 1 and Year 2** -- UK has no standardised syllabus (problematic); US "Principles" maps well onto AP extension.
 
 **What AP expansion involves:**
@@ -406,7 +243,7 @@ When CHN Policy Rate data is added to the sheet, `sync_monthly_actuals.py --appl
 - Audit for hardcoded AQA/A-level references in components and replace with curriculum-derived values.
 - `CURRICULUM_LABELS` in `TeacherHomePage.js` already has `ap-economics` entry ready.
 
-**Glossary future:** The 3-level system (What/How/So what?) is designed to become curriculum-aware: GCSE pulls What, A-Level pulls How, undergraduate pulls So what?. Same 136 terms, no new data, curriculum-appropriate depth automatically.
+**Glossary future:** The 3-level system (What/How/So what?) is designed to become curriculum-aware: GCSE pulls What, A-Level pulls How, undergraduate pulls So what?. Same terms, no new data, curriculum-appropriate depth automatically.
 
 **UI changes made to A-Level automatically apply to all curricula.** Components are shared.
 
@@ -430,13 +267,15 @@ When CHN Policy Rate data is added to the sheet, `sync_monthly_actuals.py --appl
 | 25 | Architectural prep for curriculum-aware glossary. Strategic discussion: glossary will eventually need curriculum filtering (term relevance) and depth filtering (Brief/More/Detailed by curriculum level), plus route migration to `/glossary/[curriculum]/[term]`. Decision: build none of this now -- do it at the AP Economics sprint. One thing done immediately: `app/utils/glossaryHref.js` created with `glossaryHref(term, curriculum)` and `glossaryIndexHref(curriculum)`. Both functions accept curriculum param (currently ignored). Wired into `GlossaryTerm.js` and `Header.js`. Rule added: no component constructs glossary URL strings directly. |
 | 26 | Major student fork built. Strategic discussions: student-first product direction confirmed; exam connection as core USP; "Define / Explain / Evaluate" glossary labels adopted (maps to AQA command words). Built: landing page role gate (LandingPage.js client component -- "I'm revising" / "I'm teaching", tiles tinted by role); student homepage (StudentHomePage.js -- live strip with FX rule, topic tiles expand inline); teacher lesson page redesigned (framing band "Your lesson is ready.", lesson plan box constrained to 864px, vertical spine with 4 blue beats, "Today's data" label, per-question pink notes removed); student lesson page rebuilt with two modes (direct vs tasked, detected via ?t=1 param); StudentLessonClient.js created as client wrapper for param detection; SnapshotCard.js updated with showBlurb prop; LessonOverlay.js fully rewritten with teacher/direct/tasked mode logic, WeatherBeat extracted as sub-component, share button always appends ?t=1. Glossary labels patched: Define/Explain/Evaluate in GlossaryTerm.js tooltip and glossary/[term]/page.js. |
 | 27 | Glossary redesigned end-to-end. Index rebuilt as 7-group topic view (National Income & Growth, Aggregate Demand & Supply, Inflation, Unemployment & Labour, Money & Monetary Policy, Fiscal Policy, International Economics); chips now fire inline tooltips -- no page navigation. Term page rebuilt with pill tabs. Tooltip rebuilt with pill tabs, opens below the word, footer removed entirely (group badge and Full entry link gone -- less is more). Definition level labels changed from Define/Explain/Evaluate to What/How/So what? -- casual, potent, student-first. Pill tab style locked: navy fill active, transparent inactive, border-radius 20. All 136 glossary entries API-rewritten: zero em dashes, "Common mistake: Students" capitalised throughout, group field added. 12 So what? entries rewritten with genuine evaluation (critique, tradeoffs, policy limits) rather than extended mechanism. Landing page: site name removed, password hint moved inside teacher card, curriculum tiles centre-aligned. Student/teacher homepages: site name removed. globals.css: html { overflow-y: scroll } added. Less is more principle added as NON-NEGOTIABLE. New components: GlossaryIndexClient.js, GlossaryTermClient.js. |
-| 28 | Branding and animation session. Header.js: site name replaced with MACRO wordmark (IBM Plex Mono, 700, 0.08em tracking); always a link (removed student exception); MACRO and Glossary links now role-coloured (blue for teacher, orange for student, blue for landing). Footer.js created: two-line centred footer (disclaimer + MacroSnaps hyperlink to macrosnaps.app with _blank); shown on landing, teacher homepage, student homepage, glossary index -- hidden on card pages. LandingPage.js: MACRO wordmark wired, Footer wired, old "Powered by MacroSnaps" inline line removed; pulsing dot added above headline -- 2-blue-2-orange alternating 6s CSS keyframe animation (brand colours in a single glyph); subtitle updated to "Updated automatically. No textbook lag." next.config.js: devIndicators: false (removes Next.js black circle dev tool from local preview). FramingHeader.js created (client component): teacher card pages -- blue pulsing dot + typewriter effect on "Your lesson is ready." (38ms per char), blinking cursor, subtitle fades in on completion; subtitle updated to "30 minutes · built around the latest data · share with one click". StudentFramingHeader.js created (client component): same pattern in orange for student card pages -- "This is what's happening right now." typed out, dynamic subtitle prop (countryLabel + metricLabel + aqaRef). Teacher page.js: FramingHeader wired, generateStaticParams kept in server component (FramingHeader extracted to avoid use client conflict), lesson plan box font sizes bumped (label 9→11px, timestamps 10→12px, beat labels 11→13px). Student page.js: StudentFramingHeader wired. StudentHomePage.js: "Moving right now" renamed "Last Change"; "Revise by topic" unchanged; both section headings bumped 10→13px; age-conditional stamp colours added (0-1d cyan+throb, 2-5d amber static, 6d+ grey static). |
-| 29 | Data pipeline audit session. Diagnosed 3 empty sparklines: CHN unemployment, BRA unemployment, CHN interest-rates. Root cause: `update_monthly_actuals.py` deliberately skips CHN/BRA unemployment and CHN policy rate (no reliable API source); no pipeline script wrote monthly macro series from MACRO-MONTHLY into `_frozen_historical`. Fix: extended `sync_monthly_actuals.py` with `FROZEN_BACKFILL_TARGETS` constant and `read_tab_full_series()` function -- it now reads full chronological series from manually-maintained sheet columns and writes them into `_frozen_historical` as part of the normal `--apply` run. CHN/BRA unemployment now live (312 pts each). CHN interest-rates remains empty -- no sheet data yet, will populate when source found. 35/36 sparklines live. |
+| 28 | Branding and animation session. Header.js: site name replaced with MACRO wordmark (IBM Plex Mono, 700, 0.08em tracking); always a link (removed student exception); MACRO and Glossary links now role-coloured (blue for teacher, orange for student, blue for landing). Footer.js created: two-line centred footer (disclaimer + MacroSnaps hyperlink to macrosnaps.app with _blank); shown on landing, teacher homepage, student homepage, glossary index -- hidden on card pages. LandingPage.js: MACRO wordmark wired, Footer wired, old "Powered by MacroSnaps" inline line removed; pulsing dot added above headline -- 2-blue-2-orange alternating 6s CSS keyframe animation (brand colours in a single glyph); subtitle updated to "Updated automatically. No textbook lag." next.config.js: devIndicators: false. FramingHeader.js and StudentFramingHeader.js created with typewriter effects. |
+| 29 | Data pipeline audit session. Diagnosed 3 empty sparklines: CHN unemployment, BRA unemployment, CHN interest-rates. Fix: extended `sync_monthly_actuals.py` with `FROZEN_BACKFILL_TARGETS`. CHN/BRA unemployment now live. CHN interest-rates remains empty -- no sheet data yet. 35/36 sparklines live. |
+| 30 | Mobile and UX session. Pulse animations upgraded site-wide from throb to ping (dark core + expanding ring). Landing page dot: 2-blue-2-orange alternation at 5.6s cycle. Student homepage restructured: topic tiles first, black box strip second; copy overhauled for first-time students ("Pick a topic to start", exam hook line, "...Or choose one of these black boxes below"); dates removed from student pages entirely. Teacher homepage: curriculum badge and "Today's data is live" eyebrow removed; button renamed "Open this lesson →". Teacher/student lesson pages: "Today's data" label removed. FramingHeader: "Build your lesson plan." headline, "latest data" subtitle. Share button: "Share with students →" with inline "Copied. Paste the link anywhere to share." confirmation (no alert). Glossary tooltip: X close button added, mobile-safe positioning (fixed centred on small screens). Lesson plan timeline: stacks vertically on mobile. Country cards in topic tiles: flag stacked above name (2-col grid). DXY: callout added to US exchange rates SnapshotCard; glossary entry added (137 terms total); excluded from wrapGlossaryTerms auto-wrap via WRAP_BLOCKLIST. Copy discipline: em dash / long hyphen ban made explicit in brief. |
 
 ---
 
 ## To-do list
 
+- **Weather icon correct answer:** Add `correctIcon` field (`'sunny'` / `'cloudy'` / `'stormy'`) to each of the 36 country entries in `data.json`. Then update `WeatherBeat` component in `LessonOverlay.js` to highlight the correct option after reveal. Data entry job (36 entries) + small code change. Discussed in Session 30 -- deferred.
 - **CHN interest-rates sparkline:** Sheet column is empty. When a data source is found and the column is populated, `sync_monthly_actuals.py --apply` will pick it up automatically via `FROZEN_BACKFILL_TARGETS` -- no code change needed.
 - **Two-password role system:** Teacher password protects blue world. Student world remains open. Currently single password (croc) wraps everything -- needs splitting so only teacher routes are gated.
 - **AP Economics curriculum:** After A-Level is fully stable. Create `ap-economics.js`, audit hardcoded AQA references, update `sync_edu.py` with AP prompt flag. At the same time: migrate glossary routes to `/glossary/[curriculum]/[term]`, add `curricula[]` tags to all 136 glossary entries, write ~20 AP-specific terms, wire depth filtering (What/How/So what? by curriculum).
