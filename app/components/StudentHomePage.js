@@ -92,57 +92,17 @@ export default function StudentHomePage({ metrics, curriculum }) {
         `}</style>
 
         <p style={{
-          fontSize: 13, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase',
-          color: ORANGE, margin: '0 0 12px', fontFamily: "'IBM Plex Mono', monospace",
+          fontSize: 17, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase',
+          color: ORANGE, margin: '0 0 10px', fontFamily: "'IBM Plex Mono', monospace",
         }}>
-          Last Change
+          Pick a topic to start
         </p>
-
-        <div style={{
-          display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: 10, marginBottom: 32,
-        }}>
-          {liveStrip.map((entry, i) => {
-            const isToday = entry.releasedDaysAgo === 0
-            return (
-              <Link key={i} href={entry.href} style={{ textDecoration: 'none' }}>
-                <div style={{
-                  background: NAVY, borderRadius: 10, padding: '14px 16px', cursor: 'pointer',
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
-                    <span style={{ fontSize: 18, lineHeight: 1 }}>{entry.flag}</span>
-                    <span style={{
-                      fontSize: 10, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase',
-                      fontFamily: "'IBM Plex Mono', monospace",
-                      ...ageStyle(entry.releasedDaysAgo),
-                    }}>
-                      {daysLabel(entry.releasedDaysAgo)}
-                    </span>
-                  </div>
-                  <div style={{
-                    fontSize: 10, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase',
-                    color: '#8099b8', marginBottom: 4, fontFamily: "'IBM Plex Mono', monospace",
-                  }}>
-                    {entry.countryName} {entry.metricLabel}
-                  </div>
-                  <div style={{
-                    fontSize: 22, fontWeight: 700, color: 'white',
-                    fontFamily: "'IBM Plex Mono', monospace", marginBottom: 2,
-                  }}>
-                    {entry.value}
-                  </div>
-                  {directionEl(entry.direction)}
-                </div>
-              </Link>
-            )
-          })}
-        </div>
-
         {/* ── Topic tiles ── */}
         <p style={{
-          fontSize: 13, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase',
-          color: '#8099b8', margin: '0 0 12px', fontFamily: "'IBM Plex Mono', monospace",
+          fontSize: 14, color: '#8099b8', margin: '0 0 20px', lineHeight: 1.5,
+          fontFamily: "'IBM Plex Sans', sans-serif",
         }}>
-          Revise by topic
+          Each topic has live data from 6 countries - the kind your examiner will use in Paper 2.
         </p>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 10 }}>
@@ -228,9 +188,7 @@ export default function StudentHomePage({ metrics, curriculum }) {
                               }}>
                                 {c.name}
                               </div>
-                              {freshness && (
-                                <div style={{ fontSize: 10, color: '#8099b8' }}>{freshness}</div>
-                              )}
+
                             </div>
                           </div>
                         </Link>
@@ -243,12 +201,57 @@ export default function StudentHomePage({ metrics, curriculum }) {
           })}
         </div>
 
+        <p style={{
+          fontSize: 17, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase',
+          color: ORANGE, margin: '40px 0 10px', fontFamily: "'IBM Plex Mono', monospace",
+        }}>
+          ...Or choose one of these black boxes below
+        </p>
+        <p style={{
+          fontSize: 14, color: '#8099b8', margin: '0 0 12px', lineHeight: 1.5,
+          fontFamily: "'IBM Plex Sans', sans-serif",
+        }}>
+          They are showing the most recently updated data across all topics.
+        </p>
+        <div style={{
+          display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: 10, marginBottom: 32,
+        }}>
+          {liveStrip.map((entry, i) => {
+            const isToday = entry.releasedDaysAgo === 0
+            return (
+              <Link key={i} href={entry.href} style={{ textDecoration: 'none' }}>
+                <div style={{
+                  background: NAVY, borderRadius: 10, padding: '14px 16px', cursor: 'pointer',
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+                    <span style={{ fontSize: 18, lineHeight: 1 }}>{entry.flag}</span>
+
+                  </div>
+                  <div style={{
+                    fontSize: 10, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase',
+                    color: '#8099b8', marginBottom: 4, fontFamily: "'IBM Plex Mono', monospace",
+                  }}>
+                    {entry.countryName} {entry.metricLabel}
+                  </div>
+                  <div style={{
+                    fontSize: 22, fontWeight: 700, color: 'white',
+                    fontFamily: "'IBM Plex Mono', monospace", marginBottom: 2,
+                  }}>
+                    {entry.value}
+                  </div>
+                  {directionEl(entry.direction)}
+                </div>
+              </Link>
+            )
+          })}
+        </div>
+
         {/* ── Glossary footer ── */}
         <div style={{
           borderTop: '0.5px solid #e0e8f0', marginTop: 28, padding: '20px 0 40px', textAlign: 'center',
         }}>
           <Link href={glossaryIndexHref()} style={{ fontSize: 13, color: '#8099b8', textDecoration: 'none' }}>
-            Glossary · 136 terms · What, How, So what? →
+            Glossary · 136 AQA A-Level terms · What, How, So what? →
           </Link>
         </div>
 

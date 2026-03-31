@@ -30,14 +30,10 @@ export default function FramingHeader() {
     }}>
       <div style={{ maxWidth: 864, margin: '0 auto' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
-          <span style={{
-            display: 'inline-block',
-            width: 8, height: 8,
-            borderRadius: '50%',
-            background: '#378ADD',
-            flexShrink: 0,
-            animation: 'pulse-dot 1.4s ease-in-out infinite',
-          }} />
+          <span style={{ position: 'relative', width: 9, height: 9, flexShrink: 0, display: 'inline-block' }}>
+            <span style={{ position: 'absolute', inset: 0, borderRadius: '50%', background: '#85B7EB', animation: 'ping-ring 1.4s cubic-bezier(0,0,0.2,1) infinite' }} />
+            <span style={{ position: 'absolute', inset: 0, borderRadius: '50%', background: '#0C447C' }} />
+          </span>
           <div style={{
             fontFamily: "'Instrument Serif', Georgia, serif",
             fontSize: 30, fontWeight: 400, color: NAVY,
@@ -68,9 +64,9 @@ export default function FramingHeader() {
         </div>
       </div>
       <style>{`
-        @keyframes pulse-dot {
-          0%, 100% { opacity: 1; transform: scale(1); }
-          50% { opacity: 0.4; transform: scale(0.75); }
+        @keyframes ping-ring {
+          0% { transform: scale(1); opacity: 0.75; }
+          70%, 100% { transform: scale(2.8); opacity: 0; }
         }
         @keyframes blink-cursor {
           0%, 100% { opacity: 1; }

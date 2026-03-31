@@ -58,7 +58,7 @@ export default function GlossaryIndexClient({ glossary }) {
           margin: 0,
           letterSpacing: '0.04em',
         }}>
-          {glossary.length} terms · AQA A-level macroeconomics
+          {glossary.length} terms · every term on the AQA A-Level specification
         </p>
       </div>
 

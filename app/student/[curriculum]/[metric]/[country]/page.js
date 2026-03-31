@@ -56,15 +56,6 @@ export default async function StudentLessonPage({ params }) {
 
       <div style={{ padding: '20px 16px 64px', maxWidth: 864, margin: '0 auto' }}>
 
-        {/* Today's data label */}
-        <div style={{
-          fontSize: 9, fontWeight: 700, letterSpacing: '0.1em',
-          textTransform: 'uppercase', color: '#8099b8', marginBottom: 8,
-          fontFamily: "'IBM Plex Mono', monospace",
-        }}>
-          Today's data
-        </div>
-
         <StudentLessonClient
           metric={metric}
           country={country}

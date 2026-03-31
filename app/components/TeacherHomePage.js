@@ -80,44 +80,6 @@ export default function TeacherHomePage({ metrics, curriculum }) {
           marginBottom: 20,
         }}>
 
-          {/* Curriculum badge */}
-          {CURRICULUM_LABELS[curriculum] && (
-            <div style={{ textAlign: 'center', marginBottom: 20 }}>
-              <div style={{
-                fontFamily: MONO,
-                fontSize: 11,
-                fontWeight: 500,
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase', textAlign: 'center',
-                color: 'rgba(255,255,255,0.45)',
-                marginBottom: 2,
-              }}>
-                {CURRICULUM_LABELS[curriculum].country}
-              </div>
-              <div style={{
-                fontFamily: MONO,
-                fontSize: 22,
-                fontWeight: 400,
-                color: '#ffffff',
-              }}>
-                {CURRICULUM_LABELS[curriculum].name}
-              </div>
-            </div>
-          )}
-
-          {/* Eyebrow */}
-          <div style={{
-            fontFamily: MONO,
-            fontSize: 10,
-            fontWeight: 500,
-            letterSpacing: '0.14em', textAlign: 'center',
-            textTransform: 'uppercase', textAlign: 'center',
-            color: BLUE,
-            marginBottom: 8,
-          }}>
-            Today's data is live
-          </div>
-
           {/* Headline */}
           <div style={{
             fontFamily: MONO,
@@ -206,7 +168,7 @@ export default function TeacherHomePage({ metrics, curriculum }) {
               letterSpacing: '0.02em',
             }}
           >
-            Open this card →
+            Open this lesson →
           </button>
 
           {error && (

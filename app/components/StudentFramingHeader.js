@@ -31,14 +31,10 @@ export default function StudentFramingHeader({ subtitle }) {
     }}>
       <div style={{ maxWidth: 864, margin: '0 auto' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
-          <span style={{
-            display: 'inline-block',
-            width: 8, height: 8,
-            borderRadius: '50%',
-            background: ORANGE,
-            flexShrink: 0,
-            animation: 'pulse-dot-orange 1.4s ease-in-out infinite',
-          }} />
+          <span style={{ position: 'relative', width: 9, height: 9, flexShrink: 0, display: 'inline-block' }}>
+            <span style={{ position: 'absolute', inset: 0, borderRadius: '50%', background: '#fbbf24', animation: 'ping-ring-orange 1.4s cubic-bezier(0,0,0.2,1) infinite' }} />
+            <span style={{ position: 'absolute', inset: 0, borderRadius: '50%', background: '#b45309' }} />
+          </span>
           <div style={{
             fontFamily: "'Instrument Serif', Georgia, serif",
             fontSize: 30, fontWeight: 400, color: NAVY,
@@ -71,9 +67,9 @@ export default function StudentFramingHeader({ subtitle }) {
         )}
       </div>
       <style>{`
-        @keyframes pulse-dot-orange {
-          0%, 100% { opacity: 1; transform: scale(1); }
-          50% { opacity: 0.4; transform: scale(0.75); }
+        @keyframes ping-ring-orange {
+          0% { transform: scale(1); opacity: 0.75; }
+          70%, 100% { transform: scale(2.8); opacity: 0; }
         }
         @keyframes blink-cursor-orange {
           0%, 100% { opacity: 1; }

@@ -54,27 +54,25 @@ export default function LandingPage() {
       <div style={{ textAlign: 'center', maxWidth: 680 }}>
 
         <style>{`
-          @keyframes pulse-duo {
-            0%    { opacity: 1; background: #378ADD; transform: scale(1); }
-            12.5% { opacity: 0.3; background: #378ADD; transform: scale(0.7); }
-            25%   { opacity: 1; background: #378ADD; transform: scale(1); }
-            37.5% { opacity: 0.3; background: #378ADD; transform: scale(0.7); }
-            50%   { opacity: 1; background: #F0843C; transform: scale(1); }
-            62.5% { opacity: 0.3; background: #F0843C; transform: scale(0.7); }
-            75%   { opacity: 1; background: #F0843C; transform: scale(1); }
-            87.5% { opacity: 0.3; background: #F0843C; transform: scale(0.7); }
-            100%  { opacity: 1; background: #378ADD; transform: scale(1); }
+          @keyframes ping-ring-duo {
+            0% { transform: scale(1); opacity: 0.75; }
+            70%, 100% { transform: scale(2.8); opacity: 0; }
+          }
+          @keyframes ping-core-duo {
+            0%, 49.9% { background: #0C447C; }
+            50%, 100%  { background: #b45309; }
+          }
+          @keyframes ping-ring-colour {
+            0%, 49.9% { background: #85B7EB; }
+            50%, 100%  { background: #fbbf24; }
           }
         `}</style>
 
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 14 }}>
-          <span style={{
-            display: 'inline-block',
-            width: 8, height: 8,
-            borderRadius: '50%',
-            background: '#378ADD',
-            animation: 'pulse-duo 6s ease-in-out infinite',
-          }} />
+          <span style={{ position: 'relative', width: 9, height: 9, display: 'inline-block' }}>
+            <span style={{ position: 'absolute', inset: 0, borderRadius: '50%', animation: 'ping-ring-duo 1.4s cubic-bezier(0,0,0.2,1) infinite, ping-ring-colour 2.8s steps(1) infinite' }} />
+            <span style={{ position: 'absolute', inset: 0, borderRadius: '50%', animation: 'ping-core-duo 2.8s steps(1) infinite' }} />
+          </span>
         </div>
 
         <h1 style={{
