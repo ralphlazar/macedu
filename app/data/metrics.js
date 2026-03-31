@@ -10,7 +10,7 @@ export const metrics = {
         "name": "UK",
         "value": "2.5%",
         "direction": "flat",
-        "releasedDaysAgo": 11,
+        "releasedDaysAgo": 12,
         "icon": "☁️",
         "reveal": "Good example of inflation coming under control. UK CPI is above target but heading in the right direction.",
         "blurb": [
@@ -269,7 +269,7 @@ export const metrics = {
         "name": "US",
         "value": "2.3%",
         "direction": "flat",
-        "releasedDaysAgo": 18,
+        "releasedDaysAgo": 19,
         "icon": "☀️",
         "reveal": "Good example of inflation on target. US CPI is sitting right where the central bank wants it.",
         "blurb": [
@@ -528,7 +528,7 @@ export const metrics = {
         "name": "Eurozone",
         "value": "2.2%",
         "direction": "flat",
-        "releasedDaysAgo": 11,
+        "releasedDaysAgo": 12,
         "icon": "☀️",
         "reveal": "Good example of inflation on target. Eurozone CPI is sitting right where the central bank wants it.",
         "blurb": [
@@ -787,7 +787,7 @@ export const metrics = {
         "name": "China",
         "value": "2.0%",
         "direction": "flat",
-        "releasedDaysAgo": 19,
+        "releasedDaysAgo": 20,
         "icon": "☀️",
         "reveal": "Good example of inflation running slightly cool. China CPI is just below target.",
         "blurb": [
@@ -1046,7 +1046,7 @@ export const metrics = {
         "name": "Japan",
         "value": "1.8%",
         "direction": "flat",
-        "releasedDaysAgo": 9,
+        "releasedDaysAgo": 10,
         "icon": "☀️",
         "reveal": "Good example of inflation on target. Japan CPI is sitting right where the central bank wants it.",
         "blurb": [
@@ -1305,7 +1305,7 @@ export const metrics = {
         "name": "Brazil",
         "value": "4.2%",
         "direction": "flat",
-        "releasedDaysAgo": 16,
+        "releasedDaysAgo": 17,
         "icon": "☁️",
         "reveal": "Good example of inflation coming under control. Brazil CPI is above target but heading in the right direction.",
         "blurb": [
@@ -1572,7 +1572,7 @@ export const metrics = {
         "name": "UK",
         "value": "5.0%",
         "direction": "flat",
-        "releasedDaysAgo": 12,
+        "releasedDaysAgo": 13,
         "icon": "☁️",
         "reveal": "Good example of elevated unemployment. UK is above its structural rate but improving.",
         "blurb": [
@@ -1831,7 +1831,7 @@ export const metrics = {
         "name": "US",
         "value": "4.2%",
         "direction": "flat",
-        "releasedDaysAgo": 23,
+        "releasedDaysAgo": 24,
         "icon": "☀️",
         "reveal": "Good example of a tight labour market. US unemployment is at or below its normal level.",
         "blurb": [
@@ -2090,7 +2090,7 @@ export const metrics = {
         "name": "Eurozone",
         "value": "3.8%",
         "direction": "flat",
-        "releasedDaysAgo": 27,
+        "releasedDaysAgo": 28,
         "icon": "☀️",
         "reveal": "Good example of a tight labour market. Eurozone unemployment is at or below its normal level.",
         "blurb": [
@@ -2349,7 +2349,7 @@ export const metrics = {
         "name": "China",
         "value": "5.1%",
         "direction": "flat",
-        "releasedDaysAgo": 13,
+        "releasedDaysAgo": 14,
         "icon": "☀️",
         "reveal": "Good example of a tight labour market. China unemployment is at or below its normal level.",
         "blurb": [
@@ -2608,7 +2608,7 @@ export const metrics = {
         "name": "Japan",
         "value": "2.5%",
         "direction": "flat",
-        "releasedDaysAgo": 30,
+        "releasedDaysAgo": 31,
         "icon": "☀️",
         "reveal": "Good example of a tight labour market. Japan unemployment is at or below its normal level.",
         "blurb": [
@@ -2867,7 +2867,7 @@ export const metrics = {
         "name": "Brazil",
         "value": "6.5%",
         "direction": "flat",
-        "releasedDaysAgo": 3,
+        "releasedDaysAgo": 4,
         "icon": "☀️",
         "reveal": "Good example of a tight labour market. Brazil unemployment is at or below its normal level.",
         "blurb": [
@@ -3134,7 +3134,7 @@ export const metrics = {
         "name": "UK",
         "value": "1.5%",
         "direction": "flat",
-        "releasedDaysAgo": 45,
+        "releasedDaysAgo": 46,
         "icon": "☀️",
         "reveal": "Good example of healthy growth. UK is expanding at or above its trend rate.",
         "blurb": [
@@ -3173,7 +3173,7 @@ export const metrics = {
         "name": "US",
         "value": "2.2%",
         "direction": "flat",
-        "releasedDaysAgo": 31,
+        "releasedDaysAgo": 32,
         "icon": "☀️",
         "reveal": "Good example of healthy growth. US is expanding at or above its trend rate.",
         "blurb": [
@@ -3212,7 +3212,7 @@ export const metrics = {
         "name": "Eurozone",
         "value": "1.2%",
         "direction": "flat",
-        "releasedDaysAgo": 59,
+        "releasedDaysAgo": 60,
         "icon": "☀️",
         "reveal": "Good example of healthy growth. Eurozone is expanding at or above its trend rate.",
         "blurb": [
@@ -3251,7 +3251,7 @@ export const metrics = {
         "name": "China",
         "value": "4.7%",
         "direction": "flat",
-        "releasedDaysAgo": 72,
+        "releasedDaysAgo": 73,
         "icon": "☀️",
         "reveal": "Good example of healthy growth. China is expanding at or above its trend rate.",
         "blurb": [
@@ -3290,7 +3290,7 @@ export const metrics = {
         "name": "Japan",
         "value": "0.8%",
         "direction": "flat",
-        "releasedDaysAgo": 41,
+        "releasedDaysAgo": 42,
         "icon": "☀️",
         "reveal": "Good example of healthy growth. Japan is expanding at or above its trend rate.",
         "blurb": [
@@ -3329,7 +3329,7 @@ export const metrics = {
         "name": "Brazil",
         "value": "1.7%",
         "direction": "flat",
-        "releasedDaysAgo": 31,
+        "releasedDaysAgo": 32,
         "icon": "☀️",
         "reveal": "Good example of healthy growth. Brazil is expanding at or above its trend rate.",
         "blurb": [
@@ -3376,7 +3376,7 @@ export const metrics = {
         "name": "UK",
         "value": "3.25%",
         "direction": "flat",
-        "releasedDaysAgo": 52,
+        "releasedDaysAgo": 53,
         "icon": "☁️",
         "reveal": "Good example of a central bank on hold. UK is watching the data before moving rates.",
         "blurb": [
@@ -3635,7 +3635,7 @@ export const metrics = {
         "name": "US",
         "value": "3.25%",
         "direction": "flat",
-        "releasedDaysAgo": 11,
+        "releasedDaysAgo": 12,
         "icon": "☁️",
         "reveal": "Good example of a central bank on hold. US is watching the data before moving rates.",
         "blurb": [
@@ -3894,7 +3894,7 @@ export const metrics = {
         "name": "Eurozone",
         "value": "2.50%",
         "direction": "flat",
-        "releasedDaysAgo": 24,
+        "releasedDaysAgo": 25,
         "icon": "☁️",
         "reveal": "Good example of a central bank on hold. Eurozone is watching the data before moving rates.",
         "blurb": [
@@ -4153,7 +4153,7 @@ export const metrics = {
         "name": "China",
         "value": "2.75%",
         "direction": "flat",
-        "releasedDaysAgo": 10,
+        "releasedDaysAgo": 11,
         "icon": "☁️",
         "reveal": "Good example of a central bank on hold. China is watching the data before moving rates.",
         "blurb": [
@@ -4170,7 +4170,7 @@ export const metrics = {
         "name": "Japan",
         "value": "1.25%",
         "direction": "flat",
-        "releasedDaysAgo": 11,
+        "releasedDaysAgo": 12,
         "icon": "☁️",
         "reveal": "Good example of a central bank on hold. Japan is watching the data before moving rates.",
         "blurb": [
@@ -4429,7 +4429,7 @@ export const metrics = {
         "name": "Brazil",
         "value": "12.00%",
         "direction": "flat",
-        "releasedDaysAgo": 11,
+        "releasedDaysAgo": 12,
         "icon": "⛈️",
         "reveal": "Good example of restrictive monetary policy. Brazil rates are high and squeezing the economy.",
         "blurb": [
@@ -4700,9 +4700,9 @@ export const metrics = {
         "icon": "☀️",
         "reveal": "Good example of a stable exchange rate. The UK currency is holding steady against the dollar.",
         "blurb": [
-          "Sterling is holding its ground against the dollar, offering the kind of stability that makes forward planning slightly less of a guessing game for exporters and importers.",
-          "A flat exchange rate removes one layer of volatility from cross-border transactions, though it also means no tailwind from currency movement for those betting on depreciation.",
-          "This steadiness reflects a currency market confident enough not to reprrice the pound sharply, even as global economic crosscurrents shift."
+          "Sterling is holding its ground against the dollar, offering the rare gift of predictability in forex markets.",
+          "A stable exchange rate means British importers and exporters can actually plan ahead without currency swings torpedoing their margins.",
+          "Investors appreciate the lack of volatility; when the pound isn't gyrating wildly, capital flows tend to behave themselves."
         ],
         "chartDates": [
           "Apr 2016",
@@ -4959,9 +4959,9 @@ export const metrics = {
         "icon": "☀️",
         "reveal": "Good example of a stable exchange rate. The US currency is holding steady against the dollar.",
         "blurb": [
-          "The dollar is holding its ground against major currencies, neither strengthening nor weakening materially.",
-          "Stable exchange rates like this reflect confidence in US monetary policy and economic fundamentals, giving businesses predictability for cross-border transactions.",
-          "When the dollar flatlines, it signals equilibrium between foreign demand for US assets and domestic demand for imports, the textbook definition of a balanced external position."
+          "The dollar is holding firm against major currency pairs, suggesting sustained confidence in US economic fundamentals and the Fed's policy stance.",
+          "A stable exchange rate reduces hedging costs for multinational firms and removes currency volatility from cross-border trade calculations, at least for now.",
+          "Flatness here reflects balanced capital flows and relatively calm geopolitical conditions, but watch for shifts in rate expectations or risk sentiment that could break the calm."
         ],
         "chartDates": [
           "Apr 2016",
@@ -5218,9 +5218,9 @@ export const metrics = {
         "icon": "☀️",
         "reveal": "Good example of a stable exchange rate. The Eurozone currency is holding steady against the dollar.",
         "blurb": [
-          "The euro is holding its ground against the dollar, offering the kind of stability that makes forecasters' jobs marginally less impossible.",
-          "Steady exchange rates mean eurozone exporters can price without constantly hedging currency risk, whilst importers aren't caught in whipsaw trades.",
-          "A flat rate also signals no fresh crisis panic or wild capital flows, which is precisely when central banks prefer the currency desk to stay quiet."
+          "The euro is holding its ground against the dollar, neither strengthening nor weakening meaningfully. A textbook case of exchange rate stability when fundamentals are balanced.",
+          "Steady currency conditions reduce friction for exporters and importers alike, since they can plan without fretting over sudden moves. This is exactly what central banks dream about.",
+          "When the weather's calm and the rate's flat, it usually signals that the market sees the Eurozone's economic outlook as neither compelling nor concerning relative to the US."
         ],
         "chartDates": [
           "Apr 2016",
@@ -5477,9 +5477,9 @@ export const metrics = {
         "icon": "☀️",
         "reveal": "Good example of a stable exchange rate. The China currency is holding steady against the dollar.",
         "blurb": [
-          "The yuan is trading sideways against the dollar, showing the kind of stability that comes from active currency management rather than market forces alone.",
-          "Beijing's hand on the tiller means the exchange rate stays predictable for traders, though this also signals capital control remains a central plank of policy.",
-          "A flat rate masks the real story: the PBOC is working hard to prevent depreciation while keeping exporters competitive, a balancing act that works until it doesn't."
+          "The yuan is holding firm against the dollar, a rare moment of stability in what's usually a politically charged relationship between Beijing and Washington.",
+          "This steadiness reflects China's willingness to defend its currency through intervention, keeping exporters happy and capital flight at bay.",
+          "For students of monetary policy, it's a textbook example of how central bank jawboning and actual market management can keep a currency anchored despite external pressures."
         ],
         "chartDates": [
           "Apr 2016",
@@ -5736,9 +5736,9 @@ export const metrics = {
         "icon": "☀️",
         "reveal": "Good example of a stable exchange rate. The Japan currency is holding steady against the dollar.",
         "blurb": [
-          "The yen is holding firm against the dollar, a rare moment of equilibrium in the currency markets where most pairs are swinging wildly.",
-          "Stability like this typically reflects confidence in Japan's economic fundamentals and the Bank of Japan's credible monetary policy framework.",
-          "For importers and exporters, a flat rate removes one variable from the planning equation—though most are too busy hedging against everything else to notice."
+          "The yen is holding its ground against the dollar, a rarity in volatile currency markets where even modest economic shifts trigger wild swings.",
+          "Stability here reflects Japan's structural position: large current account surpluses and relatively low external debt mean the yen doesn't need to chase returns elsewhere.",
+          "For policymakers, a steady rate is a mixed blessing—it limits export competitiveness gains but removes the headache of sudden revaluation shocks to corporate earnings."
         ],
         "chartDates": [
           "Apr 2016",
@@ -5995,9 +5995,9 @@ export const metrics = {
         "icon": "☀️",
         "reveal": "Good example of a stable exchange rate. The Brazil currency is holding steady against the dollar.",
         "blurb": [
-          "The real has held its ground against the dollar, defying the usual turbulence that dogs emerging market currencies.",
-          "Stability like this suggests the central bank's credibility is intact and inflation expectations aren't spiralling out of control.",
-          "For anyone pricing cross-border deals or assessing Brazil's competitiveness, a flat rate removes one source of headache from the equation."
+          "The real is holding its ground against the dollar, a rare moment of calm in a currency that normally swings like a hammock in a hurricane.",
+          "Stable exchange rates matter: Brazilian firms can price exports without fearing the rug gets pulled out from under them next week.",
+          "This steadiness buys the central bank breathing room to focus on other headaches rather than constant currency firefighting."
         ],
         "chartDates": [
           "Apr 2016",
@@ -6258,7 +6258,7 @@ export const metrics = {
         "name": "UK",
         "value": "-2.5%",
         "direction": "flat",
-        "releasedDaysAgo": 45,
+        "releasedDaysAgo": 46,
         "icon": "☁️",
         "reveal": "Good example of a current account deficit. UK is buying more from the world than it is selling.",
         "blurb": [
@@ -6297,7 +6297,7 @@ export const metrics = {
         "name": "US",
         "value": "-3.7%",
         "direction": "flat",
-        "releasedDaysAgo": 24,
+        "releasedDaysAgo": 25,
         "icon": "☁️",
         "reveal": "Good example of a current account deficit. US is buying more from the world than it is selling.",
         "blurb": [
@@ -6336,7 +6336,7 @@ export const metrics = {
         "name": "Eurozone",
         "value": "+4.5%",
         "direction": "flat",
-        "releasedDaysAgo": 68,
+        "releasedDaysAgo": 69,
         "icon": "☀️",
         "reveal": "Good example of a large current account surplus. Eurozone is selling significantly more to the world than it is buying.",
         "blurb": [
@@ -6375,7 +6375,7 @@ export const metrics = {
         "name": "China",
         "value": "+2.5%",
         "direction": "flat",
-        "releasedDaysAgo": 23,
+        "releasedDaysAgo": 24,
         "icon": "☀️",
         "reveal": "Good example of a current account surplus. China is selling more to the world than it is buying.",
         "blurb": [
@@ -6414,7 +6414,7 @@ export const metrics = {
         "name": "Japan",
         "value": "+4.8%",
         "direction": "flat",
-        "releasedDaysAgo": 25,
+        "releasedDaysAgo": 26,
         "icon": "☀️",
         "reveal": "Good example of a large current account surplus. Japan is selling significantly more to the world than it is buying.",
         "blurb": [
@@ -6453,7 +6453,7 @@ export const metrics = {
         "name": "Brazil",
         "value": "-2.6%",
         "direction": "flat",
-        "releasedDaysAgo": 33,
+        "releasedDaysAgo": 34,
         "icon": "☁️",
         "reveal": "Good example of a current account deficit. Brazil is buying more from the world than it is selling.",
         "blurb": [
