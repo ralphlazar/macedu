@@ -188,6 +188,7 @@ export default function LessonOverlay({
 }) {
   const [checkedQs, setCheckedQs] = useState([])
   const [checkedDs, setCheckedDs] = useState([])
+  const [copied, setCopied] = useState(false)
 
   const searchParams = useSearchParams()
 
@@ -220,10 +221,12 @@ export default function LessonOverlay({
     const url = `${origin}/student/${curriculum}/${metric}/${country}${qs}`
     try {
       await navigator.clipboard.writeText(url)
-      alert('Student link copied to clipboard.')
     } catch {
-      alert('Student link: ' + url)
+      prompt('Copy this link:', url)
+      return
     }
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2500)
   }
 
   const dotColor = studentMode ? ORANGE : BLUE
@@ -384,15 +387,19 @@ export default function LessonOverlay({
                     <button
                       onClick={handleShare}
                       style={{
-                        background: 'none', border: '1.5px solid #dde6f2',
+                        background: copied ? BLUE : 'none',
+                        border: `1.5px solid ${copied ? BLUE : '#dde6f2'}`,
                         borderRadius: 8, padding: '10px 20px',
-                        fontSize: 13, color: '#5a7a99', cursor: 'pointer',
+                        fontSize: 13,
+                        color: copied ? 'white' : '#5a7a99',
+                        cursor: 'pointer',
                         fontWeight: 500, fontFamily: 'inherit',
+                        transition: 'all 0.15s',
                       }}
                     >
-                      Copy student link
+                      {copied ? 'Copied!' : 'Copy student link'}
                     </button>
-                    {totalSelected > 0 && (
+                    {!copied && totalSelected > 0 && (
                       <span style={{ fontSize: 12, color: '#8099b8' }}>
                         {totalSelected} item{totalSelected > 1 ? 's' : ''} selected
                       </span>

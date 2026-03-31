@@ -157,7 +157,7 @@ export default function StudentHomePage({ metrics, curriculum }) {
                 {/* Expanded: flags become links */}
                 {isOpen && (
                   <div style={{
-                    display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: 8,
+                    display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 8,
                     borderTop: '0.5px solid #e8eef4', paddingTop: 14,
                   }}>
                     {COUNTRY_SLUGS.map(cs => {

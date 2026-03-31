@@ -66,6 +66,15 @@ export default async function TeacherLessonPage({ params }) {
       <div style={{ padding: '20px 16px 64px', maxWidth: 864, margin: '0 auto' }}>
 
         {/* Lesson plan box */}
+        <style>{`
+          .timeline-row { display: flex; align-items: center; }
+          .timeline-connector { flex: 1; height: 1px; background: #c8d8ea; margin: 0 12px; min-width: 16px; }
+          @media (max-width: 600px) {
+            .timeline-row { flex-direction: column; align-items: flex-start; gap: 0; }
+            .timeline-beat { flex: none !important; width: 100%; display: flex; align-items: center; gap: 10px; padding: 8px 0; }
+            .timeline-connector { display: none; }
+          }
+        `}</style>
         <div style={{
           background: 'white',
           border: '1px solid #e0e8f0',
@@ -80,9 +89,9 @@ export default async function TeacherLessonPage({ params }) {
           }}>
             Lesson plan · 30 min
           </div>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div className="timeline-row">
             {beats.map((beat, i) => (
-              <div key={beat.n} style={{ display: 'flex', alignItems: 'center', flex: i < beats.length - 1 ? '1' : 'none' }}>
+              <div key={beat.n} className="timeline-beat" style={{ display: 'flex', alignItems: 'center', flex: i < beats.length - 1 ? '1' : 'none' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
                   <div style={{
                     background: BLUE, color: 'white', borderRadius: '50%',
@@ -103,7 +112,7 @@ export default async function TeacherLessonPage({ params }) {
                   </div>
                 </div>
                 {i < beats.length - 1 && (
-                  <div style={{ flex: 1, height: 1, background: '#c8d8ea', margin: '0 12px', minWidth: 16 }} />
+                  <div className="timeline-connector" />
                 )}
               </div>
             ))}

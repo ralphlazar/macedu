@@ -55,27 +55,53 @@ export default function GlossaryTerm({ term, slug, brief, more, detailed, group 
       </span>
 
       {open && (
+        <>
+        <style>{`
+          .glossary-tooltip {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background: white;
+            border: 0.5px solid rgba(0,0,0,0.12);
+            border-radius: 10px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+            width: 300px;
+            display: block;
+            pointer-events: auto;
+            white-space: normal;
+            text-align: left;
+            overflow: hidden;
+          }
+          @media (max-width: 640px) {
+            .glossary-tooltip {
+              position: fixed !important;
+              left: 16px !important;
+              right: 16px !important;
+              top: 50% !important;
+              transform: translateY(-50%) !important;
+              width: auto !important;
+            }
+          }
+        `}</style>
         <span
           onMouseEnter={handleEnter}
           onMouseLeave={handleLeave}
-          style={{
-            position: 'absolute',
-            top: 'calc(100% + 10px)',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            zIndex: 1000,
-            background: 'white',
-            border: '0.5px solid rgba(0,0,0,0.12)',
-            borderRadius: 10,
-            boxShadow: '0 4px 24px rgba(0,0,0,0.15)',
-            width: 300,
-            display: 'block',
-            pointerEvents: 'auto',
-            whiteSpace: 'normal',
-            textAlign: 'left',
-            overflow: 'hidden',
-          }}
+          className="glossary-tooltip"
         >
+          <button
+            onClick={() => { setOpen(false); setTab('what') }}
+            style={{
+              position: 'absolute', top: 10, right: 10,
+              background: 'none', border: 'none',
+              fontSize: 16, color: '#aaa', cursor: 'pointer',
+              lineHeight: 1, padding: '2px 4px',
+              fontFamily: 'sans-serif',
+            }}
+          >
+            ×
+          </button>
           <span style={{ display: 'block', padding: '14px 16px 0' }}>
             <span style={{
               display: 'block',
@@ -85,6 +111,7 @@ export default function GlossaryTerm({ term, slug, brief, more, detailed, group 
               color: NAVY,
               marginBottom: 10,
               lineHeight: 1.2,
+              paddingRight: 20,
             }}>
               {term}
             </span>
@@ -190,6 +217,7 @@ export default function GlossaryTerm({ term, slug, brief, more, detailed, group 
           </span>
 
         </span>
+        </>
       )}
     </span>
   )
