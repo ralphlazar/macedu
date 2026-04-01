@@ -10,7 +10,7 @@ export const metrics = {
         "name": "UK",
         "value": "2.5%",
         "direction": "flat",
-        "releasedDaysAgo": 12,
+        "releasedDaysAgo": 13,
         "icon": "☁️",
         "correctIcon": "cloudy",
         "weatherReason": "Inflation in UK is above target but falling -- cloudy, heading in the right direction.",
@@ -20,7 +20,6 @@ export const metrics = {
           "The last mile is always the hardest. Disinflation slows as it approaches target."
         ],
         "chartDates": [
-          "Apr 2016",
           "May 2016",
           "Jun 2016",
           "Jul 2016",
@@ -139,7 +138,8 @@ export const metrics = {
           "Dec 2025",
           "Jan 2026",
           "Feb 2026",
-          "Mar 2026"
+          "Mar 2026",
+          "Apr 2026"
         ],
         "chartSeries": [
           0.3,
@@ -270,7 +270,7 @@ export const metrics = {
         "name": "US",
         "value": "2.3%",
         "direction": "flat",
-        "releasedDaysAgo": 19,
+        "releasedDaysAgo": 20,
         "icon": "☀️",
         "correctIcon": "sunny",
         "weatherReason": "Inflation is right on the US central bank target -- that is a sunny read.",
@@ -280,7 +280,6 @@ export const metrics = {
           "With inflation neither accelerating nor collapsing, the US avoids the policy jeopardy that comes with either extreme, though complacency remains inflation's oldest enemy."
         ],
         "chartDates": [
-          "Apr 2016",
           "May 2016",
           "Jun 2016",
           "Jul 2016",
@@ -399,7 +398,8 @@ export const metrics = {
           "Dec 2025",
           "Jan 2026",
           "Feb 2026",
-          "Mar 2026"
+          "Mar 2026",
+          "Apr 2026"
         ],
         "chartSeries": [
           0.85,
@@ -530,7 +530,7 @@ export const metrics = {
         "name": "Eurozone",
         "value": "2.2%",
         "direction": "flat",
-        "releasedDaysAgo": 12,
+        "releasedDaysAgo": 13,
         "icon": "☀️",
         "correctIcon": "sunny",
         "weatherReason": "Inflation is right on the Eurozone central bank target -- that is a sunny read.",
@@ -540,7 +540,6 @@ export const metrics = {
           "Flat inflation at target removes the urgency from rate decisions and hands policymakers room to pivot toward supporting employment, the second pillar of their mandate."
         ],
         "chartDates": [
-          "Apr 2016",
           "May 2016",
           "Jun 2016",
           "Jul 2016",
@@ -659,7 +658,8 @@ export const metrics = {
           "Dec 2025",
           "Jan 2026",
           "Feb 2026",
-          "Mar 2026"
+          "Mar 2026",
+          "Apr 2026"
         ],
         "chartSeries": [
           0.87,
@@ -790,7 +790,7 @@ export const metrics = {
         "name": "China",
         "value": "2.0%",
         "direction": "flat",
-        "releasedDaysAgo": 20,
+        "releasedDaysAgo": 21,
         "icon": "☀️",
         "correctIcon": "sunny",
         "weatherReason": "Inflation in China is just below target and stable -- close enough to call it sunny.",
@@ -800,7 +800,6 @@ export const metrics = {
           "This is the goldilocks scenario for Beijing: no deflation panic, no rate-hike pressure, and space to stimulate if growth falters further."
         ],
         "chartDates": [
-          "Apr 2016",
           "May 2016",
           "Jun 2016",
           "Jul 2016",
@@ -919,7 +918,8 @@ export const metrics = {
           "Dec 2025",
           "Jan 2026",
           "Feb 2026",
-          "Mar 2026"
+          "Mar 2026",
+          "Apr 2026"
         ],
         "chartSeries": [
           1.22,
@@ -1050,7 +1050,7 @@ export const metrics = {
         "name": "Japan",
         "value": "1.8%",
         "direction": "flat",
-        "releasedDaysAgo": 10,
+        "releasedDaysAgo": 11,
         "icon": "☀️",
         "correctIcon": "sunny",
         "weatherReason": "Inflation is right on the Japan central bank target -- that is a sunny read.",
@@ -1060,7 +1060,6 @@ export const metrics = {
           "For investors, the real story is whether this plateau holds—Japan's structural challenges mean inflation could slip either way once external pressures ease."
         ],
         "chartDates": [
-          "Apr 2016",
           "May 2016",
           "Jun 2016",
           "Jul 2016",
@@ -1179,7 +1178,8 @@ export const metrics = {
           "Dec 2025",
           "Jan 2026",
           "Feb 2026",
-          "Mar 2026"
+          "Mar 2026",
+          "Apr 2026"
         ],
         "chartSeries": [
           0.0,
@@ -1310,7 +1310,7 @@ export const metrics = {
         "name": "Brazil",
         "value": "4.2%",
         "direction": "flat",
-        "releasedDaysAgo": 17,
+        "releasedDaysAgo": 18,
         "icon": "☁️",
         "correctIcon": "cloudy",
         "weatherReason": "Inflation in Brazil is above target but falling -- cloudy, heading in the right direction.",
@@ -1320,7 +1320,6 @@ export const metrics = {
           "This is the tricky part: inflation is falling but not fast enough to declare victory, leaving the BCB with nowhere obvious to cut rates yet."
         ],
         "chartDates": [
-          "Apr 2016",
           "May 2016",
           "Jun 2016",
           "Jul 2016",
@@ -1439,7 +1438,8 @@ export const metrics = {
           "Dec 2025",
           "Jan 2026",
           "Feb 2026",
-          "Mar 2026"
+          "Mar 2026",
+          "Apr 2026"
         ],
         "chartSeries": [
           8.47,
@@ -1578,7 +1578,7 @@ export const metrics = {
         "name": "UK",
         "value": "5.0%",
         "direction": "flat",
-        "releasedDaysAgo": 13,
+        "releasedDaysAgo": 14,
         "icon": "☁️",
         "correctIcon": "cloudy",
         "weatherReason": "Unemployment in UK is above its normal level but improving -- cloudy for now.",
@@ -1588,7 +1588,6 @@ export const metrics = {
           "This plateau is the sweet spot for policymakers: unemployment high enough to anchor inflation expectations, but stable enough to avoid a wages spiral."
         ],
         "chartDates": [
-          "Apr 2016",
           "May 2016",
           "Jun 2016",
           "Jul 2016",
@@ -1707,7 +1706,8 @@ export const metrics = {
           "Dec 2025",
           "Jan 2026",
           "Feb 2026",
-          "Mar 2026"
+          "Mar 2026",
+          "Apr 2026"
         ],
         "chartSeries": [
           5.1,
@@ -1838,7 +1838,7 @@ export const metrics = {
         "name": "US",
         "value": "4.2%",
         "direction": "flat",
-        "releasedDaysAgo": 24,
+        "releasedDaysAgo": 25,
         "icon": "☀️",
         "correctIcon": "sunny",
         "weatherReason": "Unemployment in US is at or below its normal level -- a sunny labour market.",
@@ -1848,7 +1848,6 @@ export const metrics = {
           "A flat trend here signals the economy has reached equilibrium: further job gains would require poaching talent from elsewhere rather than pulling people back into work."
         ],
         "chartDates": [
-          "Apr 2016",
           "May 2016",
           "Jun 2016",
           "Jul 2016",
@@ -1967,7 +1966,8 @@ export const metrics = {
           "Dec 2025",
           "Jan 2026",
           "Feb 2026",
-          "Mar 2026"
+          "Mar 2026",
+          "Apr 2026"
         ],
         "chartSeries": [
           4.9,
@@ -2098,7 +2098,7 @@ export const metrics = {
         "name": "Eurozone",
         "value": "3.8%",
         "direction": "flat",
-        "releasedDaysAgo": 28,
+        "releasedDaysAgo": 29,
         "icon": "☀️",
         "correctIcon": "sunny",
         "weatherReason": "Unemployment in Eurozone is at or below its normal level -- a sunny labour market.",
@@ -2108,7 +2108,6 @@ export const metrics = {
           "At this level, unemployment can't fall much further without sparking wage spirals, so the real economic action is now in wage-setting and pricing power."
         ],
         "chartDates": [
-          "Apr 2016",
           "May 2016",
           "Jun 2016",
           "Jul 2016",
@@ -2227,7 +2226,8 @@ export const metrics = {
           "Dec 2025",
           "Jan 2026",
           "Feb 2026",
-          "Mar 2026"
+          "Mar 2026",
+          "Apr 2026"
         ],
         "chartSeries": [
           4.1,
@@ -2358,7 +2358,7 @@ export const metrics = {
         "name": "China",
         "value": "5.1%",
         "direction": "flat",
-        "releasedDaysAgo": 14,
+        "releasedDaysAgo": 15,
         "icon": "☀️",
         "correctIcon": "sunny",
         "weatherReason": "Unemployment in China is at or below its normal level -- a sunny labour market.",
@@ -2368,7 +2368,6 @@ export const metrics = {
           "The flatness here is deceptive: when joblessness sits persistently low, the economy loses one of its key shock absorbers, leaving less room for policy manoeuvre when shocks arrive."
         ],
         "chartDates": [
-          "Apr 2016",
           "May 2016",
           "Jun 2016",
           "Jul 2016",
@@ -2487,7 +2486,8 @@ export const metrics = {
           "Dec 2025",
           "Jan 2026",
           "Feb 2026",
-          "Mar 2026"
+          "Mar 2026",
+          "Apr 2026"
         ],
         "chartSeries": [
           4.02,
@@ -2618,7 +2618,7 @@ export const metrics = {
         "name": "Japan",
         "value": "2.5%",
         "direction": "flat",
-        "releasedDaysAgo": 31,
+        "releasedDaysAgo": 32,
         "icon": "☀️",
         "correctIcon": "sunny",
         "weatherReason": "Unemployment in Japan is at or below its normal level -- a sunny labour market.",
@@ -2628,7 +2628,6 @@ export const metrics = {
           "The flatness masks a taut underlying reality: firms are hoarding labour and reluctant to shed workers, which looks stable but limits flexibility when the economic cycle turns."
         ],
         "chartDates": [
-          "Apr 2016",
           "May 2016",
           "Jun 2016",
           "Jul 2016",
@@ -2747,7 +2746,8 @@ export const metrics = {
           "Dec 2025",
           "Jan 2026",
           "Feb 2026",
-          "Mar 2026"
+          "Mar 2026",
+          "Apr 2026"
         ],
         "chartSeries": [
           3.2,
@@ -2878,7 +2878,7 @@ export const metrics = {
         "name": "Brazil",
         "value": "6.5%",
         "direction": "flat",
-        "releasedDaysAgo": 4,
+        "releasedDaysAgo": 5,
         "icon": "☀️",
         "correctIcon": "sunny",
         "weatherReason": "Unemployment in Brazil is at or below its normal level -- a sunny labour market.",
@@ -2888,7 +2888,6 @@ export const metrics = {
           "Watch for inflation creep if this persists; businesses with no spare labour capacity tend to pass costs straight to consumers."
         ],
         "chartDates": [
-          "Apr 2016",
           "May 2016",
           "Jun 2016",
           "Jul 2016",
@@ -3007,7 +3006,8 @@ export const metrics = {
           "Dec 2025",
           "Jan 2026",
           "Feb 2026",
-          "Mar 2026"
+          "Mar 2026",
+          "Apr 2026"
         ],
         "chartSeries": [
           10.9,
@@ -3146,7 +3146,7 @@ export const metrics = {
         "name": "UK",
         "value": "1.5%",
         "direction": "flat",
-        "releasedDaysAgo": 46,
+        "releasedDaysAgo": 47,
         "icon": "☀️",
         "correctIcon": "sunny",
         "weatherReason": "UK is growing at or near its normal rate -- that is a sunny read.",
@@ -3186,7 +3186,7 @@ export const metrics = {
         "name": "US",
         "value": "2.2%",
         "direction": "flat",
-        "releasedDaysAgo": 32,
+        "releasedDaysAgo": 33,
         "icon": "☀️",
         "correctIcon": "sunny",
         "weatherReason": "US is growing at or near its normal rate -- that is a sunny read.",
@@ -3226,7 +3226,7 @@ export const metrics = {
         "name": "Eurozone",
         "value": "1.2%",
         "direction": "flat",
-        "releasedDaysAgo": 60,
+        "releasedDaysAgo": 61,
         "icon": "☀️",
         "correctIcon": "sunny",
         "weatherReason": "Eurozone is growing at or near its normal rate -- that is a sunny read.",
@@ -3266,7 +3266,7 @@ export const metrics = {
         "name": "China",
         "value": "4.7%",
         "direction": "flat",
-        "releasedDaysAgo": 73,
+        "releasedDaysAgo": 74,
         "icon": "☀️",
         "correctIcon": "sunny",
         "weatherReason": "China is growing at or near its normal rate -- that is a sunny read.",
@@ -3306,7 +3306,7 @@ export const metrics = {
         "name": "Japan",
         "value": "0.8%",
         "direction": "flat",
-        "releasedDaysAgo": 42,
+        "releasedDaysAgo": 43,
         "icon": "☀️",
         "correctIcon": "sunny",
         "weatherReason": "Japan is growing at or near its normal rate -- that is a sunny read.",
@@ -3346,7 +3346,7 @@ export const metrics = {
         "name": "Brazil",
         "value": "1.7%",
         "direction": "flat",
-        "releasedDaysAgo": 32,
+        "releasedDaysAgo": 33,
         "icon": "☀️",
         "correctIcon": "sunny",
         "weatherReason": "Brazil is growing at or near its normal rate -- that is a sunny read.",
@@ -3394,7 +3394,7 @@ export const metrics = {
         "name": "UK",
         "value": "3.25%",
         "direction": "flat",
-        "releasedDaysAgo": 53,
+        "releasedDaysAgo": 54,
         "icon": "☁️",
         "correctIcon": "cloudy",
         "weatherReason": "UK rates are on hold -- the central bank is waiting for more data, cloudy.",
@@ -3404,7 +3404,6 @@ export const metrics = {
           "This holding pattern suits policymakers caught between stubborn services inflation and a weakening labour market, neither clear enough to justify a move yet."
         ],
         "chartDates": [
-          "Apr 2016",
           "May 2016",
           "Jun 2016",
           "Jul 2016",
@@ -3523,7 +3522,8 @@ export const metrics = {
           "Dec 2025",
           "Jan 2026",
           "Feb 2026",
-          "Mar 2026"
+          "Mar 2026",
+          "Apr 2026"
         ],
         "chartSeries": [
           0.5,
@@ -3654,7 +3654,7 @@ export const metrics = {
         "name": "US",
         "value": "3.25%",
         "direction": "flat",
-        "releasedDaysAgo": 12,
+        "releasedDaysAgo": 13,
         "icon": "☁️",
         "correctIcon": "cloudy",
         "weatherReason": "US rates are on hold -- the central bank is waiting for more data, cloudy.",
@@ -3664,7 +3664,6 @@ export const metrics = {
           "Rate markets are pricing in this holding pattern, which gives businesses and households a rare moment of stability to plan around fixed borrowing costs."
         ],
         "chartDates": [
-          "Apr 2016",
           "May 2016",
           "Jun 2016",
           "Jul 2016",
@@ -3783,7 +3782,8 @@ export const metrics = {
           "Dec 2025",
           "Jan 2026",
           "Feb 2026",
-          "Mar 2026"
+          "Mar 2026",
+          "Apr 2026"
         ],
         "chartSeries": [
           0.36,
@@ -3914,7 +3914,7 @@ export const metrics = {
         "name": "Eurozone",
         "value": "2.50%",
         "direction": "flat",
-        "releasedDaysAgo": 25,
+        "releasedDaysAgo": 26,
         "icon": "☁️",
         "correctIcon": "cloudy",
         "weatherReason": "Eurozone rates are on hold -- the central bank is waiting for more data, cloudy.",
@@ -3924,7 +3924,6 @@ export const metrics = {
           "Markets are pricing in patience rather than conviction, reflecting genuine uncertainty about the timing of any shift."
         ],
         "chartDates": [
-          "Apr 2016",
           "May 2016",
           "Jun 2016",
           "Jul 2016",
@@ -4043,7 +4042,8 @@ export const metrics = {
           "Dec 2025",
           "Jan 2026",
           "Feb 2026",
-          "Mar 2026"
+          "Mar 2026",
+          "Apr 2026"
         ],
         "chartSeries": [
           0.0,
@@ -4174,7 +4174,7 @@ export const metrics = {
         "name": "China",
         "value": "2.75%",
         "direction": "flat",
-        "releasedDaysAgo": 11,
+        "releasedDaysAgo": 12,
         "icon": "☁️",
         "correctIcon": "cloudy",
         "weatherReason": "China rates are on hold -- the central bank is waiting for more data, cloudy.",
@@ -4192,7 +4192,7 @@ export const metrics = {
         "name": "Japan",
         "value": "1.25%",
         "direction": "flat",
-        "releasedDaysAgo": 12,
+        "releasedDaysAgo": 13,
         "icon": "☁️",
         "correctIcon": "cloudy",
         "weatherReason": "Japan rates are on hold -- the central bank is waiting for more data, cloudy.",
@@ -4202,7 +4202,6 @@ export const metrics = {
           "This caution reflects the BoJ's scarred history with premature tightening and its need to build confidence that deflation risks have truly passed."
         ],
         "chartDates": [
-          "Apr 2016",
           "May 2016",
           "Jun 2016",
           "Jul 2016",
@@ -4321,7 +4320,8 @@ export const metrics = {
           "Dec 2025",
           "Jan 2026",
           "Feb 2026",
-          "Mar 2026"
+          "Mar 2026",
+          "Apr 2026"
         ],
         "chartSeries": [
           0.05,
@@ -4452,7 +4452,7 @@ export const metrics = {
         "name": "Brazil",
         "value": "12.00%",
         "direction": "flat",
-        "releasedDaysAgo": 12,
+        "releasedDaysAgo": 13,
         "icon": "⛈️",
         "correctIcon": "stormy",
         "weatherReason": "Brazil rates are high and squeezing borrowing -- that is a stormy read.",
@@ -4462,7 +4462,6 @@ export const metrics = {
           "The flat trajectory signals the bank's resolve to hold the line on inflation rather than pivot toward stimulus, even as growth headwinds intensify."
         ],
         "chartDates": [
-          "Apr 2016",
           "May 2016",
           "Jun 2016",
           "Jul 2016",
@@ -4581,7 +4580,8 @@ export const metrics = {
           "Dec 2025",
           "Jan 2026",
           "Feb 2026",
-          "Mar 2026"
+          "Mar 2026",
+          "Apr 2026"
         ],
         "chartSeries": [
           14.25,
@@ -4725,12 +4725,11 @@ export const metrics = {
         "correctIcon": "sunny",
         "weatherReason": "The UK exchange rate is holding steady -- stability is a sunny signal.",
         "blurb": [
-          "Sterling is treading water against major currencies, neither strengthening nor weakening materially. This kind of stability tends to happen when investors see the UK economy as neither particularly attractive nor alarming.",
-          "A flat exchange rate is actually good news for exporters and importers: they can plan without the whiplash of sudden currency swings. Uncertainty is more costly to business than a steady, predictable rate.",
-          "Behind this calm sits a balance of forces: interest rate expectations, relative economic growth, and capital flows are all roughly offsetting each other. When that equilibrium shifts, watch for sterling to move decisively."
+          "Sterling is holding its ground against major currencies, offering traders and businesses the rare gift of predictability in an otherwise volatile world.",
+          "Steady exchange rates reduce hedging costs for importers and exporters, making forward planning less of a guessing game.",
+          "Flat rates signal neither strong capital inflows nor outflows, suggesting the market has found an equilibrium price that reflects genuine consensus about UK economic prospects."
         ],
         "chartDates": [
-          "Apr 2016",
           "May 2016",
           "Jun 2016",
           "Jul 2016",
@@ -4849,10 +4848,10 @@ export const metrics = {
           "Dec 2025",
           "Jan 2026",
           "Feb 2026",
-          "Mar 2026"
+          "Mar 2026",
+          "Apr 2026"
         ],
         "chartSeries": [
-          1.46,
           1.46,
           1.35,
           1.32,
@@ -4971,9 +4970,10 @@ export const metrics = {
           1.35,
           1.38,
           1.35,
+          1.32,
           1.32
         ],
-        "movePercent": 2.3
+        "movePercent": -1.5
       },
       "us": {
         "flag": "🇺🇸",
@@ -4985,12 +4985,11 @@ export const metrics = {
         "correctIcon": "sunny",
         "weatherReason": "The US exchange rate is holding steady -- stability is a sunny signal.",
         "blurb": [
-          "The dollar remains unmoved against major currencies, suggesting markets have priced in current rate expectations and see little reason to reprrice.",
-          "Flat exchange rates reward exporters with predictability and importers with cost certainty, making life easier for treasury teams across corporate America.",
-          "Stability here signals confidence: absent shocks, markets aren't panicking about US monetary policy or geopolitical risk, which keeps FX traders in their offices rather than on the phone."
+          "The dollar is holding its line against major currencies, avoiding the volatility that usually spooks foreign investors and keeps import prices predictable.",
+          "Flat exchange rates signal the Fed isn't frantically tightening or loosening, which means markets have priced in the current policy stance and stopped second-guessing themselves.",
+          "For exporters, stability is a mixed blessing: it means no sudden tailwinds, but it also kills the excuse that currency swings are tanking competitiveness."
         ],
         "chartDates": [
-          "Apr 2016",
           "May 2016",
           "Jun 2016",
           "Jul 2016",
@@ -5109,10 +5108,10 @@ export const metrics = {
           "Dec 2025",
           "Jan 2026",
           "Feb 2026",
-          "Mar 2026"
+          "Mar 2026",
+          "Apr 2026"
         ],
         "chartSeries": [
-          93.08,
           95.89,
           96.14,
           95.53,
@@ -5231,26 +5230,26 @@ export const metrics = {
           98.28,
           96.99,
           97.61,
+          100.44,
           100.5
         ],
-        "movePercent": -3.6
+        "movePercent": 1.0
       },
       "eurozone": {
         "flag": "🇪🇺",
         "name": "Eurozone",
         "value": "1.14",
         "direction": "flat",
-        "releasedDaysAgo": 0,
+        "releasedDaysAgo": null,
         "icon": "☀️",
         "correctIcon": "sunny",
         "weatherReason": "The Eurozone exchange rate is holding steady -- stability is a sunny signal.",
         "blurb": [
-          "The euro is treading water against major currencies, which means exporters can plan without guessing games and importers aren't facing sudden shocks to their margins.",
-          "Stable exchange rates act as a brake on imported inflation, allowing the ECB breathing room to assess domestic pressures without currency volatility muddying the water.",
-          "Capital flows remain unfazed by forex gyrations, suggesting investors see the eurozone as a steady proposition rather than a currency roulette wheel."
+          "The euro is trading sideways against major currencies, which is exactly what the ECB ordered after months of volatility.",
+          "Stable exchange rates mean fewer surprises for eurozone exporters and importers, reducing hedging costs and making financial planning actually feasible.",
+          "This calm belies real tension: the euro's stability rests on rate expectations and capital flows that could shift if growth disappoints or the Fed pivots."
         ],
         "chartDates": [
-          "Apr 2016",
           "May 2016",
           "Jun 2016",
           "Jul 2016",
@@ -5369,10 +5368,10 @@ export const metrics = {
           "Dec 2025",
           "Jan 2026",
           "Feb 2026",
-          "Mar 2026"
+          "Mar 2026",
+          "Apr 2026"
         ],
         "chartSeries": [
-          1.14,
           1.11,
           1.11,
           1.11,
@@ -5491,9 +5490,10 @@ export const metrics = {
           1.17,
           1.2,
           1.18,
+          1.15,
           1.14
         ],
-        "movePercent": 5.6
+        "movePercent": 0.0
       },
       "china": {
         "flag": "🇨🇳",
@@ -5505,12 +5505,11 @@ export const metrics = {
         "correctIcon": "sunny",
         "weatherReason": "The China exchange rate is holding steady -- stability is a sunny signal.",
         "blurb": [
-          "The yuan is holding its line, refusing to drift sharply in either direction. This kind of steadiness is exactly what keeps traders and foreign investors from getting jittery about currency risk.",
-          "A stable exchange rate signals that China's authorities have the monetary conditions under control, even amid global turbulence. When your currency doesn't thrash around, your economy looks less chaotic to the outside world.",
-          "Flatness here is genuinely good news for exporters and importers alike: nobody's caught off guard by wild swings, and pricing contracts becomes a matter of commercial judgment rather than currency roulette."
+          "The yuan is holding its line against major currencies, a rare moment of calm in what's usually a politically sensitive arena for Beijing.",
+          "Stable exchange rates cut both ways for exporters and importers, removing the guesswork from pricing but also removing the advantage of a weaker currency boost.",
+          "Capital flows aren't pushing the needle either way, suggesting foreign investors and Chinese firms abroad aren't spooked or euphoric about the domestic outlook."
         ],
         "chartDates": [
-          "Apr 2016",
           "May 2016",
           "Jun 2016",
           "Jul 2016",
@@ -5629,7 +5628,8 @@ export const metrics = {
           "Dec 2025",
           "Jan 2026",
           "Feb 2026",
-          "Mar 2026"
+          "Mar 2026",
+          "Apr 2026"
         ],
         "chartSeries": [
           6.47,
@@ -5765,12 +5765,11 @@ export const metrics = {
         "correctIcon": "sunny",
         "weatherReason": "The Japan exchange rate is holding steady -- stability is a sunny signal.",
         "blurb": [
-          "The yen is holding its ground against major currencies, neither surging nor sliding into weakness. That kind of stability is rare enough to matter.",
-          "Capital flows and carry trade positioning remain balanced, keeping the currency anchored without triggering intervention alerts from the Ministry of Finance. The Bank of Japan can afford to watch rather than act.",
-          "Exporters get predictability; importers avoid sudden shocks; policymakers face no awkward pressure to defend. Flat is often the most underrated exchange rate outcome."
+          "The yen is refusing to budge, which is precisely what the Bank of Japan wants to see right now. Stability beats drama when your export sector needs predictable costs.",
+          "A flat currency removes one layer of anxiety for multinationals pricing goods globally. Japanese firms can plan capex without wondering which way the yen will lurch.",
+          "The absence of violent swings is also a signal that carry trade speculators aren't hammering the currency. Boring is doing the heavy lifting here."
         ],
         "chartDates": [
-          "Apr 2016",
           "May 2016",
           "Jun 2016",
           "Jul 2016",
@@ -5889,10 +5888,10 @@ export const metrics = {
           "Dec 2025",
           "Jan 2026",
           "Feb 2026",
-          "Mar 2026"
+          "Mar 2026",
+          "Apr 2026"
         ],
         "chartSeries": [
-          108.08,
           110.84,
           102.78,
           104.75,
@@ -6011,9 +6010,10 @@ export const metrics = {
           156.41,
           153.16,
           155.86,
+          159.53,
           160.0
         ],
-        "movePercent": 6.9
+        "movePercent": 12.4
       },
       "brazil": {
         "flag": "🇧🇷",
@@ -6025,12 +6025,11 @@ export const metrics = {
         "correctIcon": "sunny",
         "weatherReason": "The Brazil exchange rate is holding steady -- stability is a sunny signal.",
         "blurb": [
-          "The real is holding its ground against major currencies, signalling that investors aren't panicking about Brazil's fiscal or monetary outlook right now.",
-          "Stable exchange rates mean import costs stay predictable and foreign-currency debt servicing remains manageable, a genuine relief for policymakers juggling inflation and growth.",
-          "This calm reflects confidence that the central bank has the credibility to keep the currency from becoming a political football, though that confidence can evaporate fast if rates or risk appetite shift."
+          "The real is holding its ground against the dollar, resisting the volatility that typically dogs emerging market currencies when global sentiment shifts.",
+          "Steady exchange rates cut import costs for manufacturers and give exporters predictable pricing, which is exactly what Brazil's economy needs to rebuild confidence after recent turbulence.",
+          "When a currency stops thrashing about, capital stops fleeing and foreign investors stop hedging their bets so aggressively—a foundation for sustained growth rather than choppy cycles."
         ],
         "chartDates": [
-          "Apr 2016",
           "May 2016",
           "Jun 2016",
           "Jul 2016",
@@ -6149,10 +6148,10 @@ export const metrics = {
           "Dec 2025",
           "Jan 2026",
           "Feb 2026",
-          "Mar 2026"
+          "Mar 2026",
+          "Apr 2026"
         ],
         "chartSeries": [
-          3.48,
           3.57,
           3.24,
           3.28,
@@ -6271,9 +6270,10 @@ export const metrics = {
           5.48,
           5.19,
           5.14,
+          5.25,
           5.3
         ],
-        "movePercent": -8.0
+        "movePercent": -5.7
       }
     }
   },
@@ -6288,7 +6288,7 @@ export const metrics = {
         "name": "UK",
         "value": "-2.5%",
         "direction": "flat",
-        "releasedDaysAgo": 46,
+        "releasedDaysAgo": 47,
         "icon": "☁️",
         "correctIcon": "cloudy",
         "weatherReason": "UK is buying more from the world than it sells -- a deficit makes this cloudy.",
@@ -6328,7 +6328,7 @@ export const metrics = {
         "name": "US",
         "value": "-3.7%",
         "direction": "flat",
-        "releasedDaysAgo": 25,
+        "releasedDaysAgo": 26,
         "icon": "☁️",
         "correctIcon": "cloudy",
         "weatherReason": "US is buying more from the world than it sells -- a deficit makes this cloudy.",
@@ -6368,7 +6368,7 @@ export const metrics = {
         "name": "Eurozone",
         "value": "+4.5%",
         "direction": "flat",
-        "releasedDaysAgo": 69,
+        "releasedDaysAgo": 70,
         "icon": "☀️",
         "correctIcon": "sunny",
         "weatherReason": "Eurozone is selling far more to the world than it buys -- a large surplus, sunny.",
@@ -6408,7 +6408,7 @@ export const metrics = {
         "name": "China",
         "value": "+2.5%",
         "direction": "flat",
-        "releasedDaysAgo": 24,
+        "releasedDaysAgo": 25,
         "icon": "☀️",
         "correctIcon": "sunny",
         "weatherReason": "China is selling more to the world than it buys -- a surplus is a sunny read.",
@@ -6448,7 +6448,7 @@ export const metrics = {
         "name": "Japan",
         "value": "+4.8%",
         "direction": "flat",
-        "releasedDaysAgo": 26,
+        "releasedDaysAgo": 27,
         "icon": "☀️",
         "correctIcon": "sunny",
         "weatherReason": "Japan is selling far more to the world than it buys -- a large surplus, sunny.",
@@ -6488,7 +6488,7 @@ export const metrics = {
         "name": "Brazil",
         "value": "-2.6%",
         "direction": "flat",
-        "releasedDaysAgo": 34,
+        "releasedDaysAgo": 35,
         "icon": "☁️",
         "correctIcon": "cloudy",
         "weatherReason": "Brazil is buying more from the world than it sells -- a deficit makes this cloudy.",
