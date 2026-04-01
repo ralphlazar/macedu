@@ -175,7 +175,7 @@ export default function LandingPage() {
                 gap: 4,
               }}
             >
-              ← {role === 'student' ? "I'm revising" : "I'm teaching"}
+              ← {role === 'student' ? "I'm teaching" : "I'm revising"}
             </button>
 
             {rows.map((row, ri) => {
