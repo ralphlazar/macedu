@@ -1,6 +1,6 @@
 # EDU_BRIEF.md
 ## MacroSnaps Education Platform (macedu)
-### Living brief — updated Session 31
+### Living brief — updated Session 32
 
 ---
 
@@ -104,7 +104,7 @@ All pulsing dots on the site use the **ping pattern** (dark core + expanding lig
 
 ## Landing page
 
-Role gate first, curriculum picker second. Two cards on load: "I'm revising" (orange) and "I'm teaching" (blue). Clicking a role reveals the curriculum picker with tiles tinted to match the role. Back arrow returns to role picker. Password hint shown under the teacher card only ("You will need a password on the next screen."). No site name displayed anywhere on this page.
+Role gate first, curriculum picker second. Two cards on load: "I'm revising" (orange) and "I'm teaching" (blue). Clicking a role reveals the curriculum picker with tiles tinted to match the role. Back arrow returns to role picker and shows the **opposite** role label -- i.e. teacher view shows "← I'm revising", student view shows "← I'm teaching". Password hint shown under the teacher card only ("You will need a password on the next screen."). No site name displayed anywhere on this page.
 
 Headline: "Live global data. Wired to your syllabus."
 Subhead: "Updated automatically. No textbook lag."
@@ -210,6 +210,7 @@ Tasked mode (via `?t=1`): weather icon + teacher-selected questions and prompts 
 | `app/components/StudentFramingHeader.js` | Student | Orange ping dot + typewriter. |
 | `app/components/TeacherHomePage.js` | Teacher | Navy panel, dropdowns, stats line. |
 | `app/components/StudentHomePage.js` | Student | Topic tiles, live strip, glossary footer. |
+| `app/components/LandingPage.js` | Shared | Role gate + curriculum picker. Back arrow shows opposite role label. |
 | `app/components/GlossaryTerm.js` | Shared | Tooltip with X button, mobile-safe positioning. |
 | `app/components/GlossaryIndexClient.js` | Shared | 7-group index with search. |
 | `app/utils/wrapGlossaryTerms.js` | Shared | WRAP_BLOCKLIST added. |
@@ -273,6 +274,7 @@ Tasked mode (via `?t=1`): weather icon + teacher-selected questions and prompts 
 | 29 | Data pipeline audit session. Diagnosed 3 empty sparklines: CHN unemployment, BRA unemployment, CHN interest-rates. Fix: extended `sync_monthly_actuals.py` with `FROZEN_BACKFILL_TARGETS`. CHN/BRA unemployment now live. CHN interest-rates remains empty -- no sheet data yet. 35/36 sparklines live. |
 | 30 | Mobile and UX session. Pulse animations upgraded site-wide from throb to ping (dark core + expanding ring). Landing page dot: 2-blue-2-orange alternation at 5.6s cycle. Student homepage restructured: topic tiles first, black box strip second; copy overhauled for first-time students ("Pick a topic to start", exam hook line, "...Or choose one of these black boxes below"); dates removed from student pages entirely. Teacher homepage: curriculum badge and "Today's data is live" eyebrow removed; button renamed "Open this lesson →". Teacher/student lesson pages: "Today's data" label removed. FramingHeader: "Build your lesson plan." headline, "latest data" subtitle. Share button: "Share with students →" with inline "Copied. Paste the link anywhere to share." confirmation (no alert). Glossary tooltip: X close button added, mobile-safe positioning (fixed centred on small screens). Lesson plan timeline: stacks vertically on mobile. Country cards in topic tiles: flag stacked above name (2-col grid). DXY: callout added to US exchange rates SnapshotCard; glossary entry added (137 terms total); excluded from wrapGlossaryTerms auto-wrap via WRAP_BLOCKLIST. Copy discipline: em dash / long hyphen ban made explicit in brief. |
 | 31 | Weather icon exercise given a correct answer and payoff. Old `reveal` field (evergreen boilerplate, teacher-framing) replaced with `correctIcon` and `weatherReason` in `sync_edu.py`. Icon functions rewritten with student-level one-sentence reason per condition. Both fields written to `metrics.js` per metric/country. `WeatherBeat` component updated: correct icon gets green ring + green background on reveal, wrong icons dim to opacity 0.4, `weatherReason` appears in a green-tinted box below. Teacher and student page.js files and `StudentLessonClient.js` updated to pass new props. `sync_edu.py` confirmed to live in macrosnaps repo, not macedu. |
+| 32 | Bug fix: landing page back arrow label was showing the current role instead of the opposite role. Teacher view now correctly shows "← I'm revising"; student view shows "← I'm teaching". One-line fix in `LandingPage.js`. |
 
 ---
 
