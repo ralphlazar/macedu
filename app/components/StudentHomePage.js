@@ -102,7 +102,10 @@ export default function StudentHomePage({ metrics, curriculum }) {
           fontSize: 14, color: '#8099b8', margin: '0 0 20px', lineHeight: 1.5,
           fontFamily: "'IBM Plex Sans', sans-serif",
         }}>
-          Each topic has live data from 6 countries - the kind your examiner will use in Paper 2.
+          {slug === 'ap-economics'
+            ? 'Each topic has live data from 6 countries - the kind you will need for FRQs.'
+            : 'Each topic has live data from 6 countries - the kind your examiner will use in Paper 2.'
+          }
         </p>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 10 }}>
@@ -251,7 +254,10 @@ export default function StudentHomePage({ metrics, curriculum }) {
           borderTop: '0.5px solid #e0e8f0', marginTop: 28, padding: '20px 0 40px', textAlign: 'center',
         }}>
           <Link href={glossaryIndexHref()} style={{ fontSize: 13, color: '#8099b8', textDecoration: 'none' }}>
-            Glossary · 136 AQA A-Level terms · What, How, So what? →
+            {slug === 'ap-economics'
+              ? 'Glossary · AP Economics terms · What, How, So what? →'
+              : 'Glossary · 155 AQA A-Level terms · What, How, So what? →'
+            }
           </Link>
         </div>
 
