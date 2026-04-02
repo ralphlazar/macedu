@@ -5,9 +5,9 @@
     "The last mile is always the hardest. Disinflation slows as it approaches target."
   ],
   "exchange-rates:uk": [
-    "Sterling holding its ground against major currencies, signalling investor confidence in UK assets despite global uncertainty.",
-    "Stable exchange rates reduce hedging costs for exporters and importers, making pricing decisions simpler and cross-border trade more predictable.",
-    "A steady pound also props up real returns on UK investments for foreign buyers, keeping the UK competitive on the international capital markets."
+    "Sterling has found its floor and isn't budging either way. This kind of deadlock usually signals that the market has priced in all available information and sees no compelling reason to shift.",
+    "A flat exchange rate is a rare gift to exporters and importers alike: neither is suddenly punished by currency moves, so business planning becomes less of a guessing game.",
+    "When the pound sits still, investors stop treating it as a poker chip and start treating it as a currency. That's when real economic fundamentals, not sentiment, get their moment."
   ],
   "trade:uk": [
     "The UK runs a persistent current account deficit, meaning it imports more goods, services, and investment income than it exports.",
@@ -130,29 +130,29 @@
     "The flat trajectory signals the bank's resolve to hold the line on inflation rather than pivot toward stimulus, even as growth headwinds intensify."
   ],
   "exchange-rates:us": [
-    "The dollar is trading sideways, which means currency markets see no compelling reason to reprrice US assets today. Stability often breeds complacency, and that's exactly what we're getting.",
-    "When exchange rates flatline, it signals equilibrium between capital flows and trade dynamics. Neither buying nor selling pressure is winning out, so the narrative stays put.",
-    "For exporters and importers, a steady rate removes FX volatility from the equation and lets fundamentals do the talking. That's the real win here."
+    "The dollar is holding its line against major currencies, neither rallying nor retreating. Stability like this lets exporters plan without flinching.",
+    "Capital flows remain balanced: no panicked dollar buying, no sudden flight to safety. That's the sweet spot for currency traders.",
+    "A flat dollar keeps US manufacturers competitive without triggering the inflation fears that come with depreciation. The US gets the goldilocks outcome."
   ],
   "exchange-rates:eurozone": [
-    "The euro is treading water against major currencies, which means exporters can plan without currency whiplash and importers aren't facing surprise margin raids.",
-    "Stable exchange rates cut the noise out of international transactions, letting real economic fundamentals rather than forex volatility drive investment decisions across the bloc.",
-    "This flatness is exactly what the ECB wants: no currency convulsions to complicate monetary policy transmission or trigger competitive devaluation scares from trading partners."
+    "The euro is trading sideways against major currencies, which is precisely what policymakers want when inflation remains a live concern.",
+    "Stability here matters: a flat exchange rate keeps import costs predictable and gives the ECB room to focus on rates rather than currency volatility.",
+    "Investors are pricing in a steady eurozone without surprise shocks, the kind of dull competence that actually supports growth and exports."
   ],
   "exchange-rates:china": [
-    "China's exchange rate is holding its ground, signalling confidence in the yuan amid global currency volatility and capital flow concerns.",
-    "Stability here matters: a steady rate reduces hedging costs for exporters and keeps foreign direct investment calculations from shifting daily.",
-    "The People's Bank of China has clearly resisted the temptation to engineer depreciation, suggesting policymakers prioritise currency credibility over short-term export boosts."
+    "The yuan remains anchored despite external pressures, signalling the authorities are comfortable with current valuations and willing to defend the peg.",
+    "Stable exchange rates reduce hedging costs for traders and importers, making cross-border transactions more predictable in an otherwise volatile global environment.",
+    "A held line suggests confidence in China's capital account management, though prolonged flatness can mask underlying depreciation pressure that eventually breaks through."
   ],
   "exchange-rates:japan": [
-    "The yen is treading water against major currencies, offering Japanese exporters the rare gift of predictability in an otherwise volatile FX market.",
-    "Flat exchange rates mean the Bank of Japan's monetary policy isn't currently under siege from currency swings, reducing pressure for emergency intervention.",
-    "For import-dependent sectors, this stability removes the sting of sudden yen weakness, though it also kills the export boost that a weaker currency would deliver."
+    "The yen is holding its ground against major currencies, refusing to move in either direction. Stability in FX markets often signals that traders see little reason to panic or pile into bets.",
+    "A flat exchange rate removes uncertainty for exporters and importers alike, making it easier to price goods and plan hedge positions. This is precisely the environment that allows business to get on with business.",
+    "When the yen doesn't lurch, it suggests market confidence in Japan's economic trajectory and interest rate outlook. A currency that stays put is a currency investors aren't fleeing from."
   ],
   "exchange-rates:brazil": [
-    "The real has steadied against the dollar, offering relief to exporters and importers alike after months of volatility.",
-    "Stable exchange rates reduce hedging costs and make investment planning less of a guessing game for multinational firms operating in Brazil.",
-    "Currency flatness won't solve Brazil's deeper fiscal or inflation challenges, but it does remove one layer of uncertainty from business decisions."
+    "The real has steadied, offering traders a rare gift: predictability in a market that usually thrives on drama.",
+    "Stable exchange rates mean businesses can actually plan capex and set prices without hedging every five minutes.",
+    "When currency noise quietens, the spotlight shifts to what really matters: productivity, inflation, and whether the central bank's tightening is working."
   ],
   "trade:us": [
     "The US is importing far more than it exports, running a persistent current account deficit that reflects American consumer appetite outpacing domestic production capacity.",
@@ -178,5 +178,185 @@
     "Brazil's trade position remains stubbornly negative, with imports outpacing exports and showing little sign of correction.",
     "A current account deficit this persistent signals that domestic demand is running ahead of productive capacity, forcing reliance on foreign goods.",
     "Without either a sharp drop in consumption or a productivity surge in export sectors, this imbalance will keep the currency under pressure."
+  ],
+  "ap:inflation:uk": [
+    "UK inflation remains above the Bank of England's 2% target, but the downward trajectory matters more than the headline figure right now.",
+    "The cloudiness reflects persistent stickiness in services and wage growth, which the BoE is monitoring closely as it calibrates rate decisions.",
+    "If disinflationary momentum holds, the case for holding or cutting rates strengthens, though another uptick would reset expectations fast."
+  ],
+  "ap:inflation:us": [
+    "Inflation is holding steady at the Fed's two percent target, which means the FOMC can finally stop treating monetary policy like an emergency room visit.",
+    "This flatline is the goldilocks scenario: not so low that deflation risks creep in, not so high that the central bank needs to keep rates in restrictive territory forever.",
+    "With price pressures stabilized, the inflation-fighting chapter is closing and the real debate shifts to whether the Fed can cut rates without reigniting demand-side pressures."
+  ],
+  "ap:inflation:eurozone": [
+    "Eurozone inflation sitting at target means the ECB's tightening cycle has done its job without crushing aggregate demand into recession territory.",
+    "This is the policy goldilocks moment: price stability achieved without the economy freezing up, which keeps the case for rate cuts politically and economically defensible.",
+    "Flat readings at target tend to be unstable equilibria though—one supply shock or wage spiral can shift the whole inflation narrative, so the ECB stays alert."
+  ],
+  "ap:inflation:china": [
+    "China's price levels are holding steady just beneath the PBOC's comfort zone, which means monetary policy can stay patient rather than shift into emergency mode.",
+    "Flat inflation gives Beijing room to support growth through credit easing without immediately stoking wage-price spirals or currency depreciation fears.",
+    "The stability removes one policy headache, but it also reflects subdued demand, which is the real problem the government is trying to solve."
+  ],
+  "ap:inflation:japan": [
+    "Japan's inflation has flatlined exactly at the Bank of Japan's target, a rare win after decades of undershooting that undermined aggregate demand and kept the economy in a deflationary trap.",
+    "This stability matters because it signals the BOJ's credibility is finally working: households and firms actually expect prices to rise at a predictable rate, which anchors wage and pricing behavior across the economy.",
+    "The risk is complacency. Flat inflation at target leaves zero room for growth-boosting stimulus, and any shock—supply-side or demand-side—could push Japan back into the deflation it fought so hard to escape."
+  ],
+  "ap:inflation:brazil": [
+    "Brazil's inflation remains elevated relative to the central bank's target, but the trajectory is downward—a sign that monetary tightening and anchored expectations are doing their work.",
+    "The cloudy outlook reflects genuine uncertainty: disinflation could stall if currency weakness resurfaces or supply shocks hit, pulling aggregate price levels back up.",
+    "The FOMC equivalent here, Brazil's monetary policy committee, faces a tricky landing: tighten too much and growth suffers; ease too soon and inflation re-accelerates before reaching the target band."
+  ],
+  "ap:unemployment:uk": [
+    "Joblessness sits elevated relative to the natural rate, but the trend is moving in the right direction—labor market slack isn't tightening yet, which gives policymakers room to breathe.",
+    "Cloudy conditions mean the improvement could stall; wage pressure remains muted as long as unemployment stays above equilibrium, keeping inflation expectations anchored.",
+    "Watch for shifts in labor force participation and sectoral churn—flat readings can mask compositional shifts that matter for aggregate demand and future wage dynamics."
+  ],
+  "ap:unemployment:us": [
+    "The unemployment rate is holding steady at or below its natural rate, signaling a labor market that's neither tightening nor loosening.",
+    "With joblessness this low, wage pressures remain a concern for the Fed even as hiring activity plateaus.",
+    "Employers have little room to poach talent, meaning job switchers have less leverage and aggregate demand may start cooling without new demand shocks."
+  ],
+  "ap:unemployment:eurozone": [
+    "The Eurozone's unemployment sits at its natural rate, meaning the labor market has reached equilibrium where wage and price pressures remain stable without sparking inflation.",
+    "At this level, the ECB faces less urgency to ease policy, and any stimulus would risk overheating an already-balanced economy rather than cushioning slack.",
+    "For Eurozone policymakers, a flat unemployment rate near the NAIRU is the Goldilocks scenario: enough employment to support aggregate demand without the wage-spiral risk that comes from pushing labor markets too tight."
+  ],
+  "ap:unemployment:china": [
+    "China's jobless rate sits at its natural level, meaning the labor market has squeezed out slack without triggering wage-driven inflation pressure.",
+    "A tight employment picture supports consumer spending and keeps aggregate demand resilient, but leaves the central bank little room to ease without overheating the economy.",
+    "Full employment doesn't guarantee growth when structural headwinds bite: youth joblessness and regional mismatches persist even as the headline rate stays benign."
+  ],
+  "ap:unemployment:japan": [
+    "Japan's unemployment sits at its natural rate, signaling an economy operating at full capacity without wage-push pressure.",
+    "A tight labor market this stable suggests the FOMC equivalent in Tokyo has room to hold rates steady without fear of overheating.",
+    "Flatness here is the goal: tight enough to keep growth steady, loose enough to avoid the wage-price spiral that derails central banks."
+  ],
+  "ap:unemployment:brazil": [
+    "Brazil's unemployment sits at its natural rate, meaning the labor market has tightened enough to exhaust slack without triggering wage-price spirals yet.",
+    "A sunny labor market here cuts both ways: full employment supports consumer spending and aggregate demand, but leaves the central bank less room to ease policy without stoking inflation.",
+    "Flat unemployment at this level suggests Brazil has hit equilibrium between job creation and labor supply, making future policy moves hinge on inflation dynamics rather than employment gaps."
+  ],
+  "ap:gdp:uk": [
+    "UK GDP holding steady near its long-run trend signals the economy is operating close to potential output, neither overheating nor stalling.",
+    "Flat growth at trend velocity keeps inflation pressures muted and gives the Bank of England room to calibrate policy without emergency moves.",
+    "When an economy grows at its natural rate, it's doing exactly what macro theory predicts: sustainable expansion without the boom-bust volatility that triggers policy whiplash."
+  ],
+  "ap:gdp:us": [
+    "US growth is holding steady near the natural rate of output, which means the economy is expanding without building dangerous imbalances.",
+    "When GDP tracks the trend line this way, the Fed can stay patient and avoid the boom-bust cycle that comes from overheating or tightening too hard.",
+    "Flat growth relative to potential is the goldilocks scenario: enough momentum to keep employment healthy, not so much that inflation pressures mount."
+  ],
+  "ap:gdp:eurozone": [
+    "Eurozone GDP is tracking at trend, meaning the economy is expanding at its potential growth rate without excess slack or overheating pressures.",
+    "This flat-to-normal trajectory suggests the ECB's policy stance is roughly calibrated to aggregate demand, leaving little room for rate surprises in either direction.",
+    "Goldilocks conditions rarely last; at trend growth, any negative shock to consumption or investment gets amplified fast, so watch for leading indicators of demand softness."
+  ],
+  "ap:gdp:china": [
+    "China's GDP is expanding at its trend rate, which means the economy is humming along without overheating or stalling—exactly where policymakers want it.",
+    "Flat growth relative to potential eliminates pressure for aggressive stimulus or tightening, giving Beijing room to focus on structural reforms rather than fighting the business cycle.",
+    "This Goldilocks scenario keeps aggregate demand aligned with aggregate supply, reducing inflation risks and the need for dramatic policy pivots."
+  ],
+  "ap:gdp:japan": [
+    "Japan's GDP is treading water at potential output, which means the economy is running without spare capacity or slack to exploit. That's the definition of trend growth.",
+    "No overheating, no contraction, no policy emergency. For a mature, aging economy, hitting your natural rate of output consistently is the rare win.",
+    "The sunny read: with inflation well-anchored and growth stable, the Bank of Japan can stay patient rather than scramble to cool or stimulate."
+  ],
+  "ap:gdp:brazil": [
+    "Brazil's GDP is expanding at its trend rate, which means the economy is running at potential output without inflationary pressure building from excess demand.",
+    "This steady-state growth suggests the central bank has calibrated policy roughly right: monetary conditions are neither restraining activity nor overheating the economy.",
+    "Flat-to-trend performance removes urgency from policymakers' playbook, allowing them to focus on structural reforms rather than crisis management or stimulus."
+  ],
+  "ap:interest-rates:uk": [
+    "The Bank of England is holding rates steady while digesting incoming inflation and growth data. The messaging is cautious rather than dovish—they're not signaling cuts, just patience.",
+    "This pause reflects genuine uncertainty about whether price pressures are truly contained or merely dormant. Mixed labor market signals and sticky services inflation keep the committee from committing either way.",
+    "For investors and policymakers, the hold is the coward's way out—but also the smart one. More data points arrive in weeks, and rushing either direction now would be premature."
+  ],
+  "ap:interest-rates:us": [
+    "The Fed is holding rates steady while inflation data remains ambiguous, leaving the futures market in a holding pattern.",
+    "With aggregate demand still digesting the cumulative effect of higher borrowing costs, policymakers are choosing patience over action.",
+    "The next move depends on whether disinflation continues or stalls, making the data calendar the real market driver until clarity emerges."
+  ],
+  "ap:interest-rates:eurozone": [
+    "The ECB is holding rates steady while inflation data remains murky. This pause lets policymakers avoid premature moves in either direction.",
+    "Flat rates in a cloudy environment mean businesses and consumers face ongoing uncertainty about future borrowing costs. No signal from central bank communication adds to the fog.",
+    "With rates anchored and no action telegraphed, aggregate demand pressures depend entirely on what the next inflation read reveals. The ECB is essentially kicking off policy direction until the picture clears."
+  ],
+  "ap:interest-rates:china": [
+    "China's central bank is holding rates steady, waiting for clearer signals on growth and inflation before making its next move.",
+    "The hold reflects genuine uncertainty: policymakers face weak domestic demand and external headwinds, but premature easing could undermine the yuan.",
+    "Expect rates to stay frozen until economic data clarifies whether stimulus or restraint better serves the recovery."
+  ],
+  "ap:interest-rates:japan": [
+    "The Bank of Japan is holding rates steady while it gathers fresh inflation and wage data. The central bank isn't rushing into the next move despite persistent pressure from abroad.",
+    "Flat rates reflect policy paralysis masquerading as caution. The BOJ is caught between domestic wage growth signals and global monetary tightening that could widen the yen carry trade's appeal.",
+    "This pause costs the BOJ credibility on inflation control but buys time to assess whether recent labor market strength will actually translate to sticky price pressures or fizzle out like previous cycles."
+  ],
+  "ap:interest-rates:brazil": [
+    "The SELIC rate sits at levels that hammer borrowing costs for households and firms, effectively restricting aggregate demand when the economy needs breathing room.",
+    "High rates are the central bank's inflation-fighting weapon, but they're also a headwind for investment and consumption, creating the classic monetary policy trade-off between price stability and growth.",
+    "Tight credit conditions mean businesses delay expansion plans and consumers pull back on durable goods, a squeeze that persists as long as the central bank prioritizes taming price pressures over loosening financial conditions."
+  ],
+  "ap:exchange-rates:uk": [
+    "Sterling is holding its ground against major currencies, signaling investor confidence in UK monetary policy and debt sustainability despite persistent fiscal pressures.",
+    "A stable pound reduces imported inflation headwinds and supports the Bank of England's inflation-targeting credibility, though it also weakens export competitiveness.",
+    "Currency flatness reflects balanced expectations: neither recession panic nor growth euphoria is pushing traders to rotate into or out of sterling positions."
+  ],
+  "ap:exchange-rates:us": [
+    "A stable dollar reflects confidence in US monetary policy and debt dynamics, removing a major source of uncertainty for import-competing firms and international investors.",
+    "Flat exchange rates mean the Fed's rate decisions aren't triggering wild capital flows, suggesting markets have priced in the policy path without expecting surprise moves.",
+    "Currency stability supports predictable aggregate demand components—exports don't face sudden headwinds from appreciation, and import prices stay manageable for consumers and businesses."
+  ],
+  "ap:exchange-rates:eurozone": [
+    "The euro's stability against major currencies suggests the ECB's policy stance is credible and markets aren't pricing in sharp rate moves ahead.",
+    "Flat exchange rates reduce uncertainty for eurozone exporters and importers, supporting predictable aggregate demand without currency-driven shocks.",
+    "Steady external value reflects confidence that inflation risks are contained and the central bank won't be forced into emergency tightening."
+  ],
+  "ap:exchange-rates:china": [
+    "The yuan's stability signals the PBOC has successfully managed capital flows and kept speculative pressure at bay, a crucial prerequisite for predictable trade and investment decisions.",
+    "A flat exchange rate removes a major source of aggregate demand volatility for trading partners, since currency swings would otherwise distort relative prices and shift competitiveness overnight.",
+    "This steadiness reflects confidence in China's current policy stance and suggests the central bank isn't fighting outflows or defending against depreciation pressure, which would otherwise drain foreign reserves."
+  ],
+  "ap:exchange-rates:japan": [
+    "The yen is holding its ground, which keeps import prices predictable for Japanese firms and supports their export competitiveness without sudden currency shocks.",
+    "Stable exchange rates reduce uncertainty for foreign investors and trading partners, making Japan a less volatile bet in a world of volatile capital flows.",
+    "A steady yen means the Bank of Japan can focus policy on domestic inflation and output without fighting currency wars, preserving credibility for future rate moves."
+  ],
+  "ap:exchange-rates:brazil": [
+    "Real stability signals the FOMC isn't the only game in town: Brazil's central bank has credibility in defending its currency, keeping inflation expectations anchored despite regional volatility.",
+    "A flat exchange rate props up aggregate demand for Brazilian exports without triggering the wage-price spiral that depreciation typically unleashes, buying policymakers breathing room.",
+    "Steady real strength means imported inputs stay affordable for domestic producers, supporting supply-side relief when commodity shocks threaten to derail growth."
+  ],
+  "ap:trade:uk": [
+    "UK imports are outpacing exports, widening the trade deficit and signaling weak demand for British goods abroad.",
+    "A persistent trade gap drains aggregate demand since net exports (X-M) pull downward in the GDP equation, acting as a drag on overall growth.",
+    "Cloudy outlook reflects structural challenges: either UK competitiveness is slipping globally, or domestic demand is simply too strong relative to the rest of the world."
+  ],
+  "ap:trade:us": [
+    "The US trade deficit persists as imports outpace exports, a stubborn imbalance that reflects both strong domestic demand and global supply chains still favoring foreign producers.",
+    "Persistent deficits drain aggregate demand from the domestic economy in national accounting terms, even as they signal consumer purchasing power and access to cheaper goods.",
+    "Without meaningful shifts in competitiveness or trade policy, this structural imbalance shows no signs of reversing, keeping the outlook genuinely cloudy."
+  ],
+  "ap:trade:eurozone": [
+    "Eurozone exports are running well ahead of imports, creating a trade surplus that reflects strong external demand and competitive pricing in global markets.",
+    "This surplus acts as a net injection into aggregate demand, supporting growth even as domestic consumption faces headwinds from higher borrowing costs.",
+    "The persistent imbalance also signals limited import growth, suggesting either weak internal demand or a structural tilt toward export-oriented production across the bloc."
+  ],
+  "ap:trade:china": [
+    "China's trade surplus persists as exports outpace imports, bolstering the current account and foreign reserves while signaling strong global demand for its goods.",
+    "This persistent surplus reflects China's position as a net saver and capital exporter, meaning domestic investment exceeds national savings and the country channels capital abroad.",
+    "A flat surplus reading suggests the tailwind isn't accelerating, which could indicate either stabilizing global trade or diminishing competitive advantages as other producers gain ground."
+  ],
+  "ap:trade:japan": [
+    "Japan runs a persistent trade surplus, exporting substantially more goods and services than it imports. This reflects decades of manufacturing prowess and global demand for high-quality capital equipment and electronics.",
+    "A chronic trade surplus acts as a drag on aggregate demand at home since exports represent spending leakage from the domestic economy. Japan must rely on investment and consumption to offset the contractionary effect of net exports.",
+    "The surplus also signals limited import demand relative to export capacity, suggesting either weak domestic consumption or a structural preference for domestic production over foreign goods. This imbalance has long complicated monetary policy transmission."
+  ],
+  "ap:trade:brazil": [
+    "Brazil's trade balance has stalled in the flat zone, with imports outpacing exports and creating persistent headwinds for the current account.",
+    "A widening trade deficit signals either weak external demand for Brazilian goods or strong domestic demand pulling in foreign products, both of which complicate currency and inflation dynamics.",
+    "This imbalance matters for aggregate demand accounting: money flowing out for imports without matching export revenue pressures the real and constrains policy flexibility."
   ]
 }

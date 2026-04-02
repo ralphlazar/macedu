@@ -1,5 +1,11 @@
 import { metrics } from '../../../../data/metrics'
-import { lesson } from '../../../../data/aqa-alevel'
+import { lesson as aqaLesson } from '../../../../data/aqa-alevel'
+import { lesson as apLesson }  from '../../../../data/ap-economics'
+
+const LESSON_MAP = {
+  'alevel':       aqaLesson,
+  'ap-economics': apLesson,
+}
 import Header from '../../../../components/Header'
 import StudentFramingHeader from '../../../../components/StudentFramingHeader'
 import StudentLessonClient from '../../../../components/StudentLessonClient'
@@ -9,13 +15,11 @@ const COUNTRY_SLUGS = ['uk', 'us', 'eurozone', 'china', 'japan', 'brazil']
 
 export async function generateStaticParams() {
   const params = []
-  for (const metricSlug of METRIC_SLUGS) {
-    for (const countrySlug of COUNTRY_SLUGS) {
-      params.push({
-        curriculum: 'alevel',
-        metric:     metricSlug,
-        country:    countrySlug,
-      })
+  for (const curriculum of ['alevel', 'ap-economics']) {
+    for (const metricSlug of METRIC_SLUGS) {
+      for (const countrySlug of COUNTRY_SLUGS) {
+        params.push({ curriculum, metric: metricSlug, country: countrySlug })
+      }
     }
   }
   return params
@@ -41,13 +45,18 @@ export default async function StudentLessonPage({ params }) {
   const data = m?.countries?.[country]
 
   const allCountries = m?.countries || {}
-  const lessonData    = lesson[metric] || null
+  const lessonData    = (LESSON_MAP[curriculum] || aqaLesson)[metric] || null
   const correctIcon   = data?.correctIcon   || ''
-  const weatherReason = data?.weatherReason || ''
+  const weatherReason = curriculum === 'ap-economics'
+    ? (data?.weatherReason || '').replace('labour', 'labor').replace('Labour', 'Labor')
+    : (data?.weatherReason || '')
 
-  const metricLabel  = m?.title || metric
+  const rawTitle     = m?.title || metric
+  const metricLabel  = curriculum === 'ap-economics'
+    ? rawTitle.replace('labour', 'labor').replace('Labour', 'Labor')
+    : rawTitle
   const countryLabel = data?.name || country.toUpperCase()
-  const aqaRef       = m?.aqaRef || ''
+  const aqaRef       = curriculum === 'alevel' ? (m?.aqaRef || '') : ''
 
   return (
     <>

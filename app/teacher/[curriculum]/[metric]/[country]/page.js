@@ -1,5 +1,11 @@
 import { metrics } from '../../../../data/metrics'
-import { lesson } from '../../../../data/aqa-alevel'
+import { lesson as aqaLesson } from '../../../../data/aqa-alevel'
+import { lesson as apLesson }  from '../../../../data/ap-economics'
+
+const LESSON_MAP = {
+  'alevel':       aqaLesson,
+  'ap-economics': apLesson,
+}
 import Header from '../../../../components/Header'
 import FramingHeader from '../../../../components/FramingHeader'
 import SnapshotCard from '../../../../components/SnapshotCard'
@@ -10,13 +16,11 @@ const COUNTRY_SLUGS = ['uk', 'us', 'eurozone', 'china', 'japan', 'brazil']
 
 export async function generateStaticParams() {
   const params = []
-  for (const metricSlug of METRIC_SLUGS) {
-    for (const countrySlug of COUNTRY_SLUGS) {
-      params.push({
-        curriculum: 'alevel',
-        metric:     metricSlug,
-        country:    countrySlug,
-      })
+  for (const curriculum of ['alevel', 'ap-economics']) {
+    for (const metricSlug of METRIC_SLUGS) {
+      for (const countrySlug of COUNTRY_SLUGS) {
+        params.push({ curriculum, metric: metricSlug, country: countrySlug })
+      }
     }
   }
   return params
@@ -41,12 +45,14 @@ export default async function TeacherLessonPage({ params }) {
   // All country data for the comparison strip
   const allCountries = m?.countries || {}
 
-  // Lesson content (AQA A-level layer)
-  const lessonData = lesson[metric] || null
+  // Lesson content — curriculum-aware
+  const lessonData = (LESSON_MAP[curriculum] || aqaLesson)[metric] || null
 
   // Weather exercise: correct icon and reason
   const correctIcon   = data?.correctIcon   || ''
-  const weatherReason = data?.weatherReason || ''
+  const weatherReason = curriculum === 'ap-economics'
+    ? (data?.weatherReason || '').replace('labour', 'labor').replace('Labour', 'Labor')
+    : (data?.weatherReason || '')
 
   const BLUE = '#378ADD'
   const NAVY = '#0f1e35'
@@ -124,9 +130,10 @@ export default async function TeacherLessonPage({ params }) {
           metric={metric}
           country={country}
           data={data}
-          aqaRef={m?.aqaRef || ''}
+          aqaRef={curriculum === 'alevel' ? (m?.aqaRef || '') : ''}
           metricTitle={m?.title || metric}
           allCountries={allCountries}
+          curriculum={curriculum}
         />
         <LessonOverlay
           metric={metric}

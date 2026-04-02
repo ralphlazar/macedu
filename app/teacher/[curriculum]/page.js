@@ -3,7 +3,7 @@ import Header from '../../components/Header'
 import TeacherHomePage from '../../components/TeacherHomePage'
 
 export async function generateStaticParams() {
-  return [{ curriculum: 'alevel' }]
+  return [{ curriculum: 'alevel' }, { curriculum: 'ap-economics' }]
 }
 
 export async function generateMetadata({ params }) {

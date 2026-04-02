@@ -21,6 +21,7 @@ export default function StudentLessonClient({
         allCountries={allCountries}
         studentMode={true}
         showBlurb={!isTasked}
+        curriculum={curriculum}
       />
       <LessonOverlay
         metric={metric}

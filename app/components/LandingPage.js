@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Footer from './Footer'
+import { lastUpdated } from '../data/metrics'
 
 const NAVY  = '#0f1e35'
 const BLUE  = '#378ADD'
@@ -19,7 +20,7 @@ const rows = [
   {
     label: '🇺🇸\u00a0\u00a0United States',
     tiles: [
-      { flag: '🇺🇸', level: 'High School',      name: ['AP', 'Economics'],     board: 'College Board', studentHref: null, teacherHref: null },
+      { flag: '🇺🇸', level: 'High School',      name: ['AP', 'Economics'],     board: 'College Board', studentHref: '/student/ap-economics', teacherHref: '/teacher/ap-economics' },
       { flag: '🇺🇸', level: 'University · Y1',  name: ['Macro', '· Year 1'],   board: 'US',            studentHref: null, teacherHref: null },
       { flag: '🇺🇸', level: 'University · Y2',  name: ['Macro', '· Year 2'],   board: 'US',            studentHref: null, teacherHref: null },
     ],
@@ -268,6 +269,20 @@ export default function LandingPage() {
         )}
 
       </div>
+    {lastUpdated && (
+        <p style={{
+          fontFamily: "'IBM Plex Mono', monospace",
+          fontWeight: 700,
+          fontSize: 11,
+          color: '#c0cad8',
+          textAlign: 'center',
+          letterSpacing: '0.05em',
+          marginTop: 32,
+          marginBottom: 0,
+        }}>
+          Updated {lastUpdated}
+        </p>
+      )}
     </main>
     <Footer />
     </>

@@ -28,6 +28,15 @@ const METRIC_DESCRIPTORS = {
   'trade':          'Current account (% of GDP)',
 }
 
+const AP_METRIC_DESCRIPTORS = {
+  'inflation':      'Inflation (year-on-year, %)',
+  'unemployment':   'Unemployment (% of labor force)',
+  'gdp':            'GDP growth (year-on-year, %)',
+  'interest-rates': 'Policy rate (%)',
+  'exchange-rates': null,
+  'trade':          'Current account (% of GDP)',
+}
+
 const FX_LABELS = {
   'uk':       'GBP / USD',
   'us':       'DXY (Dollar Index)',
@@ -56,10 +65,11 @@ function nextReleaseLabel(metric, releasedDaysAgo) {
 }
 
 export default function SnapshotCard({
-  metric, country, data, aqaRef, metricTitle, allCountries, studentMode = false, showBlurb = true,
+  metric, country, data, aqaRef, metricTitle, allCountries, studentMode = false, showBlurb = true, curriculum = 'alevel',
 }) {
   if (!data) return null
-  const { flag, name, value, releasedDaysAgo, blurb, chartDates, chartSeries } = data
+  const { flag, name, value, releasedDaysAgo, blurb, blurbAp, chartDates, chartSeries } = data
+  const displayBlurb = curriculum === 'ap-economics' ? (blurbAp?.length ? blurbAp : blurb) : blurb
 
   const ChartComponent = CHARTS[metric] || AnnotatedChart
 
@@ -109,6 +119,7 @@ export default function SnapshotCard({
             </div>
           )
         })()}
+        {aqaRef && (
         <div style={{
           fontSize: 11,
           fontWeight: 600,
@@ -118,6 +129,7 @@ export default function SnapshotCard({
         }}>
           AQA {aqaRef}
         </div>
+        )}
       </div>
 
       {/* Flag + country name */}
@@ -145,7 +157,7 @@ export default function SnapshotCard({
       }}>
         {metric === 'exchange-rates'
           ? FX_LABELS[country] || metricTitle
-          : METRIC_DESCRIPTORS[metric] || metricTitle}
+          : (curriculum === 'ap-economics' ? AP_METRIC_DESCRIPTORS[metric] : METRIC_DESCRIPTORS[metric]) || metricTitle}
       </div>
 
       {/* Value */}
@@ -187,9 +199,9 @@ export default function SnapshotCard({
           What is this chart telling you?
         </p>
       )}
-      {showBlurb && (Array.isArray(blurb) && blurb.length > 0) ? (
+      {showBlurb && (Array.isArray(displayBlurb) && displayBlurb.length > 0) ? (
         <ul style={{ margin: '0 0 16px', padding: 0, listStyle: 'none' }}>
-          {blurb.slice(0, 3).map((point, i) => (
+          {displayBlurb.slice(0, 3).map((point, i) => (
             <li key={i} style={{
               display: 'flex',
               gap: 12,
