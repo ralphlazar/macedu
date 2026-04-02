@@ -1,14 +1,9 @@
-import { glossary } from '../data/glossary'
-import Header from '../components/Header'
-import GlossaryIndexClient from '../components/GlossaryIndexClient'
+'use client'
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
-export const metadata = { title: 'Glossary · macroeconomics.education' }
-
-export default function GlossaryIndex() {
-  return (
-    <div style={{ minHeight: '100vh', background: 'white' }}>
-      <Header homeHref="/" />
-      <GlossaryIndexClient glossary={glossary} />
-    </div>
-  )
+export default function GlossaryRedirect() {
+  const router = useRouter()
+  useEffect(() => { router.replace('/glossary/alevel') }, [router])
+  return null
 }

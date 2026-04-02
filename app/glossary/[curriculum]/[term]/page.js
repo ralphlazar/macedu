@@ -30,7 +30,7 @@ export default async function GlossaryTermPage({ params }) {
 
   return (
     <div style={{ minHeight: '100vh', background: 'white' }}>
-      <Header homeHref="/" showGlossary={true} />
+      <Header homeHref="/" showGlossary={true} curriculum={curriculum} />
       <GlossaryTermClient
         entry={entry}
         seeAlsoEntries={seeAlsoEntries}

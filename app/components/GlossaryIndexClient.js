@@ -5,7 +5,7 @@ import GlossaryTerm from './GlossaryTerm'
 const NAVY = '#1B2D4F'
 const BLUE = '#378ADD'
 
-const GROUP_ORDER = [
+const GROUP_ORDER_ALEVEL = [
   'National Income & Growth',
   'Aggregate Demand & Supply',
   'Inflation',
@@ -15,10 +15,27 @@ const GROUP_ORDER = [
   'International Economics',
 ]
 
-export default function GlossaryIndexClient({ glossary }) {
+const GROUP_ORDER_AP = [
+  'Basic Economic Concepts',
+  'Aggregate Demand & Supply',
+  'National Income & Growth',
+  'Financial Sector',
+  'Stabilization Policy',
+  'Labor Markets',
+  'International Trade & Finance',
+]
+
+const CURRICULUM_LABEL = {
+  'alevel': 'AQA A-Level Economics',
+  'ap-economics': 'AP Economics',
+}
+
+export default function GlossaryIndexClient({ glossary, curriculum = 'alevel' }) {
   const [query, setQuery] = useState('')
 
   const q = query.trim().toLowerCase()
+  const groupOrder = curriculum === 'ap-economics' ? GROUP_ORDER_AP : GROUP_ORDER_ALEVEL
+  const curriculumLabel = CURRICULUM_LABEL[curriculum] || 'Economics'
 
   const grouped = {}
   for (const entry of glossary) {
@@ -27,7 +44,7 @@ export default function GlossaryIndexClient({ glossary }) {
     grouped[g].push(entry)
   }
 
-  const visibleGroups = GROUP_ORDER.filter(g => {
+  const visibleGroups = groupOrder.filter(g => {
     const terms = grouped[g] || []
     if (!q) return terms.length > 0
     return terms.some(e =>
@@ -58,7 +75,7 @@ export default function GlossaryIndexClient({ glossary }) {
           margin: 0,
           letterSpacing: '0.04em',
         }}>
-          {glossary.length} terms · AQA A-Level and AP Economics
+          {glossary.length} terms · {curriculumLabel}
         </p>
       </div>
 
@@ -154,6 +171,7 @@ export default function GlossaryIndexClient({ glossary }) {
                       more={entry.more}
                       detailed={entry.detailed}
                       group={entry.group}
+                      curriculum={curriculum}
                     />
                   </span>
                 ))}

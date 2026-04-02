@@ -4,7 +4,7 @@ const ROLE_COLOUR = {
   student: '#F0843C',
 }
 
-export default function Header({ homeHref = '/', role = null, showGlossary = false }) {
+export default function Header({ homeHref = '/', role = null, showGlossary = false, curriculum = 'alevel' }) {
   const stripe = role ? ROLE_COLOUR[role] : null
   const tint = role === 'teacher'
     ? 'rgba(55,138,221,0.07)'
@@ -37,7 +37,7 @@ export default function Header({ homeHref = '/', role = null, showGlossary = fal
         <a href={homeHref} style={{ textDecoration: 'none' }}><span style={nameStyle}>MACRO</span></a>
         <nav style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
           {displayGlossary && (
-            <a href={glossaryIndexHref()} style={{
+            <a href={glossaryIndexHref(curriculum)} style={{
               fontSize: '13px',
               color: accent,
               textDecoration: 'none',
