@@ -1,6 +1,7 @@
 export const glossary = [
   {
     slug: "absolute-advantage",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Absolute advantage",
     brief: "The ability to produce a good using fewer resources than another country.",
@@ -10,6 +11,7 @@ export const glossary = [
   },
   {
     slug: "accelerator-process",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Aggregate Demand & Supply",
     term: "Accelerator process",
     brief: "Investment responds to the rate of change in output, not its level, so rising demand triggers proportionally larger increases in capital spending.",
@@ -19,6 +21,7 @@ export const glossary = [
   },
   {
     slug: "aggregate-demand",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Aggregate Demand & Supply",
     term: "Aggregate demand",
     brief: "The total demand for goods and services in an economy at a given price level, comprising consumption, investment, government spending, and net exports (C + I + G + X − M).",
@@ -28,6 +31,7 @@ export const glossary = [
   },
   {
     slug: "aggregate-supply",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Aggregate Demand & Supply",
     term: "Aggregate supply",
     brief: "The total output of goods and services that firms in an economy are willing to produce at a given price level.",
@@ -37,6 +41,7 @@ export const glossary = [
   },
   {
     slug: "balance-of-payments",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Balance of payments",
     brief: "A record of all economic transactions between residents of a country and the rest of the world over a given period.",
@@ -46,6 +51,7 @@ export const glossary = [
   },
   {
     slug: "bank-rate",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Money & Monetary Policy",
     term: "Bank rate",
     brief: "The interest rate set by the Bank of England at which it lends to commercial banks, serving as the benchmark for all other interest rates in the economy.",
@@ -55,6 +61,7 @@ export const glossary = [
   },
   {
     slug: "bonds",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Money & Monetary Policy",
     term: "Bonds",
     brief: "Debt securities issued by governments or corporations, promising to pay a fixed interest rate and repay the principal at maturity.",
@@ -64,6 +71,7 @@ export const glossary = [
   },
   {
     slug: "broad-money",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Money & Monetary Policy",
     term: "Broad money",
     brief: "A measure of the money supply that includes currency, bank deposits, and other liquid assets readily convertible to spending.",
@@ -73,6 +81,7 @@ export const glossary = [
   },
   {
     slug: "budget-balance",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Fiscal Policy",
     term: "Budget balance",
     brief: "The difference between government revenue and government spending over a fiscal year.",
@@ -82,6 +91,7 @@ export const glossary = [
   },
   {
     slug: "budget-deficit",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Fiscal Policy",
     term: "Budget deficit",
     brief: "A shortfall where government spending exceeds government revenue in a given fiscal year.",
@@ -91,6 +101,7 @@ export const glossary = [
   },
   {
     slug: "budget-surplus",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Fiscal Policy",
     term: "Budget surplus",
     brief: "A fiscal position in which government revenue exceeds government spending within a given fiscal year.",
@@ -100,6 +111,7 @@ export const glossary = [
   },
   {
     slug: "capital-market",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Money & Monetary Policy",
     term: "Capital market",
     brief: "A financial market where long-term securities such as shares and bonds are issued and traded.",
@@ -109,6 +121,7 @@ export const glossary = [
   },
   {
     slug: "central-bank",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Money & Monetary Policy",
     term: "Central bank",
     brief: "The institution responsible for monetary policy, financial stability, and acting as lender of last resort to the banking system.",
@@ -118,6 +131,7 @@ export const glossary = [
   },
   {
     slug: "circular-flow-of-income",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "National Income & Growth",
     term: "Circular flow of income",
     brief: "A model showing how money flows between households and firms through factor markets and product markets in a continuous loop.",
@@ -127,6 +141,7 @@ export const glossary = [
   },
   {
     slug: "claimant-count-measure",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Unemployment & Labour",
     term: "Claimant count measure",
     brief: "A measure of unemployment counting the number of people claiming unemployment-related benefits.",
@@ -136,6 +151,7 @@ export const glossary = [
   },
   {
     slug: "commercial-bank",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Money & Monetary Policy",
     term: "Commercial bank",
     brief: "A financial institution that accepts deposits from savers and makes loans to households and firms.",
@@ -145,6 +161,7 @@ export const glossary = [
   },
   {
     slug: "comparative-advantage",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Comparative advantage",
     brief: "The ability to produce a good at a lower opportunity cost than another country, forming the basis for mutually beneficial trade.",
@@ -154,6 +171,7 @@ export const glossary = [
   },
   {
     slug: "consumer-prices-index-cpi",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Inflation",
     term: "Consumer prices index (CPI)",
     brief: "A measure of inflation tracking the average price change of a representative basket of goods and services purchased by households.",
@@ -163,6 +181,7 @@ export const glossary = [
   },
   {
     slug: "consumption",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Aggregate Demand & Supply",
     term: "Consumption",
     brief: "Household spending on goods and services, the largest component of aggregate demand in most economies.",
@@ -172,6 +191,7 @@ export const glossary = [
   },
   {
     slug: "cost-push-inflation",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Inflation",
     term: "Cost-push inflation",
     brief: "Inflation caused by rising production costs, including wages, energy, and raw materials, being passed through to consumers as higher prices.",
@@ -181,6 +201,7 @@ export const glossary = [
   },
   {
     slug: "currency-union",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Currency union",
     brief: "An arrangement where multiple countries adopt a single shared currency, eliminating exchange rates between members entirely.",
@@ -190,6 +211,7 @@ export const glossary = [
   },
   {
     slug: "current-account",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Current account",
     brief: "The section of the balance of payments recording trade in goods and services, primary income, and secondary income transfers.",
@@ -199,6 +221,7 @@ export const glossary = [
   },
   {
     slug: "current-account-deficit",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Current account deficit",
     brief: "A shortfall where a country's payments to the rest of the world for goods, services, and income exceed its receipts.",
@@ -208,6 +231,7 @@ export const glossary = [
   },
   {
     slug: "current-account-surplus",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Current account surplus",
     brief: "A current account surplus arises when a country's receipts from goods, services, and income abroad exceed its payments to the rest of the world.",
@@ -217,6 +241,7 @@ export const glossary = [
   },
   {
     slug: "customs-union",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Customs union",
     brief: "A trade agreement where member countries eliminate tariffs between themselves and adopt a common external tariff on imports from non-members.",
@@ -226,6 +251,7 @@ export const glossary = [
   },
   {
     slug: "cyclical-unemployment",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Unemployment & Labour",
     term: "Cyclical unemployment",
     brief: "Unemployment caused by a fall in aggregate demand during a recession.",
@@ -235,6 +261,7 @@ export const glossary = [
   },
   {
     slug: "deflation",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Inflation",
     term: "Deflation",
     brief: "A sustained fall in the general price level, representing negative inflation.",
@@ -244,6 +271,7 @@ export const glossary = [
   },
   {
     slug: "demand-pull-inflation",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Inflation",
     term: "Demand-pull inflation",
     brief: "Inflation caused by aggregate demand rising faster than the economy's productive capacity can expand.",
@@ -253,6 +281,7 @@ export const glossary = [
   },
   {
     slug: "demand-side-shock",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Aggregate Demand & Supply",
     term: "Demand-side shock",
     brief: "An unexpected event that causes a sudden shift in aggregate demand, such as a financial crisis, a change in consumer confidence, or a fiscal stimulus.",
@@ -262,6 +291,7 @@ export const glossary = [
   },
   {
     slug: "direct-tax",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Fiscal Policy",
     term: "Direct tax",
     brief: "A tax levied directly on income, wealth, or profits, where the legal liability cannot be passed on to someone else.",
@@ -271,6 +301,7 @@ export const glossary = [
   },
   {
     slug: "disinflation",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Inflation",
     term: "Disinflation",
     brief: "A reduction in the rate of inflation, meaning prices are still rising but more slowly than before.",
@@ -280,6 +311,7 @@ export const glossary = [
   },
   {
     slug: "economic-cycle",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "National Income & Growth",
     term: "Economic cycle",
     brief: "The fluctuation of real GDP around its long-run trend, moving through phases of expansion, peak, contraction, and trough.",
@@ -289,6 +321,7 @@ export const glossary = [
   },
   {
     slug: "employment",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Unemployment & Labour",
     term: "Employment",
     brief: "The number of people in work, whether as employees, self-employed, or in government training schemes.",
@@ -298,6 +331,7 @@ export const glossary = [
   },
   {
     slug: "exchange-rate",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Exchange rate",
     brief: "The price of one currency expressed in another, determining how much foreign currency can be obtained for a unit of domestic currency.",
@@ -307,6 +341,7 @@ export const glossary = [
   },
   {
     slug: "expenditure-reducing-policy",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Expenditure-reducing policy",
     brief: "A policy that corrects a current account deficit by reducing total spending in the economy, thereby cutting demand for imports.",
@@ -316,6 +351,7 @@ export const glossary = [
   },
   {
     slug: "expenditure-switching-policy",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Expenditure-switching policy",
     brief: "A policy that redirects spending from foreign goods toward domestically produced goods, typically through depreciation or protectionism.",
@@ -325,6 +361,7 @@ export const glossary = [
   },
   {
     slug: "exports",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Exports",
     brief: "Goods and services produced domestically and sold to buyers in other countries, representing an injection into the circular flow of income.",
@@ -334,6 +371,7 @@ export const glossary = [
   },
   {
     slug: "financial-markets",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Money & Monetary Policy",
     term: "Financial markets",
     brief: "Markets where buyers and sellers trade financial assets such as bonds, equities, currencies, and derivatives.",
@@ -343,6 +381,7 @@ export const glossary = [
   },
   {
     slug: "fiscal-policy",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Fiscal Policy",
     term: "Fiscal policy",
     brief: "The use of government spending and taxation to influence aggregate demand, the distribution of income, and the allocation of resources.",
@@ -352,6 +391,7 @@ export const glossary = [
   },
   {
     slug: "fixed-exchange-rate",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Fixed exchange rate",
     brief: "An exchange rate pegged at a set value against another currency or basket of currencies, maintained through central bank intervention.",
@@ -361,6 +401,7 @@ export const glossary = [
   },
   {
     slug: "foreign-exchange-market",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Foreign exchange market",
     brief: "The global market where currencies are bought and sold, determining exchange rates.",
@@ -370,6 +411,7 @@ export const glossary = [
   },
   {
     slug: "freely-floating-exchange-rate",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Freely floating exchange rate",
     brief: "An exchange rate determined entirely by market forces of supply and demand, with no central bank intervention.",
@@ -379,6 +421,7 @@ export const glossary = [
   },
   {
     slug: "frictional-unemployment",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Unemployment & Labour",
     term: "Frictional unemployment",
     brief: "Short-term unemployment arising from the time taken to match workers with suitable vacancies.",
@@ -388,6 +431,7 @@ export const glossary = [
   },
   {
     slug: "gdp-gross-domestic-product",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "National Income & Growth",
     term: "GDP (gross domestic product)",
     brief: "The total market value of all final goods and services produced within a country's borders in a given period, typically a year or quarter.",
@@ -397,6 +441,7 @@ export const glossary = [
   },
   {
     slug: "globalisation",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Globalisation",
     brief: "The increasing integration of national economies through trade, capital flows, migration, and the spread of technology and ideas.",
@@ -406,6 +451,7 @@ export const glossary = [
   },
   {
     slug: "human-capital",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "National Income & Growth",
     term: "Human capital",
     brief: "The skills, knowledge, and experience possessed by workers that contribute to their productive capacity.",
@@ -415,6 +461,7 @@ export const glossary = [
   },
   {
     slug: "imports",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Imports",
     brief: "Goods and services produced abroad and purchased by domestic consumers, firms, or government, representing a withdrawal from the circular flow of income.",
@@ -424,6 +471,7 @@ export const glossary = [
   },
   {
     slug: "indirect-tax",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Fiscal Policy",
     term: "Indirect tax",
     brief: "A tax levied on spending, where the legal liability falls on a seller but can be passed on to consumers through higher prices.",
@@ -433,6 +481,7 @@ export const glossary = [
   },
   {
     slug: "inflation",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Inflation",
     term: "Inflation",
     brief: "A sustained rise in the general price level, measured as the annual percentage change in a price index such as CPI.",
@@ -442,6 +491,7 @@ export const glossary = [
   },
   {
     slug: "injections",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "National Income & Growth",
     term: "Injections",
     brief: "Additions to the circular flow of income that do not originate from household spending: investment, government spending, and exports.",
@@ -451,6 +501,7 @@ export const glossary = [
   },
   {
     slug: "investment",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Aggregate Demand & Supply",
     term: "Investment",
     brief: "Spending by firms on capital goods such as machinery, equipment, and buildings, increasing the economy's productive capacity.",
@@ -460,6 +511,7 @@ export const glossary = [
   },
   {
     slug: "investment-bank",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Money & Monetary Policy",
     term: "Investment bank",
     brief: "A financial institution that helps firms raise capital by underwriting share and bond issues and advises on mergers and acquisitions.",
@@ -469,6 +521,7 @@ export const glossary = [
   },
   {
     slug: "involuntary-unemployment",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Unemployment & Labour",
     term: "Involuntary unemployment",
     brief: "Unemployment where workers are willing to accept jobs at the prevailing wage but cannot find them because insufficient jobs exist.",
@@ -478,6 +531,7 @@ export const glossary = [
   },
   {
     slug: "labour-force-survey-measure",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Unemployment & Labour",
     term: "Labour Force Survey measure",
     brief: "A measure of unemployment based on a quarterly household survey using the ILO definition: people without work who are actively seeking and available to start within two weeks.",
@@ -487,6 +541,7 @@ export const glossary = [
   },
   {
     slug: "liquid-assets",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Money & Monetary Policy",
     term: "Liquid assets",
     brief: "Assets that can be converted into cash quickly and at minimal cost without significant loss of value.",
@@ -496,6 +551,7 @@ export const glossary = [
   },
   {
     slug: "long-run-economic-growth",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "National Income & Growth",
     term: "Long-run economic growth",
     brief: "An increase in the productive potential of the economy, shifting the production possibility frontier outward.",
@@ -505,6 +561,7 @@ export const glossary = [
   },
   {
     slug: "long-run-phillips-curve",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Unemployment & Labour",
     term: "Long-run Phillips curve",
     brief: "A vertical line at the natural rate of unemployment, indicating no trade-off between inflation and unemployment in the long run.",
@@ -514,6 +571,7 @@ export const glossary = [
   },
   {
     slug: "long-run-trend-rate-of-growth",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "National Income & Growth",
     term: "Long-run trend rate of growth",
     brief: "The average annual rate at which an economy's productive potential expands over time, smoothing out cyclical fluctuations.",
@@ -523,6 +581,7 @@ export const glossary = [
   },
   {
     slug: "macroeconomic-equilibrium",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Aggregate Demand & Supply",
     term: "Macroeconomic equilibrium",
     brief: "The point where aggregate demand equals aggregate supply, determining the economy's price level and real output.",
@@ -532,6 +591,7 @@ export const glossary = [
   },
   {
     slug: "managed-floating-exchange-rate",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Managed floating exchange rate",
     brief: "An exchange rate that floats according to market forces but with occasional central bank intervention to reduce volatility or influence its level.",
@@ -541,6 +601,7 @@ export const glossary = [
   },
   {
     slug: "marginal-propensity-to-consume-mpc",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Aggregate Demand & Supply",
     term: "Marginal propensity to consume (MPC)",
     brief: "The fraction of each additional pound of income that households spend on consumption rather than save or pay in tax.",
@@ -550,6 +611,7 @@ export const glossary = [
   },
   {
     slug: "monetary-policy",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Money & Monetary Policy",
     term: "Monetary policy",
     brief: "The use of interest rates, money supply, and credit conditions by the central bank to influence aggregate demand and inflation.",
@@ -559,6 +621,7 @@ export const glossary = [
   },
   {
     slug: "monetary-policy-transmission-mechanism",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Money & Monetary Policy",
     term: "Monetary policy transmission mechanism",
     brief: "The channels through which changes in Bank Rate and other monetary policy tools affect aggregate demand, output, and inflation.",
@@ -568,6 +631,7 @@ export const glossary = [
   },
   {
     slug: "money",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Money & Monetary Policy",
     term: "Money",
     brief: "Any asset widely accepted as a medium of exchange, unit of account, and store of value.",
@@ -577,6 +641,7 @@ export const glossary = [
   },
   {
     slug: "money-market",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Money & Monetary Policy",
     term: "Money market",
     brief: "A financial market for short-term borrowing and lending, typically involving maturities of one year or less.",
@@ -586,6 +651,7 @@ export const glossary = [
   },
   {
     slug: "money-supply",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Money & Monetary Policy",
     term: "Money supply",
     brief: "The total stock of money circulating in an economy at a given time, including currency and bank deposits.",
@@ -595,6 +661,7 @@ export const glossary = [
   },
   {
     slug: "moral-hazard",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Money & Monetary Policy",
     term: "Moral hazard",
     brief: "The tendency for individuals or institutions to take greater risks when insulated from the consequences of those risks.",
@@ -604,6 +671,7 @@ export const glossary = [
   },
   {
     slug: "multinational-corporation-mnc",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Multinational corporation (MNC)",
     brief: "A firm that owns or controls production facilities in more than one country, operating across national borders.",
@@ -613,6 +681,7 @@ export const glossary = [
   },
   {
     slug: "multiplier",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Aggregate Demand & Supply",
     term: "Multiplier",
     brief: "The ratio by which a change in injections produces a proportionally larger change in national income, through successive rounds of spending.",
@@ -622,6 +691,7 @@ export const glossary = [
   },
   {
     slug: "narrow-money",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Money & Monetary Policy",
     term: "Narrow money",
     brief: "The most liquid components of the money supply, comprising physical currency and bank reserves held at the central bank.",
@@ -631,6 +701,7 @@ export const glossary = [
   },
   {
     slug: "national-debt",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Fiscal Policy",
     term: "National debt",
     brief: "The total accumulated borrowing of a government, representing the sum of all past budget deficits minus surpluses.",
@@ -640,6 +711,7 @@ export const glossary = [
   },
   {
     slug: "national-income",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "National Income & Growth",
     term: "National income",
     brief: "The total value of all goods and services produced by a country's residents, plus net income from abroad, over a given period.",
@@ -649,6 +721,7 @@ export const glossary = [
   },
   {
     slug: "natural-rate-of-unemployment",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Unemployment & Labour",
     term: "Natural rate of unemployment",
     brief: "The unemployment rate consistent with stable inflation, comprising frictional and structural unemployment but not cyclical unemployment.",
@@ -658,6 +731,7 @@ export const glossary = [
   },
   {
     slug: "negative-output-gap",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "National Income & Growth",
     term: "Negative output gap",
     brief: "The amount by which actual GDP falls short of the economy's productive potential, indicating spare capacity and unemployment.",
@@ -667,6 +741,7 @@ export const glossary = [
   },
   {
     slug: "nominal-gdp",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "National Income & Growth",
     term: "Nominal GDP",
     brief: "GDP measured at current prices, unadjusted for inflation.",
@@ -676,6 +751,7 @@ export const glossary = [
   },
   {
     slug: "positive-output-gap",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "National Income & Growth",
     term: "Positive output gap",
     brief: "The amount by which actual GDP exceeds the economy's productive potential, indicating overheating and inflationary pressure.",
@@ -685,6 +761,7 @@ export const glossary = [
   },
   {
     slug: "price-level",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Inflation",
     term: "Price level",
     brief: "The average level of prices across the economy at a given point in time, typically measured by a price index such as CPI.",
@@ -694,6 +771,7 @@ export const glossary = [
   },
   {
     slug: "progressive-tax",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Fiscal Policy",
     term: "Progressive tax",
     brief: "A tax where the proportion of income paid rises as income increases.",
@@ -703,6 +781,7 @@ export const glossary = [
   },
   {
     slug: "protectionist-policies",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Protectionist policies",
     brief: "Government measures that restrict imports or support domestic producers to shield them from foreign competition.",
@@ -712,6 +791,7 @@ export const glossary = [
   },
   {
     slug: "public-expenditure",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Fiscal Policy",
     term: "Public expenditure",
     brief: "Total spending by the government on goods, services, transfers, and debt interest.",
@@ -721,6 +801,7 @@ export const glossary = [
   },
   {
     slug: "purchasing-power-parity-ppp",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "National Income & Growth",
     term: "Purchasing power parity (PPP)",
     brief: "An exchange rate adjustment that equalises the purchasing power of different currencies by accounting for price level differences between countries.",
@@ -730,6 +811,7 @@ export const glossary = [
   },
   {
     slug: "quantitative-easing",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Money & Monetary Policy",
     term: "Quantitative easing",
     brief: "A central bank policy of purchasing bonds to expand the money supply when cutting interest rates alone is insufficient.",
@@ -739,6 +821,7 @@ export const glossary = [
   },
   {
     slug: "quantitative-tightening",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Money & Monetary Policy",
     term: "Quantitative tightening",
     brief: "The process by which a central bank reduces its balance sheet by selling bonds or allowing them to mature without reinvestment, withdrawing money from the economy.",
@@ -748,6 +831,7 @@ export const glossary = [
   },
   {
     slug: "quota",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Quota",
     brief: "A quantitative limit on the amount of a good that can be imported into a country.",
@@ -757,6 +841,7 @@ export const glossary = [
   },
   {
     slug: "real-gdp",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "National Income & Growth",
     term: "Real GDP",
     brief: "GDP adjusted for inflation, measuring the volume of output at constant prices.",
@@ -766,6 +851,7 @@ export const glossary = [
   },
   {
     slug: "real-gdp-per-capita",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "National Income & Growth",
     term: "Real GDP per capita",
     brief: "Real GDP divided by the population, measuring average output per person at constant prices.",
@@ -775,6 +861,7 @@ export const glossary = [
   },
   {
     slug: "real-wage-unemployment",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Unemployment & Labour",
     term: "Real wage unemployment",
     brief: "Unemployment caused by real wages being held above the market-clearing level, creating an excess supply of labour.",
@@ -784,6 +871,7 @@ export const glossary = [
   },
   {
     slug: "regressive-tax",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Fiscal Policy",
     term: "Regressive tax",
     brief: "A tax where the proportion of income paid falls as income increases.",
@@ -793,6 +881,7 @@ export const glossary = [
   },
   {
     slug: "saving",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Aggregate Demand & Supply",
     term: "Saving",
     brief: "The portion of household income not spent on consumption, representing a withdrawal from the circular flow of income.",
@@ -802,6 +891,7 @@ export const glossary = [
   },
   {
     slug: "seasonal-unemployment",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Unemployment & Labour",
     term: "Seasonal unemployment",
     brief: "Unemployment caused by predictable, recurring fluctuations in labour demand linked to seasons or holidays.",
@@ -811,6 +901,7 @@ export const glossary = [
   },
   {
     slug: "short-run-economic-growth",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "National Income & Growth",
     term: "Short-run economic growth",
     brief: "An increase in real GDP caused by a rise in aggregate demand, utilising existing spare capacity in the economy.",
@@ -820,6 +911,7 @@ export const glossary = [
   },
   {
     slug: "short-run-phillips-curve",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Unemployment & Labour",
     term: "Short-run Phillips curve",
     brief: "A curve showing an inverse relationship between unemployment and inflation at a given level of inflation expectations.",
@@ -829,6 +921,7 @@ export const glossary = [
   },
   {
     slug: "standard-of-living",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "National Income & Growth",
     term: "Standard of living",
     brief: "The level of material welfare available to an individual or population, typically measured by real income per capita and access to goods and services.",
@@ -838,6 +931,7 @@ export const glossary = [
   },
   {
     slug: "structural-budget-balance",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Fiscal Policy",
     term: "Structural budget balance",
     brief: "The budget balance that would exist if the economy were operating at its full potential output, removing the effects of the economic cycle.",
@@ -847,6 +941,7 @@ export const glossary = [
   },
   {
     slug: "structural-unemployment",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Unemployment & Labour",
     term: "Structural unemployment",
     brief: "Long-term unemployment caused by a mismatch between workers' skills, location, or characteristics and the requirements of available jobs.",
@@ -856,6 +951,7 @@ export const glossary = [
   },
   {
     slug: "supply-side-improvements",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "National Income & Growth",
     term: "Supply-side improvements",
     brief: "Increases in an economy's productive potential arising from technological progress, better skills, or more efficient resource allocation.",
@@ -865,6 +961,7 @@ export const glossary = [
   },
   {
     slug: "supply-side-policies",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "National Income & Growth",
     term: "Supply-side policies",
     brief: "Government measures designed to increase the productive capacity of the economy by improving the efficiency and flexibility of markets.",
@@ -874,6 +971,7 @@ export const glossary = [
   },
   {
     slug: "supply-side-shock",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Aggregate Demand & Supply",
     term: "Supply-side shock",
     brief: "An unexpected event that causes a sudden shift in aggregate supply, such as an oil price spike, a pandemic, or a technological breakthrough.",
@@ -883,6 +981,7 @@ export const glossary = [
   },
   {
     slug: "systemic-risk",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Money & Monetary Policy",
     term: "Systemic risk",
     brief: "The risk that the failure of one financial institution triggers a cascade of failures across the entire financial system.",
@@ -892,6 +991,7 @@ export const glossary = [
   },
   {
     slug: "tariff",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Tariff",
     brief: "A tax imposed on imported goods, raising their price in the domestic market.",
@@ -901,6 +1001,7 @@ export const glossary = [
   },
   {
     slug: "taxation",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Fiscal Policy",
     term: "Taxation",
     brief: "Compulsory payments levied by the government on income, spending, or wealth to finance public expenditure and influence economic behaviour.",
@@ -910,6 +1011,7 @@ export const glossary = [
   },
   {
     slug: "terms-of-trade",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Terms of trade",
     brief: "The ratio of a country's export prices to its import prices, expressed as an index.",
@@ -919,6 +1021,7 @@ export const glossary = [
   },
   {
     slug: "unemployment",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Unemployment & Labour",
     term: "Unemployment",
     brief: "The number of people without work who are actively seeking employment and available to start.",
@@ -928,6 +1031,7 @@ export const glossary = [
   },
   {
     slug: "voluntary-unemployment",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Unemployment & Labour",
     term: "Voluntary unemployment",
     brief: "Unemployment where individuals choose not to accept available jobs at the prevailing wage rate.",
@@ -937,6 +1041,7 @@ export const glossary = [
   },
   {
     slug: "withdrawals-leakages",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "National Income & Growth",
     term: "Withdrawals (leakages)",
     brief: "Income removed from the circular flow that is not passed on as spending to domestic firms: saving, taxation, and imports.",
@@ -946,6 +1051,7 @@ export const glossary = [
   },
   {
     slug: "yield",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Money & Monetary Policy",
     term: "Yield",
     brief: "The annual return on a bond expressed as a percentage of its current market price.",
@@ -955,6 +1061,7 @@ export const glossary = [
   },
   {
     slug: "appreciation",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Appreciation",
     brief: "A rise in the value of a currency relative to another, so each unit buys more foreign currency than before.",
@@ -964,6 +1071,7 @@ export const glossary = [
   },
   {
     slug: "base-effect",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Inflation",
     term: "Base effect",
     brief: "The distortion in a year-on-year rate caused by an unusually high or low starting point in the same month of the previous year.",
@@ -973,6 +1081,7 @@ export const glossary = [
   },
   {
     slug: "basket-of-goods",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Inflation",
     term: "Basket of goods",
     brief: "The representative collection of goods and services used to measure changes in the price level over time.",
@@ -982,6 +1091,7 @@ export const glossary = [
   },
   {
     slug: "confidence",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Aggregate Demand & Supply",
     term: "Confidence",
     brief: "The degree of optimism or pessimism that consumers and businesses hold about future economic conditions, directly influencing their spending and investment decisions.",
@@ -991,6 +1101,7 @@ export const glossary = [
   },
   {
     slug: "credit",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Money & Monetary Policy",
     term: "Credit",
     brief: "Borrowed money made available by banks and other lenders to households and firms, allowing spending beyond current income.",
@@ -1000,6 +1111,7 @@ export const glossary = [
   },
   {
     slug: "crowding-out",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Fiscal Policy",
     term: "Crowding out",
     brief: "The displacement of private sector investment that occurs when increased government borrowing raises interest rates or absorbs available savings.",
@@ -1009,6 +1121,7 @@ export const glossary = [
   },
   {
     slug: "depreciation",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Depreciation",
     brief: "A fall in the value of a currency relative to another, so each unit buys less foreign currency than before.",
@@ -1018,6 +1131,7 @@ export const glossary = [
   },
   {
     slug: "disposable-income",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Aggregate Demand & Supply",
     term: "Disposable income",
     brief: "Household income after income tax and National Insurance contributions have been deducted, leaving the amount available to spend or save.",
@@ -1027,6 +1141,7 @@ export const glossary = [
   },
   {
     slug: "economic-inactivity",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Unemployment & Labour",
     term: "Economic inactivity",
     brief: "People of working age who are neither employed nor actively seeking work, and therefore excluded from both employment and unemployment statistics.",
@@ -1036,6 +1151,7 @@ export const glossary = [
   },
   {
     slug: "fdi",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "Foreign direct investment (FDI)",
     brief: "Investment by a firm or individual in one country into business operations in another, typically involving ownership or control of productive assets.",
@@ -1045,6 +1161,7 @@ export const glossary = [
   },
   {
     slug: "fiscal-stimulus",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Fiscal Policy",
     term: "Fiscal stimulus",
     brief: "An increase in government spending or reduction in taxation designed to boost aggregate demand during a slowdown or recession.",
@@ -1054,6 +1171,7 @@ export const glossary = [
   },
   {
     slug: "forward-guidance",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Money & Monetary Policy",
     term: "Forward guidance",
     brief: "Communication by a central bank about the likely future path of interest rates, intended to influence expectations and current financial conditions without changing rates today.",
@@ -1063,6 +1181,7 @@ export const glossary = [
   },
   {
     slug: "gni",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "National Income & Growth",
     term: "GNI (Gross National Income)",
     brief: "The total income earned by a country's residents, regardless of where that income is generated, equal to GDP plus net income received from abroad.",
@@ -1072,6 +1191,7 @@ export const glossary = [
   },
   {
     slug: "goods-inflation",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Inflation",
     term: "Goods inflation",
     brief: "The rate of price increase for physical products such as food, clothing, and manufactured goods, as distinct from services.",
@@ -1081,6 +1201,7 @@ export const glossary = [
   },
   {
     slug: "interest-rate",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Money & Monetary Policy",
     term: "Interest rate",
     brief: "The cost of borrowing money, expressed as a percentage of the amount borrowed per year, or the return paid to savers for depositing funds.",
@@ -1090,6 +1211,7 @@ export const glossary = [
   },
   {
     slug: "j-curve-effect",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "International Economics",
     term: "J-curve effect",
     brief: "The tendency for a currency depreciation to worsen the trade balance initially before improving it, tracing a J-shaped path over time.",
@@ -1099,6 +1221,7 @@ export const glossary = [
   },
   {
     slug: "labour-market",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Unemployment & Labour",
     term: "Labour market",
     brief: "The market in which workers supply labour and employers demand it, with wages determined by the interaction of supply and demand.",
@@ -1108,6 +1231,7 @@ export const glossary = [
   },
   {
     slug: "mortgage",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Money & Monetary Policy",
     term: "Mortgage",
     brief: "A loan secured against property, typically used to finance a house purchase, repaid with interest over a long period.",
@@ -1117,6 +1241,7 @@ export const glossary = [
   },
   {
     slug: "nairu",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Unemployment & Labour",
     term: "NAIRU",
     brief: "The Non-Accelerating Inflation Rate of Unemployment: the unemployment rate at which inflation is stable, neither rising nor falling.",
@@ -1126,6 +1251,7 @@ export const glossary = [
   },
   {
     slug: "productive-capacity",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "National Income & Growth",
     term: "Productive capacity",
     brief: "The maximum output an economy can sustainably produce when all factors of production are fully and efficiently employed.",
@@ -1135,6 +1261,7 @@ export const glossary = [
   },
   {
     slug: "productivity",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "National Income & Growth",
     term: "Productivity",
     brief: "Output produced per unit of input, most commonly measured as output per worker or output per hour worked.",
@@ -1144,6 +1271,7 @@ export const glossary = [
   },
   {
     slug: "real-income",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Aggregate Demand & Supply",
     term: "Real income",
     brief: "Income adjusted for inflation, measuring actual purchasing power rather than the nominal amount received.",
@@ -1153,6 +1281,7 @@ export const glossary = [
   },
   {
     slug: "recession",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "National Income & Growth",
     term: "Recession",
     brief: "A significant decline in economic activity lasting at least two consecutive quarters of negative GDP growth.",
@@ -1162,6 +1291,7 @@ export const glossary = [
   },
   {
     slug: "services-inflation",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Inflation",
     term: "Services inflation",
     brief: "The rate of price increase for services such as hospitality, education, transport, and financial services, as distinct from physical goods.",
@@ -1171,6 +1301,7 @@ export const glossary = [
   },
   {
     slug: "skills-mismatch",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Unemployment & Labour",
     term: "Skills mismatch",
     brief: "A mismatch between the skills workers possess and the skills employers require, resulting in vacancies coexisting with unemployment.",
@@ -1180,6 +1311,7 @@ export const glossary = [
   },
   {
     slug: "spare-capacity",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "National Income & Growth",
     term: "Spare capacity",
     brief: "The difference between what an economy or firm is currently producing and what it could produce at full utilisation of its resources.",
@@ -1189,6 +1321,7 @@ export const glossary = [
   },
   {
     slug: "supply-chain-disruption",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Inflation",
     term: "Supply chain disruption",
     brief: "Interruption to the flow of goods, components, or materials between producers at different stages of the production process, raising costs and reducing availability.",
@@ -1198,6 +1331,7 @@ export const glossary = [
   },
   {
     slug: "underemployment",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Unemployment & Labour",
     term: "Underemployment",
     brief: "A situation in which workers are employed for fewer hours than they want, or in roles that underutilise their skills, so the official unemployment rate overstates labour market health.",
@@ -1207,6 +1341,7 @@ export const glossary = [
   },
   {
     slug: "wage-growth",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Unemployment & Labour",
     term: "Wage growth",
     brief: "The rate at which average earnings rise over time, measured in nominal terms and compared with inflation to assess real purchasing power.",
@@ -1216,6 +1351,7 @@ export const glossary = [
   },
   {
     slug: "wage-price-spiral",
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: "Inflation",
     term: "Wage-price spiral",
     brief: "A self-reinforcing cycle in which rising prices prompt workers to demand higher wages, which raises firms' costs and leads to further price increases.",
@@ -1226,9 +1362,191 @@ export const glossary = [
   {
     term: 'DXY',
     slug: 'dxy',
+    curricula: ['aqa-alevel', 'ap-economics'],
     group: 'International Economics',
     brief: 'A trade-weighted index measuring the US dollar against a basket of six major currencies: euro, yen, pound, Canadian dollar, Swedish krona and Swiss franc.',
     more: 'The index uses a base of 100 set in 1973. A reading above 100 means the dollar is stronger than its base-year level. It rises when the dollar appreciates against the basket and falls when it depreciates. The euro carries the largest weight at around 58%.',
     detailed: 'Used by traders and policymakers as a shorthand for dollar strength. Not a named concept on the AQA specification, but directly relevant to any exchange rate discussion involving the US. A rising DXY typically signals tighter global financial conditions — dollar-denominated debt becomes more expensive for emerging markets, and commodity prices (priced in dollars) tend to fall. Common mistake: Students sometimes treat the DXY as a bilateral exchange rate. It is an index, not a rate against a single currency.',
+  },
+
+  {
+    slug: "fomc",
+    curricula: ['ap-economics'],
+    group: "Money & Monetary Policy",
+    term: "FOMC (Federal Open Market Committee)",
+    brief: "The committee within the Federal Reserve System responsible for setting the federal funds rate and directing open market operations.",
+    more: "The FOMC meets eight times a year and comprises seven members of the Board of Governors plus five of the twelve regional Federal Reserve Bank presidents. Its decisions are the primary instrument of US monetary policy.",
+    detailed: "The FOMC operates under a dual mandate: maximum employment and price stability. This differs from the Bank of England's single inflation target and creates genuine trade-offs when unemployment is high and inflation is rising simultaneously. Market participants parse every FOMC statement for signals about the future path of rates, making the committee's communications as important as its decisions. Federal Reserve policy has global consequences; rate decisions in Washington affect capital flows, exchange rates, and borrowing costs in every economy that trades in dollars. Common mistake: Students often confuse the FOMC with the Federal Reserve itself. The Fed is the institution; the FOMC is the specific committee that sets monetary policy.",
+    seeAlso: ["federal-funds-rate", "monetary-policy", "central-bank", "inflation-targeting"],
+  },
+  {
+    slug: "federal-funds-rate",
+    curricula: ['ap-economics'],
+    group: "Money & Monetary Policy",
+    term: "Federal funds rate",
+    brief: "The interest rate at which US commercial banks lend reserves to each other overnight, set as a target range by the FOMC.",
+    more: "The federal funds rate is the benchmark for US borrowing costs. When the FOMC raises it, banks' overnight borrowing costs rise, pushing up lending rates across the economy and restraining aggregate demand.",
+    detailed: "Because the US dollar is the world's reserve currency, changes in the federal funds rate ripple through global financial markets. A rate rise attracts capital to US assets, strengthening the dollar and tightening financial conditions in economies that have borrowed in dollars. The rate hit its effective lower bound of 0 to 0.25% twice in the 21st century, after 2008 and during Covid-19, forcing the Fed to rely on unconventional tools such as quantitative easing and forward guidance. Common mistake: Students sometimes treat the federal funds rate as a rate the Fed charges banks directly. It is a target for interbank lending; the Fed influences it through open market operations, not by setting it by decree.",
+    seeAlso: ["fomc", "monetary-policy", "interest-rate", "quantitative-easing", "forward-guidance"],
+  },
+  {
+    slug: "recessionary-gap",
+    curricula: ['ap-economics'],
+    group: "Aggregate Demand & Supply",
+    term: "Recessionary gap",
+    brief: "The amount by which actual GDP falls short of potential GDP, indicating that the economy is operating below full employment.",
+    more: "A recessionary gap appears on an AD/AS diagram when the short-run equilibrium lies to the left of the long-run aggregate supply curve. Unemployment exceeds the natural rate and inflationary pressure is subdued.",
+    detailed: "The recessionary gap is functionally equivalent to a negative output gap. Closing it requires either expansionary fiscal or monetary policy to shift AD rightward, or the slow process of wage deflation shifting SRAS rightward. Keynesians argue the market mechanism is too slow and painful to be relied upon; classical economists argue the economy is self-correcting and policy intervention risks overshooting. Common mistake: Students sometimes call any recession a recessionary gap. A recession is a decline in GDP; a recessionary gap is a level of GDP below potential, which can persist even without GDP falling if potential has grown faster than actual output.",
+    seeAlso: ["negative-output-gap", "output-gap", "aggregate-demand", "cyclical-unemployment", "fiscal-stimulus"],
+  },
+  {
+    slug: "inflationary-gap",
+    curricula: ['ap-economics'],
+    group: "Aggregate Demand & Supply",
+    term: "Inflationary gap",
+    brief: "The amount by which actual GDP exceeds potential GDP, indicating the economy is operating beyond full employment and generating inflationary pressure.",
+    more: "An inflationary gap appears when the short-run equilibrium lies to the right of the LRAS curve. Labour markets are tight, wages are rising, and firms face capacity constraints, pushing up prices.",
+    detailed: "An inflationary gap is the mirror of a recessionary gap. The appropriate policy response is contractionary: raising interest rates or reducing government spending to shift AD leftward. Left uncorrected, the gap closes through rising wages and prices shifting SRAS leftward, at the cost of higher inflation. The inflationary gap concept maps directly to a positive output gap in standard macroeconomic frameworks. Common mistake: Students assume an inflationary gap always causes hyperinflation. It signals upward pressure on prices, but the magnitude depends on how far actual output exceeds potential, the responsiveness of wages, and the credibility of central bank policy.",
+    seeAlso: ["positive-output-gap", "output-gap", "aggregate-demand", "demand-pull-inflation", "monetary-policy"],
+  },
+  {
+    slug: "loanable-funds-market",
+    curricula: ['ap-economics'],
+    group: "Money & Monetary Policy",
+    term: "Loanable funds market",
+    brief: "A model representing the market for borrowing and lending, where the real interest rate is determined by the supply of savings and the demand for funds for investment.",
+    more: "In the loanable funds model, households supply savings; firms, governments, and households demand funds for investment or consumption. The equilibrium interest rate clears the market, equating savings supply with borrowing demand.",
+    detailed: "The loanable funds model is used to analyse how government borrowing crowds out private investment: an increase in government demand for funds raises the real interest rate, reducing private sector borrowing. The model also shows how an increase in private saving lowers the real interest rate and stimulates investment. Critics note the model abstracts from the money-creating role of banks: in practice, commercial banks create new deposits when they lend, so the supply of loanable funds is not simply a fixed stock of existing savings. Common mistake: Students confuse the loanable funds market with the money market. The money market determines the nominal interest rate through money supply and money demand; the loanable funds market determines the real interest rate through savings and investment flows.",
+    seeAlso: ["crowding-out", "interest-rate", "saving", "investment", "fiscal-policy"],
+  },
+  {
+    slug: "taylor-rule",
+    curricula: ['ap-economics'],
+    group: "Money & Monetary Policy",
+    term: "Taylor rule",
+    brief: "A formula prescribing the appropriate central bank interest rate based on the inflation gap and the output gap, developed by economist John Taylor.",
+    more: "The basic Taylor rule states: policy rate = neutral rate + 0.5(inflation gap) + 0.5(output gap), where the inflation gap is actual minus target inflation and the output gap is actual minus potential output. It translates macroeconomic conditions into an interest rate recommendation.",
+    detailed: "The Taylor rule captures the core logic of inflation targeting: raise rates when inflation is above target or the economy is overheating, cut them when inflation is below target or output is below potential. In practice, central banks use it as a benchmark rather than a rigid formula; the neutral rate and output gap are both unobservable, making mechanical application unreliable. The rule also ignores financial stability concerns and zero-lower-bound constraints. Common mistake: Students sometimes treat the Taylor rule as the policy central banks actually follow. It is a descriptive approximation and an analytical tool, not a formal commitment or legal requirement.",
+    seeAlso: ["fomc", "monetary-policy", "inflation-targeting", "output-gap", "bank-rate"],
+  },
+  {
+    slug: "reserve-requirement",
+    curricula: ['ap-economics'],
+    group: "Money & Monetary Policy",
+    term: "Reserve requirement",
+    brief: "The minimum fraction of deposits that commercial banks are required by regulation to hold as reserves rather than lend out.",
+    more: "A higher reserve requirement reduces the fraction of deposits banks can lend, contracting credit creation and reducing the money supply. A lower requirement allows banks to lend more, expanding credit and increasing the money multiplier.",
+    detailed: "The Federal Reserve effectively set the reserve requirement to zero for most deposits in 2020, relying on interest on reserves and other tools to manage bank lending instead. The reserve requirement is less relevant as an active policy tool in modern banking systems, where banks hold reserves voluntarily in response to interest rate incentives rather than minimum rules. The concept remains central to exam questions on money creation and the money multiplier. Common mistake: Students assume banks lend out exactly the amount above the reserve requirement. In practice, banks hold excess reserves for liquidity management, so actual deposit expansion is less than the theoretical money multiplier predicts.",
+    seeAlso: ["fractional-reserve-banking", "money-multiplier", "excess-reserves", "required-reserves", "money-supply"],
+  },
+  {
+    slug: "required-reserves",
+    curricula: ['ap-economics'],
+    group: "Money & Monetary Policy",
+    term: "Required reserves",
+    brief: "The minimum dollar amount of reserves a bank must hold, calculated by applying the reserve requirement ratio to its total deposits.",
+    more: "If the reserve requirement is 10% and a bank holds $1 million in deposits, required reserves are $100,000. Any reserves above this amount are excess reserves available for lending.",
+    detailed: "Required reserves form the floor of a bank's reserve holdings, not the ceiling. Understanding the distinction between required and excess reserves is central to analysing how changes in reserve requirements affect the money supply. After the Fed eliminated reserve requirements in 2020, the conceptual distinction remains useful for exam purposes even though regulatory minimums no longer bind US banks in practice. Common mistake: Students conflate required reserves with total reserves. Total reserves equal required plus excess reserves; a bank may hold far more than the regulatory minimum.",
+    seeAlso: ["reserve-requirement", "excess-reserves", "fractional-reserve-banking", "money-multiplier"],
+  },
+  {
+    slug: "excess-reserves",
+    curricula: ['ap-economics'],
+    group: "Money & Monetary Policy",
+    term: "Excess reserves",
+    brief: "Reserves held by commercial banks above and beyond the legally required minimum.",
+    more: "Excess reserves represent funds the bank has chosen not to lend. During the 2008 financial crisis, US banks accumulated massive excess reserves as confidence collapsed and loan demand fell. The Fed began paying interest on excess reserves to give banks an incentive to hold them rather than lend.",
+    detailed: "The existence of excess reserves breaks the simple money multiplier model. If banks accumulate excess reserves rather than lending them out, an injection of reserves does not generate the predicted multiple expansion of deposits. Post-2008, the Fed injected enormous reserves through quantitative easing, but much accumulated as excess reserves rather than circulating as credit, limiting the inflationary impact. Common mistake: Students applying the simple money multiplier assume all excess reserves are immediately lent out. Banks hold excess reserves for liquidity management, regulatory buffers, or because loan demand is weak, all of which prevent the full deposit multiplication the formula predicts.",
+    seeAlso: ["required-reserves", "reserve-requirement", "money-multiplier", "fractional-reserve-banking", "quantitative-easing"],
+  },
+  {
+    slug: "fractional-reserve-banking",
+    curricula: ['ap-economics'],
+    group: "Money & Monetary Policy",
+    term: "Fractional reserve banking",
+    brief: "A banking system in which banks hold only a fraction of their deposits as reserves, lending the remainder to create new deposits and expand the money supply.",
+    more: "Under fractional reserve banking, an initial deposit supports multiple rounds of lending. Each loan creates a new deposit elsewhere in the banking system, which supports further lending, until the reserve requirement constrains the process.",
+    detailed: "Fractional reserve banking is why banks are inherently vulnerable to bank runs: if all depositors demand their money simultaneously, the bank cannot meet the demand because most funds have been lent out. Deposit insurance and central bank lender-of-last-resort functions exist precisely to prevent panic-driven runs from making this theoretical risk a real one. The system is also the mechanism by which commercial banks create most of the money supply; the central bank's control over base money is therefore indirect. Common mistake: Students think banks lend depositors' money directly. Banks create new deposits when they lend; the money supply expands rather than existing funds being redistributed.",
+    seeAlso: ["money-multiplier", "reserve-requirement", "commercial-bank", "money-supply", "bank-run"],
+  },
+  {
+    slug: "discount-rate-federal-reserve",
+    curricula: ['ap-economics'],
+    group: "Money & Monetary Policy",
+    term: "Discount rate (Federal Reserve)",
+    brief: "The interest rate the Federal Reserve charges commercial banks for short-term loans through its discount window.",
+    more: "The discount window provides emergency liquidity to banks unable to meet short-term funding needs in private markets. The primary credit rate is set above the federal funds rate target to discourage routine use and signal that borrowing from the Fed is a last resort.",
+    detailed: "The discount rate matters most during crises, when private interbank markets seize and banks cannot access overnight funding at normal rates. The Fed's willingness to act as lender of last resort through the discount window prevents solvent banks from failing due to temporary liquidity shortfalls. During 2008, the Fed lowered the discount rate and extended eligible borrowers to stabilise the financial system. Common mistake: Students confuse the discount rate with the federal funds rate. The federal funds rate governs interbank lending between commercial banks; the discount rate is charged by the Federal Reserve itself for direct lending.",
+    seeAlso: ["federal-funds-rate", "fomc", "monetary-policy", "lender-of-last-resort", "central-bank"],
+  },
+  {
+    slug: "velocity-of-money",
+    curricula: ['ap-economics'],
+    group: "Money & Monetary Policy",
+    term: "Velocity of money",
+    brief: "The average number of times each unit of money is spent on final goods and services in a given period.",
+    more: "Velocity is calculated as nominal GDP divided by the money supply (V = PQ / M). High velocity means money circulates rapidly; low velocity means money sits idle. Velocity is not fixed: it varies with payment technology, confidence, and financial innovation.",
+    detailed: "Velocity matters because the quantity theory of money requires it to be stable if money supply growth is to predict inflation. In practice, velocity fell sharply after 2008 as banks accumulated excess reserves and households increased savings, undermining simple monetarist predictions. Central banks that expanded money supply aggressively post-2008 found that falling velocity absorbed much of the increase without generating the expected inflation. Common mistake: Students assume velocity is constant when applying the quantity theory. It is not; changes in velocity can offset changes in the money supply, breaking the predicted link between money growth and inflation.",
+    seeAlso: ["quantity-theory-of-money", "money-supply", "inflation", "monetary-policy"],
+  },
+  {
+    slug: "exorbitant-privilege",
+    curricula: ['ap-economics'],
+    group: "International Economics",
+    term: "Exorbitant privilege",
+    brief: "The benefit the United States gains from the dollar's status as the world's primary reserve currency, allowing it to borrow cheaply and run persistent current account deficits.",
+    more: "Because the rest of the world demands dollars to hold as reserves and settle trade, the US can issue debt at lower interest rates than other countries. The term was coined by French officials in the 1960s to criticise what France saw as an unfair US advantage.",
+    detailed: "Exorbitant privilege means the US faces a softer budget constraint than other countries: its current account deficits are financed readily because foreign central banks accumulate dollars as reserves. This arrangement depends on global confidence in the dollar; if that confidence erodes, the privilege disappears. It creates tensions because US domestic monetary policy decisions have global consequences for any country holding dollar reserves. Common mistake: Students assume exorbitant privilege means the US can borrow without limit. The privilege reduces the cost of borrowing but does not eliminate constraints; excessive debt can still undermine confidence and erode reserve currency status over time.",
+    seeAlso: ["petrodollar-system", "exchange-rate", "current-account-deficit", "balance-of-payments"],
+  },
+  {
+    slug: "petrodollar-system",
+    curricula: ['ap-economics'],
+    group: "International Economics",
+    term: "Petrodollar system",
+    brief: "The arrangement by which global oil trade is priced and settled in US dollars, reinforcing dollar dominance in international finance.",
+    more: "Since the 1970s, OPEC nations have priced oil in dollars, meaning oil-importing countries must acquire dollars to purchase energy. This creates persistent global demand for dollars regardless of US economic conditions, supporting dollar strength and US borrowing capacity.",
+    detailed: "The petrodollar system is a structural pillar of dollar hegemony. Oil exporters accumulate dollar surpluses, which they recycle into US Treasury bonds, funding US deficits. Challenges to the petrodollar, such as China settling oil trades in yuan, are watched closely as indicators of potential shifts in reserve currency status. A weakening of the system would reduce the US's exorbitant privilege and raise its borrowing costs. Common mistake: Students treat the petrodollar as a formal treaty. It is a set of informal conventions and bilateral agreements, not a legally binding international framework, which means it can erode gradually rather than ending abruptly.",
+    seeAlso: ["exorbitant-privilege", "exchange-rate", "current-account", "foreign-exchange-market"],
+  },
+  {
+    slug: "output-gap",
+    curricula: ['aqa-alevel', 'ap-economics'],
+    group: "National Income & Growth",
+    term: "Output gap",
+    brief: "The difference between an economy's actual output and its potential output, expressed as a percentage of potential.",
+    more: "A positive output gap means actual output exceeds potential, generating inflationary pressure. A negative output gap means actual output falls short, signalling spare capacity and subdued inflation. The gap determines whether policy should be expansionary or contractionary.",
+    detailed: "The output gap is central to macroeconomic policy judgements but impossible to measure directly because potential output is estimated, not observed. Different institutions produce different estimates for the same economy at the same time, meaning policy decisions rest on uncertain foundations. Post-2008, many economies had persistently negative output gaps that proved harder to close than expected, raising questions about whether hysteresis had permanently reduced potential output. Common mistake: Students treat the output gap as a precise, known quantity. It is an estimate with substantial uncertainty bands; policymakers acting on output gap figures are making judgements about an unobservable variable.",
+    seeAlso: ["negative-output-gap", "positive-output-gap", "productive-capacity", "aggregate-demand", "fiscal-policy"],
+  },
+  {
+    slug: "automatic-stabilisers",
+    curricula: ['aqa-alevel', 'ap-economics'],
+    group: "Fiscal Policy",
+    term: "Automatic stabilisers",
+    brief: "Tax and spending mechanisms that reduce the severity of economic fluctuations without any deliberate policy action.",
+    more: "During recessions, tax revenues fall automatically as incomes decline, and spending on unemployment benefits rises. Both changes support household incomes and cushion the fall in aggregate demand. During booms, higher incomes generate more tax revenue, moderating the expansion.",
+    detailed: "Automatic stabilisers are attractive precisely because they operate without political decision-making or time lags, unlike discretionary fiscal policy. Their size depends on the scope of the welfare state and the progressivity of the tax system, so they are more powerful in high-tax economies. They slow the descent into recession but do not prevent it; severe downturns typically still require discretionary stimulus on top. Common mistake: Students describe automatic stabilisers as a deliberate policy response. They are built into the fiscal system and activate mechanically without any government decision; that is what makes them automatic.",
+    seeAlso: ["fiscal-policy", "budget-deficit", "cyclical-unemployment", "withdrawals-leakages", "injections"],
+  },
+  {
+    slug: "money-multiplier",
+    curricula: ['aqa-alevel', 'ap-economics'],
+    group: "Money & Monetary Policy",
+    term: "Money multiplier",
+    brief: "The ratio by which an initial injection of reserves into the banking system expands to create a larger increase in the total money supply.",
+    more: "In the simple model, money multiplier = 1 / reserve requirement ratio. A 10% reserve requirement implies a maximum multiplier of 10: a \u00a3100 deposit can support up to \u00a31,000 in new deposits through successive rounds of lending.",
+    detailed: "The money multiplier is a theoretical maximum, not a reliable prediction. In practice, the actual expansion of deposits depends on whether banks choose to lend excess reserves and whether the public holds cash rather than redepositing funds. Post-2008, the US banking system demonstrated that a large increase in base money does not necessarily produce a proportional increase in broad money when banks hold excess reserves and loan demand is weak. Common mistake: Students apply the money multiplier mechanically without qualifying conditions. The formula assumes banks lend all excess reserves and the public redeposits everything; neither holds in practice.",
+    seeAlso: ["fractional-reserve-banking", "reserve-requirement", "broad-money", "money-supply", "commercial-bank"],
+  },
+  {
+    slug: "quantity-theory-of-money",
+    curricula: ['aqa-alevel', 'ap-economics'],
+    group: "Money & Monetary Policy",
+    term: "Quantity theory of money",
+    brief: "The proposition that the price level is proportional to the money supply in the long run, expressed as MV = PQ.",
+    more: "M is the money supply, V is velocity, P is the price level, and Q is real output. If velocity and output are stable, doubling M doubles P. The theory implies that sustained inflation is always a monetary phenomenon caused by excessive money supply growth.",
+    detailed: "The quantity theory provides the intellectual foundation for monetarism and the belief that controlling money supply growth controls inflation. Its practical limitations are significant: velocity is unstable, especially during financial crises, and central banks target interest rates rather than money supply directly. The theory works better as a long-run tendency than a short-run prediction; in the short run, money supply changes are absorbed by velocity changes, output changes, or both before fully appearing as inflation. Common mistake: Students apply MV = PQ to predict short-run inflation from money supply data. The relationship holds in the long run under stable velocity; in the short run, velocity fluctuations break the link.",
+    seeAlso: ["money-supply", "inflation", "velocity-of-money", "monetary-policy"],
   },
 ]

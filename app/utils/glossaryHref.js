@@ -1,7 +1,7 @@
-export function glossaryHref(term, curriculum) {
-  return `/glossary/${term}`;
+export function glossaryHref(slug, curriculum = 'alevel') {
+  return `/glossary/${curriculum}/${slug}`
 }
 
 export function glossaryIndexHref(curriculum) {
-  return '/glossary';
+  return '/glossary'
 }
