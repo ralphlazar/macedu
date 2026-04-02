@@ -1,6 +1,6 @@
 # EDU_BRIEF.md
 ## MacroSnaps Education Platform (macedu)
-### Living brief — updated Session 32
+### Living brief — updated Session 33
 
 ---
 
@@ -27,6 +27,7 @@ These apply in every session without being asked:
 - **Local preview before any git push.** Changes batched locally before deploying.
 - **EDU_BRIEF.md updated at every session close** — always without being asked.
 - **Python is invoked as `python3` on this machine.** Never `python`.
+- **Static export preview:** `npx serve@latest out` -- not `npm run start` (which errors with output: export).
 
 ---
 
@@ -109,6 +110,8 @@ Role gate first, curriculum picker second. Two cards on load: "I'm revising" (or
 Headline: "Live global data. Wired to your syllabus."
 Subhead: "Updated automatically. No textbook lag."
 Curriculum tiles: centre-aligned text, "Soon" badge inline (not absolute positioned).
+
+**Updated date:** `lastUpdated` exported from `metrics.js` (written by `sync_edu.py` on every pipeline run as `%-d %B %Y` format). Displayed centred below the role picker cards as small IBM Plex Mono 700 11px muted grey (`#c0cad8`). Format: `Updated 2 April 2026`. Not shown when curriculum picker is open. Reflects actual pipeline run date, not build date.
 
 Teacher tiles link to `/teacher/[curriculum]`. Student tiles link to `/student/[curriculum]`.
 
@@ -201,7 +204,7 @@ Tasked mode (via `?t=1`): weather icon + teacher-selected questions and prompts 
 
 | File | Owner | Notes |
 |------|-------|-------|
-| `app/data/metrics.js` | Pipeline | Never hand-edited. Written by `sync_edu.py`. |
+| `app/data/metrics.js` | Pipeline | Never hand-edited. Written by `sync_edu.py`. Exports `metrics` and `lastUpdated`. |
 | `app/data/aqa-alevel.js` | Hand-edited | Lesson overlay content. Never touched by pipeline. |
 | `app/data/glossary.js` | Hand-edited | 137 terms. |
 | `app/components/SnapshotCard.js` | Shared | DXY callout conditional wired in. |
@@ -210,7 +213,7 @@ Tasked mode (via `?t=1`): weather icon + teacher-selected questions and prompts 
 | `app/components/StudentFramingHeader.js` | Student | Orange ping dot + typewriter. |
 | `app/components/TeacherHomePage.js` | Teacher | Navy panel, dropdowns, stats line. |
 | `app/components/StudentHomePage.js` | Student | Topic tiles, live strip, glossary footer. |
-| `app/components/LandingPage.js` | Shared | Role gate + curriculum picker. Back arrow shows opposite role label. |
+| `app/components/LandingPage.js` | Shared | Role gate + curriculum picker. Back arrow shows opposite role label. Updated date below role cards. |
 | `app/components/GlossaryTerm.js` | Shared | Tooltip with X button, mobile-safe positioning. |
 | `app/components/GlossaryIndexClient.js` | Shared | 7-group index with search. |
 | `app/utils/wrapGlossaryTerms.js` | Shared | WRAP_BLOCKLIST added. |
@@ -275,6 +278,7 @@ Tasked mode (via `?t=1`): weather icon + teacher-selected questions and prompts 
 | 30 | Mobile and UX session. Pulse animations upgraded site-wide from throb to ping (dark core + expanding ring). Landing page dot: 2-blue-2-orange alternation at 5.6s cycle. Student homepage restructured: topic tiles first, black box strip second; copy overhauled for first-time students ("Pick a topic to start", exam hook line, "...Or choose one of these black boxes below"); dates removed from student pages entirely. Teacher homepage: curriculum badge and "Today's data is live" eyebrow removed; button renamed "Open this lesson →". Teacher/student lesson pages: "Today's data" label removed. FramingHeader: "Build your lesson plan." headline, "latest data" subtitle. Share button: "Share with students →" with inline "Copied. Paste the link anywhere to share." confirmation (no alert). Glossary tooltip: X close button added, mobile-safe positioning (fixed centred on small screens). Lesson plan timeline: stacks vertically on mobile. Country cards in topic tiles: flag stacked above name (2-col grid). DXY: callout added to US exchange rates SnapshotCard; glossary entry added (137 terms total); excluded from wrapGlossaryTerms auto-wrap via WRAP_BLOCKLIST. Copy discipline: em dash / long hyphen ban made explicit in brief. |
 | 31 | Weather icon exercise given a correct answer and payoff. Old `reveal` field (evergreen boilerplate, teacher-framing) replaced with `correctIcon` and `weatherReason` in `sync_edu.py`. Icon functions rewritten with student-level one-sentence reason per condition. Both fields written to `metrics.js` per metric/country. `WeatherBeat` component updated: correct icon gets green ring + green background on reveal, wrong icons dim to opacity 0.4, `weatherReason` appears in a green-tinted box below. Teacher and student page.js files and `StudentLessonClient.js` updated to pass new props. `sync_edu.py` confirmed to live in macrosnaps repo, not macedu. |
 | 32 | Bug fix: landing page back arrow label was showing the current role instead of the opposite role. Teacher view now correctly shows "← I'm revising"; student view shows "← I'm teaching". One-line fix in `LandingPage.js`. |
+| 33 | Daily update ritual run and deployed. `lastUpdated` added to pipeline: `sync_edu.py` now appends `export const lastUpdated = "D Month YYYY";` to `metrics.js` on every run (using `%-d %B %Y` strftime format). `LandingPage.js` imports `lastUpdated` and displays it centred below the role picker cards -- small IBM Plex Mono 700 11px muted grey (`#c0cad8`), format "Updated 2 April 2026". Not shown when curriculum picker is open. Workflow rule added: static export preview command is `npx serve@latest out`, not `npm run start`. |
 
 ---
 
