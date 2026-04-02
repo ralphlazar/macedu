@@ -1,29 +1,31 @@
 import { glossary } from '../../../data/glossary'
+import { glossaryAp } from '../../../data/glossary-ap'
 import Header from '../../../components/Header'
 import { notFound } from 'next/navigation'
 import GlossaryTermClient from './GlossaryTermClient'
 
 export function generateStaticParams() {
-  const curricula = ['alevel', 'ap-economics']
-  return glossary.flatMap(entry =>
-    curricula.map(curriculum => ({ curriculum, term: entry.slug }))
-  )
+  const alevelParams = glossary.map(entry => ({ curriculum: 'alevel', term: entry.slug }))
+  const apParams = glossaryAp.map(entry => ({ curriculum: 'ap-economics', term: entry.slug }))
+  return [...alevelParams, ...apParams]
 }
 
 export async function generateMetadata({ params }) {
-  const { term } = await params
-  const entry = glossary.find(e => e.slug === term)
+  const { term, curriculum } = await params
+  const data = curriculum === 'ap-economics' ? glossaryAp : glossary
+  const entry = data.find(e => e.slug === term)
   if (!entry) return {}
   return { title: `${entry.term} · Glossary · macroeconomics.education` }
 }
 
 export default async function GlossaryTermPage({ params }) {
   const { term, curriculum } = await params
-  const entry = glossary.find(e => e.slug === term)
+  const data = curriculum === 'ap-economics' ? glossaryAp : glossary
+  const entry = data.find(e => e.slug === term)
   if (!entry) notFound()
 
   const seeAlsoEntries = (entry.seeAlso || [])
-    .map(slug => glossary.find(e => e.slug === slug))
+    .map(slug => data.find(e => e.slug === slug))
     .filter(Boolean)
 
   return (
