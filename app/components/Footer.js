@@ -3,15 +3,17 @@ export default function Footer() {
     <footer style={{
       borderTop: '0.5px solid #e0e0de',
       marginTop: '4rem',
-      padding: '2rem 1.5rem',
+      padding: '1.25rem 1.5rem',
       background: 'white',
       fontFamily: "'IBM Plex Sans', sans-serif",
-      textAlign: 'center',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      flexWrap: 'wrap',
+      gap: '0.5rem',
     }}>
-      <p style={{ fontSize: '11px', color: '#bbb', margin: '0 0 4px', lineHeight: 1.6 }}>
-        Data sourced from public APIs for educational purposes only. Not financial advice.
-      </p>
       <p style={{ fontSize: '11px', color: '#bbb', margin: 0, lineHeight: 1.6 }}>
+        Data sourced from public APIs for educational purposes only. Not financial advice.{' '}
         Powered by{' '}
         <a
           href="https://macrosnaps.app/"
@@ -23,6 +25,19 @@ export default function Footer() {
         </a>
         . © 2026 MacroSnaps
       </p>
+      <a
+        href="/about"
+        style={{
+          fontSize: '11px',
+          color: '#bbb',
+          textDecoration: 'none',
+          fontFamily: "'IBM Plex Mono', monospace",
+          letterSpacing: '0.06em',
+          whiteSpace: 'nowrap',
+        }}
+      >
+        About
+      </a>
     </footer>
   )
 }
