@@ -4845,14 +4845,14 @@ export const metrics = {
         "correctIcon": "sunny",
         "weatherReason": "The UK exchange rate is holding steady -- stability is a sunny signal.",
         "blurb": [
-          "Sterling is treading water against major peers, neither rallying nor falling away. This flatness often arrives when markets have priced in the available news and are waiting for the next catalyst.",
-          "Stability itself can be welcome: businesses hate volatility more than they hate any particular level, so a steady pound lets exporters and importers plan without hedging nightmares. The relative calm suggests no sudden shift in rate expectations or capital flows.",
-          "Watch for what breaks the stasis next: inflation surprises, BoE messaging, or risk-on appetite abroad could all jostle Sterling back into motion. For now, the sunny signal is simply that nobody's panicking."
+          "Sterling holding firm against major currencies, a rare comfort in volatile times. Stability rewards exporters and import-competing firms alike.",
+          "No wild swings means business can actually plan ahead without hedging costs spiralling. That's the sweet spot for cross-border investment.",
+          "Flat rates signal the market sees no imminent shock to UK fundamentals. Dull news for traders; sensible news for the real economy."
         ],
         "blurbAp": [
-          "Sterling's stability signals confidence in UK monetary policy and debt dynamics, giving the Bank of England room to adjust rates without violent currency swings that would destabilize import prices.",
-          "A flat exchange rate prevents the aggregate demand shock that sharp appreciation or depreciation would trigger, keeping UK exports and consumption relatively predictable for the next policy cycle.",
-          "Steady sterling also means less imported inflation noise, letting the BoE distinguish true demand pressures from currency-driven price movements when targeting the 2 percent goal."
+          "Sterling is holding its ground, signaling confidence in UK monetary policy and debt sustainability. A stable currency anchor matters when inflation expectations are still fragile.",
+          "No wild swings means the Bank of England's credibility remains intact. Rate-setters can focus on real economic conditions instead of firefighting forex volatility.",
+          "Steady exchange rates also stabilize import prices and give businesses room to plan investment without guessing where the pound trades next quarter."
         ],
         "chartDates": [
           "May 2016",
@@ -5110,14 +5110,14 @@ export const metrics = {
         "correctIcon": "sunny",
         "weatherReason": "The US exchange rate is holding steady -- stability is a sunny signal.",
         "blurb": [
-          "The dollar is treading water against major currencies, neither strengthening nor weakening meaningfully. Stability like this often reflects balanced capital flows and interest rate expectations.",
-          "Flat exchange rates remove uncertainty for multinational firms and importers, making it easier to plan hedges and price contracts without dramatic currency swings. Markets love predictability.",
-          "When the dollar sits still, it's usually because competing forces are locked in equilibrium: US growth prospects offset by overseas demand, or Fed policy balanced against other central banks. Don't mistake calm for boring."
+          "The dollar's holding its ground, signalling traders aren't panic-selling or euphoria-buying. Stability tends to reward exporters and importers alike.",
+          "When exchange rates flatten out, it removes currency guesswork from international deals. Businesses can actually plan without hedging their entire balance sheet.",
+          "Steady doesn't mean boring in forex. It means the market has priced in the Fed's stance and isn't expecting a dramatic shift in US economic momentum."
         ],
         "blurbAp": [
-          "A stable dollar reflects confidence in US assets and monetary policy credibility, anchoring expectations for both domestic and foreign investors.",
-          "Flat exchange rates reduce friction in international trade and capital flows, keeping net export calculations predictable for aggregate demand forecasts.",
-          "This calm masks the real story: the Fed's rate premium is holding the line against global competition for capital without needing dramatic currency moves."
+          "A stable dollar reflects confidence in US monetary policy and the Fed's commitment to price stability, anchoring expectations without sparking capital flight.",
+          "Flat exchange rates reduce uncertainty for import and export pricing, allowing firms to plan investment and production without hedging currency risk.",
+          "Currency stability supports the dollar's reserve asset status, keeping foreign demand for US Treasuries intact and lowering the government's borrowing costs."
         ],
         "chartDates": [
           "May 2016",
@@ -5375,14 +5375,14 @@ export const metrics = {
         "correctIcon": "sunny",
         "weatherReason": "The Eurozone exchange rate is holding steady -- stability is a sunny signal.",
         "blurb": [
-          "The euro is trading sideways against major currencies, suggesting neither fresh growth signals nor fresh crisis fears are moving the dial right now.",
-          "Steady exchange rates take off-the-table the possibility of brutal currency swings disrupting import costs and export competitiveness for member states.",
-          "This flatness suits the ECB's messaging: no dramatic monetary pivots needed, and member economies can plan investment without currency whiplash risk."
+          "The euro is treading water against major currencies, neither strengthening nor weakening materially. This stillness matters because it removes one layer of uncertainty for exporters and importers who can plan without chasing currency moves.",
+          "Stability suits the Eurozone right now: it signals neither panic-selling of the currency nor speculative buying frenzies. A flat rate is the opposite of drama, which is precisely what policymakers want when managing a diverse monetary union.",
+          "Steady exchange rates reduce hedging costs for businesses and keep inflation expectations anchored. When the currency isn't lurching about, central bankers can focus on the real economy rather than firefighting forex volatility."
         ],
         "blurbAp": [
-          "The euro is trading sideways, which means the ECB's monetary policy stance isn't generating external imbalances through currency depreciation.",
-          "Stable exchange rates reduce inflation noise from import prices, giving the Eurozone's aggregate demand components clearer visibility into underlying demand pressures.",
-          "A flat euro keeps capital flows predictable and trading partners from accusing the ECB of competitive devaluation—the diplomatic bonus of policy credibility."
+          "A flat EUR/USD rate removes currency volatility from the investment calculus, letting capital flows respond to actual yield differentials rather than forex noise.",
+          "Stable exchange rates anchor inflation expectations for import-dependent Eurozone economies, taking pressure off the ECB to defend the currency through rate hikes.",
+          "Equilibrium at current levels suggests the market has priced in existing growth and monetary policy divergence between the Fed and ECB, reducing surprise devaluation risk."
         ],
         "chartDates": [
           "May 2016",
@@ -5640,14 +5640,14 @@ export const metrics = {
         "correctIcon": "sunny",
         "weatherReason": "The China exchange rate is holding steady -- stability is a sunny signal.",
         "blurb": [
-          "The yuan is holding its ground against major currencies, signalling confidence in China's economic management and reducing volatility for traders and policymakers alike.",
-          "Stable exchange rates ease pressure on import costs and foreign debt servicing, giving the central bank breathing room to focus on domestic monetary policy rather than constant currency defence.",
-          "A flat trajectory suggests the market has priced in current growth expectations and capital flow dynamics, though any shift in US policy or domestic credit conditions could quickly upset this equilibrium."
+          "The yuan is holding its ground against major currencies, suggesting the central bank is successfully managing capital flows without panic or heroic intervention.",
+          "Stability in the exchange rate removes a layer of uncertainty for Chinese exporters and foreign investors, making pricing and hedging decisions less of a guessing game.",
+          "A flat trajectory signals confidence in China's economic fundamentals, at least from the perspective of currency traders who vote with their orders every second."
         ],
         "blurbAp": [
-          "The yuan's stability signals Beijing's success in managing capital flows without heavy-handed intervention, keeping the currency in a credible band that attracts foreign investment.",
-          "A flat exchange rate removes currency-induced volatility from China's export competitiveness, letting firms plan supply chains and pricing without hedging against wild swings.",
-          "Steady yuan behavior reduces pressure on the FOMC and other central banks to react to Chinese currency moves, keeping global monetary policy focused on domestic conditions rather than forex fire-fighting."
+          "The yuan's steadiness signals the PBOC has successfully managed capital flows and inflation expectations, avoiding the depreciation spiral that would tank aggregate demand for Chinese exports.",
+          "Flat exchange rates reduce currency volatility risk for trading partners and multinational firms, keeping real interest rate differentials stable and supporting consistent investment decisions.",
+          "A anchored yuan hints at confidence in China's monetary policy credibility, even as growth pressures mount—the central bank isn't forced to choose between supporting output and defending its currency."
         ],
         "chartDates": [
           "May 2016",
@@ -5905,14 +5905,14 @@ export const metrics = {
         "correctIcon": "sunny",
         "weatherReason": "The Japan exchange rate is holding steady -- stability is a sunny signal.",
         "blurb": [
-          "The yen is holding its ground against major currencies, refusing to drift sharply in either direction despite global rate differentials.",
-          "Stability here signals confidence in Japan's economic outlook and reduces hedging costs for exporters and importers alike.",
-          "A flat yen removes currency volatility from boardroom calculations, letting firms focus on actual competitive advantage rather than FX moves."
+          "The yen is treading water against its peers, offering the rarest of commodities in forex: predictability. Exporters can actually plan their margins without waking up to a currency ambush.",
+          "Stable exchange rates mean Japanese firms aren't burning cash hedging bets, freeing up capital for investment where it actually matters. The Bank of Japan can breathe a little easier too.",
+          "For foreign investors, flatness is boring but useful: returns depend on business performance, not currency roulette. That's the kind of stability that attracts patient capital."
         ],
         "blurbAp": [
-          "The yen's stability keeps export competitiveness in neutral territory, neither boosting nor sapping the appeal of Japanese goods abroad.",
-          "Steady exchange rates reduce uncertainty for multinational firms and investors, supporting consumption and investment decisions that feed aggregate demand.",
-          "A flat yen removes currency volatility as a shock variable, letting monetary policy work without fighting currency movements that could undermine FOMC-style central bank objectives."
+          "The yen's stability reflects a lack of dramatic shifts in relative interest rates or inflation expectations between Japan and trading partners, keeping capital flows balanced and demand for yen steady.",
+          "A flat exchange rate helps Japanese exporters plan without wild swings in competitiveness, though it also means no tailwind boost to external demand that a weaker currency would deliver.",
+          "The Bank of Japan can proceed with policy adjustments without fighting currency volatility, removing one source of domestic price level uncertainty that typically forces central banks to act defensively."
         ],
         "chartDates": [
           "May 2016",
@@ -6170,14 +6170,14 @@ export const metrics = {
         "correctIcon": "sunny",
         "weatherReason": "The Brazil exchange rate is holding steady -- stability is a sunny signal.",
         "blurb": [
-          "The real is holding firm against the dollar, signalling investor confidence in Brazil's macroeconomic anchors despite global volatility.",
-          "Currency stability removes a layer of friction for exporters and foreign investors, making Brazil a less nerve-wracking proposition than its emerging-market peers.",
-          "A flat exchange rate buys the central bank breathing room to focus on inflation control rather than firefighting currency crises."
+          "The real is holding its line against the dollar, a rare moment of calm in a currency that usually thrives on drama.",
+          "Stability here matters: foreign investors can plan without watching their returns evaporate in afternoon currency swings.",
+          "Don't mistake flatness for boring. A steady exchange rate is the unglamorous foundation that lets actual economic policy work."
         ],
         "blurbAp": [
-          "A stable real signals confidence in Brazil's macro fundamentals, reducing currency risk for foreign investors and easing imported inflation pressures on the price level.",
-          "Flat exchange rates preserve competitiveness for Brazilian exports without the shock of depreciation, supporting aggregate demand from overseas without triggering wage-price spiral concerns.",
-          "The central bank can focus on domestic policy objectives rather than firefighting capital flight, giving FOMC-style decision-making more breathing room when inflation expectations remain anchored."
+          "Exchange rate stability signals the market's confidence in Brazil's macroeconomic fundamentals, reducing currency risk for both foreign investors and domestic importers.",
+          "A flat real keeps aggregate demand predictable: firms can plan capex without hedging currency swings, and the central bank gains room to focus on domestic price stability rather than defend the currency.",
+          "Steady exchange rates suggest the FOMC's policy path and global risk appetite aren't creating sudden capital flow shocks to Brazil, a healthy sign for an emerging market dependent on foreign investment."
         ],
         "chartDates": [
           "May 2016",
