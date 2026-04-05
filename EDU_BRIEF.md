@@ -1,6 +1,6 @@
 # EDU_BRIEF.md
 ## MacroSnaps Education Platform (macedu)
-### Living brief — updated Session 37
+### Living brief -- updated Session 38
 
 ---
 
@@ -35,128 +35,112 @@ These apply in every session without being asked:
 
 ## Product philosophy (NON-NEGOTIABLE)
 
-**This platform is the opposite of a dry textbook.** It must feel constantly fresh, alive, and full of humanity. Every design decision should reinforce the feeling of being wired into the live global economy. The tone is confident, wry, and on the teacher's side -- never municipal, never bureaucratic, never worthy. If it feels like a government website or a school intranet, something has gone wrong.
+**This platform is the opposite of a dry textbook.** It must feel constantly fresh, alive, and full of humanity. Every design decision should reinforce the feeling of being wired into the live global economy. The tone is confident, wry, and on the student's side -- never municipal, never bureaucratic, never worthy. If it feels like a government website or a school intranet, something has gone wrong.
 
-**The Bloomberg principle:** Teachers and students should feel like they are looking at a live terminal, not reading a static resource.
+**The Bloomberg principle:** Students should feel like they are looking at a live terminal, not reading a static resource.
 
-**Less is more (NON-NEGOTIABLE).** Every element on every page must earn its place. When in doubt, remove it. Decoration that does not carry information is clutter. A tooltip that adds nothing to the reading flow is noise. This principle applies to UI elements, copy, labels, footers, badges, and links.
+**Less is more (NON-NEGOTIABLE).** Every element on every page must earn its place. When in doubt, remove it.
 
-**No prose anywhere.** All content is 3 bullet points. This is a USP and a design rule enforced across the entire site.
+**No AI-generated writing.** All copy must read as if written by an experienced economics teacher. No double hyphens, no long hyphens (em dashes), no hedging.
 
-**No AI-generated writing.** All copy must read as if written by an experienced economics teacher. No double hyphens, no long hyphens (em dashes), no "on the one hand / on the other hand" boilerplate, no hedging.
-
-**Copy discipline (NON-NEGOTIABLE).** Every word is load-bearing. These rules apply across all content on the platform -- blurbs, questions, prompts, glossary definitions, UI labels, everything:
+**Copy discipline (NON-NEGOTIABLE).** Every word is load-bearing. These rules apply across all content on the platform:
 - No synonyms used as padding. Pick one formulation and use it.
-- No exam-board throat-clearing. ("According to the AQA specification..." -- never.)
-- No hedging on definitions. ("Generally speaking..." -- no. It either is or it isn't.)
-- No wasted openers. ("It is worth noting that..." -- cut.)
-- No double-barrelled definitions. One sentence per Brief-level definition. If it needs two sentences, the definition is wrong.
-- Related terms expressed as links, not prose. "See also: demand-pull inflation, cost-push inflation." Not two sentences joining the dots.
+- No exam-board throat-clearing.
+- No hedging on definitions.
+- No wasted openers.
 - Compression signals confidence. Fluff signals the opposite.
 - **No em dashes or long hyphens anywhere. Ever. Use a regular hyphen (-) or restructure the sentence.**
 
 ---
 
-## Architecture (locked)
+## macedu v2 -- planned redesign (Session 39)
+
+**Decision made Session 38.** The current teacher/student split model is being replaced with a student-only AI coaching product. The v2 concept was prototyped as an interactive mockup and approved.
+
+**Core concept:**
+- Student-only. No teacher role, no `?t=1` mechanic.
+- The primary unit is a **question pegged to a live metric**, not a metric/country card.
+- The chart is context. The coach is the product.
+- Four-phase coaching loop: **Describe - Explain - Apply - Evaluate** (maps to AQA AO1/AO2/AO3).
+- Session anchor: exam-style question (e.g. "Why has UK inflation fallen since 2022?") with a live chart as evidence.
+- Live data is the USP -- no revision guide can ask a question about data that updated this week.
+
+**What stays from v1:**
+- Data pipeline (`sync_edu.py`, `metrics.js`) -- unchanged.
+- Chart components (Recharts, sparklines) -- reused.
+- Glossary -- carried forward.
+- Fonts, colour palette (orange `#F0843C` as primary accent, warm off-white `#f0ede8` background, dark navy coach panel `#0c1428`).
+
+**What is new:**
+- Session UI (question anchor + chart + coaching conversation, similar architecture to polisnaps).
+- Prompt architecture (`buildPrompt.js` style, coach voice tuned to economics).
+- Landing page (student-only, question/topic picker rather than metric/country grid).
+- API route (Anthropic proxy, same pattern as polisnaps).
+- No teacher homepage, no lesson overlay, no weather icon exercise (may return later).
+
+**Build approach:** New repo or clean branch. Not a patch of v1. Decide at Session 39 start.
+
+---
+
+## v1 architecture (live, unchanged until v2 ships)
 
 **36 cards = 6 metrics x 6 countries.**
 
-**Layer 1 (Snapshot card):** Dark navy. Flag, country name, metric label (descriptive), large value, 3-bullet blurb (teacher + direct student) or "What is this chart telling you?" (tasked student), chart. `Next release: ~Nd` top-right with Nd in bright cyan (#00e5ff) throbbing at 1.1s. AQA ref below that (suppressed for AP curriculum). No weather icon or direction arrow on the card. **DXY callout:** US exchange rates card only. Wired as a conditional in `SnapshotCard.js`.
+**Layer 1 (Snapshot card):** Dark navy. Flag, country name, metric label, large value, 3-bullet blurb, chart. Cyan throb on `~Nd`. AQA ref suppressed for AP. DXY callout on US exchange rates only.
 
-**Layer 2 (Lesson overlay):** Teacher sees: 4-beat vertical spine (chart discussion, weather icon, written response, discussion). Share button always encodes `?t=1`. Direct student sees: 3-beat vertical spine. Tasked student sees: weather icon + teacher-selected questions and prompts only.
+**Layer 2 (Lesson overlay):** Teacher: 4-beat spine. Student direct: 3-beat spine. Student tasked: weather icon + questions only. Share button encodes `?t=1`.
 
-**Weather icon exercise:** Student picks sunny/cloudy/stormy. On reveal: correct icon gets green ring, wrong icons dim to 0.4, `weatherReason` appears below. `correctIcon` and `weatherReason` generated by `sync_edu.py` per metric/country. For AP curriculum, `weatherReason` has UK spellings replaced at page level before passing to components.
+**Weather icon exercise:** Student picks sunny/cloudy/stormy. Correct icon gets green ring. `correctIcon` and `weatherReason` from `sync_edu.py`.
 
-**Student mode detection (NON-NEGOTIABLE):**
-- `?t=1` always present on teacher-generated links
-- Direct navigation: no params -- rich direct view with blurb bullets
-- Tasked navigation: `?t=1` -- focused tasked view
-- Detection lives in `StudentLessonClient.js`
+**Student mode detection:**
+- `?t=1` = tasked view
+- No params = direct view
+- Lives in `StudentLessonClient.js`
 
-**URL structure (locked):**
+**URL structure:**
 ```
 /                                              landing page (role gate + curriculum picker)
 /teacher/[curriculum]                          teacher homepage
 /teacher/[curriculum]/[metric]/[country]       teacher lesson page
 /student/[curriculum]                          student homepage
 /student/[curriculum]/[metric]/[country]       student lesson page
-/glossary                                      redirects to /glossary/alevel
 /glossary/[curriculum]                         curriculum glossary index
 /glossary/[curriculum]/[term]                  canonical glossary term route
-/about                                         about page (how it works, who, contact)
+/about                                         about page
 ```
 Live curriculum slugs: `alevel`, `ap-economics`
 
 **Metric slugs:** `inflation`, `unemployment`, `gdp`, `interest-rates`, `exchange-rates`, `trade`
 **Country slugs:** `uk`, `us`, `eurozone`, `china`, `japan`, `brazil`
-**Colours:** Teacher `#378ADD` (blue), Student `#F0843C` (orange), Pink `#c2185b`, Cyan `#00e5ff`, Green `#2e9e5b`
-**Password:** removed -- site is live and open.
+**Colours:** Teacher `#378ADD` (blue), Student `#F0843C` (orange), Cyan `#00e5ff`, Green `#2e9e5b`
 
 ---
 
 ## Pulse/ping animations
 
-All pulsing dots use the ping pattern (dark core + expanding lighter ring).
-
 - **FramingHeader.js** (teacher): blue ping. Core `#0C447C`, ring `#85B7EB`. 1.4s.
 - **StudentFramingHeader.js** (student): orange ping. Core `#b45309`, ring `#fbbf24`. 1.4s.
 - **StudentHomePage.js** stamp (0-1d): orange ping.
 - **LandingPage.js**: alternating blue/orange ping. 5.6s cycle.
-- **SnapshotCard.js** `~Nd` text: cyan throb (text, not a dot).
-- **StudentHomePage.js** age stamps: cyan throb on text.
+- **SnapshotCard.js** `~Nd` text: cyan throb.
+- **StudentHomePage.js** age stamps: cyan throb.
 
 ---
 
-## Landing page
+## Landing page (v1)
 
-Role gate first, curriculum picker second. "I'm revising" (orange) / "I'm teaching" (blue). Back arrow shows opposite role label. No password -- site is open.
+Role gate first, curriculum picker second. "I'm revising" (orange) / "I'm teaching" (blue).
 
 Headline: "Live global data. Wired to your syllabus."
 Subhead: "Updated automatically. No textbook lag."
 
-**Updated date:** `lastUpdated` from `metrics.js`. IBM Plex Mono 700 11px `#c0cad8`. Format: "Updated 2 April 2026". Hidden when curriculum picker open.
-
-**Row 1 -- United Kingdom:** A-Level Economics (live), GCSE, Macro Y1, Macro Y2
-**Row 2 -- United States:** AP Economics (live), AP Micro, AP Macro, College Econ
-**Row 3 -- International:** IB Economics, Cambridge A-Level, CBSE India, HSC Australia
-
----
-
-## Glossary
-
-**Two files:**
-- `app/data/glossary.js` -- AQA A-Level. 155 terms. UK English, UK institutions.
-- `app/data/glossary-ap.js` -- AP Economics. 134 terms. US English, US institutions, AP FRQ register. Generated Session 37 via 6-part script + stitch.
-
-**Route:** `/glossary/[curriculum]` is the index. `/glossary/[curriculum]/[term]` is the term page. `/glossary` redirects to `/glossary/alevel` via client-side useRouter replace.
-
-**`GlossaryIndexClient.js`:** Curriculum-aware. Shows correct group order (AQA or AP) and correct subtitle (e.g. "134 terms · AP Economics"). Accepts `curriculum` prop.
-
-**AP group order:** Basic Economic Concepts, Aggregate Demand & Supply, National Income & Growth, Financial Sector, Stabilization Policy, Labor Markets, International Trade & Finance.
-
-**AQA group order:** National Income & Growth, Aggregate Demand & Supply, Inflation, Unemployment & Labour, Money & Monetary Policy, Fiscal Policy, International Economics.
-
-**`glossaryHref.js`:** Fully curriculum-aware. `glossaryHref(slug, curriculum)` returns `/glossary/${curriculum}/${slug}`. `glossaryIndexHref(curriculum)` returns `/glossary/${curriculum}`.
-
-**`wrapGlossaryTerms.js`:** Longest-match-first, word-boundary aware, first-match-only. WRAP_BLOCKLIST: `dxy`.
-
-**Header Glossary link:** Curriculum-aware. Passes `curriculum` prop to Header; Header calls `glossaryIndexHref(curriculum)`.
-
-**`curricula` field:** All 155 AQA entries have `curricula` field. AP entries have `curricula: ['ap-economics']`. Ready for curriculum-aware filtering when a third curriculum arrives.
+`lastUpdated` from `metrics.js`. Format: "Updated 2 April 2026".
 
 ---
 
 ## About page
 
-`/about` -- three sections: How it works (data pipeline trust signal for teachers), Who built this (Ralph Lazar / MacroSnaps), Contact (Formspree AJAX form, inline "Received" confirmation).
-
-`app/components/ContactForm.js` -- client component. AJAX POST to `https://formspree.io/f/xaqldbwr`. Shows inline success message on submission.
-
----
-
-## Footer
-
-Slim single bar. Left: data disclaimer + MacroSnaps credit. Right: About link. No page-break padding excess.
+`/about` -- three sections: How it works, Who built this (Ralph Lazar / MacroSnaps), Contact (Formspree AJAX, `https://formspree.io/f/xaqldbwr`).
 
 ---
 
@@ -168,59 +152,37 @@ Slim single bar. Left: data disclaimer + MacroSnaps credit. Right: About link. N
 | `app/data/aqa-alevel.js` | Hand-edited | Lesson overlay content for AQA A-Level. |
 | `app/data/ap-economics.js` | Hand-edited | Lesson overlay content for AP Economics. 5 tiles. US English, FRQ register. |
 | `app/data/glossary.js` | Hand-edited | 155 terms. AQA A-Level. UK English. |
-| `app/data/glossary-ap.js` | Generated | 134 terms. AP Economics. US English. Generated via 6-part scripts + stitch. |
+| `app/data/glossary-ap.js` | Generated | 134 terms. AP Economics. US English. |
 | `app/components/SnapshotCard.js` | Shared | curriculum prop, AP_METRIC_DESCRIPTORS, blurbAp/displayBlurb, aqaRef conditional. |
 | `app/components/LessonOverlay.js` | Shared | WeatherBeat, share button, correctIcon + weatherReason. |
 | `app/components/StudentLessonClient.js` | Student | Passes curriculum to SnapshotCard. |
 | `app/components/FramingHeader.js` | Teacher | Blue ping + typewriter. |
 | `app/components/StudentFramingHeader.js` | Student | Orange ping + typewriter. |
 | `app/components/TeacherHomePage.js` | Teacher | Navy panel, dropdowns, stats, CURRICULUM_LABELS. |
-| `app/components/StudentHomePage.js` | Student | Topic tiles, live strip, glossary footer. Curriculum-aware copy. |
+| `app/components/StudentHomePage.js` | Student | Topic tiles, live strip, glossary footer. Curriculum-aware. |
 | `app/components/LandingPage.js` | Shared | Role gate, curriculum picker, AP tile live, updated date. |
 | `app/components/GlossaryTerm.js` | Shared | Tooltip, X button, mobile-safe. |
-| `app/components/GlossaryIndexClient.js` | Shared | Curriculum-aware index. Group order + subtitle by curriculum. |
-| `app/components/Header.js` | Shared | Accepts `curriculum` prop. Glossary link is curriculum-aware. |
+| `app/components/GlossaryIndexClient.js` | Shared | Curriculum-aware index. |
+| `app/components/Header.js` | Shared | Accepts `curriculum` prop. Glossary link curriculum-aware. |
 | `app/components/Footer.js` | Shared | Slim bar. Disclaimer + MacroSnaps + About link. |
 | `app/components/ContactForm.js` | Shared | AJAX Formspree form. Inline success message. |
 | `app/utils/wrapGlossaryTerms.js` | Shared | WRAP_BLOCKLIST includes `dxy`. |
 | `app/utils/glossaryHref.js` | Shared | `glossaryHref(slug, curriculum)` and `glossaryIndexHref(curriculum)`. |
-| `app/glossary/page.js` | Shared | Client redirect to `/glossary/alevel`. |
-| `app/glossary/[curriculum]/page.js` | Shared | Curriculum glossary index. generateStaticParams: alevel + ap-economics. |
-| `app/glossary/[curriculum]/[term]/page.js` | Shared | Term page. generateStaticParams for both curricula. Passes curriculum to Header. |
-| `app/glossary/[curriculum]/[term]/GlossaryTermClient.js` | Shared | Curriculum-aware seeAlso links. |
-| `app/about/page.js` | Shared | About page. Three sections. Uses ContactForm. |
 | `EDU_BRIEF.md` | Hand-edited | Updated every session. |
 
 ---
 
 ## Pipeline boundary (NON-NEGOTIABLE)
 
-`metrics.js` is the only file the pipeline writes. No tooling spans both repos. Patch logic belongs in existing scripts.
+`metrics.js` is the only file the pipeline writes. No tooling spans both repos.
 
 ---
 
-## sync_edu.py -- AP blurb generation
+## sync_edu.py
 
-Generates two blurbs per metric/country:
-- `blurb` (AQA): UK English. Cache key: `{metric}:{country}`. System: `BLURB_SYSTEM`.
-- `blurbAp` (AP): US English, AP register. Cache key: `ap:{metric}:{country}`. System: `BLURB_SYSTEM_AP`.
+Generates `blurb` (AQA, UK English) and `blurbAp` (AP, US English) per metric/country. 72 cache entries total.
 
-72 cache entries total. AP blurbs regenerate on new release and daily for FX.
-
-**Minor cleanup needed:** `BLURB_SYSTEM_AP` appears twice in `sync_edu.py` (harmless -- identical content). Remove duplicate when next editing.
-
----
-
-## Multi-curriculum strategy
-
-1. **AQA A-Level** -- live.
-2. **AP Economics** -- live. Glossary live (134 terms, Session 37).
-3. **AQA GCSE** -- next curriculum candidate.
-4. **IB Economics** -- global reach.
-5. **Cambridge International A-Level (CIE)**
-6. **CBSE India** -- strategic priority at scale. 20,000+ schools.
-7. **HSC Economics (NSW)**
-8. **University Year 1 and 2**
+**Minor cleanup needed:** `BLURB_SYSTEM_AP` appears twice in `sync_edu.py`. Remove duplicate when next editing.
 
 ---
 
@@ -249,19 +211,18 @@ Generates two blurbs per metric/country:
 | 32 | Landing page back arrow bug fix. |
 | 33 | lastUpdated added to pipeline and landing page. |
 | 34 | AP Economics sprint (Phases 1-3). ap-economics.js (5 tiles, US English, FRQ register). Curriculum-aware lesson pages. SnapshotCard AP descriptors + blurbAp. Pipeline: BLURB_SYSTEM_AP, 36 AP blurbs generated. LandingPage AP tile live. 290 static pages. Phase 4 (glossary) deferred. |
-| 35 | Glossary Phase 4 (partial). curricula field added to all 155 entries. 18 new entries (14 AP-only + 4 both-curricula). /glossary/[curriculum]/[term] route live. glossaryHref.js curriculum-aware. Old /glossary/[term] preserved. Architecture decision: separate glossary-ap.js per curriculum. 618 static pages. |
+| 35 | Glossary Phase 4 (partial). curricula field added to all 155 entries. 18 new entries. /glossary/[curriculum]/[term] route live. glossaryHref.js curriculum-aware. Architecture decision: separate glossary-ap.js per curriculum. 618 static pages. |
 | 36 | Bug fixes pre-launch. StudentHomePage copy curriculum-aware. Old /glossary/[term] route deleted. glossary-ap.js content planned: 6-part split strategy agreed. |
-| 37 | AP glossary complete: glossary-ap.js (134 terms, 7 groups, US English, AP FRQ register). Generated via 6-part Python scripts + stitch. Curriculum-aware glossary index (/glossary/[curriculum]/page.js). GlossaryIndexClient curriculum-aware (subtitle + group order). glossaryIndexHref() curriculum-aware. Header passes curriculum to Glossary link. About page (/about): how it works, who built this, Formspree AJAX contact form with inline confirmation. Footer updated: slim bar with About link. Password gate removed. Site is live and open. 445 static pages. |
+| 37 | AP glossary complete: glossary-ap.js (134 terms, 7 groups, US English, AP FRQ register). Curriculum-aware glossary index. GlossaryIndexClient curriculum-aware. About page live. Footer updated. Password gate removed. Site is live and open. 445 static pages. |
+| 38 | Product strategy session. Decision: macedu v2 to be rebuilt as student-only AI coaching product. Teacher/student split dropped. New primary unit: exam question pegged to live metric, four-phase coaching loop (Describe/Explain/Apply/Evaluate). Interactive mockup built and approved. Build deferred to Session 39. |
 
 ---
 
 ## To-do list
 
+- **macedu v2 rebuild** -- Session 39. Student-only coaching product. See "macedu v2 -- planned redesign" section above.
 - **CHN interest-rates sparkline:** No sheet data yet. Will populate automatically when added.
-- **Two-password role system:** Teacher password, student world open. Currently no password (site is open).
 - **AP Fiscal Policy tile:** Deferred. Needs MacroSnaps monthly government debt series.
-- **BLURB_SYSTEM_AP deduplication:** Minor. Appears twice in sync_edu.py. Remove duplicate when next editing.
-- **Glossary curriculum filtering:** Deferred until third curriculum exists. `curricula` field is ready.
-- **Glossary depth filtering:** "GCSE pulls What, A-Level pulls How, undergraduate pulls So what?" Deferred until third curriculum.
-- **Next curriculum:** AQA GCSE is the likely next candidate after AP is stable.
-- **Long-term:** IB, Cambridge, CBSE India, HSC, multilingual, mobile app, data API, AI assessment.
+- **BLURB_SYSTEM_AP deduplication:** Minor. Appears twice in sync_edu.py. Remove when next editing.
+- **Glossary curriculum filtering:** Deferred until third curriculum exists.
+- **Next curriculum:** AQA GCSE likely next candidate after v2 stable.
