@@ -18,171 +18,169 @@ These apply in every session without being asked:
 
 - **Scripts always download to `~/Downloads/`.** Never write scripts to the repo directly.
 - **Run instructions always use the full repo path.** Always `cd /Users/lisaswerling/RALPH/AI/macedu` before any command.
-- **Copy commands always use full paths.** When a downloaded file needs to live in the repo, the bash copy command must include the full destination path. Example: `cp ~/Downloads/GlossaryTerm.js /Users/lisaswerling/RALPH/AI/macedu/app/components/GlossaryTerm.js`
-- **URLs are always rendered as clickable links.** Never plain text URLs. Example: [http://localhost:3000](http://localhost:3000)
-- **Always mockup before building** for significant UI changes. Explicit approval required before any code is written.
+- **Copy commands always use full paths.** Example: `cp ~/Downloads/SessionClient.js /Users/lisaswerling/RALPH/AI/macedu/app/session/[question]/SessionClient.js`
+- **Bracket folders need quoting in bash.** Dynamic route folders must always be quoted: `"app/session/[question]/"`
+- **URLs are always rendered as clickable links.** Never plain text. Example: [http://localhost:3000](http://localhost:3000)
+- **Always mockup before building** for significant UI changes. Explicit approval required before code is written.
 - **Python patch scripts only** for all file writes. Never bash heredocs (heredocs mangle JSX).
 - **Patch scripts are disposable.** Run once then deleted. Never committed.
 - **Emoji written directly in Python source.** Never as Unicode escape sequences.
 - **Local preview before any git push.** Changes batched locally before deploying.
 - **EDU_BRIEF.md updated at every session close** -- always without being asked.
 - **Python is invoked as `python3` on this machine.** Never `python`.
-- **Static export preview:** `npx serve@latest out` -- not `npm run start` (which errors with output: export).
 - **Ralph uploads files on request.** When Claude needs to inspect a repo file, ask Ralph to upload it.
-- **Always split bash commands from server-start commands.** Run scripts (python3, git) in one step; npm run build + npx serve in a separate step in a new terminal. Never chain a server start onto a script run in one bash block.
+- **Always split bash commands from server-start commands.** Run scripts (python3, git) in one step; npm run build + serve in a separate step in a new terminal.
+- **Next.js 15+ async params.** Dynamic route pages must `await params`.
+- **Use raw strings (`r"""..."""`)** in Python patch scripts to avoid escape sequence warnings with JSX.
 
 ---
 
 ## Product philosophy (NON-NEGOTIABLE)
 
-**This platform is the opposite of a dry textbook.** It must feel constantly fresh, alive, and full of humanity. Every design decision should reinforce the feeling of being wired into the live global economy. The tone is confident, wry, and on the student's side -- never municipal, never bureaucratic, never worthy. If it feels like a government website or a school intranet, something has gone wrong.
+**The goal is students love this, use this, and tell their friends.** Nothing else matters at this stage.
 
-**The Bloomberg principle:** Students should feel like they are looking at a live terminal, not reading a static resource.
+**The core insight:** No revision guide can ask a question about data that updated this week. That is the product. The live data connection to the exam is the USP -- make it explicit, not implied.
 
-**Less is more (NON-NEGOTIABLE).** Every element on every page must earn its place. When in doubt, remove it.
+**Student-only. No teacher role.** The teacher/student split added complexity and diluted the product. v2 is built entirely for the student.
 
-**No AI-generated writing.** All copy must read as if written by an experienced economics teacher. No double hyphens, no long hyphens (em dashes), no hedging.
+**The Bloomberg principle:** Students should feel like they are looking at a live terminal, not reading a static resource. Every session should feel current.
 
-**Copy discipline (NON-NEGOTIABLE).** Every word is load-bearing. These rules apply across all content on the platform:
-- No synonyms used as padding. Pick one formulation and use it.
-- No exam-board throat-clearing.
-- No hedging on definitions.
-- No wasted openers.
-- Compression signals confidence. Fluff signals the opposite.
-- **No em dashes or long hyphens anywhere. Ever. Use a regular hyphen (-) or restructure the sentence.**
+**The coach voice:** Direct, sharp, never sycophantic. Pitched at Year 12/13 (aged 16-18). Sounds like an experienced A-level Economics teacher. Maximum two sentences of feedback per turn. Closing question always on its own line in sky blue (`#64b5f6`). Refer to specific data, real policy decisions, named institutions -- never generic.
 
----
+**Four phases, always in order:** Describe -- Explain -- Apply -- Evaluate. These map directly to AQA assessment objectives: AO1 (knowledge), AO2 (analysis), AO3 (evaluation). Structure enforced through the prompt, not the UI.
 
-## macedu v2 -- planned redesign (Session 39)
+**No AI-sounding writing anywhere.** No em dashes. No hedging. No wasted openers. Copy discipline identical to v1 and polisnaps.
 
-**Decision made Session 38.** The current teacher/student split model is being replaced with a student-only AI coaching product. The v2 concept was prototyped as an interactive mockup and approved.
-
-**Core concept:**
-- Student-only. No teacher role, no `?t=1` mechanic.
-- The primary unit is a **question pegged to a live metric**, not a metric/country card.
-- The chart is context. The coach is the product.
-- Four-phase coaching loop: **Describe - Explain - Apply - Evaluate** (maps to AQA AO1/AO2/AO3).
-- Session anchor: exam-style question (e.g. "Why has UK inflation fallen since 2022?") with a live chart as evidence.
-- Live data is the USP -- no revision guide can ask a question about data that updated this week.
-
-**What stays from v1:**
-- Data pipeline (`sync_edu.py`, `metrics.js`) -- unchanged.
-- Chart components (Recharts, sparklines) -- reused.
-- Glossary -- carried forward.
-- Fonts, colour palette (orange `#F0843C` as primary accent, warm off-white `#f0ede8` background, dark navy coach panel `#0c1428`).
-
-**What is new:**
-- Session UI (question anchor + chart + coaching conversation, similar architecture to polisnaps).
-- Prompt architecture (`buildPrompt.js` style, coach voice tuned to economics).
-- Landing page (student-only, question/topic picker rather than metric/country grid).
-- API route (Anthropic proxy, same pattern as polisnaps).
-- No teacher homepage, no lesson overlay, no weather icon exercise (may return later).
-
-**Build approach:** New repo or clean branch. Not a patch of v1. Decide at Session 39 start.
+**Less is more.** Every element earns its place.
 
 ---
 
-## v1 architecture (live, unchanged until v2 ships)
+## Colour palette (NON-NEGOTIABLE)
 
-**36 cards = 6 metrics x 6 countries.**
+- **Background:** Warm off-white `#f0ede8` (shared across the Snaps family)
+- **Cards/surfaces:** White `#ffffff`, border `1.5px solid #e8e4de`
+- **Chart panel:** Deep blue-black `#080e1c`
+- **Primary accent:** Orange `#F0843C` -- send button, active phase underline, live dot, scorecard
+- **Secondary accent:** Sky blue `#64b5f6` -- coach closing question
+- **Fonts:** IBM Plex Mono (labels, UI, wordmark, data values) + Instrument Serif (question anchor) + IBM Plex Sans (body, coach text)
+- **Input background:** `#08111f`, border `#162035`
+- **No black backgrounds.** Blue-black reserved for chart panel only.
 
-**Layer 1 (Snapshot card):** Dark navy. Flag, country name, metric label, large value, 3-bullet blurb, chart. Cyan throb on `~Nd`. AQA ref suppressed for AP. DXY callout on US exchange rates only.
+---
 
-**Layer 2 (Lesson overlay):** Teacher: 4-beat spine. Student direct: 3-beat spine. Student tasked: weather icon + questions only. Share button encodes `?t=1`.
+## Architecture (v2 -- target for Session 39)
 
-**Weather icon exercise:** Student picks sunny/cloudy/stormy. Correct icon gets green ring. `correctIcon` and `weatherReason` from `sync_edu.py`.
+**Stack:** Next.js 16 App Router, no TypeScript, no Tailwind. Plain JS objects for styles (inline). Cloudflare Pages for deployment.
 
-**Student mode detection:**
-- `?t=1` = tasked view
-- No params = direct view
-- Lives in `StudentLessonClient.js`
+**The primary unit** is a session: one exam-style question pegged to one live metric + chart. The student works through four coached phases to build a full answer.
 
-**URL structure:**
+**Layout (locked -- stacked, approved Session 38):**
+1. **Topbar** -- wordmark left, curriculum label + LIVE badge right.
+2. **Chart panel** (full width, fixed ~200px height, dark blue-black) -- metric value + change top-left, question anchor top-right in Instrument Serif italic, wide time-series chart with annotations (peak label, 2% target line, date axis), live pulsing dot on current value.
+3. **Phases bar** (full width, white) -- DESCRIBE / EXPLAIN / APPLY / EVALUATE. Done phases faded orange. Active phase solid orange with bottom underline.
+4. **Coaching conversation** (full width, scrollable, off-white) -- coach bubbles dark navy left-aligned, student bubbles orange right-aligned. Closing question in sky blue. Suggestion chips above input row. Full-width text input + orange send button.
+
+**File structure (target):**
 ```
-/                                              landing page (role gate + curriculum picker)
-/teacher/[curriculum]                          teacher homepage
-/teacher/[curriculum]/[metric]/[country]       teacher lesson page
-/student/[curriculum]                          student homepage
-/student/[curriculum]/[metric]/[country]       student lesson page
-/glossary/[curriculum]                         curriculum glossary index
-/glossary/[curriculum]/[term]                  canonical glossary term route
-/about                                         about page
+app/
+  page.js                              -- landing page, topic/question picker
+  layout.js                            -- root layout, font imports
+  globals.css                          -- resets, body background, keyframes
+  data/
+    questions.js                       -- all session questions + context annotations
+    metrics.js                         -- pipeline-owned, live data (carried from v1)
+  utils/
+    buildPrompt.js                     -- system prompt builder + scorecard prompt
+  api/
+    chat/
+      route.js                         -- server-side Anthropic API proxy
+  session/
+    [question]/
+      page.js                          -- server component, loads question + chart data
+      SessionClient.js                 -- client component, full session UI
+next.config.js
 ```
-Live curriculum slugs: `alevel`, `ap-economics`
 
-**Metric slugs:** `inflation`, `unemployment`, `gdp`, `interest-rates`, `exchange-rates`, `trade`
-**Country slugs:** `uk`, `us`, `eurozone`, `china`, `japan`, `brazil`
-**Colours:** Teacher `#378ADD` (blue), Student `#F0843C` (orange), Cyan `#00e5ff`, Green `#2e9e5b`
+**Dynamic route:** `/session/[question]` -- question slug maps to `id` in `questions.js`.
 
----
+**API key:** `.env.local` as `ANTHROPIC_API_KEY`. Never committed. Proxied through `app/api/chat/route.js`.
 
-## Pulse/ping animations
-
-- **FramingHeader.js** (teacher): blue ping. Core `#0C447C`, ring `#85B7EB`. 1.4s.
-- **StudentFramingHeader.js** (student): orange ping. Core `#b45309`, ring `#fbbf24`. 1.4s.
-- **StudentHomePage.js** stamp (0-1d): orange ping.
-- **LandingPage.js**: alternating blue/orange ping. 5.6s cycle.
-- **SnapshotCard.js** `~Nd` text: cyan throb.
-- **StudentHomePage.js** age stamps: cyan throb.
+**Model:** `claude-sonnet-4-20250514`. Max tokens: 400 coaching turns, 500 scorecard.
 
 ---
 
-## Landing page (v1)
+## Question library (`app/data/questions.js`)
 
-Role gate first, curriculum picker second. "I'm revising" (orange) / "I'm teaching" (blue).
+**Schema:**
+```js
+{
+  id: "inflation-uk-001",
+  metric: "inflation",           // maps to metrics.js for live chart data
+  country: "uk",
+  topic: "monetary-policy",
+  topicLabel: "Monetary Policy",
+  paper: "Paper 2",
+  title: "Why has UK inflation fallen so sharply since 2022?",
+  context: "...",                // hidden coach context -- never shown to student
+}
+```
 
-Headline: "Live global data. Wired to your syllabus."
-Subhead: "Updated automatically. No textbook lag."
+The `context` field tells the coach what examiners reward, what students typically miss, what the best examples are, what separates a top-band answer. This is the defensible asset.
 
-`lastUpdated` from `metrics.js`. Format: "Updated 2 April 2026".
+**Chart data:** Pulled from `metrics.js` by metric + country slug. Session page passes sparkline array + current value to `SessionClient.js` as props.
+
+**Initial question set:** Generate via Claude API (same method as polisnaps essays). Target 4-5 questions per topic area at launch. Cover all six metrics (inflation, unemployment, GDP, interest rates, exchange rates, trade) across UK + at least one other country.
 
 ---
 
-## About page
+## The coaching loop
 
-`/about` -- three sections: How it works, Who built this (Ralph Lazar / MacroSnaps), Contact (Formspree AJAX, `https://formspree.io/f/xaqldbwr`).
+**Four phases, enforced by system prompt:**
+
+1. **Describe** -- what does the chart show? Trends, turning points, scale. AO1.
+2. **Explain** -- why did this happen? Causes, mechanisms. AO2.
+3. **Apply** -- use the data in a specific real policy or decision context. AO2/AO3.
+4. **Evaluate** -- which argument wins and why? Sustained judgement. AO3.
+
+**Coach response rules:**
+- Maximum two sentences of feedback per turn before the question
+- First question is always an easy entry point (Describe phase: "what does the chart show?")
+- Closing question always on its own line in sky blue
+- Correct inaccuracies briefly and redirect -- never ignore a wrong answer
+- Refer to specific data values, real policy decisions, named policymakers
+- Never sycophantic
+
+**Phase detection:** Scan each coach reply for trigger words to advance the phase indicator. Same approach as polisnaps.
+
+**Session end:** Coach outputs `[SCORECARD_READY]`. Client detects, strips tag, calls scorecard prompt. Scorecard: ratings (Strong / Partial / Weak) for each phase + one "next time" note.
 
 ---
 
-## Key files
+## What carries forward from v1
 
-| File | Owner | Notes |
-|------|-------|-------|
-| `app/data/metrics.js` | Pipeline | Written by `sync_edu.py`. Exports `metrics` and `lastUpdated`. |
-| `app/data/aqa-alevel.js` | Hand-edited | Lesson overlay content for AQA A-Level. |
-| `app/data/ap-economics.js` | Hand-edited | Lesson overlay content for AP Economics. 5 tiles. US English, FRQ register. |
-| `app/data/glossary.js` | Hand-edited | 155 terms. AQA A-Level. UK English. |
-| `app/data/glossary-ap.js` | Generated | 134 terms. AP Economics. US English. |
-| `app/components/SnapshotCard.js` | Shared | curriculum prop, AP_METRIC_DESCRIPTORS, blurbAp/displayBlurb, aqaRef conditional. |
-| `app/components/LessonOverlay.js` | Shared | WeatherBeat, share button, correctIcon + weatherReason. |
-| `app/components/StudentLessonClient.js` | Student | Passes curriculum to SnapshotCard. |
-| `app/components/FramingHeader.js` | Teacher | Blue ping + typewriter. |
-| `app/components/StudentFramingHeader.js` | Student | Orange ping + typewriter. |
-| `app/components/TeacherHomePage.js` | Teacher | Navy panel, dropdowns, stats, CURRICULUM_LABELS. |
-| `app/components/StudentHomePage.js` | Student | Topic tiles, live strip, glossary footer. Curriculum-aware. |
-| `app/components/LandingPage.js` | Shared | Role gate, curriculum picker, AP tile live, updated date. |
-| `app/components/GlossaryTerm.js` | Shared | Tooltip, X button, mobile-safe. |
-| `app/components/GlossaryIndexClient.js` | Shared | Curriculum-aware index. |
-| `app/components/Header.js` | Shared | Accepts `curriculum` prop. Glossary link curriculum-aware. |
-| `app/components/Footer.js` | Shared | Slim bar. Disclaimer + MacroSnaps + About link. |
-| `app/components/ContactForm.js` | Shared | AJAX Formspree form. Inline success message. |
-| `app/utils/wrapGlossaryTerms.js` | Shared | WRAP_BLOCKLIST includes `dxy`. |
-| `app/utils/glossaryHref.js` | Shared | `glossaryHref(slug, curriculum)` and `glossaryIndexHref(curriculum)`. |
-| `EDU_BRIEF.md` | Hand-edited | Updated every session. |
+- **Data pipeline** (`sync_edu.py`, `metrics.js`) -- unchanged. No new pipeline work for v2.
+- **Chart data** -- sparkline arrays already in `metrics.js`. Session page reads directly.
+- **Glossary** -- carried forward as-is.
+- **About page** -- carried forward.
+- **Fonts, colour palette** -- same as v1.
+- **Cloudflare Pages deployment** -- same setup.
+
+## What is new in v2
+
+- Session UI (`SessionClient.js`) -- stacked layout, coaching conversation, phase bar.
+- Prompt architecture (`buildPrompt.js`) -- economics coach voice, four-phase structure.
+- Question library (`questions.js`) -- replaces the metric/country card model.
+- Landing page -- student-only question/topic picker. No role gate.
+- API route -- same pattern as polisnaps.
+- No teacher homepage, no lesson overlay, no weather icon exercise.
+
+**Build approach:** Clean branch or new repo. Not a patch of v1. Decide at Session 39 start.
 
 ---
 
 ## Pipeline boundary (NON-NEGOTIABLE)
 
-`metrics.js` is the only file the pipeline writes. No tooling spans both repos.
-
----
-
-## sync_edu.py
-
-Generates `blurb` (AQA, UK English) and `blurbAp` (AP, US English) per metric/country. 72 cache entries total.
-
-**Minor cleanup needed:** `BLURB_SYSTEM_AP` appears twice in `sync_edu.py`. Remove duplicate when next editing.
+`metrics.js` is the only file the pipeline writes. This does not change in v2.
 
 ---
 
@@ -210,19 +208,19 @@ Generates `blurb` (AQA, UK English) and `blurbAp` (AP, US English) per metric/co
 | 31 | Weather icon correct answer + weatherReason reveal. |
 | 32 | Landing page back arrow bug fix. |
 | 33 | lastUpdated added to pipeline and landing page. |
-| 34 | AP Economics sprint (Phases 1-3). ap-economics.js (5 tiles, US English, FRQ register). Curriculum-aware lesson pages. SnapshotCard AP descriptors + blurbAp. Pipeline: BLURB_SYSTEM_AP, 36 AP blurbs generated. LandingPage AP tile live. 290 static pages. Phase 4 (glossary) deferred. |
-| 35 | Glossary Phase 4 (partial). curricula field added to all 155 entries. 18 new entries. /glossary/[curriculum]/[term] route live. glossaryHref.js curriculum-aware. Architecture decision: separate glossary-ap.js per curriculum. 618 static pages. |
-| 36 | Bug fixes pre-launch. StudentHomePage copy curriculum-aware. Old /glossary/[term] route deleted. glossary-ap.js content planned: 6-part split strategy agreed. |
-| 37 | AP glossary complete: glossary-ap.js (134 terms, 7 groups, US English, AP FRQ register). Curriculum-aware glossary index. GlossaryIndexClient curriculum-aware. About page live. Footer updated. Password gate removed. Site is live and open. 445 static pages. |
-| 38 | Product strategy session. Decision: macedu v2 to be rebuilt as student-only AI coaching product. Teacher/student split dropped. New primary unit: exam question pegged to live metric, four-phase coaching loop (Describe/Explain/Apply/Evaluate). Interactive mockup built and approved. Build deferred to Session 39. |
+| 34 | AP Economics sprint (Phases 1-3). ap-economics.js. Curriculum-aware lesson pages. AP blurbs. 290 static pages. |
+| 35 | Glossary Phase 4 (partial). curricula field added. 18 new entries. /glossary/[curriculum]/[term] live. 618 static pages. |
+| 36 | Bug fixes pre-launch. Old /glossary/[term] route deleted. glossary-ap.js planned. |
+| 37 | AP glossary complete (134 terms). About page. Footer. Password removed. Site open. 445 static pages. |
+| 38 | Product strategy session. Full rebuild agreed: student-only AI coaching product. Teacher/student split dropped. Primary unit: exam question pegged to live metric chart. Four-phase coaching loop (Describe/Explain/Apply/Evaluate). Stacked layout designed and approved via two interactive mockups. Build starts Session 39. |
 
 ---
 
 ## To-do list
 
-- **macedu v2 rebuild** -- Session 39. Student-only coaching product. See "macedu v2 -- planned redesign" section above.
-- **CHN interest-rates sparkline:** No sheet data yet. Will populate automatically when added.
-- **AP Fiscal Policy tile:** Deferred. Needs MacroSnaps monthly government debt series.
-- **BLURB_SYSTEM_AP deduplication:** Minor. Appears twice in sync_edu.py. Remove when next editing.
-- **Glossary curriculum filtering:** Deferred until third curriculum exists.
-- **Next curriculum:** AQA GCSE likely next candidate after v2 stable.
+- **macedu v2 rebuild** -- Session 39. Student-only coaching product. See architecture section.
+- **Question library** -- generate initial set via Claude API. 4-5 questions per topic at launch.
+- **CHN interest-rates sparkline:** No sheet data yet. Populates automatically when added.
+- **AP Fiscal Policy tile:** Deferred. Needs government debt series.
+- **BLURB_SYSTEM_AP deduplication:** Minor. Appears twice in sync_edu.py.
+- **Glossary curriculum filtering:** Deferred until third curriculum.
