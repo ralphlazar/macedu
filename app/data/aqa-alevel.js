@@ -165,7 +165,7 @@ export const lesson = {
     },
     sampleQuestions: [
       {
-        q: "What does a GDP growth rate of 0.1% per quarter tell us about the UK's economic trajectory?",
+        q: "What does near-zero annual GDP growth tell us about the UK's economic trajectory?",
         keyPoints: [
           'Positive but negligible. The economy is not contracting but is far below trend growth of around 2% annually.',
           'The output gap is likely negative, implying spare capacity and downward pressure on inflation.',
@@ -389,7 +389,7 @@ export const lesson = {
         ],
       },
       {
-        q: "Explain why a current account deficit of 1.8% of GDP might be more concerning for Brazil than a deficit of 3.1% is for the UK.",
+        q: "Explain why a current account deficit of similar size might be more concerning for Brazil than for the UK.",
         keyPoints: [
           'Sterling has reserve currency status; the Brazilian real is far more vulnerable to sudden capital flight.',
           'The UK has deep, liquid capital markets that absorb financing needs at relatively low cost.',
