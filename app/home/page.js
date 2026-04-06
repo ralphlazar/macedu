@@ -1,11 +1,9 @@
-"use client";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import LandingPage from './components/LandingPage'
 
-export default function Home() {
-  const router = useRouter();
-  useEffect(() => {
-    router.replace("/");
-  }, [router]);
-  return null;
+export const metadata = {
+  title: 'macroeconomics.education',
+}
+
+export default function RootPage() {
+  return <LandingPage />
 }
